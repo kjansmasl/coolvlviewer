@@ -51,4 +51,4 @@ jobs:
       shell: bash
       run: |
         cd "${{ github.workspace }}"
-        bash linux-build.sh
+        ./linux-build.sh
