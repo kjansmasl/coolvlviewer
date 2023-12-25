@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # build-linux.sh v2.21 (c)2013-2023 Henri Beauchamp.
 # Released under the GPL license. https://www.gnu.org/licenses/gpl-3.0.txt
