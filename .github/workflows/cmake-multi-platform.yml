@@ -49,6 +49,6 @@ jobs:
 
     - name: Configure Build
       shell: bash
-      run: >
+      run: |
         cd "${{ github.workspace }}"
         bash linux-build.sh
