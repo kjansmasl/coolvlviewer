@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inventory picker" title="Inventory picker"
+ can_close="true" can_minimize="true" can_resize="true" can_drag_on_left="false"
+ width="280" height="364" min_width="280" min_height="364">
+	<text name="select_text" font="SansSerif"
+	 left="10" bottom="-36" width="220" height="16" follows="left|top">
+		Select an item:
+	</text>
+	<search_editor name="search_editor" label="Type here to search"
+	 left="10" bottom_delta="-20" width="260" height="18" follows="left|top|right" />
+	<inventory_panel name="inventory_panel" allow_multi_select="false" disable_double_click="true"
+	 sort_order="InventoryPickerSortOrder"
+	 left="10" bottom_delta="-255" width="260" height="250" follows="left|top|right|bottom" />
+	<check_box name="apply_immediate_check" label="Apply immediately" font="SansSerifSmall"
+	 tool_tip="When this box is checked, any selection in the above list causes the selected items to be applied. The final/definitive selection is still done by hitting the 'Select' button, and the 'Cancel' button can still be used to cancel the operation."
+	 left="4" bottom_delta="-20" width="130" height="20" follows="left|bottom" />
+	<text name="select_to_apply_text" font="SansSerifSmall" visible="false"
+	 left_delta="0" bottom_delta="0" width="130" height="16" follows="left|bottom">
+		Press 'Select' to apply.
+	</text>
+	<button name="select_btn" label="Select" font="SansSerif"
+	 tool_tip="Press this button to execute the operation, using the selected inventory item(s) in the list."
+	 left="10" bottom="6" width="80" height="20" follows="left|bottom" />
+	<button name="close_btn" label="Cancel" font="SansSerif"
+	 tool_tip="Press this button to cancel the selection operation."
+	 right="-10" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+	<string name="title">Inventory ([ASSETTYPE]) picker</string>
+</floater>

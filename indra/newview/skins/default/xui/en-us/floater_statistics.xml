@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="stats" title="Statistics" rect_control="FloaterStatisticsRect"
+ can_close="true" can_resize="true" mouse_opaque="false"
+ width="250" height="400" min_width="250" min_height="150" follows="right|top">
+</floater>

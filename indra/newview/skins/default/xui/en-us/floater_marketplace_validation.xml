@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<floater name="marketplace validation" title="Marketplace listings audit" rect_control="FloaterMarketplaceValidationRect"
+ can_close="true" can_resize="true" can_drag_on_left="false" can_minimize="true"
+ min_width="200" min_height="100" width="400" height="300">
+	<string name="no_error">
+		No errors or warnings to report
+	</string>
+	<string name="null_cat">
+		NULL category !
+	</string>
+	<string name="scanning">
+		Scanning listing(s) from:
+	</string>
+	<string name="auditing">
+		Auditing:
+	</string>
+	<text_editor name="validation_text" enabled="false"
+	 max_length="65536" font="SansSerif" word_wrap="true"
+	 top="-24" bottom="34" left="10" right="-10" follows="left|top|right|bottom"/>
+	<button name="OK" label="OK"
+	 bottom="8" right="-10" width="60" height="20" follows="right|bottom"/>
+</floater>

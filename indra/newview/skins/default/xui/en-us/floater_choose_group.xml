@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="group picker" title="Group picker"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ height="244" min_height="244" width="270" min_width="270">
+	<text name="groupdesc" font="SansSerif"
+	 left="12" bottom="-40" width="248" height="16" follows="left|top">
+		Please, choose a group:
+	</text>
+	<scroll_list name="group list" multi_select="false" draw_border="true" column_padding="5"
+	 left="12" bottom_delta="-172" width="245" height="166" follows="left|top|right|bottom">
+		<column name="name" dynamicwidth="true"/>
+	</scroll_list>
+	<button name="OK" label="OK" font="SansSerif"
+	 right="-12" bottom_delta="-24" width="80" height="20" follows="right|bottom"/>
+	<button name="Cancel" label="Cancel" font="SansSerif"
+	 right="-100" bottom_delta="0" width="80" height="20" follows="right|bottom"/>
+	<string name="none">
+		none
+	</string>
+</floater>

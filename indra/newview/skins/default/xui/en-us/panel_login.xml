@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="panel_login"
+ left="0" bottom="0" width="800" height="600" follows="left|top|right|bottom">
+	<web_browser name="login_html" border_visible="false"
+	 left="0" right="0" top="0" bottom="78" follows="top|left|bottom|right" />
+	<text name="first_name_text" font="SansSerif"
+     left="20" bottom="54" width="120" height="16" follows="left|bottom">
+		First name:
+	</text>
+	<combo_box name="first_name_combo" font="SansSerif" max_chars="31"
+	 handle_edit_keys_directly="true" select_all_on_focus_received="true" allow_text_entry="true"
+	 left_delta="0" bottom_delta="-24" width="120" height="20" follows="left|bottom" />
+	<text name="last_name_text" font="SansSerif"
+	 left_delta="132" bottom="54" width="120" height="16" follows="left|bottom">
+		Last name:
+	</text>
+	<line_editor name="last_name_edit" font="SansSerifSmall" max_length="31"
+	 handle_edit_keys_directly="true" select_all_on_focus_received="true"
+	 left_delta="0" bottom_delta="-24" width="120" height="20" follows="left|bottom" />
+	<text name="password_text" font="SansSerif"
+	 left_delta="132" bottom="54" width="120" height="16" follows="left|bottom">
+		Password:
+	</text>
+	<line_editor name="password_edit" font="SansSerifSmall" max_length="64"
+	 handle_edit_keys_directly="true" select_all_on_focus_received="true"
+	 left_delta="0" bottom_delta="-24" width="120" height="20" follows="left|bottom" />
+	<text name="start_location_text" font="SansSerif"
+	 left_delta="178" bottom="8" width="95" height="16" follows="left|bottom">
+		Start location:
+	</text>
+	<check_box name="remember_check" control_name="RememberLogin"
+	 label="Remember login credentials" font="SansSerifSmall"
+	 tool_tip="When this box is checked, the login credentials are remembered after a successful login to the grid. When un-checked, and still after a successful login, the provided credentials are not retained and any matching saved grid/account credentials would be forgotten."
+	 left="16" bottom="8" width="158" height="16" follows="left|bottom" />
+	<text name="mfa_token_text" font="SansSerif"
+	 left_delta="190" bottom="8" width="68" height="16" follows="left|bottom">
+		MFA token:
+	</text>
+	<line_editor name="mfa_token_edit" font="SansSerifSmall" max_length="24"
+	 handle_edit_keys_directly="true" select_all_on_focus_received="true"
+	 left_delta="78" bottom_delta="-2" width="120" height="20" follows="left|bottom" />
+	<button name="connect_btn" label="Log in" font="SansSerif"
+	 left="418" bottom="28" width="120" height="24" follows="left|bottom" />
+	<combo_box name="server_combo" max_chars="32" allow_text_entry="true"
+	 left_delta="135" bottom="32" width="155" height="18" follows="left|bottom" />
+	<combo_box name="regionuri_edit" max_chars="256" font="SansSerif"
+	 allow_text_entry="true" handle_edit_keys_directly="true" select_all_on_focus_received="true"
+	 left_delta="0" bottom="6" width="155" height="18" follows="left|bottom" />
+	<combo_box name="start_location_combo" max_chars="128" allow_text_entry="true"
+	 left_delta="0" bottom_delta="0" width="155" height="18" follows="left|bottom">
+		<combo_item name="MyHome" value="My home">
+			My home
+		</combo_item>
+		<combo_item name="MyLastLocation" value="My last location">
+			My last location
+		</combo_item>
+		<combo_item name="Typeregionname" value="&lt;Type region name&gt;">
+			&lt;Type region name&gt;
+		</combo_item>
+	</combo_box>
+	<icon name="fmod" image_name="fmod.png" mouse_opaque="true"
+	 tool_tip="Using FMOD Studio by Firelight Technologies Pty Ltd."
+	 left="-70" bottom="56" height="16" width="60" follows="right|bottom" />
+	<text name="create_new_account_text" font="SansSerifSmall" font-style="UNDERLINE"
+	 halign="right" mouse_opaque="true" hover="true" hover_color="white"
+	 left="-210" bottom="38" width="200" height="16" follows="right|bottom">
+		Sign up for account
+	</text>
+	<text name="forgot_password_text" font="SansSerifSmall" font-style="UNDERLINE"
+	 halign="right" mouse_opaque="true" hover="true" hover_color="white"
+	 left="-210" bottom="22" width="200" height="16" follows="right|bottom">
+		Forgot your name or password ?
+	</text>
+	<text name="channel_text" font="SansSerifSmall" halign="right"
+	 mouse_opaque="true" hover="true" hover_color="white"
+	 left="-310" bottom="4" width="300" height="16" follows="right|bottom">
+		[CHANNEL] [VERSION]
+	</text>
+	<!-- HACK: this is used to resize properly the web browser: if you change
+			   the panel layout, you may need to change this... See the code
+			   using it in LLPanelLogin::reshapeBrowser() -->
+	<string name="bottom_y_offset">80</string>
+	<string name="my_home">
+		My home
+	</string>
+	<string name="last_location">
+		My last location
+	</string>
+</panel>

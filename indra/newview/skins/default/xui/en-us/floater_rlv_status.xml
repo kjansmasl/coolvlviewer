@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="rlv status" title="RestrainedLove status" rect_control="FloaterRLVRect"
+	can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+	min_width="600" min_height="220" width="600" height="360">
+	<button name="help" label="?" font="SansSerifSmall"
+	 tool_tip="Click this button to get help about object names in the list, with the meaning of their style and color."
+	 height="18" width="18" bottom_delta="-37" right="-10" follows="right|top" />
+	<tab_container name="tabs" label="" tab_min_width="100" tab_position="top"
+	 left="0" bottom_delta="-293" width="600" height="306" follows="left|top|right|bottom">
+		<panel name="status" label="Status by object" border="true"
+		 left="1" top="-2" width="598" height="304" follows="left|top|right|bottom">
+			<scroll_list name="status_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 height="292" width="580" bottom_delta="-298" left="10" follows="left|top|right|bottom">
+				<column name="object_name" label="Object name (or UUID)" width="240" />
+				<column name="commands" label="Commands in force" dynamicwidth="true"
+				 tool_tip="Double-click a line in the list to get the corresponding commands copied to the clipboard." />
+			</scroll_list>
+		</panel>
+		<panel name="restrictions" label="Restrictions" border="true"
+		 left="1" top="-2" width="598" height="304" follows="left|top|right|bottom">
+			<scroll_list name="restrictions_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 height="292" width="580" bottom_delta="-298" left="10" follows="left|top|right|bottom">
+				<column name="restriction" label="Restriction" width="180" />
+				<column name="exception" label="Exception(s)" dynamicwidth="true" />
+			</scroll_list>
+		</panel>
+		<panel name="commands_log" label="Commands log" border="true"
+		 left="1" top="-2" width="598" height="304" follows="left|top|right|bottom">
+			<scroll_list name="commands_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 height="292" width="580" bottom_delta="-298" left="10" follows="left|top|right|bottom">
+				<column name="time_stamp" label="Time stamp (UTC)" width="124" dynamicwidth="false" />
+				<column name="object_name" label="Object name (or UUID)" width="240" />
+				<column name="status" label="Status" width="60" dynamicwidth="false"/>
+				<column name="command" label="Command" dynamicwidth="true" />
+			</scroll_list>
+		</panel>
+	</tab_container>
+	<button name="refresh_btn" label="Refresh"
+	 tool_tip="Refresh the objects and associated restrictions list"
+	 height="20" width="90" bottom_delta="-22" left="10" follows="left|bottom" />
+	<button name="clear_btn" label="Clear" font="SansSerif" tool_tip="Clear the log" visible="false"
+	 height="20" width="90" bottom_delta="0" left_delta="0" follows="left|bottom" />
+	<button name="close_btn" label="Close" font="SansSerif" tool_tip="Close the floater"
+	 height="20" width="90" bottom_delta="0" right="-10" follows="right|bottom" />
+	<string name="queued">Queued</string>
+	<string name="failed">Failed</string>
+	<string name="executed">Executed</string>
+	<string name="blacklisted">Blacklisted</string>
+	<string name="implicit">Implicit</string>
+	<string name="unrestricted_emote">Unrestricted emoting from your avatar</string>
+</floater>

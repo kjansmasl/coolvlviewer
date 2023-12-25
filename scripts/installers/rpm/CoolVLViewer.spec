@@ -1,0 +1,138 @@
+%define	major	1
+%define	minor	32
+%define	micro	0
+%define	nano	3
+%define branch	%{major}.%{minor}.%{micro}
+%define realver	%{branch}.%{nano}
+
+%define tarball	CoolVLViewer-src-%{major}%{minor}%{micro}%{nano}.tar.bz2
+%define siteurl http://sldev.free.fr/
+%define instdir	/usr/games
+
+%define tune		0
+%{?_with_tune: 		%{expand: %%global tune 1}}
+%{?_with_clang:		%{expand: %%global opt_compiler --clang}}
+%{?_with_gcc122:	%{expand: %%global opt_compiler -v12.2}}
+%{?_with_gcc113:	%{expand: %%global opt_compiler -v11.3}}
+%{?_with_gcc104:	%{expand: %%global opt_compiler -v10.4}}
+%{?_with_gcc95:		%{expand: %%global opt_compiler -v9.5}}
+%{?_with_gcc85:		%{expand: %%global opt_compiler -v8.5}}
+%{?_with_gcc75:		%{expand: %%global opt_compiler -v7.5}}
+%{?_with_gcc65:		%{expand: %%global opt_compiler -v6.5}}
+
+%if %{tune}
+%define rel		1.tuned
+%else
+%define rel		1
+%endif
+
+Version:		%{nano}
+Summary:		The Cool VL Viewer for Second Life(tm) and OpenSim grids.
+Name:			CoolVLViewer-%{branch}
+Release:		%{rel}
+Source0:		%{tarball}
+Url:			%{siteurl}
+License:		GPL2
+Group:			Networking/Other
+
+Requires:		glibc >= 2.27
+Requires:		libstdc++6 >= 6.0.25
+Requires:		glib2
+Requires:		libfontconfig
+# CEF3 plugin dependencies ( = Ubuntu 18.04 versions):
+Requires:		libx11 >= 1.6.4
+Requires:		libxi >= 1.7.9
+Requires:		nspr >= 4.18.0
+Requires:		nss >= 3.35.0
+
+BuildRoot:		%{_tmppath}/%{name}-%{version}-buildroot
+BuildRequires:	python >= 2.6
+BuildRequires:	cmake >= 2.8.12
+BuildRequires:	bzip2 gzip tar
+BuildRequires:	curl
+BuildRequires:	glibc-devel >= 2.27
+BuildRequires:	libstdc++6-devel
+BuildRequires:	X11-devel libxrender-devel libxinerama-devel
+BuildRequires:	mesa-devel mesaglu-devel
+
+%description
+The Cool VL Viewer for Second Life(tm) and OpenSim grids.
+
+%prep
+cd %{_builddir}
+rm -rf linden
+bytes=`wc --bytes %{SOURCE0} | cut -d ' ' -f 1`
+if [ "$bytes" == "0" ] ; then
+	curl %{siteurl}sources/%{tarball} >%{SOURCE0}
+fi
+bzip2 -cd %{SOURCE0} | tar xf -
+cd linden
+
+# If you have patches you want to apply to personal builds, you may place them
+# inside ~/.secondlife/patches/cool_vl_viewer/ and have them automatically
+# applied when the build is done --with tune. Note that the patches must have
+# been produced with: diff -durN linden linden-patched >your_patch_name.patch
+# They may then be left as plain text patches, or be gzipped, bzipped or
+# xzipped.
+# For distribution specific patches, you will have to edit manually this .spec
+# file and add them in the usual way ("PatchN: your_patch_N.patch" lines below
+# the "Source0:" line above, then "%patchN -p1" lines just just after the
+# "cd linden" line above.
+%if %{tune}
+	if [ -d ~/.secondlife/patches/cool_vl_viewer ] ; then
+		echo "Applying patches..."
+		for i in ~/.secondlife/patches/cool_vl_viewer/*; do
+			if echo $i | grep ".gz" &>/dev/null ; then
+				gzip -cd $i | patch -p1 -s
+			elif echo $i | grep ".bz2" &>/dev/null ; then
+				bzip2 -cd $i | patch -p1 -s
+			elif echo $i | grep ".xz" &>/dev/null ; then
+				xz -cd $i | patch -p1 -s
+			else
+				patch -p1 -s <$i
+			fi
+		done
+		find . -name "*.orig" | xargs rm -f
+	fi
+%endif
+
+%build
+%{_builddir}/linden/linux-build.sh \
+%if 0%{?opt_compiler:1}
+	%{opt_compiler} \
+%endif
+%if %{tune}
+	--tune \
+%endif
+	--ignore-warnings
+
+%install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{instdir}/%{name}
+
+cd %{_builddir}/linden/viewer-linux-x86_64-release/newview/CoolVLViewer-x86_64-%{realver}
+cp -a * %{buildroot}%{instdir}/%{name}/
+
+mkdir -p %{buildroot}%{_datadir}/applications
+cat >%{buildroot}%{_datadir}/applications/%{name}.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=%{name}
+Categories=Network;X-MandrivaLinux-Internet
+GenericName=%{name}
+Icon=%{instdir}/%{name}/cvlv_icon.png
+Exec=%{instdir}/%{name}/cool_vl_viewer
+StartupNotify=false
+Terminal=false
+Type=Application
+EOF
+
+%clean
+rm -rf %{buildroot}
+
+%files
+%defattr(-,root,root)
+%{instdir}/%{name}
+%{_datadir}/applications/*.desktop
+
+%changelog

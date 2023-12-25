@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="item properties" title="Inventory item properties"
+ can_close="true" can_minimize="true" can_resize="false" can_drag_on_left="false"
+ width="350" height="320" min_width="350" min_height="320">
+
+	<icon name="IconLocked" image_name="icon_lock.tga" mouse_opaque="true"
+	 left="294" bottom="-18" width="16" height="16" follows="top|right" />
+
+	<text name="LabelItemNameTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom="-40" width="78" height="16" follows="left|top">
+		Name:
+	</text>
+	<line_editor name="LabelItemName" font="SansSerifSmall" max_length="63"
+	 spell_check="false"
+	 left="88" bottom_delta="0" width="252" height="16" follows="left|top|right" />
+
+	<text name="LabelItemDescTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom_delta="-22" width="78" height="16" follows="left|top">
+		Description:
+	</text>
+	<line_editor name="LabelItemDesc" font="SansSerifSmall" max_length="127"
+	 spell_check="true"
+	 left="88" bottom_delta="0" width="252" height="16" follows="left|top|right" />
+
+	<text name="LabelCreatorTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom_delta="-24" width="78" height="16" follows="left|top">
+		Creator:
+	</text>
+	<text name="LabelCreatorName" font="SansSerifSmall" halign="left"
+	  left_delta="78" bottom_delta="0" width="170" height="16" follows="left|top">
+		Creator name
+	</text>
+	<button name="BtnCreator" label="Profile..." font="SansSerifSmall"
+	 left_delta="174" bottom_delta="0" width="78" height="16" follows="top|right" />
+
+	<text name="LabelOwnerTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom_delta="-20" width="78" height="16" follows="left|top">
+		Owner:
+	</text>
+	<text name="LabelOwnerName" font="SansSerifSmall" halign="left"
+	  left_delta="78" bottom_delta="0" width="170" height="16" follows="left|top">
+		Owner name
+	</text>
+	<button name="BtnOwner" label="Profile..." font="SansSerifSmall"
+	 left_delta="174" bottom_delta="0" width="78" height="16" follows="top|right" />
+
+	<text name="LabelLastOwnerTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom_delta="-20" width="78" height="16" follows="left|top">
+		Last owner:
+	</text>
+	<text name="LabelLastOwnerName" font="SansSerifSmall" halign="left"
+	  left_delta="78" bottom_delta="0" width="170" height="16" follows="left|top">
+		Last owner name
+	</text>
+	<button name="BtnLastOwner" label="Profile..." font="SansSerifSmall"
+	 left_delta="174" bottom_delta="0" width="78" height="16" follows="top|right" />
+
+	<text name="LabelAcquiredTitle" font="SansSerifSmall" halign="left"
+	 left="10" bottom_delta="-20" width="78" height="16" follows="left|top">
+		Acquired:
+	</text>
+	<text name="LabelAcquiredDate" font="SansSerifSmall" halign="left"
+	 left_delta="78" bottom_delta="0" width="252" height="16" follows="left|top">
+		Acquisition date
+	</text>
+	<button name="BtnThumbnail" label="Thumbnail..." font="SansSerifSmall"
+	 left_delta="174" bottom_delta="0" width="78" height="16" follows="top|right" />
+
+
+	<text name="BaseMaskDebug" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the base permissions; the asset can never be more permissive than this. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+	 left="14" bottom_delta="-20" width="58" height="16" follows="left|top">
+		B:
+	</text>
+	<text name="OwnerMaskDebug" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the owner permissions. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+	 left_delta="60" bottom_delta="0" width="58" height="16" follows="left|top">
+		O:
+	</text>
+	<text name="GroupMaskDebug" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the group permissions (the group the object is set or deeded to is shown next to 'Group:' above). V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer."
+	 left_delta="60" bottom_delta="0" width="58" height="16" follows="left|top">
+		G:
+	</text>
+	<text name="EveryoneMaskDebug" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions everyone else has on the asset. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+	 left_delta="60" bottom_delta="0" width="58" height="16" follows="left|top">
+		E:
+	</text>
+	<text name="NextMaskDebug" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions the next person to own the asset will have. If the 'N' is followed with an asterix ('*'), then it means that the slam bit is set and that the asset will get its permissions updated when rezzed in-world (i.e. on the ground, not as an attachment). V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer."
+	 left_delta="60" bottom_delta="0" width="58" height="16" follows="left|top">
+		N:
+	</text>
+
+	<text name="OwnerLabel" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions applying to you only."
+	 left="10" bottom_delta="-16" width="70" height="16" follows="left|top">
+		You can:
+	</text>
+	<check_box name="CheckOwnerModify" label="Modify" font="SansSerifSmall"
+	 left_delta="74" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckOwnerCopy" label="Copy" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckOwnerTransfer" label="Transfer" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckOwnerExport" label="Export" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+
+	<text name="GroupLabel" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions for the members pertaining to the same group as the one the object is set to."
+	 left="10" bottom_delta="-20" width="70" height="16" follows="left|top">
+		Group can:
+	</text>
+	<check_box name="CheckGroupMod" label="Modify" font="SansSerifSmall"
+	 left_delta="74" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckGroupCopy" label="Copy" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckGroupMove" label="Move" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+
+	<text name="EveryoneLabel" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions for everyone else than you and the group members."
+	 left="10" bottom_delta="-20" width="70" height="16" follows="left|top">
+		Anyone can:
+	</text>
+	<check_box name="CheckEveryoneCopy" label="Copy" font="SansSerifSmall"
+	 left_delta="140" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckEveryoneMove" label="Move" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckEveryoneExport" label="Export" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+
+	<text name="NextOwnerLabel" font="SansSerifSmall" halign="left" mouse_opaque="true"
+	 tool_tip="These are the permissions for the next person who will acquire this asset (either by copying it, being it given by you, or buying it from you)."
+	 left="10" bottom_delta="-20" width="200" height="16" follows="left|top">
+		Next owner will be able to:
+	</text>
+	<check_box name="CheckNextOwnerModify" label="Modify" font="SansSerifSmall"
+	 left_delta="74" bottom_delta="-20" width="65" height="16" follows="left|top" />
+	<check_box name="CheckNextOwnerCopy" label="Copy" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+	<check_box name="CheckNextOwnerTransfer" label="Transfer" font="SansSerifSmall"
+	 left_delta="66" bottom_delta="0" width="65" height="16" follows="left|top" />
+
+	<check_box name="CheckPurchase" label="Mark item for sale" font="SansSerifSmall"
+	 left="8" bottom_delta="-24" width="200" height="16" follows="left|top" />
+	<text name="TextPrice" font="SansSerifSmall" halign="left"
+	 left_delta="210" bottom_delta="0" width="56" height="16" follows="left|top">
+		Price:  L$
+	</text>
+	<line_editor name="EditPrice" font="SansSerifSmall"
+	 left_delta="58" bottom_delta="1" width="64" height="16" follows="left|top|right" />
+	<radio_group name="RadioSaleType" draw_border="false"
+	 left="24" bottom_delta="-20"  width="252" height="16" follows="left|top|right">
+		<radio_item name="original"
+		 left="0" bottom="-16" width="95" height="16" follows="left|top">
+			Sell original
+		</radio_item>
+		<radio_item name="copy"
+		 left="100" bottom="-16" width="95" height="16" follows="left|top">
+			Sell a copy
+		</radio_item>
+		<radio_item name="contents"
+		 left="200" bottom="-16" width="95" height="16" follows="left|top">
+			Sell contents
+		</radio_item>
+	</radio_group>
+
+	<string name="unknown">(unknown)</string>
+	<string name="public">(public)</string>
+	<string name="you_can">You can:</string>
+	<string name="owner_can">Owner can:</string>
+	<string name="inv_item_prop">Inventory item properties</string>
+	<string name="obj_item_prop">Object inventory item properties</string>
+</floater>

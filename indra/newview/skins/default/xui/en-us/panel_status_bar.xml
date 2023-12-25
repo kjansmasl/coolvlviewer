@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="status" enabled="true" mouse_opaque="false"
+ background_opaque="true" background_visible="true"
+ bg_opaque_color="0.25 0.25 0.25 1.0"
+ left="0" bottom="0" width="1000" height="18" follows="top|left|right">
+	<button name="health" label="" scale_image="false" visible="false"
+	 image_selected="status_health.tga" image_unselected="status_health.tga"
+	 tool_tip="Health level of your avatar (when reaching 0%, it gets teleported home)."
+	 left="394" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<text name="HealthText" font="SansSerifSmall" halign="right" mouse_opaque="true" visible="false"
+	 text_color="HealthTextColor" disabled_color="HealthTextColor"
+	 tool_tip="Health level of your avatar (when reaching 0%, it gets teleported home)."
+	 left="418" bottom="-18" width="32" height="18" follows="right|bottom">
+		100%
+	</text>
+
+	<button name="no_fly" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_fly.tga" image_unselected="legacy_status_no_fly.tga"
+	 tool_tip="Flying not allowed."
+	 left="449" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="no_build" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_build.tga" image_unselected="legacy_status_no_build.tga"
+	 tool_tip="Building/Rezzing not allowed."
+	 left="473" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="no_scripts" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_scripts.tga" image_unselected="legacy_status_no_scripts.tga"
+	 tool_tip="Scripts not allowed."
+	 left="497" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="no_push" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_push.tga" image_unselected="legacy_status_no_push.tga"
+	 tool_tip="No scripted pushing."
+	 left="521" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="no_voice" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_voice.tga" image_unselected="legacy_status_no_voice.tga"
+	 tool_tip="Voice not available here."
+	 left="545" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="no_see" label="" scale_image="false" visible="false"
+	 image_selected="legacy_status_no_see.tga" image_unselected="legacy_status_no_see.tga"
+	 tool_tip="Avatars out of this parcel cannot see you neither talk to you."
+	 left="569" bottom="-22" width="24" height="18" follows="right|bottom" />
+
+	<button name="no_path_finding" label="" scale_image="false" visible="false"
+	 image_selected="status_no_path_finding.tga" image_unselected="status_no_path_finding.tga"
+	 tool_tip="This region is path-finding capable but dynamic path finding is currently disabled."
+	 left="593" bottom="-22" width="24" height="18" follows="right|bottom" />
+	<button name="dirty_nav_mesh" label="" scale_image="false" visible="false"
+	 image_selected="status_dirty_nav_mesh.tga" image_unselected="status_dirty_nav_mesh.tga"
+	 tool_tip="This region is path-finding enabled but the current nav mesh is dirty."
+	 left="593" bottom="-22" width="24" height="18" follows="right|bottom" />
+
+	<button name="buy_land" label="" scale_image="true" visible="false"
+	 image_selected="status_buy_land_pressed.tga" image_unselected="status_buy_land.tga"
+	 tool_tip="Press to buy this parcel."
+	 left="617" bottom="-17" width="16" height="16" follows="right|bottom" />
+
+	<button name="adult" label="" scale_image="false" visible="false"
+	 image_selected="access_adult.tga" image_unselected="access_adult.tga"
+	 tool_tip="This region is rated Adult."
+	 left="641" bottom="-17" width="16" height="16" follows="right|bottom" />
+	<button name="mature" label="" scale_image="false" visible="false"
+	 image_selected="access_mature.tga" image_unselected="access_mature.tga"
+	 tool_tip="This region is rated Mature."
+	 left="641" bottom="-17" width="16" height="16" follows="right|bottom" />
+	<button name="pg" label="" scale_image="false" visible="false"
+	 image_selected="access_pg.tga" image_unselected="access_pg.tga"
+	 tool_tip="This region is rated PG."
+	 left="641" bottom="-17" width="16" height="16" follows="right|bottom" />
+
+	<text name="ParcelNameText" font="SansSerifSmall" mouse_opaque="true" hover="true"
+	 text_color="ParcelTextColor" hover_color="ParcelHoverColor"
+     tool_tip="Name of land parcel on which you are standing. Click to pop-up the for 'About land' floater."
+	 left="660" bottom="-18" width="1039" height="17" follows="left|right|bottom" />
+
+	<button name="notifications_on" label="" visible="false"
+	 image_selected="notify_caution_icon.tga" image_unselected="notify_caution_icon.tga" scale_image="true"
+	 tool_tip="Click to hide the notifications."
+	 left="-400" bottom="-18" height="16" width="16" follows="right|bottom" />
+	<button name="notifications_off" label="" visible="false"
+	 image_selected="no_notify_caution_icon.tga" image_unselected="no_notify_caution_icon.tga" scale_image="true"
+	 tool_tip="There are hidden notifications. Click to show them."
+	 left="-400" bottom="-18" height="16" width="16" follows="right|bottom" />
+	<text name="notifications" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Number of notifications still to be acknowledged."
+	 left="-380" bottom="-18" height="17" width="20" follows="right|bottom" />
+
+	<button name="lua" label="" scale_image="false" visible="false"
+	 image_selected="status_lua.tga" image_unselected="status_lua.tga"
+	 left="-360" bottom="-18" width="16" height="16" follows="right|bottom" />
+
+	<button name="script_error" label="" scale_image="false" visible="false"
+	 image_selected="status_script_debug.tga" image_unselected="status_script_debug.tga"
+	 tool_tip="Script warnings and errors" 
+	 left="-340" bottom="-18" width="16" height="16" follows="right|bottom" />
+
+	<text name="too_complex_reports" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Number of residents around you having your avatar rezzed as a jellydoll due to its rendering complexity."
+	 left="-320" bottom="-18" height="17" width="20" follows="right|bottom" />
+	<button name="not_rezzed" label="" scale_image="false" visible="false"
+	 image_selected="status_not_rezzed.tga" image_unselected="status_not_rezzed.tga"
+	 tool_tip="Rebaking in progress, avatar not fully rezzed. If it stays displayed after a while, you may click this icon to force a rebake."
+	 left="-300" bottom="-17" width="16" height="16" follows="right|bottom" />
+	<button name="too_complex" label="" scale_image="false" visible="false"
+	 image_selected="status_too_complex.tga" image_unselected="status_too_complex.tga"
+	 tool_tip="Number of residents around you having your avatar rezzed as a jellydoll due to its rendering complexity."
+	 left="-300" bottom="-17" width="16" height="16" follows="right|bottom" />
+
+	<!-- Totally unsexy button hack to get a sexy bevel for sexy search bevel -brent -->
+	<button name="menubar_search_bevel_bg" label="" scale_image="true" mouse_opaque="false"
+     image_unselected="sm_rounded_corners_simple.tga"
+     image_selected="sm_rounded_corners_simple.tga"
+     image_hover_selected="sm_rounded_corners_simple.tga"
+     image_hover_unselected="sm_rounded_corners_simple.tga"
+     image_disabled_selected="sm_rounded_corners_simple.tga"
+     image_disabled="sm_rounded_corners_simple.tga"
+	 left="-100" bottom="-17" width="96" height="16" follows="right|bottom" />
+	<line_editor name="search_editor" max_length="254" mouse_opaque="true"
+	 label="Search" font="SansSerifSmall" tool_tip="Search..."
+	 bevel_style="none" border_style="line" border_thickness="0"
+	 commit_on_focus_lost="false" select_all_on_focus_received="false"
+	 select_on_focus="false" handle_edit_keys_directly="false"
+	 left="-98" bottom="-16" width="80" height="13" follows="right|bottom" />
+	<button name="search_btn" label="" scale_image="true"
+	 image_disabled="status_search.tga" image_disabled_selected="status_search.tga"
+	 image_selected="status_search.tga" image_unselected="status_search.tga"
+	 tool_tip="Search..."
+	 left="-16" bottom="-16" width="12" height="12" follows="right|bottom" />
+
+	<text name="TimeText" length="12" font="SansSerifSmall" halign="right" mouse_opaque="true"
+	 text_color="TimeTextColor" disabled_color="TimeTextColor"
+	 left="-320" bottom="-18" width="70" height="17" follows="right|bottom" />
+
+	<text name="BalanceText" font="SansSerifSmall" halign="right" mouse_opaque="true"
+	 text_color="BalanceTextColor" disabled_color="BalanceTextColor"
+     tool_tip="Account balance. Click to buy more currency."
+	 left="-230" bottom="-18" width="80" height="17" follows="right|bottom">
+		Loading...
+	</text>
+	<button name="buy_money" label="Buy L$" font="SansSerifSmall" visible="false"
+	 left="-230" bottom="-18" width="80" height="17" follows="right|bottom" />
+
+	<text name="stat_btn" font="SansSerifSmall" mouse_opaque="true" enabled="false"
+	 left="-20" bottom="-16" width="20" height="12" follows="right|bottom" />
+
+	<text name="fps" font="SansSerifSmall" halign="center" mouse_opaque="true"
+	 tool_tip="Frames per second. Click to open the 'Statistics' floater."
+	 left="-60" bottom="-18" width="30" height="17" follows="right|bottom" />
+
+	<string name="packet_loss_tooltip">
+		Packet loss
+	</string>
+	<string name="bandwidth_tooltip">
+		Bandwidth
+	</string>
+	<string name="memory_usage_tooltip">
+		Memory usage
+	</string>
+	<string name="parcel_tool_tip">
+		Name of land parcel on which you are standing. Click to pop-up the for 'About land' floater.
+	</string>
+	<string name="parcel_tool_tip_yellow">
+		The viewer failed to get an event poll reply from the simulator... 'About land' and some other services are currently unavailable.
+	</string>
+	<string name="parcel_tool_tip_orange">
+		The viewer failed over 10 consecutive times to get an event poll reply from the simulator... 'About land' and some other services are currently unavailable.
+	</string>
+	<string name="parcel_tool_tip_red">
+		The viewer failed over 15 consecutive times to get an event poll reply from the simulator... You might get disconnected soon !
+	</string>
+	<string name="balance_tool_tip">
+		Your current balance is:
+	</string>
+</panel>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="notecard" title="Note:"
+ can_resize="true" can_close="true" can_minimize="true" can_drag_on_left="false"
+ height="377" width="400" min_width="350" min_height="259" follows="left|top">
+	<icon name="lock" image_name="icon_lock.tga"
+	 left="344" bottom="-19" width="16" height="16" follows="top|right" />
+	<text name="desc_text" font="SansSerif"
+	 left="13" bottom="-38" width="80" height="19" follows="left|top">
+		Description:
+	</text>
+	<line_editor name="desc" font="SansSerif" max_length="127"
+	 select_all_on_focus_received="false" select_on_focus="false"
+	 handle_edit_keys_directly="false" spell_check="true"
+	 left="93" bottom="-38" width="294" height="19" follows="left|top|right" />
+	<menu_bar name="notecard_menu" tear_off="false"
+	 mouse_opaque="false" opaque="false" drop_shadow="false"
+	 left="8" bottom="-56" width="220" height="18" follows="left|top|right">
+		<menu name="file_submenu" label="File" opaque="true" tear_off="false">
+			<menu_item_call name="load" label="Load from file..." />
+			<menu_item_call name="save" label="Save to file..." />
+			<menu_item_call name="external" label="Edit in external editor" />
+		</menu>
+		<menu name="edit_submenu" label="Edit" opaque="true" tear_off="false">
+			<menu_item_call name="undo" label="Undo" />
+			<menu_item_call name="redo" label="Redo" left="0" />
+			<menu_item_separator name="separator1" label="-----------" />
+			<menu_item_call name="cut" label="Cut" />
+			<menu_item_call name="copy" label="Copy" />
+			<menu_item_call name="paste" label="Paste" />
+			<menu_item_separator name="separator2" label="-----------" />
+			<menu_item_call name="select_all" label="Select all" />
+			<menu_item_call name="deselect" label="Deselect" />
+			<menu_item_separator name="separator3" label="-----------" />
+			<menu_item_call name="search" label="Search/replace..." />
+			<menu_item_separator name="separator4" label="-----------" />
+			<menu_item_check name="spelling" label="Spell check" />
+		</menu>
+	</menu_bar>
+	<text_editor name="text_edit" font="SansSerif"
+	 max_length="65536" word_wrap="true" ignore_tab="false" embedded_items="true"
+	 left="4" bottom="-344" width="392" height="285" follows="left|top|right|bottom">
+		Loading...
+	</text_editor>
+	<button name="keep_btn" label="Keep" font="SansSerif"
+	 left="8" bottom="-370" width="100" height="20" follows="left|bottom" />
+	<button name="discard_btn" label="Discard" font="SansSerif"
+	 left_delta="105" bottom_delta="0" width="100" height="20" follows="left|bottom" />
+	<button name="save_btn" label="Save" font="SansSerif"
+	 right="-10" bottom_delta="0" width="100" height="20" follows="right|bottom" />
+	<string name="no_object">
+		Unable to find object containing this note.
+	</string>
+	<string name="not_allowed">
+		You are not allowed to view this note.
+	</string>
+</floater>

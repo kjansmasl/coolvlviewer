@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" enabled="true" follows="left|top|right|bottom"
+ height="408" label="Skins" left="102" mouse_opaque="true"
+ name="Skins panel" width="517">
+	<text
+	 bottom="-14" drop_shadow_visible="true" enabled="true" follows="left|top"
+	 font="SansSerifSmall" halign="left" height="12" left="10"
+	 mouse_opaque="true" name="muting_text" width="400">
+		Select a skin (requires a restart):
+	</text>
+	<radio_group name="skin_selection" draw_border="false"
+	 left="12" bottom="-438" width="100" height="420" follows="top|left">
+		<radio_item bottom="-20" height="20" left="0" name="default" width="100" follows="top|left">
+			Default
+		</radio_item>
+		<radio_item bottom_delta="-68" height="20" left="0" name="silver" width="100" follows="top|left">
+			Silver
+		</radio_item>
+		<radio_item bottom_delta="-68" height="20" left="0" name="dark" width="100" follows="top|left">
+			Dark
+		</radio_item>
+		<radio_item bottom_delta="-64" height="20" left="0" name="custom" width="100" follows="top|left"
+		 tool_tip="Any custom skin you made or installed. It must be stored inside a 'custom/' sub-folder of the 'skins/' folder, and must at least have a colors_base.xml file.">
+			Custom
+		</radio_item>
+	</radio_group>
+	<button name="classic_preview" label="" scale_image="true"
+	 tool_tip="The classic skin by Linden Lab"
+	 image_selected="skin_thumbnail_default.png" image_unselected="skin_thumbnail_default.png"
+	 image_hover_selected="skin_thumbnail_default.png" image_hover_unselected="skin_thumbnail_default.png"
+	 left="130" bottom="-154" width="298" height="130" follows="top|left" />
+	<button name="silver_preview" label="" scale_image="true"
+	 tool_tip="The Silver/Dazzle skin by Linden Lab"
+	 image_selected="skin_thumbnail_silver.png" image_hover_selected="skin_thumbnail_silver.png"
+	 image_unselected="skin_thumbnail_silver.png" image_hover_unselected="skin_thumbnail_silver.png"
+	 left="130" bottom_delta="-134" width="298" height="130" follows="top|left" />
+	<button name="dark_preview" label="" scale_image="true"
+	 tool_tip="The Dark skin by JB Kraft"
+	 image_selected="skin_thumbnail_dark.png" image_hover_selected="skin_thumbnail_dark.png"
+	 image_unselected="skin_thumbnail_dark.png" image_hover_unselected="skin_thumbnail_dark.png"
+	 left="130" bottom_delta="-134" width="298" height="130" follows="top|left" />
+</panel>

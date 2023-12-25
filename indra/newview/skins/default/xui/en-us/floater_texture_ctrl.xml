@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="texture picker" title="Pick texture"
+ can_close="true" can_drag_on_left="false" can_minimize="false"
+ can_resize="true" can_tear_off="true"
+ width="410" height="290" min_width="410" min_height="290">
+	<text name="Multiple" font="SansSerifSmall" mouse_opaque="true"
+	 left="4" bottom="-110" width="163" height="14" follows="left|top">
+		Multiple
+	</text>
+	<text name="unknown" font="SansSerifSmall" halign="left"
+	 left="4" bottom="-204" width="163" height="14" follows="left|top">
+		Dimensions: [DIMENSIONS]
+	</text>
+	<button name="Default" label="Default" font="SansSerifSmall" enabled="false"
+	 left="4" bottom="-228" width="80" height="20" follows="left|bottom" />
+	<button name="Add" label="Add" font="SansSerifSmall" visible="false"
+	 tool_tip="Click to add new local texture(s) to the list on the right."
+	 left_delta="0" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<button name="None" label="None" font="SansSerifSmall" enabled="false"
+	 left_delta="84" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<button name="Remove" label="Remove" font="SansSerifSmall" visible="false"
+	 tool_tip="Click to remove the selected local texture(s) in the list on the right."
+	 left_delta="0" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<button name="Blank" label="Blank" font="SansSerifSmall"
+	 left="4" bottom_delta="-24" width="80" height="20" follows="left|bottom" />
+	<button name="Upload" label="Upload" font="SansSerifSmall" visible="false"
+	 tool_tip="Click to upload the selected local texture(s) in the list on the right."
+	 left_delta="0" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<button name="Invisible" label="Invisible" font="SansSerifSmall" enabled="false"
+	 left_delta="84" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<search_editor name="inventory search editor" label="Type here to search"
+	 left="175" bottom="-36" width="230" height="16" follows="left|top|right" />
+	<inventory_panel name="inventory panel" sort_order="TexturePickerSortOrder"
+	 allow_multi_select="false" border="true"
+	 left_delta="0" bottom="-240" width="230" height="200" follows="left|top|right|bottom" />
+    <scroll_list name="l_name_list" visible="false"
+	 column_padding="0" search_column="1" draw_heading="true" multi_select="true"
+     left="175" bottom="-240" width="230" height="220" follows="left|top|right|bottom">
+        <column name="unit_name" label="Name" dynamicwidth="true" />
+    </scroll_list>
+	<combo_box name="bake_texture_combo" allow_text_entry="false" max_chars="24"
+	 left="178" bottom="-42" width="225" height="18" follows="left|top|right"
+	 visible="false">
+		<combo_item name="None" value="-1">
+			None
+		</combo_item>
+		<combo_item name="BAKED_HEAD" value="0">
+			BAKED_HEAD
+		</combo_item>
+		<combo_item name="BAKED_UPPER" value="1">
+			BAKED_UPPER
+		</combo_item>
+		<combo_item name="BAKED_LOWER" value="2">
+			BAKED_LOWER
+		</combo_item>
+		<combo_item name="BAKED_HAIR" value="3">
+			BAKED_HAIR
+		</combo_item>
+		<combo_item name="BAKED_EYES" value="4">
+			BAKED_EYES
+		</combo_item>
+		<combo_item name="BAKED_SKIRT" value="5">
+			BAKED_SKIRT
+		</combo_item>
+		<combo_item name="BAKED_LEFTARM" value="6">
+			BAKED_LEFTARM
+		</combo_item>
+		<combo_item name="BAKED_LEFTLEG" value="7">
+			BAKED_LEFTLEG
+		</combo_item>
+		<combo_item name="BAKED_AUX1" value="8">
+			BAKED_AUX1
+		</combo_item>
+		<combo_item name="BAKED_AUX2" value="9">
+			BAKED_AUX2
+		</combo_item>
+		<combo_item name="BAKED_AUX3" value="10">
+			BAKED_AUX3
+		</combo_item>
+	</combo_box>
+	<radio_group name="mode_selection" draw_border="false"
+	 left="185" bottom="-260" width="220" height="16" follows="bottom|right">
+		<radio_item name="0" value="0"
+		 tool_tip="Click to show and choose among inventory textures. Only inventory textures are visible by all residents."
+		 left="0" bottom="-16" width="36" height="16" follows="bottom|right">
+			Inventory
+		</radio_item>
+		<radio_item name="1" value="1"
+		 tool_tip="Click to show and choose among textures that are local to your computer file system. Local textures cannot be seen by other residents; they are meant only as test textures."
+		 left_delta="40" bottom_delta="0" width="30" height="16" follows="bottom|right">
+			Local
+		</radio_item>
+		<radio_item name="2" value="2"
+		 tool_tip="Click to use texture bakes on rigged mesh faces."
+		 left_delta="40" bottom_delta="0" width="30" height="16" follows="bottom|right">
+			Bake
+		</radio_item>
+	</radio_group>
+	<check_box name="apply_immediate_check" initial_value="true"
+	 label="Apply immediately" font="SansSerifSmall"
+	 left="4" bottom="-282" width="130" height="20" follows="left|bottom" />
+	<button name="Pipette" label="" scale_image="true"
+	 image_selected="eye_button_active.tga" image_unselected="eye_button_inactive.tga"
+	 tool_tip="Activate to select with the pipette a texture from an object you can modify."
+	 left="139" bottom_delta="0" width="26" height="26" follows="left|bottom" />
+	<button name="Cancel" label="Cancel" font="SansSerif"
+	 left="186" bottom_delta="0" width="100" height="20" follows="right|bottom" />
+	<button name="Select" label="Select" font="SansSerif"
+	 left_delta="106" bottom_delta="0" width="100" height="20" follows="right|bottom" />
+	<string name="pick title">
+		Pick:
+	</string>
+	<string name="choose_picture">
+		Click to choose a picture
+	</string>
+	<string name="not_in_inventory">
+		You do not have a copy of this
+texture in your inventory
+	</string>
+</floater>

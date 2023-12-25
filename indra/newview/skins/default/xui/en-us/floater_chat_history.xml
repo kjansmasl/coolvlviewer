@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- IMPORTANT: if you change the name for this floater, change it as well in gChatFloaterName -->
+<floater name="chat" title="Local chat" rect_control="FloaterChatRect"
+ can_tear_off="true" can_resize="true" can_close="true" can_drag_on_left="false" can_minimize="false"
+ width="435" min_width="425" height="275" min_height="150" follows="bottom|left">
+	<string name="ringing">Connecting to in-world voice chat...</string>
+	<string name="connected">Connected.</string>
+	<string name="unavailable">Voice not available at your current location.</string>
+	<string name="hang_up">Disconnected from in-world voice chat.</string>
+	<string name="voice_icon">icn_voice-localchat.tga</string>
+	<string name="IM_logging_string">-- Instant message logging enabled --</string>
+
+	<layout_stack name="panels" border="false" orientation="horizontal"
+	 left="2" bottom="2" width="430" height="255" follows="left|top|right|bottom">
+		<layout_panel name="im_contents_panel" default_tab_group="1" border="false"
+		 left="0" bottom="0" width="305" height="135" min_width="275">
+			<combo_box name="Gesture" label="Gestures"
+			 bottom="-24" left="5" width="120" height="20" follows="left|top">
+				<combo_item name="Gestures">Gestures</combo_item>
+			</combo_box>
+			<check_box name="show mutes" label="Show muted text" font="SansSerifSmall"
+			 left_delta="125" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<button name="toggle_active_speakers_btn" label="&lt; &lt;" label_selected="&gt; &gt;"
+			 tool_tip="Click here to show list of active participants in the local chat."
+			 right="305" bottom_delta="0" width="33" height="20" follows="right|top" />
+			<text_editor name="Chat History Editor" type="string" length="1" max_length="2147483647"
+			 embedded_items="false" word_wrap="true" track_bottom="true" enabled="false"
+			 bg_readonly_color="ChatHistoryBgColor" bg_writeable_color="ChatHistoryBgColor"
+			 text_color="ChatHistoryTextColor" text_readonly_color="ChatHistoryTextColor" font="SansSerif"
+			 left="5" bottom="28" width="300" height="78" follows="left|top|right|bottom" />
+			<text_editor name="Chat History Editor with mute" type="string" length="1" max_length="2147483647"
+			 embedded_items="false" word_wrap="true" track_bottom="true" enabled="false"
+			 bg_readonly_color="ChatHistoryBgColor" bg_writeable_color="ChatHistoryBgColor"
+			 text_color="ChatHistoryTextColor" text_readonly_color="ChatHistoryTextColor" font="SansSerif"
+			 left="5" bottom="28" width="300" height="78" follows="left|top|right|bottom" />
+			<panel name="chat_panel" tab_group="1"
+			 left="5" right="-5" bottom="5" top="25" follows="left|right|bottom">
+				<string name="gesture_label">Gestures</string>
+				<string name="normal_shortcuts">Press ENTER to say, CTRL ENTER to shout, SHIFT ENTER to whisper.</string>
+				<string name="swapped_shortcuts">Press ENTER to say, SHIFT ENTER to shout, CTRL ENTER to whisper.</string>
+
+				<line_editor name="Chat Editor" label="Click here to chat." font="SansSerif" max_length="1023"
+				 select_all_on_focus_received="false" select_on_focus="false"
+				 handle_edit_keys_directly="false" spell_check="true" tab_group="1"
+				 bevel_style="in" border_style="line" border_thickness="1"
+				 left="0" right="-90" bottom="0" height="20" follows="left|right|bottom" />
+				<button name="open_text_editor_btn" label="&gt;"
+				 tool_tip="Click to open or focus the text input editor associated with this chat input line."
+				 right="-68" bottom_delta="0" width="20" height="20" follows="right|bottom" />
+				<flyout_button name="Say" label="Say" list_position="above"
+				 left="-65" bottom="0" width="70" height="20" follows="right|bottom">
+					<flyout_button_item value="shout" name="shout_item">
+						Shout
+					</flyout_button_item>
+					<flyout_button_item value="say" name="say_item">
+						Say
+					</flyout_button_item>
+					<flyout_button_item value="whisper" name="whisper_item">
+						Whisper
+					</flyout_button_item>
+				</flyout_button>
+			</panel>
+		</layout_panel>
+		<layout_panel name="active_speakers_panel" auto_resize="false" visible="false"
+		 left="0" right="140" bottom="0" min_width="140" height="120">
+			<scroll_list name="speakers_list" multi_select="false" draw_heading="true" search_column="1" column_padding="0"
+			 left="0" right="140" top="120" bottom="78" follows="left|top|bottom|right">
+	   			<column name="icon_speaking_status" width="20" sort="speaking_status"/>	
+				<column name="speaker_name" label="Name" dynamicwidth="true"/>
+				<column name="speaking_status" label="" width="0"/>
+			</scroll_list>
+			<panel name="volume_container" can_resize="false" border="true" bevel_style="in"
+			 left="0" right="140" bottom="0" height="77" follows="left|bottom|right">
+				<button name="profile_btn" label="" image_overlay="icon_avatar_offline.tga" enabled="false"
+				 left="0" right="30" bottom="-28" height="24" follows="left|top" />
+				<text name="resident_name" font="SansSerif" valign="center"
+				 left_delta="34" bottom_delta="9" width="100" follows="left|top|bottom|right">
+					Resident Name
+				</text>
+				<volume_slider name="speaker_volume"
+				 initial_val="0.5" min_val="0.0" max_val="1.0" increment="0.05"
+				 left="5" bottom_delta="-29" width="85" height="15" follows="left|top" />
+				<text name="Mute:" font="SansSerifSmall"
+				 left="4" bottom_delta="-25" width="45" height="16" follows="left|top">
+					Mute:
+				</text>
+				<check_box name="mute_text_btn" label="Text" enabled="false"
+				 left_delta="32" bottom_delta="0" width="50" height="25" follows="left|top" />
+				<check_box name="mute_check" label="Voice" enabled="false"
+				 left_delta="45" bottom_delta="0" width="50" height="25" follows="left|top" />
+ 			</panel>
+ 		</layout_panel>
+	</layout_stack>
+</floater>

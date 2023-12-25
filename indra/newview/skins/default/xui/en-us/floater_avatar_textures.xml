@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="avatar textures" title="Avatar textures"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ height="690" width="1054">
+	<text name="baked_label" font="SansSerif"
+	 bottom="-34" left="12" height="16" width="80">
+		Baked textures
+	</text>
+	<text name="composite_label" font="SansSerif"
+	 bottom_delta="0" left_delta="105" height="16" width="120">
+		Composite textures
+	</text>
+
+	<button name="Dump" label="Dump IDs to log" font="SansSerif"
+	 bottom="-45" left="-130" height="20" width="120" />
+	<button name="Rebake" label="Rebake" font="SansSerif"
+	 bottom_delta="-24" left="-130" height="20" width="120" />
+	<spinner name="layer" label="Wearable layer" label_width="80" font="SansSerifSmall"
+	 tool_tip="This spinner allows to select the layer for which you want to display the wearable textures."
+	 decimal_digits="0" min_val="0" max_val="4" initial_val="0" increment="1"
+	 bottom_delta="-24" left="-128" height="16" width="116" />
+
+	<texture_picker name="hair-baked" label="Baked hair"
+	 bottom_delta="-50" left="10" height="105" width="88" />
+
+	<texture_picker name="hair_grain" label="Hair"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="hair_tattoo" label="Hair universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="hair_alpha" label="Hair alpha"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="eyes-baked" label="Baked eyes"
+	 bottom_delta="-108" left="10" height="105" width="88" />
+
+	<texture_picker name="eyes_iris" label="Eyes"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="eyes_tattoo" label="Eyes universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="eyes_alpha" label="Eyes alpha"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="head-baked" label="Baked head"
+	 bottom_delta="-108" left="10" height="105" width="88" />
+
+	<texture_picker name="head_bodypaint" label="Head bodypaint"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="head_universal_tattoo" label="Head universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="head_alpha" label="Head alpha"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="head_tattoo" label="Head tattoo"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<text name="aux_label" font="SansSerif"
+	 bottom_delta="40" left_delta="105" height="48" width="88">
+		Bake on mesh
+left limbs
+channels:
+	</text>
+
+	<texture_picker name="leftarm-baked" label="Left arm baked"
+	 bottom_delta="-40" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="leftarm_tattoo" label="Left arm universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="leftleg-baked" label="Left leg baked"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="leftleg_tattoo" label="Left leg universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper-baked" label="Baked upper body"
+	 bottom_delta="-108" left="10" height="105" width="88" />
+
+	<texture_picker name="upper_bodypaint" label="Upper bodypaint"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_universal_tattoo" label="Upper universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_alpha" label="Upper alpha"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_tattoo" label="Upper tattoo"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_undershirt" label="Undershirt"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_gloves" label="Gloves"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_shirt" label="Shirt"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="upper_jacket" label="Upper jacket"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower-baked" label="Baked lower body"
+	 bottom_delta="-108" left="10" height="105" width="88" />
+
+	<texture_picker name="lower_bodypaint" label="Lower bodypaint"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_universal_tattoo" label="Lower universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_alpha" label="Lower alpha"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_tattoo" label="Lower tattoo"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_underpants" label="Underpants"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_socks" label="Socks"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_shoes" label="Shoes"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_jacket" label="Lower jacket"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="lower_pants" label="Pants"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="skirt-baked" label="Baked skirt"
+	 bottom_delta="-108" left="10" height="105" width="88" />
+
+	<texture_picker name="skirt" label="Skirt"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="skirt_tattoo" label="Skirt universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<text name="aux_label" font="SansSerif"
+	 bottom_delta="40" left_delta="105" height="48" width="88">
+		Bake on mesh
+auxilliary
+channels:
+	</text>
+
+	<texture_picker name="aux1-baked" label="Aux1 baked"
+	 bottom_delta="-40" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="aux1_tattoo" label="Aux1 universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="aux2-baked" label="Aux2 baked"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="aux2_tattoo" label="Aux2 universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="aux3-baked" label="Aux3 baked"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+	<texture_picker name="aux3_tattoo" label="Aux3 universal"
+	 bottom_delta="0" left_delta="105" height="105" width="88" />
+
+</floater>

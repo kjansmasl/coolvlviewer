@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<fonts>
+	<font name="default"
+	 comment="default font files (global fallbacks)">
+		<file>Roboto-Condensed.ttf</file>
+		<os name="Windows">
+			<file>meiryo.ttc</file>
+			<file>YuGothR.ttc</file>
+ 			<file>msgothic.ttc</file>
+			<file>gulim.ttc</file>
+			<file>simhei.ttf</file>
+			<file>ArialUni.ttf</file>
+			<file>msyh.ttc</file>
+			<file>seguisym.ttf</file>
+			<file>nirmala.ttf</file>
+			<file>tahoma.ttf</file>
+			<file>Cambria.ttc</file>
+			<file>micross.ttf</file>
+			<file>malgun.ttf</file>
+			<file>DejaVuSansCondensed.ttf</file>
+			<file>DejaVuSansMono.ttf</file>
+			<file>DejaVuSansCondensed-Bold.ttf</file>
+		</os>
+		<os name="Mac">
+			<file>ヒラギノ角ゴシック W3.ttc</file>
+			<file>ヒラギノ角ゴ Pro W3.otf</file>
+			<file>ヒラギノ角ゴ ProN W3.otf</file>
+			<file>ヒラギノ明朝 ProN W3.ttc</file>
+			<file>AppleGothic.dfont</file>
+			<file>AppleGothic.ttf</file>
+			<file>AppleSDGothicNeo-Regular.otf</file>
+			<file>AppleSDGothicNeo.ttc</file>
+			<file>华文细黑.ttf</file>
+			<file>PingFang.ttc</file>
+			<file>STIXGeneral.otf</file>
+		</os>
+	</font>
+
+	<font name="SansSerif"
+	 comment="Name of sans-serif font (Truetype file name)">
+		<file>MtBkLfRg.ttf</file>
+	</font>
+	<font name="SansSerif"
+	 comment="Name of sans-serif font (italic)"
+	 font_style="ITALIC">
+		<file>Roboto-Italic.ttf</file>
+	</font>
+
+	<font name="SansSerifBold"
+	 comment="Name of bold sans-serif font"
+	 font_style="BOLD">
+		<file>MtBdLfRg.ttf</file>
+	</font>
+	<font name="SansSerifBold"
+	 comment="Name of sans-serif font (bold italic)"
+	 font_style="BOLD|ITALIC">
+		<file>Roboto-BoldItalic.ttf</file>
+	</font>
+
+	<font name="Monospace"
+	 comment="Name of monospace font">
+		<file>profontwindows.ttf</file>
+	</font>
+
+	<font name="Helvetica"
+	 comment="Name of Helvetica font">
+		<file>Roboto-Condensed.ttf</file>
+	</font>
+	<font name="Helvetica"
+	 comment="Name of Helvetica font (bold)"
+	 font_style="BOLD">
+		<file>Roboto-BoldCondensed.ttf</file>
+	</font>
+	<font name="Helvetica"
+	 comment="Name of Helvetica font (italic)"
+	 font_style="ITALIC">
+		<file>Roboto-CondensedItalic.ttf</file>
+	</font>
+	<font name="Helvetica"
+	 comment="Name of Helvetica font (bold italic)"
+	 font_style="BOLD|ITALIC">
+		<file>Roboto-BoldCondensedItalic.ttf</file>
+	</font>
+
+	<font name="Courrier"
+	 comment="Name of Courrier font">
+		<file>RobotoMono-Regular.ttf</file>
+	</font>
+	<font name="Courrier"
+	 comment="Name of Courrier font (bold)"
+	 font_style="BOLD">
+		<file>RobotoMono-Bold.ttf</file>
+	</font>
+	<font name="Courrier"
+	 comment="Name of Courrier font (italic)"
+	 font_style="ITALIC">
+		<file>RobotoMono-Italic.ttf</file>
+	</font>
+	<font name="Courrier"
+	 comment="Name of Courrier font (bold italic)"
+	 font_style="BOLD|ITALIC">
+		<file>RobotoMono-BoldItalic.ttf</file>
+	</font>
+
+	<font_size name="Monospace"
+	 comment="Size for monospaced font (points, or 1/72 of an inch)"
+	 size="9.0" />
+	<font_size name="Tiny"
+	 comment="Size for tiny font (points, or 1/72 of an inch)"
+	 size="8.0" />
+	<font_size name="Little"
+	 comment="Size of small font (points, or 1/72 of an inch)"
+	 size="8.5" />
+	<font_size name="Small"
+	 comment="Size of small font (points, or 1/72 of an inch)"
+	 size="9.0" />
+	<font_size name="Medium"
+	 comment="Size of medium font (points, or 1/72 of an inch)"
+	 size="10.0" />
+	<font_size name="Large"
+	 comment="Size of large font (points, or 1/72 of an inch)"
+	 size="12.0" />
+	<font_size name="Huge"
+	 comment="Size of huge font (points, or 1/72 of an inch)"
+	 size="16.0" />
+</fonts>

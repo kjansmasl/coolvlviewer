@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="panel_settings_water" label="Water" border="false"
+ left="0" right="0" top="0" bottom="0" follows="top|left|right|bottom">
+	<tab_container name="sky_tab" label="Sky" tab_min_width="90" tab_position="top"
+	 left="0" bottom_delta="-280" width="600" height="280" follows="left|top">
+		<panel name="atmosphere" label="Atmosphere &amp; lighting" border="true"
+		 left="1" bottom="-260" width="598" height="260" follows="left|top|right|bottom">
+			<color_swatch name="ambient_light" label=" Ambient light"
+			 left="10" bottom_delta="-70" width="80" height="60" follows="left|top" />
+			<color_swatch name="blue_horizon" label="  Blue horizon"
+			 left_delta="0" bottom_delta="-72" width="80" height="60" follows="left|top" />
+			<color_swatch name="blue_density" label="  Blue density"
+			 left_delta="0" bottom_delta="-72" width="80" height="60" follows="left|top" />
+			<slider name="haze_horizon" label="Haze horizon" can_edit_text="true"
+			 min_val="0" max_val="5" increment=".01" decimal_digits="2"
+			 bottom_delta="180" left="150" height="16" width="380" label_width="110" follows="left|top" />
+			<slider name="haze_density" label="Haze density" can_edit_text="true"
+			 min_val="0" max_val="5" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="380" label_width="110" follows="left|top" />
+			<slider name="moisture_level" label="Moisture level" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".001" decimal_digits="3"
+			 bottom_delta="-20" left_delta="0" height="16" width="387" label_width="110" follows="left|top" />
+			<slider name="droplet_radius" label="Droplet radius" can_edit_text="true"
+			 min_val="5" max_val="1000" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="401" label_width="110" follows="left|top" />
+			<slider name="ice_level" label="Ice level" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".001" decimal_digits="3"
+			 bottom_delta="-20" left_delta="0" height="16" width="387" label_width="110" follows="left|top" />
+			<slider name="scene_gamma" label="Scene gamma" can_edit_text="true"
+			 min_val="0" max_val="20" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="387" label_width="110" follows="left|top" />
+			<slider name="density_mult" label="Density multiplier" can_edit_text="true"
+			 min_val="0.0001" max_val="2" increment=".0001" decimal_digits="4"
+			 bottom_delta="-20" left_delta="0" height="16" width="394" label_width="110" follows="left|top" />
+			<slider name="distance_mult" label="Distance multiplier" can_edit_text="true"
+			 min_val="0" max_val="1000" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="401" label_width="110" follows="left|top" />
+			<slider name="max_alt" label="Maximum altitude" can_edit_text="true"
+			 min_val="0" max_val="10000" increment=".1" decimal_digits="1"
+			 bottom_delta="-20" left_delta="0" height="16" width="150" label_width="110" follows="left|top" />
+			<slider name="probe_ambiance" label="Refl. probe ambiance" can_edit_text="true"
+			 tool_tip="Setting this slider to 0 disables the HDR tone mapping, while any other value forces it on in the end user's viewer (when the latter can do PBR). Please note that tone mapping choice depends on the monitor of the user: a non-HDR monitor displays very badly HDR contents (exaggerated contrast and color saturation, with over-exposed objects under lights and under-exposed objects in shadows); if you wish to let the final user a choice, un-check the box on the left of this slider to remove entirely the probe ambiance parameter from this sky settings."
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="-44" left_delta="0" height="16" width="387" label_width="110" follows="left|top" />
+			<check_box name="probe_ambiance_enable" label="Use probe ambiance"
+			 tool_tip="When this box is checked, a probe ambiance parameter is added to this sky settings and can be adjusted with the slider on the right. Setting this slider to 0 disables the HDR tone mapping, while any other value forces it on in the end user's viewer (when the latter can do PBR). When this box is not checked, the probe ambiance parameter is removed from the sky settings, which lets the final user the choice whether to auto-adjust for HDR tone mapping or instead keep a linear tone mapping. Please note that tone mapping choice depends on the monitor of the user: a non-HDR monitor displays very badly HDR contents (exaggerated contrast and color saturation, with over-exposed objects under lights and under-exposed objects in shadows)."
+			 left_delta="-142" bottom_delta="0" width="120" height="16" follows="top|left" />
+			<text name="hdr_auto_text" font="SansSerifSmall" visible="false"
+			 left="28" bottom_delta="-18" width="550" height="16" follows="top|left">
+				The tone mapping (HDR or linear) will be left to the end user's choice (no probe ambiance).
+			</text>
+			<text name="hdr_never_text" font="SansSerifSmall" visible="false"
+			 left_delta="0" bottom_delta="0" width="550" height="16" follows="top|left">
+				Linear tone mapping will always be applied in the end user's viewer (probe ambiance is 0).
+			</text>
+			<text name="hdr_always_text" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="0" width="550" height="16" follows="top|left">
+				HDR tone mapping will always be applied in the end user's viewer (probe ambiance in use and not 0).
+			</text>
+		</panel>
+		<panel name="clouds" label="Clouds" border="true"
+		 left="1" bottom="-260" width="598" height="260" follows="left|top|right|bottom">
+			<color_swatch name="cloud_color" label="Cloud color"
+			 left="10" bottom_delta="-85" width="65" height="80" follows="left|top" />
+			<texture_picker name="cloud_map" allow_no_texture="false" can_apply_immediately="true"
+		     default_image_name="Blank"
+			 left_delta="80" bottom_delta="0" width="65" height="80" follows="top|left" />
+			<text name="cloud_image_text" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="0" width="70" height="16" follows="top|left">
+				 Cloud image
+			</text>
+			<slider name="cloud_coverage" label="Cloud coverage" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".001" decimal_digits="3"
+			 bottom_delta="60" left="200" height="16" width="357" label_width="110" follows="left|top" />
+			<slider name="cloud_scale" label="Cloud scale" can_edit_text="true"
+			 min_val="0.01" max_val="3" increment=".001" decimal_digits="3"
+			 bottom_delta="-20" left_delta="0" height="16" width="357" label_width="110" follows="left|top" />
+			<slider name="cloud_variance" label="Cloud variance" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".001" decimal_digits="3"
+			 bottom_delta="-20" left_delta="0" height="16" width="357" label_width="110" follows="left|top" />
+			<xy_vector name="cloud_scroll_xy" arrow_color="white" logarithmic="true"
+			 min_val_x="-30" max_val_x="30" min_val_y="-30" max_val_y="30"
+			 bottom_delta="-170" left="22" height="145" width="120" follows="left|top" />
+			<text name="cloud_scroll_text" font="SansSerifSmall"
+			 left="48" bottom_delta="-16" width="100" height="16" follows="top|left">
+				Cloud scroll
+			</text>
+			<text name="cloud_density_text" font="SansSerif"
+			 left="200" bottom_delta="146" width="100" height="16" follows="top|left">
+				Cloud density:
+			</text>
+			<slider name="cloud_density_x" label="X" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="0" left_delta="100" height="16" width="250" label_width="10" follows="left|top" />
+			<slider name="cloud_density_y" label="Y" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="250" label_width="10" follows="left|top" />
+			<slider name="cloud_density_d" label="D" can_edit_text="true"
+			 min_val="0" max_val="3" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="250" label_width="10" follows="left|top" />
+			<text name="cloud_detail_text" font="SansSerif"
+			 left="200" bottom_delta="-32" width="100" height="16" follows="top|left">
+				Cloud detail:
+			</text>
+			<slider name="cloud_detail_x" label="X" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="-0" left_delta="100" height="16" width="250" label_width="10" follows="left|top" />
+			<slider name="cloud_detail_y" label="Y" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="250" label_width="10" follows="left|top" />
+			<slider name="cloud_detail_d" label="D" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left_delta="0" height="16" width="250" label_width="10" follows="left|top" />
+		</panel>
+		<panel name="sun_moon" label="Sun &amp; Moon" border="true"
+		 left="1" bottom="-260" width="598" height="260" follows="left|top|right|bottom">
+			<view_border name="sun_border" bevel_style="in" border_thickness="1"
+			 bottom_delta="-255" left="4" height="250" width="293" follows="left|top"/>
+			<view_border name="moon_border" bevel_style="in" border_thickness="1"
+			 bottom_delta="0" left_delta="298" height="250" width="293" follows="left|top"/>
+			<text name="sun_text" font="SansSerif"
+			 left="10" bottom_delta="232" width="80" height="16" follows="top|left">
+				Sun
+			</text>
+			<text name="moon_text" font="SansSerif"
+			 left_delta="298" bottom_delta="0" width="80" height="16" follows="top|left">
+				Moon &amp; stars
+			</text>
+			<check_box name="sunbeacon" control_name="sunbeacon" label="Show beacon"
+			left="186" bottom_delta="-4" width="150" height="16" follows="top|left" />
+			<check_box name="moonbeacon" control_name="moonbeacon" label="Show beacon"
+			left_delta="298" bottom_delta="0" width="150" height="16" follows="top|left" />
+			<sun_moon_trackball name="sun_rotation" thumb_mode="sun"
+			 left="16" bottom_delta="-156" width="150" height="150" follows="top|left" />
+			<sun_moon_trackball name="moon_rotation" thumb_mode="moon"
+			 left_delta="298" bottom_delta="0" width="150" height="150" follows="top|left" />
+			<texture_picker name="sun_image" allow_no_texture="true" can_apply_immediately="true"
+			 left="190" bottom_delta="50" width="80" height="100" follows="top|left" />
+			<texture_picker name="moon_image" allow_no_texture="true" can_apply_immediately="true"
+			 left_delta="298" bottom_delta="0" width="80" height="100" follows="top|left" />
+			<color_swatch name="sun_light_color" label="Sunlight color"
+			 left="190" bottom_delta="-54" width="80" height="60" follows="left|top" />
+			<slider name="sun_scale" label="Sun texture scale" can_edit_text="true"
+			 min_val="0.25" max_val="20" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left="16" height="16" width="265" label_width="100" follows="left|top" />
+			<slider name="moon_scale" label="Moon texture scale" can_edit_text="true"
+			 min_val="0.25" max_val="20" increment=".01" decimal_digits="2"
+			 left_delta="298" bottom_delta="0" height="16" width="265" label_width="100" follows="left|top" />
+			<slider name="glow_focus" label="Glow focus" can_edit_text="true"
+			 min_val="-2" max_val="2" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left="16" height="16" width="263" label_width="100" follows="left|top" />
+			<slider name="moon_brightness" label="Moon brightness" can_edit_text="true"
+			 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+			 left_delta="298" bottom_delta="0" height="16" width="259" label_width="100" follows="left|top" />
+			<slider name="glow_size" label="Glow size" can_edit_text="true"
+			 min_val="0" max_val="1.99" increment=".01" decimal_digits="2"
+			 bottom_delta="-20" left="16" height="16" width="259" label_width="100" follows="left|top" />
+			<slider name="star_brightness" label="Star brightness" can_edit_text="true"
+			 min_val="0" max_val="500" increment=".01" decimal_digits="2"
+			 left_delta="298" bottom_delta="0" height="16" width="273" label_width="100" follows="left|top" />
+		</panel>
+	</tab_container>
+	<string name="sun">Sun</string>
+	<string name="moon">Moon</string>
+	<string name="bloom">Bloom</string>
+	<string name="cloudnoise">Cloud noise</string>
+</panel>

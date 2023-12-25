@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="Material editor" title="Material editor" rect_control="PreviewMaterialRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="426" height="380">
+	<check_box name="double_sided_check" label="Double sided" font="SansSerifSmall"
+	 left="12" bottom="-36" width="130" height="16" follows="left|top" />
+	<text name="upload_fee" font="SansSerif" text_color="white"
+	 left_delta="244" bottom_delta="0" width="200" height="18" follows="left|top">
+		Upload fee: L$ [COST]
+	</text>
+	<view_border name="border_base" bevel_style="none" border_thickness="1"
+	 left="6" bottom_delta="-154" width="240" height="152" follows="left|top"/>
+	<text name="base_color_text" font="SansSerif"
+	 left="12" bottom_delta="134" width="238" height="16" follows="left|top">
+		Base color
+	</text>
+	<texture_picker name="base_color_texture" label="" default_image_name="Default"
+	 allow_no_texture="true" can_apply_immediately="true"
+	 left="12" bottom_delta="-142" width="120" height="138" follows="left|top" />
+	<color_swatch name="base_color" label="Tint" can_apply_immediately="true"
+	 left="138" bottom_delta="94" width="30" height="44" follows="left|top" />
+	<spinner name="transparency" decimal_digits="0" min_val="0" max_val="100" increment="1"
+	 left_delta="34" bottom_delta="28" width="50" height="16" follows="left|top" />
+	<text name="percent_text" font="SansSerifSmall"
+	 left_delta="54" bottom_delta="0" width="20" height="16" follows="left|top">
+		%
+	</text>
+	<text name="transparency_text" font="SansSerifSmall"
+	 left_delta="-54" bottom_delta="-18" width="90" height="16" follows="left|top">
+		Transparency
+	</text>
+	<text name="alpha_text" font="SansSerifSmall"
+	 left="138" bottom_delta="-28" width="80" height="16" follows="left|top">
+		Alpha mode:
+	</text>
+	<combo_box name="alpha_mode" allow_text_entry="false" max_chars="30"
+	 left_delta="0" bottom_delta="-20" width="100" height="18" follows="left|top">
+		<combo_item name="OPAQUE" value="OPAQUE">
+			Opaque
+		</combo_item>
+		<combo_item name="BLEND" value="BLEND">
+			Alpha blend
+		</combo_item>
+		<combo_item name="MASK" value="MASK">
+			Alpha mask
+		</combo_item>
+	</combo_box>
+	<text name="alpha_text" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-22" width="80" height="16" follows="left|top">
+		Alpha cut-off:
+	</text>
+	<spinner name="alpha_cutoff" decimal_digits="3" min_val="0" max_val="1" increment="0.01"
+	 left_delta="0" bottom_delta="-18" width="64" height="16" follows="left|top" />
+	<view_border name="border_rougthness" bevel_style="none" border_thickness="1"
+	 left="6" bottom="-348" width="240" height="152" follows="left|top"/>
+	<text name="roughness_text" font="SansSerif"
+	 left="12" bottom_delta="134" width="238" height="16" follows="left|top">
+		Metallic/Roughness
+	</text>
+	<texture_picker name="roughness_texture" label="" default_image_name="Default"
+	 allow_no_texture="true" can_apply_immediately="true"
+	 left="12" bottom_delta="-142" width="120" height="138" follows="left|top" />
+	<text name="metallic_text" font="SansSerifSmall"
+	 left="138" bottom_delta="126" width="150" height="16" follows="left|top">
+		Metallic factor:
+	</text>
+	<spinner name="metalness" decimal_digits="3" min_val="0" max_val="1" increment="0.01"
+	 left_delta="0" bottom_delta="-18" width="64" height="16" follows="left|top" />
+	<text name="roughness_text" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-28" width="150" height="16" follows="left|top">
+		Roughness factor:
+	</text>
+	<spinner name="roughness" decimal_digits="3" min_val="0" max_val="1" increment="0.01"
+	 left_delta="0" bottom_delta="-18" width="64" height="16" follows="left|top" />
+	<view_border name="border_emissive" bevel_style="none" border_thickness="1"
+	 left="252" bottom="-190" width="168" height="152" follows="left|top"/>
+	<text name="emissive_text" font="SansSerif"
+	 left="258" bottom_delta="134" width="180" height="16" follows="left|top">
+		Emissive
+	</text>
+	<texture_picker name="emissive_texture" label="" default_image_name="Default"
+	 allow_no_texture="true" can_apply_immediately="true"
+	 left="258" bottom_delta="-142" width="120" height="138" follows="left|top" />
+	<color_swatch name="emissive_color" label="Tint" can_apply_immediately="true"
+	 left_delta="126" bottom_delta="94" width="30" height="44" follows="left|top" />
+	<view_border name="border_normal" bevel_style="none" border_thickness="1"
+	 left="252" bottom="-348" width="168" height="152" follows="left|top"/>
+	<text name="normal_text" font="SansSerif"
+	 left="258" bottom_delta="134" width="180" height="16" follows="left|top">
+		Normal
+	</text>
+	<texture_picker name="normal_texture" label="" default_image_name="Default"
+	 allow_no_texture="true" can_apply_immediately="true"
+	 left="258" bottom_delta="-142" width="120" height="138" follows="left|top" />
+	<button name="save_btn" label="Save" font="SansSerif"
+	 left="6" bottom="-374" width="100" height="20" follows="bottom|left" />
+	<button name="save_as_btn" label="Save as..." font="SansSerif"
+	 left_delta="110" bottom_delta="0" width="100" height="20" follows="bottom|left" />
+	<button name="cancel_btn" label="Cancel" font="SansSerif"
+	 right="-10" bottom_delta="0" width="100" height="20" follows="bottom|right" />
+	<string name="close">Close</string>
+	<string name="mat_desc">Material with textures:</string>
+</floater>

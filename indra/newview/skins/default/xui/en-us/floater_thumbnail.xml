@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="thumbnail" title="Inventory thumbnail" rect_control="FloaterThumbnailRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="274" height="326" min_width="274" min_height="326">
+	<icon name="icon" color="1 1 1 1"
+	 bottom="-32" left="8" height="16" width="16" follows="left|top" />
+	<text name="item_name" font="SansSerifSmall"
+	 left="28" bottom_delta="0" width="240" height="14" follows="left|top">Item name here</text>
+	<view_border name="thumbnail" bevel_style="none" border_thickness="1"
+	 bottom_delta="-262" left="8" height="258" width="258" follows="left|top"/>
+	<flyout_button name="change" label="Take snapshot" font="SansSerif"
+	 tool_tip="Take a new snapshot to replace this thumbnail. More actions are available from the drop down button."
+	 left="8" bottom="6" width="140" height="20" follows="right|bottom">
+		<flyout_button_item value="snapshot" name="snapshot"
+		 tool_tip="Take a new snapshot to replace this thumbnail.">
+			Take snapshot
+		</flyout_button_item>
+		<flyout_button_item value="upload" name="upload"
+		 tool_tip="Upload a picture to replace this thumbnail.">
+			Upload
+		</flyout_button_item>
+		<flyout_button_item value="copy" name="copy"
+		 tool_tip="Copy the asset Id of this thumbnail to the clipboard (if permitted to copy and transfer).">
+			Copy to clipboard
+		</flyout_button_item>
+		<flyout_button_item value="paste" name="paste"
+		 tool_tip="Try and paste the first compatible (and permitted to copy and transfer) asset contained in the inventory clipboard, if any.">
+			Paste from clipboard
+		</flyout_button_item>
+		<flyout_button_item value="clear" name="clear"
+		 tool_tip="Clear the thumbnail for this inventory object.">
+			Clear
+		</flyout_button_item>
+		<flyout_button_item value="undo" name="undo"
+		 tool_tip="Undo changes, restoring the initial thumbnail.">
+			Undo
+		</flyout_button_item>
+	</flyout_button>
+	<button name="ok_btn" label="OK" font="SansSerif"
+	 tool_tip="Any change done to the thumnail is committed when closing the floater with this button."
+	 right="-8" bottom="6" width="50" height="20" follows="left|bottom" />
+	<button name="cancel_btn" label="Cancel" font="SansSerif"
+	 tool_tip="Any change done to the thumnail is cancelled when closing the floater with this button."
+	 right="-62" bottom="6" width="60" height="20" follows="left|bottom" />
+	<string name="thumbnail_tool_tip">Click to open a texture selector, or drag texture here.</string>
+	<string name="error_conversion">Failed to convert the thumbnail image.</string>
+	<string name="error_file_write">Cannot write file</string>
+	<string name="missing_capability">Missing capability in this region.</string>
+	<string name="upload_failure">Server-side failure/refusal.</string>
+</floater>

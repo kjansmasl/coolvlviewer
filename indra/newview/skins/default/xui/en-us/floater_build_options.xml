@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="build options" title="Build grid options" rect_control="GridOptionsRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="200" min_width="200" height="151" min_height="151" follows="left|top">
+	<check_box name="checkbox snap to grid" label="Snap to grid" font="SansSerifSmall"
+	 control_name="SnapEnabled"
+	 left="10" bottom="-40" width="180" height="16" follows="left|top" />
+	<spinner name="GridResolution" label="Grid unit (meters)" label_width="114"
+	 control_name="GridResolution" decimal_digits="3" increment="0.1" max_val="5" min_val="0.01"
+	 left="14" bottom_delta="-21" width="172" height="16" follows="left|top" />
+	<spinner name="GridDrawSize" label="Grid extents (meters)" label_width="114"
+	 control_name="GridDrawSize" decimal_digits="1" increment="0.5" max_val="50" min_val="1"
+	 left_delta="0" bottom_delta="-21" width="172" height="16" follows="left|top" />
+	<check_box name="GridSubUnit" label="Enable sub-unit snapping" font="SansSerifSmall"
+	 control_name="GridSubUnit"
+	 left="10" bottom_delta="-21" width="180" height="16" follows="left|top" />
+	<check_box name="GridCrossSection" label="Show cross sections" font="SansSerifSmall"
+	 control_name="GridCrossSections"
+	 left_delta="0" bottom_delta="-21" width="180" height="16" follows="left|top" />
+	<slider name="GridOpacity" label="Grid opacity" show_text="false"
+	 control_name="GridOpacity" increment="0.05" max_val="1" min_val="0"
+	 left="14" bottom_delta="-21" width="180" height="16" follows="left|top" />
+</floater>

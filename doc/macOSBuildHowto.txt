@@ -1,0 +1,48 @@
+A.- Requirements
+
+To build on macOS you need Xcode 12 or 13 (get it from the App store or the
+Apple developer site) and therefore macOS Catalina for Xcode 12 or Big Sur
+for Xcode 13 (the target system/SDK is set by the viewer build scripts to
+v10.12, so the resulting viewer binary should nonetheless be compatible with
+macOS Sierra or newer Mac systems).
+When building with Xcode 13 you get some more link-time warnings due to a few
+badly targetted libraries built by Linden Lab; these are harmless.
+
+You additionally need Python and CMake. You may install both using macports
+(https://ports.macports.org/).
+
+Alternatively (but untested by me) you may install Python from a macOS PKG
+downloaded from the official Python site (https://www.python.org/). Do make
+sure the 'python' executable path is added to your PATH environment variable.
+
+You may also install CMake with the DMG downloaded from the official CMake site
+(https://cmake.org/download/). IMPORTANT: cmake v3.12.0 is the *minimum* cmake
+version required for buidling with Xcode 10 or newer. CMake v3.16+ is
+recommended for a faster compilation. Also make sure to run:
+sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
+in order to get the command line cmake to be properly installed.
+
+
+To verify that all the required components are available on your system, open a
+new terminal (i.e. do not use the one you installed from) and type:
+xcodebuild -version
+python --version
+cmake --version
+
+
+B.- Building
+
+To build a viewer release (x86, 64 bits only) from the sources:
+
+1.- Extract the viewer sources from the tarball.
+2.- Open a terminal.
+3.- Change to the linden/ directory.
+4.- Type (*): ./macos-build.sh
+5.- Cross your fingers...
+
+With some luck (did you properly cross your fingers ?), you should find the
+resulting, ready to run "Cool VL Viewer.app" in the following directory:
+linden/build-darwin-x86_64/
+
+(*) Or, to build a RelWithDebInfo viewer binary: ./macos-build.sh -s
+	And for a Debug build: ./macos-build.sh -d

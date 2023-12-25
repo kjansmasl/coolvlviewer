@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel label="Experiences"
+ top="3" left="3" width="200" height="300" follows="top|left|bottom|right">
+	<string name="loading_experiences">
+		Loading experiences...
+	</string>
+	<string name="no_experiences_text">
+		No experiences.
+	</string>
+	<string name="acquire">
+		Acquire an experience
+	</string>
+	<string name="forget_allow">
+		Forget authorization
+	</string>
+	<string name="forget_block">
+		Forget block
+	</string>
+	<layout_stack orientation="vertical"
+	 top="-2" left="2" right="-2" bottom="2" follows="left|top|right|bottom">
+	    <layout_panel name="list_panel" auto_resize="true" user_resize="true"
+		 top="0" left="0" right="0" bottom="0" follows="left|top|right|bottom">
+			<scroll_list name="experiences_list" multi_select="false" draw_heading="false" column_padding="0"
+			 left="4" right="-4" top="-4" bottom="0" follows="top|left|bottom|right">
+				<column name="experience_name" label="Experience" dynamicwidth="true" tool_tip="Double-click the name of an experience to show its profile."/>
+			</scroll_list>
+		</layout_panel>
+	    <layout_panel name="button_panel" auto_resize="false" user_resize="false"
+		 left="0" right="0" height="24" follows="left|top|right|bottom">
+			<button name="btn_action" label=""
+			 left="4" bottom_delta="-22" width="188" height="20" follows="bottom|left"/>
+		</layout_panel>
+	</layout_stack>	
+</panel>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<menu bottom="100" color="MenuDefaultBgColor" drop_shadow="true" height="101" left="100"
+	 mouse_opaque="false" name="world_map_popup" opaque="true" width="128">
+	<menu_item_call bottom_delta="-18" height="18" label="Reload all map tiles" left="0"
+		 mouse_opaque="true" name="reload_tiles" width="128">
+		<on_click function="WorldMap.ReloadAllTiles" userdata="0" />
+	</menu_item_call>
+	<menu_item_call bottom_delta="-18" height="18" label="Reload this map tile" left="0"
+		 mouse_opaque="true" name="reload_tile" width="128">
+		<on_click function="WorldMap.ReloadTile" userdata="0" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_call bottom_delta="-18" height="18" label="Save map tile" left="0"
+		 mouse_opaque="true" name="save_tile" width="128">
+		<on_click function="WorldMap.SaveMapTile" userdata="0" />
+	</menu_item_call>
+	<menu_item_call bottom_delta="-18" height="18" label="Save 3D map (planar sculpt)" left="0"
+		 mouse_opaque="true" name="save_sculpt_planar" width="128">
+		<on_click function="WorldMap.SaveSculpt" userdata="0" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_call bottom_delta="-18" height="18" label="Save bordered map (decal)" left="0"
+		 mouse_opaque="true" name="save_decal" width="128">
+		<on_click function="WorldMap.SaveMapTile" userdata="1" />
+	</menu_item_call>
+	<menu_item_call bottom_delta="-18" height="18" label="Save 3D map (spherical sculpt)" left="0"
+		 mouse_opaque="true" name="save_sculpt_spheric" width="128">
+		<on_click function="WorldMap.SaveSculpt" userdata="1" />
+	</menu_item_call>
+</menu>

@@ -1,0 +1,85 @@
+#!/usr/bin/env wish
+
+# Example Tcl/Tk script for use with the Cool VL Viewer D-Bus interface for Lua
+# (c)2018-2021 Henri Beauchamp. This script is provided under the GPL license.
+#
+# Note: either the dbus-tcl package or the dbus-send command must be installed
+# on the system for this script to work. The viewer must be running (with a
+# user logged in) so that its D-Bus server runs and accepts commands. It also
+# must be configured to accept Lua commands via D-Bus (via the menu option
+# "Advanced" -> "Lua scripting" -> "Accept Lua commands from D-Bus").
+
+if {$tcl_version < 8.4} {
+	tk_messageBox -type ok -icon error \
+		-message "This program needs Tcl/Tk v8.4 or newer.\nThe current version is: $tcl_version"
+	exit
+}
+
+set DbusDestination "com.secondlife.ViewerAppAPIService"
+set DbusPath "/com/secondlife/ViewerAppAPI"
+set DbusInterface "com.secondlife.ViewerAppAPI"
+set DbusMethod "LuaExec"
+
+set dbuscmd ""
+if {[catch {package require dbus} result]} {
+	set dbuscmd "dbus-send"
+}
+
+wm title . "Cool VL Viewer Lua D-Bus interface"
+
+# Attempt to set an application icon for this Tk window. Note: PNG format only
+# supported in Tk v8.6 and newer.
+if {$tcl_version >= 8.6} {
+	catch {
+		set script_path [file dirname [file normalize [info script]]]
+		set icon_file [file join $script_path "cvlv_icon.png"]
+		image create photo .i1 -format png -file $icon_file
+		wm iconphoto . -default .i1
+		#wm withdraw .
+		#wm state . normal
+	}
+}
+
+proc execute {} {
+	global dbuscmd DbusDestination DbusPath DbusInterface DbusMethod
+	set command [.input.text get 1.0 end]
+	if {$dbuscmd eq ""} {
+		set dbus_id [dbus connect session]
+		catch {dbus call $dbus_id -autostart 0 -dest $DbusDestination -signature s $DbusPath $DbusInterface $DbusMethod $command} result
+		dbus close $dbus_id
+	} elseif {![catch {exec $dbuscmd --session --type=method_call --print-reply --dest=$DbusDestination $DbusPath $DbusInterface.$DbusMethod string:$command} result]} {
+		set idx [string first "string \"" $result 0]
+		if {$idx > 0} {
+			set result [string range $result $idx+8 end-1]
+		}
+	}
+	.output.text configure -state normal
+	.output.text delete 1.0 end
+	.output.text insert 1.0 $result
+	.output.text configure -state disabled
+}
+
+frame .input -borderwidth 2
+frame .output -borderwidth 2
+frame .buttons -borderwidth 2
+pack .input .output .buttons -side top -padx 4 -pady 4
+
+label .input.label -text "Lua\ncommand:" -width 8
+label .input.space -text " "
+text .input.text -width 80 -height 6 -wrap word -relief sunken -yscrollcommand {.input.scrollbar set}
+scrollbar .input.scrollbar -command {.input.text yview}
+pack .input.label .input.space .input.text .input.scrollbar -side left -fill y
+
+label .output.label -text "Result:" -width 8
+label .output.space -text " "
+text .output.text -width 80 -height 6 -wrap word -relief sunken -yscrollcommand {.output.scrollbar set} -state disabled
+scrollbar .output.scrollbar -command {.output.text yview}
+pack .output.label .output.space .output.text .output.scrollbar -side left -fill y
+
+button .buttons.exec -text "Execute" -command {execute}
+button .buttons.quit -text "Quit" -command {exit}
+label .buttons.space -text "   "
+pack .buttons.exec .buttons.space .buttons.quit -side left
+
+# Example default command:
+#.input.text insert 1.0 {print("Hello world !")}

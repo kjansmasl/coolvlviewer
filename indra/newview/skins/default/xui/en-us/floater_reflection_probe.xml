@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="reflection probe" title="Reflection probe"
+ can_resize="false" can_drag_on_left="false" can_minimize="true" can_close="true"
+ width="270" min_width="270" height="200" min_height="200" follows="top|left">
+	<text name="description" font="SansSerif" halign="center" text_color="orange"
+	 left="10" bottom_delta="-74" width="250" height="56" follows="top|left">
+WARNING: turning an object into a reflection
+probe implicitly changes the object to mimic
+its influence volume and causes irreversible
+changes to the object.
+</text>
+	<check_box name="probe_check" label="Turn this object into a reflection probe" font="SansSerif"
+	 tool_tip="When set as a reflection probe, this object determines how other objects within its volume receive reflections when PBR is enabled."
+	 left="10" bottom_delta="-32" width="240" height="16" follows="left|top" />
+	<text name="selected_objects_label" font="SansSerif" halign="center"
+	 left="0" bottom_delta="-28" width="100" height="18" follows="top|left">
+		Volume type:
+	</text>
+	<combo_box name="volume_combo" allow_text_entry="false" max_chars="12"
+	 tool_tip="Choose the probe influence volume shape."
+	 left_delta="120" bottom_delta="0" width="80" height="18" follows="left|top">
+		<combo_item name="Sphere" value="Sphere">
+			Sphere
+		</combo_item>
+		<combo_item name="Box" value="Box">
+			Box
+		</combo_item>
+	</combo_box>
+	<check_box name="dynamic_check" label="Dynamic (to reflect moving objects)" font="SansSerif"
+	 tool_tip="When enabled, avatars will appear in reflections within the influence volume of this probe."
+	 left="10" bottom_delta="-28" width="240" height="16" follows="left|top" />
+	<spinner name="ambiance_ctrl" label="Ambiance:" label_width="60"
+	 decimal_digits="3" increment="0.05" min_val="0" max_val="100"
+	 left="10" bottom_delta="-28" width="120" height="16" follows="left|top" />
+	<spinner name="near_clip_ctrl" label="Near clip:" label_width="60"
+	 decimal_digits="3" increment="0.05" min_val="0" max_val="100"
+	 left_delta="130" bottom_delta="0" width="120" height="16" follows="left|top" />
+</floater>

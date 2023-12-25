@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="overlay_bar" enabled="true" mouse_opaque="false"
+ left="-1" bottom="51" width="912" height="42" follows="left|right|bottom">
+	<button name="IM Received" label="IM received" font="SansSerif" halign="center"
+	 tool_tip="You have instant messages pending (the number of sessions which received new IMs is shown between parenthesis and when a star follows that number, it means there is a private IM/conference session among them). Click to show IMs."
+	 left="0" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Set Not Busy" label="Set not busy" font="SansSerif" halign="center"
+	 tool_tip="Chat and IM is hidden for you. Click here to set yourself not busy."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<string name="set_not_busy_label">
+		Set not busy
+	</string>
+	<string name="set_not_busy_tooltip">
+		Chat and IMs are hidden in the console and the persons IMing you receive a busy response message. Click here to set yourself not busy.
+	</string>
+	<string name="no_auto_reply_label">
+		No auto-reply
+	</string>
+	<string name="no_auto_reply_tooltip">
+		IMs are hidden in the console and the persons IMing you receive an auto-reply message. Click here to disable the auto-reply mode.
+	</string>
+	<button name="Flycam" label="Flycam" font="SansSerif" halign="center"
+	 tool_tip="Your camera is under joystick control, click here to release it."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Mouselook" label="Mouselook" font="SansSerif" halign="center"
+	 tool_tip="Use mouse to steer your view. If you have a gun, clicking will shoot."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Stand Up" label="Stand up" font="SansSerif" halign="center"
+	 tool_tip="Click here to stand up."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Lua function" label="Lua function" font="SansSerif" halign="center"
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Public Baking" label="Public baking" font="SansSerif" halign="center"
+	 tool_tip="Your avatar's baked textures and appearance are only being updated locally. Click to resume public baking."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<button name="Rebake Region" label="Rebake region" font="SansSerif" halign="center"
+	 tool_tip="Click here to rebake the navmesh of the region."
+	 left_delta="112" bottom="-41" width="102" height="20" follows="left|top" />
+	<panel name="voice_remote" border="false" background_visible="false"
+	 left="300" bottom="-41" width="108" height="20" follows="right|top" />
+	<panel name="shared_media_remote" border="false" background_visible="false"
+	 left="450" bottom="-41" width="64" height="20" follows="right|top" />
+	<panel name="parcel_media_remote" border="false" background_visible="false"
+	 left="550" bottom="-41" width="64" height="20" follows="right|top" />
+	<panel name="parcel_music_remote" border="false" background_visible="false"
+	 left="650" bottom="-41" width="64" height="20" follows="right|top" />
+	<panel name="master_volume" border="false" background_visible="false"
+	 left="750" bottom="-41" width="32" height="20" follows="right|top" />
+</panel>

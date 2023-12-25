@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<llsd>
+  <map>
+    <key>help</key>
+    <map>
+      <key>desc</key>
+      <string>display this help</string>
+      <key>short</key>
+      <string>h</string>
+    </map>
+
+    <key>port</key>
+    <map>
+      <key>desc</key>
+      <string>set the TCP port for the client</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>UserConnectionPort</string>
+    </map>
+
+    <key>inbw</key>
+    <map>
+      <key>desc</key>
+      <string>specify input UDP bandwidth limit in bps</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>InBandwidth</string>
+    </map>
+
+    <key>outbw</key>
+    <map>
+      <key>desc</key>
+      <string>specify output UDP bandwidth limit in bps</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>OutBandwidth</string>
+    </map>
+
+    <key>grid</key>
+    <map>
+      <key>desc</key>
+      <string>grid to connect to (name, 'local', or IP)</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>CmdLineGridChoice</string>
+    </map>
+
+    <key>loginuri</key>
+    <map>
+      <key>desc</key>
+      <string>ditto</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>compose</key>
+      <boolean>true</boolean>
+      <key>map-to</key>
+      <string>CmdLineLoginURI</string>
+    </map>
+
+    <key>helperuri</key>
+    <map>
+      <key>desc</key>
+      <string>ditto</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>CmdLineHelperURI</string>
+    </map>
+
+    <key>debugviews</key>
+    <map>
+      <key>desc</key>
+      <string>enable UI debugging</string>
+      <key>map-to</key>
+      <string>DebugViews</string>
+    </map>
+
+    <key>autologin</key>
+    <map>
+      <key>desc</key>
+      <string>log in as last saved user</string>
+      <key>map-to</key>
+      <string>AutoLogin</string>
+    </map>
+
+    <key>quitafter</key>
+    <map>
+      <key>desc</key>
+      <string>auto-quit after specified duration</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>QuitAfterSeconds</string>
+    </map>
+
+    <key>rotate</key>
+    <map>
+      <key>desc</key>
+      <string>auto-rotate avatar (debug)</string>
+      <key>map-to</key>
+      <string>RotateRight</string>
+    </map>
+
+    <key>noaudio</key>
+    <map>
+      <key>desc</key>
+      <string>ditto (AKA nosound)</string>
+      <key>map-to</key>
+      <string>NoAudio</string>
+    </map>
+
+    <key>nosound</key>
+    <map>
+      <key>desc</key>
+      <string>ditto (AKA noaudio)</string>
+      <key>map-to</key>
+      <string>NoAudio</string>
+    </map>
+
+    <key>noprobe</key>
+    <map>
+      <key>desc</key>
+      <string>do not probe hardware at startup</string>
+      <key>map-to</key>
+      <string>NoHardwareProbe</string>
+    </map>
+
+    <key>nopreload</key>
+    <map>
+      <key>desc</key>
+      <string>disable sound and bitmaps precaching</string>
+      <key>map-to</key>
+      <string>NoPreload</string>
+    </map>
+
+    <key>purge</key>
+    <map>
+      <key>desc</key>
+      <string>purge the cache</string>
+      <key>map-to</key>
+      <string>PurgeCacheOnNextStartup</string>
+    </map>
+
+    <key>logfile</key>
+    <map>
+      <key>desc</key>
+      <string>override name of log file</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>UserLogFile</string>
+    </map>
+
+   <key>set</key>
+    <map>
+      <key>desc</key>
+      <string>2 tokens: name value. Override a setting.</string>
+      <key>count</key>
+      <integer>2</integer>
+      <key>compose</key>
+      <boolean>true</boolean>
+      <!-- Special case. Mapped to settings procedurally. -->
+    </map>
+
+    <key>settings</key>
+    <map>
+      <key>desc</key>
+      <string>override name of configuration file</string>
+      <key>count</key>
+      <integer>1</integer>
+      <!-- Special case. Mapped to settings procedurally. -->
+    </map>
+
+    <key>login</key>
+    <map>
+      <key>desc</key>
+      <string>3 tokens: first_name last_name password</string>
+      <key>count</key>
+      <integer>3</integer>
+      <key>map-to</key>
+      <string>UserLoginInfo</string>
+    </map>
+
+    <key>god</key>
+    <map>
+      <key>desc</key>
+      <string>log in as a god if possible</string>
+      <key>map-to</key>
+      <string>ConnectAsGod</string>
+    </map>
+
+    <key>console</key>
+    <map>
+      <key>desc</key>
+      <string>TRUE or FALSE to toggle the Windows console</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>ShowConsoleWindow</string>
+    </map>
+
+    <key>multiple</key>
+    <map>
+      <key>desc</key>
+      <string>allow multiple viewers</string>
+      <key>map-to</key>
+      <string>AllowMultipleViewers</string>
+    </map>
+
+    <key>novoice</key>
+    <map>
+      <key>desc</key>
+      <string>disable voice</string>
+      <key>map-to</key>
+      <string>CmdLineDisableVoice</string>
+    </map>
+
+    <key>url</key>
+    <map>
+      <key>desc</key>
+      <string>login location or SLURL ('home' and 'last' accepted). Must appear last.</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>last_option</key>
+      <boolean>true</boolean>
+      <!-- Special case. Not mapped to a setting. -->
+    </map>
+
+    <key>no-verify-ssl-cert</key>
+    <map>
+      <key>desc</key>
+      <string>ditto</string>
+      <key>map-to</key>
+      <string>NoVerifySSLCert</string>
+    </map>
+
+    <key>channel</key>
+    <map>
+      <key>desc</key>
+      <string>override channel name</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>VersionChannelName</string>
+    </map>
+
+    <key>loginpage</key>
+    <map>
+      <key>desc</key>
+      <string>ditto</string>
+      <key>count</key>
+      <integer>1</integer>
+      <key>map-to</key>
+      <string>LoginPage</string>
+    </map>
+
+  </map>
+</llsd>

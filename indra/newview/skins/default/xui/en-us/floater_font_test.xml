@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="font test" title="Font test"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ height="400" width="380" min_height="400" min_width="380">
+
+<text font="SansSerifSmall" follows="left|top|right" bottom_delta="-40" left="16" height="16">
+SansSerifSmall
+</text>
+
+<text font="SansSerifMedium" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+SansSerifMedium
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+SansSerif, no size or style (should be same as medium)
+</text>
+
+<text font="SansSerifHuge" follows="left|top|right" bottom_delta="-36" left="16" height="32">
+SansSerifHuge
+</text>
+
+<text font="Monospace" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+Monospace
+</text>
+
+<text font="Monospace" follows="left|top|right" bottom_delta="-20" left="16" height="16" font_size="Large">
+Monospace size=Large
+</text>
+
+<text font="SansSerifBold" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+SansSerifBold
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font_style="BOLD">
+SansSerif style=BOLD (should be same as SansSerifBold)
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="ITALIC">
+SansSerif style=ITALIC
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="BOLD|ITALIC">
+SansSerif style=BOLD|ITALIC
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="BOLD|ITALIC|DROP_SHADOW_SOFT">
+SansSerif style=BOLD|ITALIC|DROP_SHADOW_SOFT
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="UNDERLINE">
+SansSerif style=UNDERLINE
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="DROP_SHADOW">
+SansSerif style=DROP_SHADOW
+</text>
+
+<text font="SansSerif" follows="left|top|right" bottom_delta="-20" left="16" height="16" font-style="DROP_SHADOW_SOFT">
+SansSerif style=DROP_SHADOW_SOFT
+</text>
+
+<text font="Helvetica" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+Helvetica, should be Roboto-Condensed.ttf
+</text>
+
+<text font="Courrier" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+Courrier, should be RobotoMono-Regular.ttf
+</text>
+
+<text font="BogusFontName" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+BogusFontName, should be SansSerifSmall
+</text>
+
+<text font="SansSerifMedium" follows="left|top|right" bottom_delta="-20" left="16" height="16">
+Special UTF-8 characters fallback test: ⚙▶
+</text>
+
+</floater>

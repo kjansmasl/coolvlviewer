@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="local environment" title="Local environment editor"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="608" min_width="608" height="330" min_height="330"
+ rect_control="FloaterLocalEnvEditorRect">
+	<tab_container name="settings_tabs" label="" tab_min_width="90" tab_position="bottom"
+	 left="4" top="-20" width="608" bottom="8" follows="left|top|bottom|righ">
+		<panel name="sky_panel" label="Sky settings" border="false"
+		 bottom="0" left="0" height="300" width="600" follows="left|top" />
+		<panel name="water_panel" label="Water settings" border="false"
+		 bottom="0" left="0" height="300" width="600" follows="left|top" />
+	</tab_container>
+	<check_box name="fixed_time_check"
+	 tool_tip="Once checked, this box causes the local environment to get frozen (fixed) at a given time of the day, that you can adjust with the slider on the right. You cannot un-check this box after checking it, and would have to use the 'Reset' button to do it."
+	 label="Fixed time" font="SansSerifSmall"
+	 right="-340" bottom="-323" width="75" height="16" follows="right|top" />
+	<slider name="fixed_time_slider" show_text="false" enabled="false"
+	 min_val="0.0" max_val="0.995" increment=".005"
+	 bottom_delta="1" left_delta="80" height="16" width="146" label_width="0" follows="top|right" />
+	<button name="btn_reset" label="Reset"
+	 tool_tip="Revert to last local environment settings."
+	 right="-102" bottom="-324" width="80" height="20" follows="bottom|right" />
+	<button name="btn_close" label="Close" font="SansSerif"
+	 tool_tip="Close this floater, keeping the current local environment settings."
+	 left_delta="86" bottom_delta="0" width="90" height="20" follows="bottom|right" />
+</floater>

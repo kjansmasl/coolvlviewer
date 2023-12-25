@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Attachment Pie">
+	<menu_item_call name="Drop" label="Drop" enabled="false">
+		<on_click function="Attachment.Drop" />
+		<on_enable function="Attachment.EnableDrop" />
+	</menu_item_call>
+	<menu_item_call name="Object Inspect" label="Inspect...">
+		<on_click function="Object.Inspect" />
+		<on_enable function="Object.EnableInspect" />
+	</menu_item_call>
+	<menu_item_call name="Attachment Object Touch" label="Touch">
+		<on_click function="Object.Touch" />
+		<on_enable name="EnableTouch" function="Object.EnableTouch" userdata="Touch" />
+	</menu_item_call>
+	<menu_item_call name="Self Sit Attachment" label="Sit here">
+		<on_click function="Self.SitOrStand" userdata="" />
+		<on_enable function="Self.EnableSitOrStand" userdata="" />
+	</menu_item_call>
+	<pie_menu name="Avatar actions" label="Avatar &gt;">
+		<menu_item_call name="Profile..." label="Profile...">
+			<on_click function="ShowAgentProfile" userdata="agent" />
+		</menu_item_call>
+		<menu_item_call name="Groups..." label="Groups...">
+			<on_click function="ShowFloater" userdata="groups" />
+		</menu_item_call>
+		<menu_item_call name="Titles..." label="Titles...">
+			<on_click function="Self.GroupTitles" userdata="" />
+		</menu_item_call>
+		<menu_item_call name="Inspect self" label="Inspect...">
+			<on_click function="Self.Inspect" />
+		</menu_item_call>
+		<menu_item_call name="Friends..." label="Friends...">
+			<on_click function="ShowFloater" userdata="friends" />
+		</menu_item_call>
+		<menu_item_call name="Gestures..." label="Gestures...">
+			<on_click function="ShowFloater" userdata="gestures" />
+		</menu_item_call>
+		<pie_menu name="Take Off &gt;" label="Take off &gt;">
+			<pie_menu name="Clothes &gt;" label="Clothes &gt;">
+				<menu_item_call name="Shirt" label="Shirt" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="shirt" />
+					<on_enable function="Edit.EnableTakeOff" userdata="shirt" />
+				</menu_item_call>
+				<menu_item_call name="Pants" label="Pants" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="pants" />
+					<on_enable function="Edit.EnableTakeOff" userdata="pants" />
+				</menu_item_call>
+				<menu_item_call name="Shoes" label="Shoes" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="shoes" />
+					<on_enable function="Edit.EnableTakeOff" userdata="shoes" />
+				</menu_item_call>
+				<menu_item_call name="Socks" label="Socks" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="socks" />
+					<on_enable function="Edit.EnableTakeOff" userdata="socks" />
+				</menu_item_call>
+				<menu_item_call name="Jacket" label="Jacket" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="jacket" />
+					<on_enable function="Edit.EnableTakeOff" userdata="jacket" />
+				</menu_item_call>
+				<menu_item_call name="Gloves" label="Gloves" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="gloves" />
+					<on_enable function="Edit.EnableTakeOff" userdata="gloves" />
+				</menu_item_call>
+				<pie_menu name="More &gt;" label="More &gt;">
+					<menu_item_call name="Undershirt" label="Undershirt" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="undershirt" />
+						<on_enable function="Edit.EnableTakeOff" userdata="undershirt" />
+					</menu_item_call>
+					<menu_item_call name="Tattoo" label="Tattoo" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="tattoo" />
+						<on_enable function="Edit.EnableTakeOff" userdata="tattoo" />
+					</menu_item_call>
+					<menu_item_call name="Universal" label="Universal" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="universal" />
+						<on_enable function="Edit.EnableTakeOff" userdata="universal" />
+					</menu_item_call>
+					<menu_item_call name="All Clothes" label="All clothes">
+						<on_click function="Edit.TakeOff" userdata="all" />
+					</menu_item_call>
+					<menu_item_call name="Alpha" label="Alpha" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="alpha" />
+						<on_enable function="Edit.EnableTakeOff" userdata="alpha" />
+					</menu_item_call>
+					<menu_item_call name="Physics" label="Physics" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="physics" />
+						<on_enable function="Edit.EnableTakeOff" userdata="physics" />
+					</menu_item_call>
+					<menu_item_call name="Underpants" label="Underpants" enabled="false">
+						<on_click function="Edit.TakeOff" userdata="underpants" />
+						<on_enable function="Edit.EnableTakeOff" userdata="underpants" />
+					</menu_item_call>
+				</pie_menu>
+				<menu_item_call name="Skirt" label="Skirt" enabled="false">
+					<on_click function="Edit.TakeOff" userdata="skirt" />
+					<on_enable function="Edit.EnableTakeOff" userdata="skirt" />
+				</menu_item_call>
+			</pie_menu>
+			<pie_menu name="Object Detach HUD" label="HUD &gt;" />
+			<menu_item_separator />
+			<pie_menu name="Object Detach" label="Detach &gt;" />
+			<menu_item_call name="Detach Temp" label="Detach all temp.">
+				<on_click function="Self.RemoveAllTempAttachments" userdata="" />
+				<on_enable function="Self.EnableRemoveAllAttachments" />
+			</menu_item_call>
+			<menu_item_call name="Detach All" label="Detach all">
+				<on_click function="Self.RemoveAllAttachments" userdata="" />
+				<on_enable function="Self.EnableRemoveAllAttachments" />
+			</menu_item_call>
+		</pie_menu>
+		<menu_item_call name="Appearance..." label="Appearance...">
+			<on_click function="ShowFloater" userdata="appearance" />
+			<on_enable function="Edit.EnableCustomizeAvatar" />
+		</menu_item_call>
+	</pie_menu>
+	<menu_item_call name="Export" label="Backup" enabled="false">
+   		<on_click function="File.BackupObject" />
+   		<on_enable function="File.EnableBackupObject" />
+	</menu_item_call>
+	<menu_item_call name="Detach" label="Detach" enabled="false">
+		<on_click function="Attachment.Detach" />
+		<on_enable function="Attachment.EnableDetach" />
+	</menu_item_call>
+	<menu_item_call name="Edit..." label="Edit..." enabled="false">
+		<on_click function="Object.Edit" />
+		<on_enable function="EnableEdit" />
+	</menu_item_call>
+</pie_menu>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inventory" title="Inventory" rect_control="FloaterInventoryRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="467" min_width="280" height="563" min_height="150" follows="bottom|right">
+	<search_editor bottom="-50" follows="left|top|right" height="16" label="Type here to search"
+		tool_tip="When you want to include links to the search results, add '(LINK)' to the search string. When searching for a creator, '?' may be used as a search string for unknown creators."
+	    left="6" name="inventory search editor" width="455" />
+	<tab_container name="inventory filter tabs" tab_position="top"
+	 left="2" bottom_delta="-512" width="463" height="508" follows="left|top|right|bottom">
+		<inventory_panel name="All Items" label="All items" border="true"
+		 tool_tip="All the items present in your inventory are listed in this tab."
+		 sort_order="InventorySortOrder" allow_multi_select="true" show_thumbnails="true"
+		 left="1" bottom="-507" width="461" height="491" follows="left|top|right|bottom" />
+		<inventory_panel name="Recent Items" label="Recent" border="true"
+		 tool_tip="Recently acquired items are listed in this tab. You may adjust the delay via the 'File'/'Show Filters' floater. NOTE: in order to avoid clutter, inventory links do not show in this tab, unless the search text itself contains 'LINK'."
+		 sort_order="RecentItemsSortOrder" allow_multi_select="true" show_thumbnails="true"
+		 left_delta="0" bottom_delta="0" width="461" height="491" follows="left|top|right|bottom" />
+		<inventory_panel name="Worn Items" label="Worn" border="true"
+		 tool_tip="The items currently worn on your avatar are listed in this tab. NOTE: in order to avoid clutter, inventory links do not show in this tab, unless the search text itself contains 'LINK'."
+		 sort_order="WornItemsSortOrder" allow_multi_select="true" show_thumbnails="true"
+		 left_delta="0" bottom_delta="0" width="461" height="491" follows="left|top|right|bottom" />
+		<inventory_panel name="Last Open" label="Last open" border="true"
+		 tool_tip="The contents of the last open folder is listed in this tab. The tab is refreshed using the last open folder info each time you switch to it from another tab, or when you use the 'File'/'Reset Filter' feature."
+		 sort_order="InventorySortOrder" allow_multi_select="true" show_thumbnails="true"
+		 left_delta="0" bottom_delta="0" width="461" height="491" follows="left|top|right|bottom" />
+	</tab_container>
+	<menu_bar name="Inventory Menu" drop_shadow="false"
+	 bottom="-34" height="18" left="2" width="440" follows="left|top|right">
+		<menu name="Folder" label="Folder" opaque="true" tear_off="true" left="0">
+			<menu_item_call name="New Window" label="New inventory window">
+				<on_click filter="" function="Inventory.NewWindow" userdata="" />
+			</menu_item_call>
+			<menu_item_separator name="separator1" />
+			<menu_item_call name="Show Filters" label="Show filters">
+				<on_click filter="" function="Inventory.ShowFilters" userdata="" />
+			</menu_item_call>
+			<menu_item_call name="Reset Current" label="Reset filters">
+				<on_click filter="" function="Inventory.ResetFilter" userdata="" />
+			</menu_item_call>
+			<menu_item_call name="Close All Folders" label="Close all folders">
+				<on_click filter="" function="Inventory.CloseAllFolders" userdata="" />
+			</menu_item_call>
+			<menu_item_check name="Hide Empty System Folders" label="Hide empty system folders"
+			 control_name="HideEmptySystemFolders">
+				<on_click filter="" function="Inventory.HideEmptySystemFolders" userdata="" />
+			</menu_item_check>
+			<menu_item_check name="Hide Marketplace Folder" label="Hide Marketplace folder"
+			 control_name="HideMarketplaceFolder">
+				<on_click filter="" function="Inventory.HideMarketplaceFolder" userdata="" />
+			</menu_item_check>
+			<menu_item_check name="Hide Current Outfit Folder" label="Hide Current outfit folder"
+			 control_name="HideCurrentOutfitFolder">
+				<on_click filter="" function="Inventory.HideCurrentOutfitFolder" userdata="" />
+			</menu_item_check>
+			<menu_item_call name="Consolidate system folders"
+			 label="Consolidate/restore system folders">
+				<on_click filter="" function="Inventory.CheckSystemFolders" userdata="" />
+			</menu_item_call>
+			<menu_item_call name="Resync Calling Cards" label="Resync friends in Calling Cards">
+				<on_click filter="" function="Inventory.ResyncCallingCards" userdata="" />
+			</menu_item_call>
+			<menu_item_separator name="separator2" />
+			<menu_item_call name="Empty Trash" label="Empty trash">
+				<on_click filter="" function="Inventory.EmptyTrash" userdata="" />
+			</menu_item_call>
+		</menu>
+		<menu name="Create" opaque="true" label="Create" tear_off="true">
+			<menu_item_call name="New Folder" label="New folder">
+				<on_click filter="" function="Inventory.DoCreate" userdata="category" />
+			</menu_item_call>
+			<menu_item_call name="New Script" label="New script">
+				<on_click filter="" function="Inventory.DoCreate" userdata="lsl" />
+			</menu_item_call>
+			<menu_item_call name="New Note" label="New note card">
+				<on_click filter="" function="Inventory.DoCreate" userdata="notecard" />
+			</menu_item_call>
+			<menu_item_call name="New Gesture" label="New gesture">
+				<on_click filter="" function="Inventory.DoCreate" userdata="gesture" />
+			</menu_item_call>
+			<menu_item_call name="New Material" label="New material">
+				<on_click filter="" function="Inventory.DoCreate" userdata="material" />
+			</menu_item_call>
+			<menu name="New Body Parts" label="New body parts" opaque="true">
+				<menu_item_call  name="New Shape" label="New shape">
+					<on_click filter="" function="Inventory.DoCreate" userdata="shape" />
+				</menu_item_call>
+				<menu_item_call name="New Skin" label="New skin">
+					<on_click filter="" function="Inventory.DoCreate" userdata="skin" />
+				</menu_item_call>
+				<menu_item_call name="New Hair" label="New hair">
+					<on_click filter="" function="Inventory.DoCreate" userdata="hair" />
+				</menu_item_call>
+				<menu_item_call name="New Eyes" label="New eyes">
+					<on_click filter="" function="Inventory.DoCreate" userdata="eyes" />
+				</menu_item_call>
+			</menu>
+			<menu name="New Clothes" label="New clothes" opaque="true">
+				<menu_item_call name="New Shirt" label="New shirt">
+					<on_click filter="" function="Inventory.DoCreate" userdata="shirt" />
+				</menu_item_call>
+				<menu_item_call name="New Pants" label="New pants">
+					<on_click filter="" function="Inventory.DoCreate" userdata="pants" />
+				</menu_item_call>
+				<menu_item_call name="New Shoes" label="New shoes">
+					<on_click filter="" function="Inventory.DoCreate" userdata="shoes" />
+				</menu_item_call>
+				<menu_item_call name="New Socks" label="New socks">
+					<on_click filter="" function="Inventory.DoCreate" userdata="socks" />
+				</menu_item_call>
+				<menu_item_call name="New Jacket" label="New jacket">
+					<on_click filter="" function="Inventory.DoCreate" userdata="jacket" />
+				</menu_item_call>
+				<menu_item_call name="New Skirt" label="New skirt">
+					<on_click filter="" function="Inventory.DoCreate" userdata="skirt" />
+				</menu_item_call>
+				<menu_item_call name="New Gloves" label="New gloves">
+					<on_click filter="" function="Inventory.DoCreate" userdata="gloves" />
+				</menu_item_call>
+				<menu_item_call name="New Undershirt" label="New undershirt">
+					<on_click filter="" function="Inventory.DoCreate" userdata="undershirt" />
+				</menu_item_call>
+				<menu_item_call name="New Underpants" label="New underpants">
+					<on_click filter="" function="Inventory.DoCreate" userdata="underpants" />
+				</menu_item_call>
+				<menu_item_call name="New Tattoo" label="New tattoo">
+					<on_click filter="" function="Inventory.DoCreate" userdata="tattoo" />
+				</menu_item_call>
+				<menu_item_call name="New Universal" label="New universal">
+					<on_click filter="" function="Inventory.DoCreate" userdata="universal" />
+					<on_enable function="Inventory.EnableUniversal" />
+				</menu_item_call>
+				<menu_item_call name="New Alpha" label="New alpha">
+					<on_click filter="" function="Inventory.DoCreate" userdata="alpha" />
+				</menu_item_call>
+				<menu_item_call name="New Physics" label="New physics">
+					<on_click filter="" function="Inventory.DoCreate" userdata="physics" />
+				</menu_item_call>
+			</menu>
+			<menu name="New Settings" label="New env. settings" opaque="true">
+				<menu_item_call name="New Sky" label="New sky">
+					<on_click filter="" function="Inventory.DoCreate" userdata="sky" />
+					<on_enable function="Inventory.EnableSettings" />
+				</menu_item_call>
+				<menu_item_call name="New Water" label="New water">
+					<on_click filter="" function="Inventory.DoCreate" userdata="water" />
+					<on_enable function="Inventory.EnableSettings" />
+				</menu_item_call>
+				<menu_item_call name="New Day Cycle" label="New day cycle">
+					<on_click filter="" function="Inventory.DoCreate" userdata="day" />
+					<on_enable function="Inventory.EnableSettings" />
+				</menu_item_call>
+			</menu>
+			<menu_item_separator name="separator3" />
+			<menu_item_call name="Make New Outfit" label="Make new outfit">
+				<on_click filter="" function="Inventory.MakeNewOutfit" userdata="" />
+			</menu_item_call>
+		</menu>
+		<menu name="Sort" label="Sort" opaque="true" tear_off="true">
+			<menu_item_check name="By Name" label="By name" control_name="Inventory.SortByName">
+				<on_click filter="" function="Inventory.SetSortBy" userdata="name" />
+			</menu_item_check>
+			<menu_item_check name="By Date" label="By date" control_name="Inventory.SortByDate">
+				<on_click filter="" function="Inventory.SetSortBy" userdata="date" />
+			</menu_item_check>
+			<menu_item_separator name="separator4" />
+			<menu_item_check name="Folders Always By Name" label="Folders always by name"
+			 control_name="Inventory.FoldersAlwaysByName">
+				<on_click filter="" function="Inventory.SetSortBy" userdata="foldersalwaysbyname" />
+			</menu_item_check>
+			<menu_item_check name="System Folders To Top" label="System folders to top"
+			 control_name="Inventory.SystemFoldersToTop">
+				<on_click filter="" function="Inventory.SetSortBy" userdata="systemfolderstotop" />
+			</menu_item_check>
+		</menu>
+		<menu name="Search" label="Search" opaque="true" tear_off="true">
+			<menu_item_check name="Item name" label="Item name"
+			 control_name="Inventory.SearchName">
+				<on_click filter="" function="Inventory.SetSearchType" userdata="name" />
+			</menu_item_check>
+			<menu_item_check name="Item description" label="Item description"
+			 control_name="Inventory.SearchDesc">
+				<on_click filter="" function="Inventory.SetSearchType" userdata="description" />
+			</menu_item_check>
+			<menu_item_check name="Item creatorr" label="Item creator"
+			 control_name="Inventory.SearchCreator">
+				<on_click filter="" function="Inventory.SetSearchType" userdata="creator" />
+			</menu_item_check>
+		</menu>
+	</menu_bar>
+	<check_box name="lock_last_open" label="Lock" font="SansSerifSmall"
+	 tool_tip="When checked, the 'Last open' tab is immune to last open folder changes."
+	 bottom="-35" right="-4" width="60" height="16" follows="top|right" />
+</floater>

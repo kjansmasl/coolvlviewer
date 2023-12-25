@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<menu name="popup" color="MenuDefaultBgColor"
+ drop_shadow="true" mouse_opaque="false" opaque="true">
+	<menu_item_call name="Zoom close" label="Zoom close">
+		<on_click function="MiniMap.ZoomLevel" userdata="2" />
+	</menu_item_call>
+	<menu_item_call name="Zoom medium" label="Zoom medium">
+		<on_click function="MiniMap.ZoomLevel" userdata="1" />
+	</menu_item_call>
+	<menu_item_call name="Zoom far" label="Zoom far">
+		<on_click function="MiniMap.ZoomLevel" userdata="0" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_check name="Center on camera" label="Center on camera">
+		<on_click function="MiniMap.Center" userdata="1" />
+		<on_check function="MiniMap.CheckCenter" userdata="1" />
+	</menu_item_check>
+	<menu_item_check name="Rotate with avatar" label="Rotate with avatar">
+		<on_click function="MiniMap.Rotate" />
+		<on_check function="MiniMap.CheckRotate" />
+	</menu_item_check>
+	<menu_item_separator />
+	<menu_item_check name="Draw objects" label="Draw objects">
+		<on_click function="MiniMap.DrawObjects" />
+		<on_check function="MiniMap.CheckDrawObjects" />
+	</menu_item_check>
+	<menu_item_check name="Plot physical objects" label="Plot physical objects">
+		<on_click function="MiniMap.PlotPhysical" />
+		<on_check function="MiniMap.CheckPlotPhysical" />
+		<on_enable function="MiniMap.EnablePlotPhysical" />
+	</menu_item_check>
+	<menu_item_check name="Plot pathfinding chars" label="Plot pathfinding chars">
+		<on_click function="MiniMap.PlotChars" />
+		<on_check function="MiniMap.CheckPlotChars" />
+		<on_enable function="MiniMap.EnablePlotChars" />
+	</menu_item_check>
+	<menu_item_check name="Plot animated meshes" label="Plot animated meshes">
+		<on_click function="MiniMap.PlotPuppets" />
+		<on_check function="MiniMap.CheckPlotPuppets" />
+	</menu_item_check>
+	<menu_item_separator />
+	<menu_item_check name="Draw water" label="Draw water">
+		<on_click function="MiniMap.DrawWater" />
+		<on_check function="MiniMap.CheckDrawWater" />
+	</menu_item_check>
+	<menu_item_check name="Agent region borders" label="Agent region borders">
+		<on_click function="MiniMap.DrawBorders" />
+		<on_check function="MiniMap.CheckDrawBorders" />
+	</menu_item_check>
+	<menu_item_check name="Banned parcels" label="Banned parcels">
+		<on_click function="MiniMap.DrawBans" />
+		<on_check function="MiniMap.CheckDrawBans" />
+	</menu_item_check>
+	<menu_item_check name="Parcels borders" label="Parcels borders">
+		<on_click function="MiniMap.DrawParcels" />
+		<on_check function="MiniMap.CheckDrawParcels" />
+	</menu_item_check>
+	<menu_item_call name="Parcel info" label="Parcel info...">
+		<on_click function="MiniMap.ShowParcelInfo" />
+		<on_enable function="MiniMap.EnableParcelInfo" />
+	</menu_item_call>
+	<menu_item_call name="Refresh terrain" label="Refresh terrain">
+		<on_click function="MiniMap.Refresh" userdata="0" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_call name="Stop tracking" label="Stop tracking">
+		<on_click function="MiniMap.StopTracking" />
+		<on_enable function="MiniMap.EnableTracking" />
+	</menu_item_call>
+	<menu_item_call name="Profile" label="Profile...">
+		<on_click function="MiniMap.ShowProfile" />
+		<on_enable function="MiniMap.EnableProfile" />
+	</menu_item_call>
+</menu>

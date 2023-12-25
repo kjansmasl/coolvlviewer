@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="object im info" short_title="Object info" title="Object information"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false" can_tear_off="true"
+ rect_control="FloaterObjectIMInfo"
+ left="0" bottom="0" width="330" height="140">
+	<text name="LabelItemNameTitle" font="SansSerif"
+	 left="10" bottom="-35" width="78" height="10" follows="left|top">
+		Object:
+	</text>
+	<text name="ObjectName" font="SansSerif" max_length="254"
+	 left="70" bottom_delta="-10" width="250" height="20" follows="left|top" />
+	<text name="LabelSlurlTitle" font="SansSerif"
+	 left="10" bottom="-60" width="78" height="10" follows="left|top">
+		Location:
+	</text>
+	<text name="Slurl" font="SansSerif" font-style="UNDERLINE"
+	 max_length="254" mouse_opaque="true" hover="true"
+	 text_color="TextLinkColor" hover_color="TextLinkHoverColor"
+	 left="70" bottom_delta="-10" width="250" height="20" follows="left|top" />
+  
+	<!-- A new viewer talking to an old sim will not have a slurl available and will show this. -->
+	<text name="Unknown_Slurl" font="SansSerif"  max_length="254" hover="false"
+	 left_delta="0" bottom_delta="0" width="250" height="20" follows="left|top">
+		(location info not available)
+	</text>
+
+	<text name="LabelOwnerNameTitle" font="SansSerif"
+	 left="10" bottom="-85" width="78" height="10" follows="left|top">
+		Owner:
+	</text>
+	<text name="OwnerName" font="SansSerif" font-style="UNDERLINE"
+	 max_length="254" hover="true" mouse_opaque="true"
+	 text_color="TextLinkColor" hover_color="TextLinkHoverColor"
+	 left="70" bottom_delta="-10" width="250" height="20" follows="left|top"/>
+  
+  <button name="MuteObject" label="Mute object" font="SansSerif" halign="center" mouse_opaque="true"
+   tool_tip="Mute this particular object"
+   bottom_delta="-30" left="10" height="20" width="100" />
+  <button name="MuteByName" label="Mute by name" font="SansSerif" halign="center" mouse_opaque="true"
+   tool_tip="Mute any object with the same name (useful for temp-on-rez objects and self-replicating objects used by griefers)"
+   bottom_delta="" left_delta="105" height="20" width="100" />
+  <button name="MuteOwner" label="Mute owner" font="SansSerif" halign="center" mouse_opaque="true"
+   tool_tip="Mute the owner of this object (and therefore all their objects)"
+   bottom_delta="" left_delta="105" height="20" width="100" />
+</floater>

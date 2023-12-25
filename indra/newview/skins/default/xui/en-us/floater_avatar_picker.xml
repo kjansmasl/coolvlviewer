@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="avatar picker" title="Choose resident" mouse_opaque="true"
+ can_close="true" can_minimize="true" can_resize="true" can_drag_on_left="false"
+ rect_control="AvatarPickerRect"
+ left="400" bottom="-380" width="250" height="340" min_width="250" min_height="340">
+	<tab_container name="ResidentChooserTabs" tab_position="top" tab_width="65"
+	 left="5" bottom="30" width="240" height="290" follows="left|right|top|bottom">
+
+		<panel name="SearchPanel" label="Search" border="true" mouse_opaque="true"
+		 left="0" bottom="0" width="240" height="290">
+			<text name="InstructSearchResidentName" font="SansSerifSmall" mouse_opaque="true"
+			 drop_shadow_visible="true"
+			 halign="left"
+			 left="10" bottom="-24" width="220" height="16" follows="left|top">
+				Type part of the resident&apos;s name:
+			</text>
+			<line_editor name="Edit" font="SansSerifSmall" max_length="254" mouse_opaque="true"
+			 bevel_style="in" border_style="line" border_thickness="1"
+			 left="10" width="140" bottom_delta="-20" height="16"
+			 follows="left|top|right" />
+			<button name="Find" label="Find" font="SansSerif" mouse_opaque="true"
+			 left_delta="145" bottom_delta="-3" width="80" height="20" follows="top|right" />
+			<scroll_list name="SearchResults" multi_select="false" mouse_opaque="true"
+			 draw_border="true" draw_heading="false" draw_stripes="true"
+			 background_visible="true" column_padding="5"
+			 left="10" bottom_delta="-235" width="220" height="230" follows="left|top|right|bottom" />
+		</panel>
+
+		<panel name="FriendsPanel" label="Friends" border="true" mouse_opaque="true"
+		 left="0" bottom="0" width="240" height="290">
+			<text name="InstructSelectFriends" font="SansSerifSmall" mouse_opaque="true"
+			 drop_shadow_visible="true"
+			 halign="left"
+			 left="10" bottom="-24" width="220" height="16" follows="left|top">
+				Select a friend:
+			</text>
+			<scroll_list name="Friends" multi_select="false" mouse_opaque="true"
+			 draw_border="true" draw_heading="false" draw_stripes="true"
+			 background_visible="true" column_padding="5"
+			 left="10" bottom_delta="-255" width="220" height="250" follows="left|top|right|bottom" />
+		</panel>
+
+		<panel name="CallingCardsPanel" label="Calling cards" border="true" mouse_opaque="true"
+		 left="0" bottom="0" width="240" height="290">
+			<text name="InstructSelectCallingCard" font="SansSerifSmall" mouse_opaque="true"
+			 drop_shadow_visible="true"
+			 halign="left"
+			 left="10" bottom="-24" width="220" height="16" follows="left|top">
+				Select a calling card:
+			</text>
+			<inventory_panel name="InventoryPanel" sort_order="AvatarPickerSortOrder"
+			 allow_multi_select="false" border="true" mouse_opaque="true"
+			 left="10" bottom_delta="-255" width="220" height="250" follows="left|top|right|bottom" />
+		</panel>
+
+		<panel name="NearMePanel" label="Near me" border="true" mouse_opaque="true"
+		 left="0" bottom="0" width="240" height="290">
+			<text name="InstructSelectResident" font="SansSerifSmall" mouse_opaque="true"
+			 drop_shadow_visible="true"
+			 halign="left"
+			 left="10" bottom="-24" width="125" height="16" follows="left|top">
+				Select nearby resident:
+			</text>
+			<button name="Refresh" label="Refresh list" font="SansSerif" mouse_opaque="true"
+			 left_delta="130" bottom_delta="-3" width="90" height="20" follows="top|right" />
+			<slider name="near_me_range" label="Range:" control_name="NearMeRange"
+			 label_width="35" min_val="5" max_val="100" increment="5" decimal_digits="0"
+			 left="10" bottom_delta="-20" width="185" height="15" follows="left|top" />
+			<text name="meters" font="SansSerifSmall" mouse_opaque="true"
+			 drop_shadow_visible="true"
+			 halign="left"
+			 left="190" bottom_delta="0" width="40" height="15" follows="left|top">
+				meters
+			</text>
+			<scroll_list name="NearMe" multi_select="false" mouse_opaque="true"
+			 draw_border="true" draw_heading="false" draw_stripes="true"
+			 background_visible="true" column_padding="5" sort_column="0"
+			 left="10" bottom_delta="-235" width="220" height="230" follows="left|top|right|bottom" />
+		</panel>
+
+	</tab_container>
+
+	<button name="Select" label="Select" font="SansSerif" mouse_opaque="true"
+	 left="10" bottom="6" width="95" height="20" follows="left|bottom" />
+	<button name="Close" label="Close" font="SansSerif" mouse_opaque="true"
+	 right="240" bottom_delta="0" width="95" height="20" follows="right|bottom" />
+
+	<string name="not_found">
+		&apos;[TEXT]&apos; not found
+	</string>
+	<string name="no_one_near">
+		No-one near
+	</string>
+	<string name="no_result">
+		No result
+	</string>
+	<string name="searching">
+		Searching...
+	</string>
+	<string name="legacy_name">
+		Legacy Name
+	</string>
+	<string name="display_name">
+		Display Name
+	</string>
+</floater>

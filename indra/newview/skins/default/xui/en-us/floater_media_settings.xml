@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="media settings"  title="Media settings" rect_control="FloaterMediaSettingsRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ height="460" width="365" min_height="460" min_width="365">
+	<tab_container name="tabs" label="" tab_min_width="90" tab_position="top"
+	 left="0" bottom="30" width="365" height="410">
+		<panel name="media_settings_general" label="General" border="true" mouse_opaque="true"
+		 left="2" bottom="-420" width="361" height="400" follows="left|top|right|bottom">
+			<text name="home_label" font="SansSerif"
+			 left="10" bottom_delta="-30" width="72" height="20" follows="top|left">
+				Home page:
+			</text>
+			<text name="home_fails_whitelist_label" font="SansSerifSmall" text_color="red"
+			 left_delta="80" bottom_delta="0" width="275" height="20" follows="top|left">
+				(this page does not pass the specified whitelist)
+			</text>
+			<line_editor name="home_url" label="Enter a home URL here" max_length="1024" font="SansSerif"
+			 tool_tip="The home page for this media source. Edit or type a new URL here and pess ENTER to commit."
+			 left="10" bottom_delta="-20" width="343" height="20"  follows="top|left" />
+			<web_browser name="preview_media" border_visible="true"
+			 start_url="about:blank" decouple_texture_size="true"
+			 left="116" bottom_delta="-140" width="128" height="128" follows="left|top" />
+			<text name="preview_label" font="SansSerifSmall"
+			 left="160" bottom_delta="-16" width="64" height="15" follows="left|top">
+				Preview
+			</text>
+			<text name="current_url_label" font="SansSerif"
+			 left="10" bottom_delta="-20" width="340" height="16" follows="top|left">
+				Current page:
+			</text>
+			<text name="current_url" font="SansSerif" mouse_opaque="true"
+			 tool_tip="The current page for this media source"
+			 left="10" bottom_delta="-22" width="343" height="20" follows="top|left" />
+			<button name="current_url_reset_btn" label="Reset" font="SansSerif"
+			 left="273" bottom_delta="-24" width="80" height="20" follows="top|left" />
+			<check_box name="auto_play" label="Auto-play media" font="SansSerifSmall"
+			 tool_tip="Note: residents can override this setting."
+			 left="10" bottom_delta="-28" width="130" height="16" follows="top|left" />
+			<check_box name="auto_loop" label="Auto loop" font="SansSerifSmall"
+			 left="230" bottom_delta="0" width="130" height="16" follows="top|left" />
+			<check_box name="first_click_interact" label="First click interacts" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="130" height="16" follows="top|left" />
+			<check_box name="auto_zoom" label="Auto zoom" font="SansSerifSmall"
+			 tool_tip="Note: residents can override this setting if they use the Cool VL Viewer."
+			 left="230" bottom_delta="0" width="130" height="16" follows="top|left" />
+			<check_box name="auto_scale" label="Auto-scale media on face of object" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="200" height="16" follows="top|left" />
+			<text name="size_label" font="SansSerif"
+			 left="10" bottom_delta="-32" width="96" height="20" follows="top|left">
+				Size (in pixels):
+			</text>
+			<spinner name="width_pixels" label="width:" label_width="48" font="SansSerifSmall"
+			 decimal_digits="0" increment="1" initial_val="256" min_val="0" max_val="2048" 
+			 left_delta="108" bottom_delta="0" width="104"  height="20" follows="top|left" />
+			<spinner name="height_pixels" label="height:" label_width="48" font="SansSerifSmall"
+			 decimal_digits="0" increment="1" initial_val="256" min_val="0" max_val="2048" 
+			 left_delta="128" bottom_delta="0" width="104"  height="20" follows="top|left" />
+		</panel>
+		<panel name="media_settings_permissions" label="Permissions" border="true" mouse_opaque="true"
+		 left="2" bottom="-420" width="361" height="400" follows="left|top|right|bottom">
+			<text name="controls_label" font="SansSerif"
+			 left="10" bottom_delta="-48" width="80" height="16" follows="top|left">
+				Controls:
+			</text>
+			<combo_box name="controls" allow_text_entry="false" max_chars="20"
+			 left_delta="90" bottom_delta="0" width="120" height="18" follows="top|left">
+  				<combo_item name="Standard" value="Standard">
+					Standard
+				</combo_item>
+				<combo_item name="Mini" value="Mini">
+					Mini
+				</combo_item>
+			</combo_box>
+			<text name="owner_label" font="SansSerif"
+			 left="10" bottom_delta="-48" width="350" height="20" follows="top|left">
+				Owner permissions:
+			</text>
+			<check_box name="perms_owner_interact" label="Allow navigation and interactivity" font="SansSerifSmall"
+			 left="30" bottom_delta="-22" width="300" height="16" follows="top|left" />
+			<check_box name="perms_owner_control" label="Show the media HUD or control bar" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-22" width="300" height="16" follows="top|left" />
+			<text name="owner_label" font="SansSerif"
+			 left="10" bottom_delta="-40" width="120" height="20" follows="top|left">
+				Group permissions:
+			</text>
+			<text name="group_label" font="SansSerifSmall"
+			 left_delta="24" bottom_delta="-22" width="80" height="18" follows="top|left">
+				Group name:
+			</text>
+			<name_editor name="perms_group_name" max_length="128" font="SansSerif" enabled="false"
+			 left_delta="84" bottom_delta="0" width="230" height="20" follows="top|left" />
+			<check_box name="perms_group_interact" label="Allow navigation and interactivity" font="SansSerifSmall"
+			 left="30" bottom_delta="-24" width="300" height="16" follows="top|left" />
+			<check_box name="perms_group_control" label="Show the media HUD or control bar" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-22" width="300" height="16" follows="top|left" />
+			<text name="anyone_label" font="SansSerif"
+			 left="10" bottom_delta="-40" width="350" height="20" follows="top|left">
+				Anyone's permissions:
+			</text>
+			<check_box name="perms_anyone_interact" label="Allow navigation and interactivity" font="SansSerifSmall"
+			 left="30" bottom_delta="-22" width="300" height="16" follows="top|left" />
+			<check_box name="perms_anyone_control" label="Show the media HUD or control bar" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-22" width="300" height="16" follows="top|left" />
+		</panel>
+		<panel name="media_settings_security" label="Security" border="true" mouse_opaque="true"
+		 left="2" bottom="-420" width="361" height="400" follows="left|top|right|bottom">
+			<check_box name="whitelist_enable" label="Only allow access to specified URL patterns below:" font="SansSerifSmall"
+			 left="10" bottom_delta="-32" width="300" height="16" follows="top|left" />
+			<line_editor name="new_pattern" label="Enter new patterns here" max_length="1024" font="SansSerif"
+			 tool_tip="Enter a new pattern here and press ENTER to add it to the white list below."
+			 left="28" bottom_delta="-24" width="310" height="20" follows="top|left" />
+			<scroll_list name="whitelist"
+			 left="28" bottom_delta="-220" width="310" height="210" follows="top|left" />
+			<text name="home_url_fails_some_items_in_whitelist" font="SansSerifSmall" text_color="orange"
+			 left="32" bottom_delta="-20" width="308" height="15" follows="top|left">
+				Entries that the home page fails against are colored in red.
+			</text>
+			<button name="whitelist_del" label="Delete the selected pattern" font="SansSerif"
+			 left="28" bottom_delta="-26" width="310" height="20" follows="top|left" />
+			<text name="home_url_fails_whitelist" font="SansSerifSmall" text_color="red"
+			 left="28" bottom_delta="-60" width="310" height="48" follows="top|left">
+				Warning: the home page specified in the General tab fails to
+pass this whitelist. It has been disabled until a valid entry
+has been added.
+			</text>
+		</panel>
+	</tab_container>
+	<button name="OK" label="OK" font="SansSerif"
+	 left="40" bottom_delta="-24" width="80" height="20" follows="left|bottom" />
+	<button name="Cancel" label="Cancel" font="SansSerif"
+	 left_delta="100" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+	<button name="Apply" label="Apply" font="SansSerif"
+	 left_delta="100" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+</floater>

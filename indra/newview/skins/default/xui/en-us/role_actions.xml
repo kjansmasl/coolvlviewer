@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<role_actions>
+	<action_set name="Membership"
+	 description="These abilities include powers to add and remove group members, and allow new members to join without an invitation.">
+		<action name="member invite"  value="1"
+		 description="Invite people to this group"
+		 longdescription="Invite people to this group using the &apos;Invite new person...&apos; button in the &apos;Members &amp; roles&apos; tab, &apos;Members&apos; sub-tab." />
+		<action name="member eject" value="2"
+		 description="Eject members belonging to the 'Everyone' role from this group"
+		 longdescription="Eject members from this group using the &apos;Eject from group&apos; button in the &apos;Members &amp; roles&apos; tab,, &apos;Members&apos; sub-tab. An Owner can eject anyone except another Owner. If you are not an owner, a member can be ejected from a group if, and only if, they&apos;re only in the &apos;Everyone&apos; role, and NO other roles. To remove members from roles, you need to have the &apos;Remove members from roles&apos; ability." />
+		<action name="allow ban" value="51"
+		 description="Manage ban list"
+		 longdescription="Allows the group member to (un-)ban residents from this group." />
+		<action name="member options" value="3"
+		 description="Toggle &apos;open enrollment&apos; and change &apos;Signup fee&apos;"
+		 longdescription="Toggle &apos;Open enrollment&apos; to let new members join without an invitation, and change &apos;Signup fee&apos; in the &apos;Group preferences&apos; section of the &apos;General&apos; tab." />
+	</action_set>
+	<action_set name="Roles"
+	 description="These abilities include powers to add, remove, and change group roles, add and remove members in roles, and assign abilities to roles.">
+		<action name="role create" value="4"
+		 description="Create new roles"
+		 longdescription="Create new Roles in the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab." />
+		<action name="role delete" value="5"
+		 description="Delete roles"
+		 longdescription="Delete roles in the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab." />
+		<action name="role properties" value="6"
+		 description="Change role names, titles, descriptions, and whether role members are publicly visible"
+		 longdescription="Change role names, titles, descriptions, and whether role members are publicly visible. This is done at the bottom of the the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab after selecting a role." />
+		<action name="role assign member limited" value="7"
+		 description="Assign members to assigner&apos;s Roles"
+		 longdescription="Assign members to roles in the assigned roles section of the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab. A member with this ability can only add members to a role the assigner is already in." />
+		<action name="role assign member" value="8"
+		 description="Assign members to any role"
+		 longdescription="Assign members to any role in the &apos;Assigned roles&apos; section of the &apos;Members&amp; roles&apos; tab, &apos;Roles&apos; sub-tab. WARNING: any member in a role with this ability can assign themselves *and any other non-owner member* to roles that have more powers than they currently have, potentially elevating themselves to near-owner power. Be sure you know what you are doing before assigning this ability." />
+		<action name="role remove member" value="9"
+		 description="Remove members from roles"
+		 longdescription="Remove members from roles in the assigned roles section of the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab. Owners cannot be removed." />
+		<action name="role change actions" value="10"
+		 description="Assign and remove abilities in Roles"
+		 longdescription="Assign and remove abilities in roles in the &apos;Allowed abilities&apos; section of the &apos;Members &amp; roles&apos; tab, &apos;Roles&apos; sub-tab. WARNING: any member in a role with this ability can assign themselves *and any other non-owner member* all abilities, potentially elevating themselves to near-owner power. Be sure you know what you are doing before assigning this ability." />
+	</action_set>
+	<action_set name="Group identity"
+	 description="These abilities include powers to modify this group&apos;s identity, such as changing public visibility, charter, and insignia.">
+		<action name="group change identity" value="11"
+		 description="Change charter, insignia, and &apos;Show in search&apos;"
+		 longdescription="Change charter, insignia, and &apos;Show in search&apos;. This is done in the &apos;General&apos; tab." />
+	</action_set>
+	<action_set name="Parcel management"
+	 description="These abilities include powers to deed, modify, and sell land in this group&apos;s land holdings. To get to the &apos;About land&apos; floater right-click the ground and select &apos;About land...&apos;, or click the parcel info in the menu bar.">
+		<action name="land deed" value="12"
+		 description="Deed land and buy land for group"
+		 longdescription="Deed land and buy land for group. This is done in &apos;About land&apos;, &apos;General&apos; tab." />
+		<action
+		 description="Abandon land to Governor Linden"
+		 longdescription="Abandon land to Governor Linden. WARNING: any member in a role with this ability can abandon group-owned land in &apos;About land&apos;, &apos;General&apos; tab, reverting it to Linden ownership without a sale !  Be sure you know what you are doing before assigning this ability."
+		     name="land release" value="13" />
+		<action name="land set sale info" value="14"
+		 description="Set land for sale info"
+		 longdescription="Set land for sale info. WARNING: any member in a role with this ability can sell group-owned land in &apos;About land&apos;, &apos;General&apos; tab as they wish. Be sure you know what you are doing before assigning this ability." />
+		<action name="land divide join" value="15"
+		 description="Subdivide and join parcels"
+		 longdescription="Subdivide and join parcels. This is done by right-clicking the ground, &apos;Edit terrain&apos;, and dragging your mouse on the land to make a selection. To subdivide, select what you want to split and click &apos;Subdivide...&apos;. To join, select two or more contiguous parcels and click &apos;Join...&apos;. " />
+	</action_set>
+	<action_set name="Parcel identity"
+	 description="These abilities include powers to change the parcel name and publish settings, Find directory visibility, and landing point &amp; TP routing options.">
+		<action name="land find places" value="17"
+		 description="Toggle &apos;Show in Find Places&apos; and set category"
+		 longdescription="Toggle &apos;Show in Find Places&apos; and setting a parcel&apos;s category in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land change identity" value="18"
+		 description="Change parcel name, description, and &apos;Mature Content&apos; settings"
+		 longdescription="Change parcel name, description, and &apos;Mature content&apos; settings. This is done in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land set landing point" value="19"
+		 description="Set landing point and set teleport routing"
+		 longdescription="On a group-owned parcel, members in a role with this ability can set a landing point to specify where incoming teleports arrive, and also set teleport routing for further control. This is done in &apos;About land&apos;, &apos;Options&apos; tab." />
+	</action_set>
+	<action_set name="Parcel settings"
+     description="These abilities include powers which affect parcel options, such as &apos;Create Objects&apos;, &apos;Edit Terrain&apos;, and music &amp; media settings.">
+		<action name="land change media" value="20"
+		 description="Change music &amp; media settings"
+		 longdescription="Change streaming music and movie settings in &apos;About land&apos;, &apos;Media&apos; tab." />
+		<action name="land edit" value="21"
+		 description="Toggle &apos;Edit terrain&apos;"
+		 longdescription="Toggle &apos;Edit terrain&apos;. WARNING: &apos;Edit terrain&apos; allows anyone to terraform your land, and place and move Linden plants. Be sure you know what you are doing before assigning this ability. Editing terrain is toggled in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land options" value="22"
+		 description="Toggle various &apos;About land&apos;, &apos;Options&apos; settings"
+		 longdescription="Toggle &apos;Safe (no damage)&apos;, &apos;Fly&apos;, and allow other residents to &apos;Create objects&apos;, &apos;Edit terrain&apos;, &apos;Create landmarks&apos;, &apos;Run scripts&apos;, etc... On group-owned land in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land change environment" value="46"
+		 description="Modify environment settings and day cycle."
+		 longdescription="Change the environment settings and day cycle." />
+	</action_set>
+	<action_set name="Parcel powers"
+	 description="These abilities include powers which allow members to bypass restrictions on group-owned parcels.">
+		<action name="land allow edit land" value="23"
+		 description="Always allow &apos;Edit Terrain&apos;"
+		 longdescription="Members in a role with this ability can edit terrain on a group-owned parcel, even if it is turned off in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land allow fly" value="24"
+		 description="Always allow &apos;Fly&apos;"
+		 longdescription="Members in a role with this ability can fly on a group-owned parcel, even if it is turned off in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land allow create" value="25"
+		 description="Always allow &apos;Create Objects&apos;"
+		 longdescription="Members in a role with this ability can create objects on a group-owned parcel, even if it is turned off in &apos;About land&apos;, &apos;Options&apos; tab." />
+		<action name="land allow direct teleport" value="26"
+		 description="Ignore landing point"
+		 longdescription="Members in a role with this ability can direct teleport to a group-owned parcel, even if a landing point is set in &apos;About land&apos; &gt; &apos;Options&apos; tab." />
+		<action name="land allow set home" value="28"
+		 description="Allow &apos;Set home to here&apos; on group land"
+		 longdescription="Members in a role with this ability can use &apos;World&apos; menu, &apos;Set home to here&apos; on a parcel deeded to this group." />
+		<action name="land allow host event" value="41"
+		 description="Allow &apos;Event hosting&apos; on group land"
+		 longdescription="Members in a role with this ability can select group owned parcels as venus when hosting an event." />			 
+	</action_set>
+	<action_set name="Parcel access"
+	 description="These abilities include powers to allow or restrict access to group-owned parcels, including freezing and ejecting residents.">
+		<action name="land manage allowed" value="29"
+		 description="Manage parcel access lists"
+		 longdescription="Manage parcel access lists in &apos;About land&apos;, &apos;Access&apos; tab." />
+		<action name="land manage banned" value="30"
+		 description="Manage parcel Ban lists"
+		 longdescription="Manage parcel Ban lists in &apos;About land&apos;, &apos;Ban&apos; tab." />
+		<action name="land manage passes" value="31"
+		 description="Change parcel &apos;Sell passes...&apos; settings"
+		 longdescription="Change parcel &apos;Sell passes...&apos; settings in &apos;About land&apos;, &apos;Access&apos; tab." />
+		<action name="land admin" value="32"
+		 description="Eject and freeze residents on parcels"
+		 longdescription="Members in a role with this ability can handle an unwelcome resident on a group-owned parcel by right-clicking them and selecting &apos;Eject...&apos; or &apos;Freeze...&apos; in the pie menu." />
+	</action_set>
+	<action_set name="Parcel content"
+	 description="These abilities include powers to allow members to return objects and place and move Linden plants. This is useful for members to clean up litter and do landscaping, but it should also be used with care, because there&apos;s no undo for returning objects.">
+		<action name="land return group owned" value="48"
+		 description="Return objects owned by group"
+		longdescription="Return objects on group-owned parcels that are owned by the group in &apos;About land&apos;, &apos;Objects&apos; tab." />
+		<action name="land return group set" value="33"
+		 description="Return objects set to group"
+		longdescription="Return objects on group-owned parcels that are set to the group in &apos;About land&apos;, &apos;Objects&apos; tab." />
+		<action name="land return non group" value="34"
+		 description="Return non-group objects"
+		 longdescription="Return objects on group-owned parcels that are non-group in &apos;About land&apos;, &apos;Objects&apos; tab." />
+		<action name="land gardening" value="35"
+		 description="Landscaping using Linden plants"
+		 longdescription="Landscaping ability to place and move Linden trees, plants, and grasses. These items can be found in the library section of your inventory, &apos;Objects&apos; folder or they can be created via the &apos;Build&apos; button." />
+	</action_set>
+	<action_set name="Object management"
+	 description="These abilities include powers to deed, modify, and sell group-owned objects. These changes are done in the &apos;Edit tools&apos;, &apos;General&apos; tab. Right-click an object and select &apos;Edit&apos; in the pie menu to see its settings. ">
+		<action name="object deed" value="36"
+		 description="Deed objects to group"
+		 longdescription="Deed objects to group in the &apos;Edit tools&apos;, &apos;General&apos; tab." />
+		<action name="object manipulate" value="38"
+		 description="Manipulate (move, copy, modify) group-owned objects"
+		 longdescription="Manipulate (move, copy, modify) group-owned objects in the &apos;Edit tools&apos;, &apos;General&apos; tab." />
+		<action name="object set sale" value="39"
+		 description="Set group-owned objects for sale"
+		 longdescription="Set group-owned objects for sale in the&apos;Edit tools&apos;, &apos;General&apos; tab." />
+	</action_set>
+	<action_set name="Accounting"
+	     description="These abilities include powers which require members to pay group liabilities and receive group dividends, and restrict access to group account history.">
+		<action name="accounting accountable" value="40"
+		 description="Pay group liabilities and receive group dividends"
+		 longdescription="Members in a role with this ability will automatically pay group liabilities and receive group dividends. This means they will receive a portion of group-owned land sales which are distributed daily, as well as contribute towards things like parcel listing fees." />
+	</action_set>
+	<action_set name="Notices"
+	 description="These abilities include powers to allow members to send, receive, and view group Notices.">
+		<action name="notices send" value="42"
+		 description="Send notices"
+		 longdescription="Members in a role with this ability can send notices from the &apos;Group information&apos;, &apos;Notices&apos; tab." />
+		<action name="notices receive" value="43"
+		 description="Receive notices and view past notices"
+		 longdescription="Members in a role with this ability can receive notices and view past notices in &apos;Group information&apos;, &apos;Notices&apos; tab." />
+	</action_set>
+	<action_set name="Chat"
+	 description="These abilities include powers to allow or restrict access to group chat sessions and group voice chat.">
+		<action name="join group chat" value="16"
+		 description="Join group chat"
+		 longdescription="Members in a role with this ability can join group chat sessions, for text and voice." />
+		<action name="join voice chat" value="27"
+		 description="Join group voice chat"
+		 longdescription="Members in a role with this ability can join group voice chat sessions. NOTE: this ability is required to access the voice chat session." />	
+		<action name="moderate group chat" value="37"
+		 description="Moderate group chat"
+		 longdescription="Members in a role with this ability can control access and participation in group voice and text chat sessions." />
+	</action_set>
+	<action_set name="Experience tools"
+	 description="These abilities include power to modify experiences owned by this group.">
+  		<action name="experience admin" value="49"
+		 description="Experience admin"
+		 longdescription="Members in a role with this ability can edit the meta-data for an experience." />
+		<action name="experience contributor" value="50"
+		 description="Experience contributor"
+		 longdescription="Members in a role with this ability can contribute scripts for an experience." />
+	</action_set>
+</role_actions>

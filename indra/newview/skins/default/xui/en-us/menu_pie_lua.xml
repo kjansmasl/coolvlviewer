@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Lua pie menu">
+	<menu_item_call name="slice1" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="1" />
+	</menu_item_call>
+	<menu_item_call name="slice2" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="2" />
+	</menu_item_call>
+	<menu_item_call name="slice3" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="3" />
+	</menu_item_call>
+	<menu_item_call name="slice4" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="4" />
+	</menu_item_call>
+	<menu_item_call name="slice5" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="5" />
+	</menu_item_call>
+	<menu_item_call name="slice6" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="6" />
+	</menu_item_call>
+	<menu_item_call name="slice7" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="7" />
+	</menu_item_call>
+	<menu_item_call name="slice8" label="" enabled="false">
+		<on_click function="PieLua.Call" userdata="8" />
+	</menu_item_call>
+</pie_menu>

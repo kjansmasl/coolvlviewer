@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<floater name="radar" title="Radar" rect_control="FloaterRadarRect"
+ can_resize="true" can_minimize="true" can_close="true" can_drag_on_left="false"
+ width="300" min_width="300" height="300" min_height="300" follows="top|right">
+	<string name="cardinals">NSWE</string>
+	<string name="total_avatars">Total number of avatars: %d (%d + yours in sim)</string>
+	<string name="no_avatar">No avatar in range.</string>
+	<string name="last_known_pos">(last known position)</string>
+	<string name="has_entered">has entered</string>
+	<string name="has_left">has left</string>
+	<string name="the_sim">the region.</string>
+	<string name="draw_distance">draw distance.</string>
+	<string name="shout_range">shout range.</string>
+	<string name="chat_range">chat range.</string>
+	<scroll_list name="avatar_list"
+		    left="10" right="-10" top="-20" bottom="140" can_resize="true"
+		    column_padding="0" follows="left|top|bottom|right"
+		    draw_heading="true" multi_select="true" search_column="1"
+		    tool_tip="Hold down SHIFT or CTRL while clicking to select multiple avatars.">
+		<column name="marked" label="Mark" width="12" tool_tip="Marked avatars"/>
+		<column name="avatar_name" label="Name" dynamicwidth="true" tool_tip="Hold down SHIFT or CTRL while clicking to select multiple avatars."/>
+		<column name="distance" label="Dist." width="48" tool_tip="Distance from your avatar (red=within chat range, yellow=within shout range, green=within draw distance)."/>
+		<column name="position" label="Pos." width="60" tool_tip="Position (X, Y) within this sim, or general direction (cardinal point) for outside sims."/>
+		<column name="altitude" label="Alt." width="48" tool_tip="Altitude"/>
+	</scroll_list>
+	<tab_container border="false" bottom_delta="-130" height="120" left="6" mouse_opaque="false"
+		       name="tab_container" tab_position="top" follows="left|right|bottom">
+		<panel border="true" bottom_delta="-130" follows="left|top|right|bottom" height="255"
+		       label="Avatar" left="1" mouse_opaque="true"
+		     name="actions_tab" width="398">
+			<!-- upper row -->
+			<button name="profile_btn"
+			       label="Profile"
+			       tool_tip="Shows the profile of the selected avatars."
+			       left="10"
+			       bottom_delta="-180"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="track_btn"
+			       label="(Un)Track"
+			       tool_tip="Toggles tracking of the selected avatar's position."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="im_btn"
+			       label="IM"
+			       tool_tip="Opens an instant messaging session with the selected avatars."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<!-- upper middle row -->
+			<button name="offer_btn"
+			       label="Offer TP"
+			       tool_tip="Offers a teleport to the selected avatars."
+			       left="10"
+			       bottom_delta="-22"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="request_tp_btn"
+			       label="Request TP"
+			       tool_tip="Requests a teleport from the selected avatar (only works with if the owner of that avatar uses a compatible viewer)."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="teleport_btn"
+			       label="TP to"
+			       tool_tip="Teleports your avatar to the selected avatar's position."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />			
+			<!-- lower middle row-->
+			<button name="mark_btn"
+			       label="(Un)Mark"
+			       tool_tip="Adds or removes the mark for this avatar in the list."
+			       left="10"
+			       bottom_delta="-22"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="prev_marked_btn"
+			       label="Prev marked"
+			       tool_tip="Focuses the camera on the previous marked avatar in the list."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="next_marked_btn"
+			       label="Next marked"
+			       tool_tip="Focuses the camera on the next marked avatar in the list."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<!-- lower row-->
+			<button name="focus_btn"
+			       label="Focus"
+			       tool_tip="Focuses the camera on the selected avatar."
+			       left="10"
+			       bottom_delta="-22"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="prev_in_list_btn"
+			       label="Previous"
+			       tool_tip="Focuses the camera on the previous avatar in list."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="next_in_list_btn"
+			       label="Next"
+			       tool_tip="Focuses the camera on the next avatar in list."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+
+		</panel>
+		<panel border="true" bottom_delta="-150" follows="left|top|right|bottom" height="255"
+		       label="Alerts" left="1" mouse_opaque="true"
+		       name="alerts_tab" width="398">
+			<check_box height="16" label="Display alerts in chat for:"
+				   left="10" bottom_delta="-176" name="radar_alerts" 
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false" 
+				   control_name="RadarChatAlerts"
+				   tool_tip="When checked, announces alerts about incoming and outgoing avatars in chat." />
+
+			<check_box height="16" label="Avatars entering/exiting the sim"
+				   left="20" bottom_delta="-18" name="alerts_sim"
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false"
+				   control_name="RadarAlertSim"
+				   tool_tip="When checked, reports avatars entering or exiting the sim." />
+
+			<check_box height="16" label="Avatars within/beyond the draw distance"
+				   left="20" bottom_delta="-18" name="alerts_draw"
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false"
+				   control_name="RadarAlertDraw"
+				   tool_tip="When checked, reports avatars getting within or beyond the draw distance." />
+
+			<check_box height="16" label="Avatars within/beyond the shout range"
+				   left="20" bottom_delta="-18" name="alerts_shout"
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false"
+				   control_name="RadarAlertShoutRange"
+				   tool_tip="When checked, reports avatars getting within or beyond the shout range." />
+
+			<check_box height="16" label="Avatars within/beyond the chat range"
+				   left="20" bottom_delta="-18" name="alerts_chat"
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false"
+				   control_name="RadarAlertChatRange"
+				   tool_tip="When checked, reports avatars getting within or beyond the chat range." />
+		</panel>
+		<panel border="true" bottom_delta="-130" follows="left|top|right|bottom" height="255"
+		       label="Moderation" left="1" mouse_opaque="true"
+		       name="moderation_tab" width="398">
+			
+			<!-- Upper row -->
+			<button name="mute_btn"
+			       label="(Un)Mute"
+			       tool_tip="Mutes or unmutes the selected avatars (muted avatars' names are highlighted in red in the list)."
+			       left="10"
+			       bottom_delta="-190"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="freeze_btn"
+			       label="(Un)Freeze"
+			       tool_tip="Freezes or unfreezes the selected avatars."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="ar_btn"
+			       label="AR"
+			       tool_tip="Reports abuse on the selected avatar."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<!-- Middle row -->
+			<button name="eject_btn"
+			       label="Eject"
+			       tool_tip="Ejects the selected avatars from the parcel."
+			       left="10"
+			       bottom_delta="-24"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="estate_eject_btn"
+			       label="Estate eject"
+			       tool_tip="Ejects the selected avatars from the estate."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="get_key_btn"
+			       label="Get key"
+			       tool_tip="Copies the selected avatar's key to the clipboard."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<!-- Lower row -->
+			<button name="derender_btn"
+			       label="Derender"
+			       tool_tip="Derender the selected avatars, or when already derendered, remove them from the blacklisted objects list (note that to see them again, you will still need to move/TP far from them and back in, so that the sim server re-transmits the object data)."
+			       left="55"
+			       bottom_delta="-24"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+			<button name="rerender_btn"
+			       label="Rerender"
+			       tool_tip="Remove  the selected avatars from the blacklisted objects list. Note that to see them again, you will still need to move/TP far from them and back in, so that the sim server re-transmits the object data."
+			       left_delta="90"
+			       bottom_delta="0"
+			       width="80"
+			       height="20"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+				   enabled="false"
+			       />
+		</panel>
+		<panel border="true" bottom_delta="-150" follows="left|top|right|bottom" height="255"
+		       label="Options" left="1" mouse_opaque="true"
+		       name="options_tab" width="398">
+			<check_box height="16" label="Use legacy names"
+				   left="8" bottom_delta="-174" name="radar_use_legacy_names" 
+				   width="160" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false" 
+				   tool_tip="When checked, forces the use of legacy names by the radar." />
+			<spinner name="updates_per_second" control_name="RadarUpdatesPerSecond"
+			 label="Updates per second:"
+			 tool_tip="This is the maximum number of times the radar list is refreshed each second (eats up more FPS when higher). Note that this rate is further bound by the frame rate (to prevent introducing viewer-side lag, the radar will update at most once every 5 frames)."
+			 label_width="120" font="SansSerifSmall" enabled="true" mouse_opaque="true"
+			 decimal_digits="0" min_val="0" max_val="10" increment="1"
+			 left="10" bottom_delta="-19" width="160" height="16" follows="bottom|left" />
+			<check_box height="16" label="Announce incoming avatars even when closed"
+				   left="8" bottom_delta="-22" name="keep_open"
+				   width="200" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false"
+				   control_name="RadarKeepOpen"
+				   tool_tip="When checked, causes the radar floater to be hidden instead of being closed so to keep announcing incoming avatars in the chat console to you and in private messages to HUDs." />
+			<check_box height="16" label="Announce keys to HUD"
+				   left="8" bottom_delta="-18" name="radar_chat_keys" 
+				   width="160" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false" 
+				   control_name="RadarChatKeys"
+				   tool_tip="When checked, causes the radar to send incoming avatars' keys on a private channel for LSL scripts to intercept them." />
+			<button name="send_keys_btn"
+			       label="Announce now"
+			       tool_tip="Sends all avatar keys to HUD now."
+			       left_delta="164"
+			       bottom_delta="-1"
+			       width="100"
+			       height="18"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+			       />
+			<check_box height="16" label="Remember marked avatars"
+				   left="8" bottom_delta="-17" name="radar_chat_keys" 
+				   width="160" follows="bottom|left"
+				   font="SansSerifSmall"
+				   initial_value="true" enabled="true" radio_style="false" 
+				   control_name="RadarRememberMarked"
+				   tool_tip="When checked, causes the radar to remember the marked avatars over sessions and to restore automatically the mark in the list whenever the avatars come back into radar range." />
+			<button name="clear_marked_btn"
+			       label="Clear saved list"
+			       tool_tip="Clears the saved list of marked avatars."
+			       left_delta="164"
+			       bottom_delta="-1"
+			       width="100"
+			       height="18"
+			       font="SansSerifSmall"
+			       follows="bottom|left"
+			       />
+		</panel>
+	</tab_container>
+</floater>

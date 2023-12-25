@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="experiences_log" label="Events"
+ left="2" top="-2" width="500" height="300" follows="top|left|right|bottom">
+	<string name="no_events">
+		No event.
+	</string>
+	<string name="loading">
+		loading...
+	</string>
+	<layout_stack orientation="vertical" auto_resize="true" user_resize="false"
+	 left="2" top="-2" right="-2" bottom="2" follows="top|left|right|bottom">
+		<layout_panel top="0" follows="top|left|right|bottom">
+			<scroll_list name="experience_log_list" draw_heading="true"
+			 left="2" right="-90" top="-4" bottom="0" follows="top|left|right|bottom">
+				<column name="time" label="Time" width="120" />
+				<column name="event" label="Event" width="100" />
+				<column name="experience_name" label="Experience" width="100" />
+				<column name="object_name" label="Object" dynamicwidth="true" />
+			</scroll_list>
+			<button name="btn_notify" label="Notify" enabled="false"
+			 bottom="52" right="-3" width="80" height="20" follows="bottom|right"/>
+			<button name="btn_profile_xp" label="Profile" enabled="false"
+			 bottom="28" right="-3" width="80" height="20" follows="bottom|right"/>
+			<button name="btn_report_xp" label="Report" enabled="false"
+			 bottom="4" right="-3" width="80" height="20" follows="bottom|right"/>
+		</layout_panel>
+		<layout_panel name="button_panel" auto_resize="false" user_resize="false"
+		 height="24" follows="left|bottom">
+			<check_box name="notify_all" label="Notify all events for days:"
+			 left="4" bottom_delta="-20" width="160" height="16" follows="bottom|left"/>
+			<spinner name="logsizespinner" control_name="ExperiencesLogDays"
+			 min_val="0" max_val="14" increment="1" decimal_digits="0"
+			 left_delta="170" bottom_delta="2" width="40" height="16" follows="bottom|left"/>
+			<button name="btn_clear" label="Clear" enabled="false"
+			 left_delta="70" bottom_delta="-4" width="80" height="20" follows="bottom|left"/>
+			<button name="btn_prev" label="&lt;"
+			 left_delta="100" bottom_delta="0" width="20" height="20" follows="bottom|left"/>
+			<button name="btn_next" label="&gt;"
+			 left_delta="24" bottom_delta="0" width="20" height="20" follows="bottom|left"/>
+		</layout_panel>
+	</layout_stack>
+</panel>

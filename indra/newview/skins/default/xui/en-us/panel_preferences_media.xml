@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" follows="left|top|right|bottom"
+     height="440" label="Audio &amp; media" left="102" mouse_opaque="true"
+     name="Media panel" width="517">
+	<tab_container name="Audio and Media" label="Audio and media" tab_min_width="90" tab_position="top"
+	 left="0" bottom="0" width="500" height="440">
+		<panel name="Audio" label="Audio" border="true" mouse_opaque="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<panel name="Volume Panel" label="Volume" filename="panel_audio.xml"
+			 border="true" mouse_opaque="true"
+			 bottom="-164" left="10" height="160" width="220" follows="left|top" />
+			<check_box name="mute_when_minimized" control_name="MuteWhenMinimized"
+			 label="Mute audio when window is minimized" font="SansSerifSmall"
+			 bottom_delta="138" left="240" height="16" width="240" follows="left|top" />
+			<check_box name="enable_attached_sounds" control_name="EnableAttachmentSounds"
+			 label="Other avatars' attachments sounds" font="SansSerifSmall"
+			 tool_tip="Unchecking this box allows to mute all sounds coming from other avatars' attachments which are played via llPlaySound(). Note that this does not affect sounds played via llTriggerSound() since those are not flagged as attached to an object at all."
+			 bottom_delta="-24" left_delta="0" height="16" width="200" follows="left|top" />
+			<check_box name="enable_gesture_sounds" control_name="EnableGestureSounds"
+			 label="Gesture sounds" font="SansSerifSmall"
+			 tool_tip="Unchecking this box allows to mute all sounds coming from gestures."
+			 bottom_delta="-20" left_delta="0" height="16" width="100" follows="left|top" />
+			<check_box name="enable_neighbor_sims_sounds" control_name="NeighborSimsSounds"
+			 label="Neighbor sims sounds" font="SansSerifSmall"
+			 tool_tip="Unchecking this box allows to mute all sounds coming from objects located in neighboring simulators."
+			 bottom_delta="0" left_delta="104" height="16" width="240" follows="left|top" />
+			<slider name="Wind level" label="Wind audio level" control_name="AudioLevelWind"
+			 tool_tip="This is an additionnal audio level factor (multiplied to the Ambient sound factor) applied to the winds audio (both absolute and relative winds). Note that unlike Linden Lab's and most third party viewers, the Cool VL Viewer always plays wind audio when the camera is above water and whether the avatar is flying or not (other viewers disable wind audio when not flying)."
+			 min_val="0" max_val="1" increment="0.05" show_text="false" volume="true" label_width="90"
+			 bottom_delta="-20" left="244" height="15" width="211" follows="left|top" />
+			<button name="mute_wind" label="" control_name="DisableWindAudio" tab_stop="false" toggle="true" 
+		     image_selected="icn_speaker-muted_dark.tga" image_unselected="icn_speaker_dark.tga"
+			 tool_tip="You may entirely disable the wind audio with this button."
+			 left_delta="216" bottom_delta="0" width="24" height="16" follows="left|top" />
+			<slider name="Doppler Effect" label="Doppler effect" control_name="AudioLevelDoppler"
+			 min_val="0" max_val="2" increment="0.1" decimal_digits="1" show_text="true" label_width="90"
+			 bottom_delta="-20" left="244" height="15" width="240" follows="left|top" />
+			<slider name="Rolloff Factor" label="Rolloff factor" control_name="AudioLevelRolloff"
+			 min_val="0.1" max_val="2" increment="0.1" decimal_digits="1" show_text="true" label_width="95"
+			 bottom_delta="-20" left_delta="0" height="15" width="240" follows="left|top" />
+			<text name="ui_sounds_text" font="SansSerif" mouse_opaque="true"
+			 tool_tip="The check boxes below allow you to enable and disable individual UI sounds."
+			 bottom_delta="-40" left="15" height="16" width="220" follows="left|top">
+				Play UI sounds for:
+			</text>
+			<text name="ui_sounds_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Minimum change in your money balance required to trigger a money earnt or money spent UI sound."
+			 bottom_delta="-2" left_delta="360" height="16" width="120" follows="left|top">
+				L$ change threshold:
+			</text>
+			<check_box name="enable_UISndMoneyChangeUpEnable" control_name="UISndMoneyChangeUpEnable"
+			 label="Money earnt" font="SansSerifSmall"
+			 bottom_delta="-20" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndMoneyChangeDownEnable" control_name="UISndMoneyChangeDownEnable"
+			 label="Money spent" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<spinner name="L$ Change Threshold" control_name="UISndMoneyChangeThreshold" label_width="0"
+			 tool_tip="Minimum change in your money balance required to trigger a money earnt or money spent UI sound."
+			 min_val="0" max_val="10000" increment="10" decimal_digits="0"
+			 bottom_delta="0" left_delta="155" height="16" width="60" follows="left|top" />
+			<check_box name="enable_UISndClickEnable" control_name="UISndClickEnable"
+			 label="Mouse clicks" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndClickReleaseEnable" control_name="UISndClickReleaseEnable"
+			 label="Mouse click releases" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndPieMenuAppearEnable" control_name="UISndPieMenuAppearEnable"
+			 label="Pie menu appearing" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndPieMenuHideEnable" control_name="UISndPieMenuHideEnable"
+			 label="Pie menu disappearing" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndPieMenuSliceHighlightEnable" control_name="UISndPieMenuSliceHighlightEnable"
+			 label="Pie menu slice highlighting" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndAlertEnable" control_name="UISndAlertEnable"
+			 label="Alerts" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndInvalidOpEnable" control_name="UISndInvalidOpEnable"
+			 label="Invalid operations" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndBadKeystrokeEnable" control_name="UISndBadKeystrokeEnable"
+			 label="Bad keystrokes" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndWindowOpenEnable" control_name="UISndWindowOpenEnable"
+			 label="Floater opening" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndWindowCloseEnable" control_name="UISndWindowCloseEnable"
+			 label="Floater closing" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndTeleportOutEnable" control_name="UISndTeleportOutEnable"
+			 label="Teleports" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndSnapshotEnable" control_name="UISndSnapshotEnable"
+			 label="Snapshots" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndNewIncomingIMSessionEnable" control_name="UISndNewIncomingIMSessionEnable"
+			 label="Incoming IM session starting..." font="SansSerifSmall"
+			 tool_tip="When enabled, a sound for incoming IM sessions will play when they start. This applies only to private (or conference) sessions, unless the setting on the right is also enabled, in which case the sound will also be played for group sessions."
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndNewIncomingPlayForGroup" control_name="UISndNewIncomingPlayForGroup"
+			 tool_tip="When enabled, a sound for incoming group IM sessions will play when they start. If disabled, the new group sessions will not play a sound. BEWARE: due to how private sessions are detected, disabling this setting means that you will not get a sound played either for private IM sessions starting while you are in Admin mode."
+			 label="...play it also for group sessions" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndStartIMEnable" control_name="UISndStartIMEnable"
+			 label="Outgoing IM session starting" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndTypingEnable" control_name="UISndTypingEnable"
+			 tool_tip="Note: this is actually the same setting as the &quot;Play the typing sound when an avatar types in chat&quot; one, in the Text Chat preferences tab."
+			 label="Avatars typing in chat" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndObjectCreateEnable" control_name="UISndObjectCreateEnable"
+			 label="In-world object creations" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndObjectDeleteEnable" control_name="UISndObjectDeleteEnable"
+			 label="In-world object deletions" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndObjectRezInEnable" control_name="UISndObjectRezInEnable"
+			 label="In-world object rezzing" font="SansSerifSmall"
+			 bottom_delta="-18" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndObjectRezOutEnable" control_name="UISndObjectRezOutEnable"
+			 label="In-world object de-rezzing" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="220" height="16" width="170" follows="left|top" />
+			<text name="physics_sounds_text" font="SansSerif" mouse_opaque="true"
+			 tool_tip="The check boxes below allow you to enable and disable individual physics engine sounds."
+			 bottom_delta="-23" left="15" height="16" width="220" follows="left|top">
+				Play physics sounds for:
+			</text>
+			<spinner name="Health Reduction Threshold" control_name="UISndHealthReductionThreshold"
+			 label="Health reduction threshold" label_width="150"
+			 tool_tip="Minimum reduction of your avatar&apos;s health (in percents) required to trigger the damages UI sound"
+			 min_val="0" max_val="100" increment="10" decimal_digits="0"
+			 bottom_delta="-1" left_delta="166" height="16" width="200" follows="left|top" />
+			<text name="health_percent_text" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="210" height="16" width="20" follows="left|top">
+				%
+			</text>
+			<check_box name="enable_EnableCollisionSounds" control_name="EnableCollisionSounds"
+			 label="Collision sounds" font="SansSerifSmall"
+			 tool_tip="This is for the sounds resulting from collisions of avatars and physical objects with other objects or avatars."
+			 bottom_delta="-23" left="28" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndHealthReductionFEnable" control_name="UISndHealthReductionFEnable"
+			 label="Damages: female pain" font="SansSerifSmall"
+			 tool_tip="If enabled, this is the sound played when your avatar endures health damages, while using a female shape or when the male pain sound is disabled."
+			 bottom_delta="0" left_delta="150" height="16" width="170" follows="left|top" />
+			<check_box name="enable_UISndHealthReductionMEnable" control_name="UISndHealthReductionMEnable"
+			 label="Damages: male pain" font="SansSerifSmall"
+			 tool_tip="If enabled, this is the sound played when your avatar endures health damages, while using a male shape or when the female pain sound is disabled."
+			 bottom_delta="0" left_delta="150" height="16" width="170" follows="left|top" />
+		</panel>
+		<panel name="Media" label="Media" border="true" mouse_opaque="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<check_box name="media_enable_filter" control_name="MediaEnableFilter"
+			 label="Media and audio stream filtering" font="SansSerifSmall"
+			 tool_tip="This setting entitles you to allow/deny/whitelist/blacklist the servers for media and parcel audio streams. When the viewer connects to a media or streaming server, your IP is exposed and some people might use it to try and track you and make assumptions about what your alt avatars could be."
+			 bottom="-28" left="15" height="16" width="450" follows="left|top" />
+			<check_box name="media_lookup_ip" control_name="MediaLookupIP"
+			 label="Lookup IP address for filtered domains" font="SansSerifSmall"
+			 tool_tip="When checked, enables IP lookups on media domains. This allows to defeat domain name changes of fixed IP servers that you already banned under another domain name. It however incurs short 'freezes' (normally less than 1 second) on successful lookups (valid domains) and longer 'freezes' (up to around 10s) on failing lookups (invalid domain names, normally rare)."
+			 bottom_delta="-20" left_delta="20" height="16" width="450" follows="left|top" />
+			<check_box name="streaming_music" control_name="EnableStreamingMusic"
+			 label="Play parcel streaming music when available" font="SansSerifSmall"
+			 bottom_delta="-24" left="15" height="16" width="450" follows="left|top" />
+			<check_box name="notify_stream_changes" control_name="NotifyStreamChanges"
+			 label="Notify about streaming music title changes" font="SansSerifSmall"
+			 tool_tip="When using FMOD as the audio driver, you may check this box to get notified about parcel music title changes. Note that the currently playing music title is also reported when available in the tool tip of the music controls icon, on the bottom right of the viewer window."
+			 bottom_delta="-20" left_delta="20" height="16" width="450" follows="left|top" />
+			<check_box name="streaming_video" control_name="EnableStreamingMedia"
+			 label="Play media when available" font="SansSerifSmall"
+			 bottom_delta="-24" left="15" height="16" width="450" follows="left|top" />
+			<check_box name="media_hud" control_name="MediaOnAPrimUI"
+			 label="Show the media HUD" font="SansSerifSmall"
+			 tool_tip="When this setting is enabled and you hover the mouse pointer, or click on the face of an object bearing a playing media, the media HUD is shown. Note that, unlike parcel media, shared media may have permission restrictions that forbid the media HUD to show despite this setting."
+			 bottom_delta="-20" left_delta="20" height="16" width="150" follows="left|top" />
+			<text name="text_box_zoom" type="string" length="1" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="When a new media face is selected (clicked), an auto-zooming on that face may occur, depending on the media configuration. You may override this behavior with this setting."
+			 left_delta="160" bottom_delta="0" width="70" height="16" follows="left|top">
+				Auto-zoom:
+			</text>
+			<radio_group name="auto_zoom" draw_border="false" control_name="MediaAutoZoom"
+			 left_delta="80" bottom_delta="0" height="20" width="340" follows="left|top">
+				<radio_item name="0" value="0" bottom="-20" left="0" height="20" width="60"
+				 tool_tip="With this setting checked, auto-zooming will happen depending on the media configuration.">
+					Default
+				</radio_item>
+				<radio_item name="1" value="1" bottom="-20" left="64" height="20" width="60"
+				 tool_tip="With this setting checked, auto-zooming will never happen, whatever is the media configuration.">
+					Never
+				</radio_item>
+				<radio_item name="2" value="2" bottom="-20" left="128" height="20" width="60"
+				 tool_tip="With this setting checked, auto-zooming will always happen, whatever is the media configuration.">
+					Always
+				</radio_item>
+			</radio_group>
+			<check_box name="auto_streaming_video" control_name="ParcelMediaAutoPlayEnable"
+			 label="Automatically play parcel media" font="SansSerifSmall"
+			 bottom_delta="-20" left="35" height="16" width="450" follows="left|top" />
+			<check_box name="shared_media" control_name="PrimMediaMasterEnabled"
+			 label="Play shared media (AKA 'media on a prim')" font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="450" follows="left|top" />
+			<check_box name="on_others" control_name="MediaShowOnOthers"
+			 label="Play shared media on objects attached to other avatars" font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="20" height="16" width="450" follows="left|top" />
+			<check_box name="within_parcel" control_name="MediaShowWithinParcel"
+			 label="Play media located on the parcel where your avatar is standing" font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="450" follows="left|top" />
+			<check_box name="outside_parcel" control_name="MediaShowOutsideParcel"
+			 label="Play media located outside the parcel your avatar is standing in" font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="450" follows="left|top" />
+		</panel>
+	</tab_container>
+</panel>

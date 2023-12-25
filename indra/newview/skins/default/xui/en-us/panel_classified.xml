@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="Classified" title="Classified" border="false"
+ left="330" bottom="0" width="450" height="490" follows="bottom|left">
+	<combo_box name="classified_category_combo" label=""
+	 bg_readonly_color="grey" text_readonly_color="white"
+	 left="20"  bottom="-35" width="120" height="20" follows="left|top" />
+	<combo_box name="classified_mature_check"  allow_text_entry="false"
+	 max_chars="20"  mouse_opaque="true"
+	 left_delta="130" bottom_delta="0" width="120" height="20" follows="left|top">
+		<combo_item name="select_mature" value="Select">
+			- Select maturity -
+		</combo_item>
+		<combo_item name="mature" value="Mature">
+			Mature content
+		</combo_item>
+		<combo_item name="pg" value="PG">
+			PG content
+		</combo_item>
+	</combo_box>
+	<button name="classified_update_btn" label="Update" font="SansSerif"
+	 left_delta="130" bottom_delta="0" width="70" height="20" follows="left|top" />
+	<texture_picker name="snapshot_ctrl"
+	 left="20" bottom="-315" width="400" height="300" follows="left|top" />
+	<line_editor name="given_name_editor" font="SansSerif" spell_check="true" enabled="false"
+     tool_tip="Name must begin with a letter or number, not a punctuation."
+	 left="20" bottom_delta="-8" width="400" height="20" follows="left|top" />
+	<text_editor name="desc_editor" max_length="1023" word_wrap="true"
+	 font="SansSerifSmall"  enabled="false"
+	 left="20" width="400" height="90" follows="left|top" />
+	<line_editor name="location_editor" font="SansSerif" enabled="false"
+	 tool_tip="Set the location for this classified to your current position."
+	 left="20" width="400" height="20" follows="left|top" />
+	<button name="set_location_btn" label="Set"
+	 left="380" bottom_delta="0" width="60" height="20" follows="left|top" />
+	<button name="classified_teleport_btn" label="Teleport"
+	 left="20" bottom_delta="-28" width="100" height="20" follows="left|top" />
+	<button name="classified_map_btn" label="Show on map"
+	 left_delta="105" bottom_delta="0" width="100" height="20" follows="left|top" />
+	<button name="classified_profile_btn" label="Profile"
+	 left_delta="105" bottom_delta="0" width="100" height="20" follows="left|top" />
+	<string name="ad_placed_paid">Ad placed: [DATE], Paid L$[AMT] for listing.</string>
+	<string name="update_txt">Update</string>
+	<string name="publish_txt">Publish...</string>
+</panel>

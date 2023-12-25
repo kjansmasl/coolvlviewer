@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inventory script" title="Script" rect_control="PreviewScriptRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ bottom="-757" height="550" left="358" width="500" min_height="271" min_width="290">
+	<panel bottom="-550" enabled="true" follows="left|top|right|bottom" height="508"
+	     left="0" mouse_opaque="true" name="script panel" width="500" />
+	<icon bottom="-19" color="1 1 1 1" enabled="true" follows="top|right" height="16"
+	     image_name="icon_lock.tga" left="444" mouse_opaque="true" name="lock"
+	     width="16" />
+	<text
+	     bottom="-38" drop_shadow_visible="true" enabled="true" follows="left|top"
+	     font="SansSerif" halign="left" height="19" left="13"
+	     mouse_opaque="true" name="desc txt" width="80">
+		Description:
+	</text>
+	<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-38"
+	     enabled="true" follows="left|top|right" font="SansSerif"
+	     handle_edit_keys_directly="false" height="19" left="93" max_length="127"
+	     mouse_opaque="true" name="desc" select_all_on_focus_received="false"
+	     select_on_focus="false" width="394" spell_check="true" />
+	<string name="compile_success">
+		Compile successful !
+	</string>
+	<string name="save_complete">
+		Save complete.
+	</string>
+</floater>

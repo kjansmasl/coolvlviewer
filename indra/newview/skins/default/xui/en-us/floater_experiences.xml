@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<floater name="experiences" title="Experiences" rect_control="FloaterExperiencesRect"
+ can_close="true" can_resize="true" can_drag_on_left="false" can_minimize="true"
+ min_width="500" min_height="300" width="500" height="400">
+	<tab_container name="xp_tabs"
+	  left="4" top="-28" right="-4" bottom="4" follows="top|left|right|bottom"/>
+	<button name="close_btn" label="Close"
+	 right="-10" bottom="8" width="80" height="20" follows="right|bottom"/>
+</floater>

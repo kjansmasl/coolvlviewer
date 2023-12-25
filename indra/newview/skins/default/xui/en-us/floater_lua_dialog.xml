@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="lua dialog" title="LUA dialog" rect_control="FloaterLuaDialogRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="284" height="136">
+	<text_editor name="text" font="SansSerif" word_wrap="true"
+	 hide_scrollbar="true" enabled="false"
+	 left="12" bottom="-86" width="260" height="64" follows="left|top" />
+	<line_editor name="input" font="SansSerif"
+	 left="12" bottom_delta="-22" width="260" height="18" />
+	<button name="btn1" label="Button 1" font="SansSerif"
+	 left="12" bottom_delta="-24" width="80" height="20" follows="left|top" />
+	<button name="btn2" label="Button 2" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<button name="btn3" label="Button 3" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+</floater>

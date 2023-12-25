@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Particle Pie">
+	<menu_item_call name="Mute Owner" label="Mute owner" enabled="false">
+		<on_click function="Particle.Mute" userdata="owner" />
+		<on_enable function="Particle.EnableEntry" userdata="owner" />
+	</menu_item_call>
+	<menu_item_call name="Mute Object" label="Mute object" enabled="false">
+		<on_click function="Particle.Mute" userdata="object" />
+		<on_enable function="Particle.EnableEntry" userdata="object" />
+	</menu_item_call>
+	<menu_item_call name="Report Abuse..." label="Report..." enabled="false">
+		<on_click function="Particle.ReportAbuse" />
+		<on_enable function="Particle.EnableEntry" userdata="object" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_separator />
+	<menu_item_separator />
+	<menu_item_call name="Refresh Texture" label="Refresh" enabled="false">
+		<on_click function="Particle.RefreshTexture" />
+	</menu_item_call>
+</pie_menu>

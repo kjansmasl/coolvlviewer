@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- IMPORTANT: if you change the name for this floater, change it as well in gIMFloaterName -->
+<floater name="im session" title="(unknown)" label="(unknown)" default_tab_group="1"
+ border="true" can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ height="297" width="501" left="1" bottom="-297" min_height="125" min_width="360" follows="left|top|right|bottom">
+	<layout_stack border="false" bottom="0" follows="left|top|right|bottom" height="276" left="0"
+	     orientation="horizontal" tab_group="1" width="495" name="panels">
+		<layout_panel border="false" bottom="0" default_tab_group="1" follows="left|top|bottom|right"
+		     height="130" left="0" min_width="210" name="im_contents_panel" width="495">
+			<button bottom="-20" follows="left|top" height="20" label="Group info" left="5"
+			     name="group_info_btn" tab_group="0" width="80" />
+			<button bottom_delta="0" enabled="false" follows="left|top" halign="right" height="20"
+			     image_overlay="icn_voice-call-start.tga" image_overlay_alignment="left"
+			     label="Join call" left_delta="85" name="start_call_btn" pad_right="12"
+			     width="80" />
+			<button bottom_delta="0" follows="left|top" halign="right" height="20"
+			     image_overlay="icn_voice-call-end.tga" image_overlay_alignment="left"
+			     label="End call" left_delta="0" name="end_call_btn" pad_right="12"
+			     visible="false" width="80" />
+			<button bottom_delta="0" follows="right|top" height="20" label="&lt; &lt;"
+			     label_selected="&gt; &gt;" left="463" name="toggle_active_speakers_btn"
+			     right="496"
+			     tool_tip="Click here to toggle a list of active participants in this IM session."
+			     visible="true" width="30" />
+			<button label="View log..." name="view_log_btn" tool_tip="View the instant message log file."
+			     bottom_delta="0" height="20" left_delta="-100" width="90" follows="right|top" />
+			<button label="Snooze" name="snooze_btn" tool_tip="Snooze the session for the configured time."
+			     bottom_delta="0" height="20" left_delta="-100" width="90" follows="right|top" />
+			<text_editor type="string" length="1" bg_readonly_color="ChatHistoryBgColor" bg_writeable_color="ChatHistoryBgColor"
+			     bottom="30" embedded_items="false" enabled="false"
+			     follows="left|top|right|bottom" font="SansSerif" left="5"
+			     max_length="2147483647" mouse_opaque="true" name="im_history"
+			     text_color="ChatHistoryTextColor" track_bottom="true" 
+			     text_readonly_color="ChatHistoryTextColor" top="104" width="490"
+			     word_wrap="true" />
+			<line_editor name="chat_editor" font="SansSerif" label="Click here to instant message" mouse_opaque="true"
+			 tab_group="1" bevel_style="in" border_style="line" border_thickness="1" handle_edit_keys_directly="false"
+			 select_all_on_focus_received="false" select_on_focus="false" max_length="1023" spell_check="true"
+			 left="5" bottom="7" width="402" height="20" follows="left|right|bottom" />
+			<button name="open_text_editor_btn" label="&gt;" enabled="true" mouse_opaque="true"
+			 tool_tip="Click to open or focus the text input editor associated with this IM input line."
+			 left="410" bottom_delta="0" width="20" height="20" follows="right|bottom" />
+			<button name="send_btn" label="Send" font="SansSerif" halign="center" mouse_opaque="true"
+			 left="432" bottom_delta="0" width="60" height="20" follows="right|bottom" />
+		</layout_panel>
+		<layout_panel auto_resize="false" bottom="0" can_resize="true"
+		     filename="panel_speaker_controls.xml" height="120" left="0" min_width="140"
+		     name="active_speakers_panel" top_delta="0" visible="false" width="140" />
+	</layout_stack>
+
+	<string name="ringing">Joining voice chat...</string>
+	<string name="connected">Connected, click 'End call' to hang up.</string>
+	<string name="hang_up">Left Voice Chat.</string>
+	<string name="voice_icon">icn_voice-groupfocus.tga</string>
+	<string name="typing_start_string">[NAME] is typing...</string>
+	<string name="session_start_string">Starting session with [NAME], please wait...</string>
+	<string name="moderated_chat_label">(Moderated: Voices off by default)</string>
+	<string name="default_text_label">Click here to instant message.</string>
+	<string name="muted_text_label">Your text chat has been disabled by a group moderator.</string>
+	<string name="unavailable_text_label">Text chat is not available for this call.</string>
+</floater>

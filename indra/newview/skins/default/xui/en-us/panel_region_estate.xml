@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="0" follows="top|left" height="320" label="Estate"
+     left="0" name="Estate" width="480">
+	<text name="estate_help_text" font="SansSerif"
+	 left="10" bottom="-32" width="460" height="20" follows="left|top">
+		Changes to settings on this tab will affect all regions in the estate.
+	</text>
+	<text name="estate_text" font="SansSerif"
+	 left="10" bottom_delta="-32" width="480" height="20" follows="left|top">
+		Estate:
+	</text>
+	<text name="estate_name" font="SansSerif"
+	 left_delta="0" bottom_delta="-16" width="480" height="20" follows="left|top">
+		(unknown)
+	</text>
+	<text name="owner_text" font="SansSerif"
+	 left="10" bottom_delta="-24" height="20" width="480" follows="left|top">
+		Owner:
+	</text>
+	<text name="estate_owner" font="SansSerif"
+	 left_delta="0" bottom_delta="-16" width="480" height="20" follows="left|top">
+		(unknown)
+	</text>
+	<button name="kick_user_from_estate_btn" label="Kick user from estate..." font="SansSerif"
+	 left="150" bottom_delta="-32" width="200" height="20" follows="left|top"/>
+	<button name="message_estate_btn" label="Send message to estate..." font="SansSerif"
+	 left="150" bottom_delta="-24" width="200" height="20" follows="left|top" />
+	<view_border name="border1" bevel_style="in" border="true" border_thickness="1"
+	 left="6" bottom_delta="-260" width="484" height="252" follows="top|left" />
+	<check_box name="use_global_time_check" label="Use global time"
+	left="12" bottom_delta="224" width="200" height="20" follows="left|top" />
+	<button name="use_global_time_help" label="?" font="SansSerifSmall"
+	 left="466" bottom_delta="0" width="18" height="18" follows="left|top" />
+	<check_box name="fixed_sun_check" label="Fixed Sun" font="SansSerifSmall"
+	 left="12" bottom_delta="-20" width="100" height="20" follows="left|top" />
+	<button name="fixed_sun_help" label="?" font="SansSerifSmall"
+	 left="466" bottom_delta="0" width="18" height="18" follows="left|top" />
+	<icon name="daycycle" image_name="icon_day_cycle.tga"
+	 left="256" bottom_delta="-6" width="165" height="20" follows="left|top" />
+	<slider name="sun_hour_slider" label="Phase" show_text="false"
+	 min_val="6" max_val="30" increment="0.001"
+	 left="214" bottom_delta="-25" width="214" height="20" follows="left|top" />
+	<check_box name="public_access_check" label="Allow public access" font="SansSerifSmall"
+	 left="12" bottom_delta="-28" width="200" height="20" follows="left|top" />
+	<button name="public_access_help" label="?" font="SansSerifSmall"
+	 left="466" bottom_delta="0" width="18" height="18" follows="left|top" />
+	<text name="Only Allow" font="SansSerifSmall"
+	 left="32" bottom_delta="-20" width="200" height="16" follows="top|left">
+		Restrict access to:
+	</text>
+	<check_box name="limit_payment" label="Residents with payment info on file" font="SansSerifSmall"
+	 tool_tip="Ban unidentified residents."
+	 left_delta="180" bottom_delta="0" width="250" height="16" follows="top|left" />
+	<check_box name="limit_age_verified" label="Age-verified adults" font="SansSerifSmall"
+     tool_tip="Ban residents who have not verified their age with the grid operator."
+	 left_delta="0" bottom_delta="-20" width="250" height="16" follows="top|left" />
+	<check_box name="limit_bots" label="Must not be a scripted agent" font="SansSerifSmall"
+     tool_tip="Residents must not be a scripted agents (bots) to access this estate."
+	 left_delta="0" bottom_delta="-20" width="250" height="16" follows="top|left" />
+	<check_box name="parcel_access_override" label="Allow parcel access override" font="SansSerifSmall"
+	 left="26" bottom_delta="-20" width="250" height="16" follows="top|left" />
+	<check_box name="allow_direct_teleport" label="Allow direct teleport" font="SansSerifSmall"
+	 left="12" bottom_delta="-28" width="250" height="16" follows="left|top" />
+	<button name="allow_direct_teleport_help" label="?" font="SansSerifSmall"
+	 left="466" bottom_delta="0" width="18" height="18" follows="left|top" />
+	<check_box name="voice_chat_check" label="Allow voice chat" font="SansSerifSmall"
+	 left="12" bottom_delta="-28" width="200" height="16" follows="left|top" />
+	<button name="voice_chat_help" label="?" font="SansSerifSmall"
+	 left="466" bottom_delta="0" width="18" height="18" follows="left|top" />
+	<button name="apply_btn" label="Apply" font="SansSerif"
+	left="200" bottom_delta="-36" width="90" height="20" follows="left|top" />
+</panel>

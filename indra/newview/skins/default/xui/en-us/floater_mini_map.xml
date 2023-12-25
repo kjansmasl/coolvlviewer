@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="mini map" title=""  rect_control="FloaterMiniMapRect"
+ can_close="true" can_drag_on_left="false" can_minimize="false"
+ can_resize="true" can_tear_off="false"
+ width="220" min_width="64" height="220" min_height="64" follows="top|right">
+	<panel name="mini_mapview" label="Mini map" mouse_opaque="false"
+	 left="2" bottom="2" width="216" height="216" follows="left|top|right|bottom" />
+</floater>

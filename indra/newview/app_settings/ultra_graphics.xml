@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version = "101">
+	<!--NO SHADERS-->
+	<RenderAvatarCloth value="TRUE"/>
+	<!--Default for now-->
+	<RenderAvatarLODFactor value="1.0"/>
+	<!--Short Range-->
+	<RenderFarClip value="256"/>
+	<!--Default for now-->
+	<RenderFlexTimeFactor value="1"/>
+	<!--256... but they don't use this-->
+	<RenderGlowResolutionPow value="9"/>
+	<!--Local lights-->
+	<RenderLocalLightCount value="2048"/>
+	<!--Low number-->
+	<RenderMaxPartCount value="4096"/>
+	<!-- Terrain and trees -->
+	<RenderWaterReflectionType value="2"/>
+	<!--Simple-->
+	<RenderTerrainDetail value="1"/>
+	<!--Default for now-->
+	<RenderTerrainLODFactor value="2"/>
+	<!--Default for now-->
+	<RenderTreeLODFactor value="3"/>
+	<!--Impostors and visual muting limits-->
+	<RenderAvatarMaxNonImpostors value="0"/>
+	<RenderAvatarMaxComplexity value="350000"/>
+	<!--Default for now-->
+	<RenderVolumeLODFactor value="3"/>
+	<!-- Shaders-->
+	<WindLightUseAtmosShaders value="TRUE"/>
+</settings>

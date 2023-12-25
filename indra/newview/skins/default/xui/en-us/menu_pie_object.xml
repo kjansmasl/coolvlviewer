@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Object Pie">
+	<menu_item_call name="Open" label="Open" enabled="false">
+		<on_click function="Object.Open" />
+		<on_enable function="Object.EnableOpen" />
+	</menu_item_call>
+	<menu_item_call name="Create" label="Create" enabled="false">
+		<on_click function="Object.Build" />
+		<on_enable function="EnableEdit" />
+	</menu_item_call>
+	<menu_item_call name="Object Touch" label="Touch">
+		<on_click function="Object.Touch" />
+		<on_enable name="EnableTouch" function="Object.EnableTouch" userdata="Touch"/>
+	</menu_item_call>
+	<menu_item_call name="Object Sit" label="Sit here" enabled="false">
+		<on_click function="Object.SitOrStand" />
+		<on_enable name="EnableSitOrStand" function="Object.EnableSitOrStand" userdata="Sit here,Stand up"/>
+	</menu_item_call>
+	<menu_item_call name="Pie Object Take" label="Take" enabled="false">
+		<on_click function="Tools.BuyOrTake" />
+		<on_enable name="EnableBuyOrTake" function="Tools.EnableBuyOrTake" userdata="Buy,Take"/>
+	</menu_item_call>
+	<menu_item_call name="Pay..." label="Pay..." enabled="false">
+		<on_click function="PayObject" />
+		<on_enable function="EnablePayObject" />
+	</menu_item_call>
+	<pie_menu name="More &gt;" label="More &gt;">
+		<menu_item_call name="Delete" label="Delete" enabled="false">
+			<on_click function="Object.Delete" />
+			<on_enable function="Object.EnableDelete" />
+		</menu_item_call>
+		<menu_item_call name="Wear" label="Wear" enabled="false">
+			<on_click function="Object.AttachToAvatar" />
+			<on_enable function="Object.EnableWear" />
+		</menu_item_call>
+		<menu_item_call name="Take Copy" label="Take copy" enabled="false">
+			<on_click function="Tools.TakeCopy" />
+			<on_enable function="Tools.EnableTakeCopy" />
+		</menu_item_call>
+		<pie_menu name="Object Attach HUD" label="Attach HUD &gt;" />
+		<pie_menu name="Object Attach" label="Attach &gt;" />
+		<menu_item_call name="Return..." label="Return..." enabled="false">
+			<on_click function="Object.Return" />
+			<on_enable function="Object.EnableReturn" />
+		</menu_item_call>
+		<pie_menu name="Object More" label="More &gt;">
+			<pie_menu name="Object Rendering Menu" label="Rendering &gt;">
+				<menu_item_call name="Object Derender" label="Derender">
+					<on_click function="Object.Derender" />
+					<on_enable function="Object.EnableDerender" />
+				</menu_item_call>
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_call name="Object Max LOD" label="Max LOD">
+					<on_click function="Object.ToggleMaxLOD" />
+					<on_enable function="Object.EnableMaxLOD" />
+				</menu_item_call>
+				<menu_item_call name="Object Normal LOD" label="Normal LOD">
+					<on_click function="Object.ToggleMaxLOD" />
+					<on_enable function="Object.EnableNormalLOD" />
+				</menu_item_call>
+			</pie_menu>
+			<pie_menu name="Mute Object Menu" label="Mutes &gt;">
+				<menu_item_call name="Mute object" label="Mute object" enabled="false">
+					<on_click function="Object.Mute" userdata="" />
+					<on_enable function="Object.EnableMute" />
+				</menu_item_call>
+				<menu_item_call name="Mute by name" label="(Un)mute name" enabled="false">
+					<on_click function="Object.Mute" userdata="by_name" />
+					<on_enable function="Object.EnableMute" />
+				</menu_item_call>
+<!--
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_separator />
+				<menu_item_call name="Puppet Always Render" label="Always show" enabled="false">
+					<on_click function="Avatar.Render" userdata="always" />
+				</menu_item_call>
+				<menu_item_call name="Puppet Normal Render" label="Auto show" enabled="false">
+					<on_click function="Avatar.Render" userdata="normal" />
+				</menu_item_call>
+				<menu_item_call name="Puppet Never Render" label="Never show" enabled="false">
+					<on_click function="Avatar.Render" userdata="never" />
+				</menu_item_call>
+-->
+			</pie_menu>
+			<menu_item_call name="Report Abuse..." label="Report..." enabled="false">
+				<on_click function="Object.ReportAbuse" />
+				<on_enable function="Object.EnableReportAbuse" />
+			</menu_item_call>
+			<menu_item_call name="Export" label="Backup" enabled="false">
+       				<on_click function="File.BackupObject" />
+       				<on_enable function="File.EnableBackupObject" />
+			</menu_item_call>
+			<menu_item_call name="Export OBJ" label="Export OBJ" enabled="false">
+       				<on_click function="File.ExportOBJ" />
+       				<on_enable function="File.EnableBackupObject" />
+			</menu_item_call>
+			<menu_item_call name="Export DAE" label="Export DAE" enabled="false">
+       				<on_click function="File.ExportDAE" />
+       				<on_enable function="File.EnableBackupObject" />
+			</menu_item_call>
+			<menu_item_separator />
+			<menu_item_call name="Object Inspect" label="Inspect">
+				<on_click function="Object.Inspect" />
+				<on_enable function="Object.EnableInspect" />
+			</menu_item_call>
+		</pie_menu>
+		<menu_item_call name="Buy..." label="Buy..." enabled="false">
+			<on_click function="Object.Buy" />
+			<on_enable function="Object.EnableBuy" />
+		</menu_item_call>
+	</pie_menu>
+	<menu_item_call name="Edit..." label="Edit..." enabled="false">
+		<on_click function="Object.Edit" />
+		<on_enable function="EnableEdit" />
+	</menu_item_call>
+</pie_menu>

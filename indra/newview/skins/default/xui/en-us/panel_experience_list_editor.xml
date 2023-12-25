@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="experience_list_editor" border="true"
+ left="0" top="0" right="0" bottom="0" follows="top|left|bottom|right">
+	<string name="loading">
+		loading...
+	</string>
+	<string name="panel_allowed">
+		Allowed experiences:
+	</string>
+	<string name="panel_blocked">
+		Blocked experiences:
+	</string>
+   <string name="panel_trusted">
+		Key experiences:
+	</string>
+	<string name="no_results">
+		(empty)
+	</string>
+	<text name="text_name" text_color="white" mouse_opaque="true"
+	 left="4" width="120" bottom="-16" height="12" follows="left|top" />
+	<text name="text_count"
+     left_delta="130" bottom_delta="0" width="120" height="12" follows="top|left" />
+	<scroll_list name="experience_list" draw_heading="false"
+	 left="4" right="-72" top="-24" bottom="4" follows="top|left|bottom|right">
+		<column name="experience_name" label="Name" dynamicwidth="true" tool_tip="Double-click the name of an experience to show its profile."/>
+	</scroll_list>
+	<button name="btn_add" label="Add..."
+	 right="-4" bottom="-48" height="24" width="64" follows="top|right" />
+	<button name="btn_remove" label="Remove"
+	 right="-4" bottom_delta="-30" height="24" width="64" follows="top|right" />
+	<button name="btn_profile" label="Profile..."
+	 right="-4" bottom_delta="-30" height="24" width="64" follows="top|right" />
+</panel>

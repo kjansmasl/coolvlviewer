@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="nearby media" title="Nearby media" rect_control="FloaterNearbyMediaRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ height="254" width="328" min_height="254" min_width="328">
+	<text name="show_text" font="SansSerif"
+	 left="10" bottom="-48" width="96" height="18" follows="top|left">
+	  Show media:
+	</text>
+	<combo_box name="show_combo" allow_text_entry="false" max_chars="20"
+	 left_delta="100" bottom_delta="0" width="150" height="20" follows="top|left">
+  		<combo_item name="0" value="0">
+			All
+		</combo_item>
+		<combo_item name="1" value="1">
+			In this parcel
+		</combo_item>
+		<combo_item name="2" value="2">
+			Outside this parcel
+		</combo_item>
+		<combo_item name="3" value="3">
+			On other avatars
+		</combo_item>
+		<combo_item name="4" value="4">
+			Used on a HUD object
+		</combo_item>
+	</combo_box>
+	<scroll_list name="media_list" draw_heading="true" column_padding="6" multi_select="false"
+	 left="10" bottom_delta="-130" width="308" height="120" follows="top|left|bottom|right">
+		<column name="media_checkbox_ctrl" image="icon_play.tga" width="16"
+		 tool_tip="Check the box to enable the corresponding media (note: the media will only actually load, even if enabled, when the media settings allow so; for example, a media outside this parcel will not load if out of parcel media are not allowed). Un-check the box to unload the media." />
+		<column name="media_proximity" label="Proximity" halign="center" width="-1" />
+		<column name="media_visibility" label="Visible" halign="center" width="-1" />
+		<column name="media_class" label="Class" halign="center" width="-1" />
+		<column name="media_name" label="Media" dynamicwidth="true"
+		 tool_tip="Normal = loaded; Bold = loaded &amp; focused; Italic = unloaded; Green = time controlled and playing; Blue = used in HUD object; Red = attached to others; Orange = outside current parcel." />
+    </scroll_list>
+	<text name="url_text" font="SansSerif" mouse_opaque="true"
+	 tool_tip="For shared media, you may usually change the URL it is pointing to. Note that depending on its own URL filter, the media may refuse to navigate to the provided URL."
+	 left="10" bottom_delta="-24" width="32" height="16" follows="top|left">
+	  URL:
+	</text>
+	<line_editor name="media_url" max_length="1024" font="SansSerif"
+	 tool_tip="The current URL for the selected shared media (no URL presented here for parcel audio and media). You may edit or type a new URL here and pess ENTER to commit. Note that depending on its own URL filter, the media may refuse to navigate to the provided URL."
+	 left_delta="32" bottom_delta="0" width="276" height="18"  follows="top|left|right" />
+	<button name="play_btn" label="" scale_image="true"
+	 tool_tip="Play selected media"
+	 image_selected="button_anim_play.tga" image_unselected="button_anim_play.tga"
+	 left="10" bottom_delta="-26" width="22" height="22" follows="bottom|left" />
+	<button name="pause_btn" label="" scale_image="true" visible="false"
+	 tool_tip="Pause selected media."
+	 image_selected="button_anim_pause.tga" image_unselected="button_anim_pause.tga"
+	 left_delta="0" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<button name="stop_btn" label="" scale_image="true"
+	 tool_tip="Stop selected media."
+	 image_selected="button_anim_stop.tga" image_unselected="button_anim_stop.tga"
+	 left_delta="22" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<volume_slider name="volume_slider" max_val="1" min_val="0" increment="0.01"
+	 tool_tip="Audio volume for selected media."
+	 left_delta="32" bottom_delta="0" width="190" height="22" follows="bottom|left" />
+	<button name="mute_btn" label="" scale_image="true"
+	 tool_tip="Mute audio for selected media."
+	 image_selected="media_btn_volume.png" image_unselected="media_btn_volume.png"
+	 left_delta="192" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<button name="unmute_btn" label="" scale_image="true" visible="false"
+	 tool_tip="Un-mute audio for selected media."
+	 image_selected="media_btn_muted.png" image_unselected="media_btn_muted.png"
+	 left_delta="0" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<button name="zoom_btn" label="" scale_image="true"
+	 tool_tip="Zoom into selected media."
+	 image_selected="media_btn_optimalzoom.png" image_unselected="media_btn_optimalzoom.png"
+	 left_delta="28" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<button name="unzoom_btn" label="" scale_image="true" visible="false"
+	 tool_tip="Zoom back from selected media"
+	 image_selected="media_btn_unzoom.png" image_unselected="media_btn_unzoom.png"
+	 left_delta="0" bottom_delta="0" width="22" height="22" follows="bottom|left" />
+	<button name="disable_all_btn" label="Stop All"
+	 tool_tip="Turn all nearby media off."
+	 left="10" bottom_delta="-22" width="96" height="20" follows="bottom|left" />
+	<button name="enable_all_btn" label="Start All"
+	 tool_tip="Turn all nearby media on."
+	 left_delta="100" bottom_delta="0" width="96" height="20" follows="bottom|left" />
+	<button name="open_prefs_btn" label="Preferences"
+	 tool_tip="Bring up media preferences."
+	 left_delta="100" bottom_delta="0" width="96" height="20" follows="bottom|left" />
+	<string name="empty_item_text">&lt;empty&gt;</string>
+	<string name="parcel_media_name">Parcel streaming media</string>
+	<string name="parcel_audio_name">Parcel streaming audio</string>
+	<string name="playing_suffix">(playing)</string>
+</floater>

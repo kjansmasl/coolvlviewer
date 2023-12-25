@@ -1,0 +1,366 @@
+<llsd>
+	<map>
+	<key>AgentHomeParcel</key>
+		<map>
+		<key>Comment</key>
+		<string>The names of the parcel and region for the agent home position.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>BusyModeResponse</key>
+		<map>
+		<key>Comment</key>
+		<string>Auto response to instant messages while in busy mode.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>The Resident you messaged is either busy or away from keyboard. Your message will still be shown in their IM panel for later viewing.</string>
+		</map>
+	<key>BusyResponseWhenAway</key>
+		<map>
+		<key>Comment</key>
+		<string>When TRUE, the viewer sends the Busy mode auto-response also when your avatar is marked as Away.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>ClearInventoryCache</key>
+		<map>
+		<key>Comment</key>
+		<string>Set to TRUE to clear the inventory cache for this avatar on next restart</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>FetchGroupChatHistory</key>
+		<map>
+		<key>Comment</key>
+		<string>Set to TRUE to fetch the past hour group chat history from the server, when possible.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>HighlightDisplayName</key>
+		<map>
+		<key>Comment</key>
+		<string>TRUE to highlight posts containing any (4+ characters) word part of the display name</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>HighlightNicknames</key>
+		<map>
+		<key>Comment</key>
+		<string>Nicknames (space separated list) for chat/group IM posts highlight</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>IMLogTimestamp</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Timestamp of Instant Messages</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>InstantMessageLogPath</key>
+		<map>
+		<key>Comment</key>
+		<string>Path to your log files.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>LastLogoff</key>
+		<map>
+		<key>Comment</key>
+		<string>Last logoff</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>U32</string>
+		<key>Value</key>
+		<integer>0</integer>
+		</map>
+	<key>LogChat</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Chat</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>LogChatIM</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Incoming Instant Messages with Chat</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>LogChatTimestamp</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Timestamp of Chat</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>LogFileNamewithDate</key>
+		<map>
+		<key>Comment</key>
+		<string>Add Date Stamp to chat and IM Logs with format chat-YYYY-MM-DD and &apos;IM file name&apos;-YYYY-MM. To view old logs goto ..\Second Life\[login name]</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>LogFileNameWithoutResident</key>
+		<map>
+		<key>Comment</key>
+		<string>Do not append ' Resident' to log names for new account avatars in SL</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>LogInstantMessages</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Instant Messages</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>LogShowHistory</key>
+		<map>
+		<key>Comment</key>
+		<string>Log Show History</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>LogShowHistoryMaxSize</key>
+		<map>
+		<key>Comment</key>
+		<string>Maximum size (in kilobytes, minimum 2Kb) of the shown history back log</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>U32</string>
+		<key>Value</key>
+		<integer>2</integer>
+		</map>
+	<key>LuaUserData</key>
+		<map>
+		<key>Comment</key>
+		<string>This is a variable usable by the automation script to store data between identical user sessions</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>MFAHash</key>
+		<map>
+		<key>Comment</key>
+		<string>Storage for the cyphered MFA hash as returned by the server and used on subsequent logins with this account.</string>
+		<key>HideFromEditor</key>
+		<integer>1</integer>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>NewOutfitFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All newly created outfits will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>OpenIMLogsInBuiltInBrowser</key>
+		<map>
+		<key>Comment</key>
+		<string>Open log history in the built-in web browser instead of an external one</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
+	<key>OSUseLargeAvatarBakes</key>
+		<map>
+		<key>Comment</key>
+		<string>Set to TRUE to use large texture bakes (1024x1024) on this OpenSim grid (after restart).</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>RestrainedLoveLastStandingLocation</key>
+		<map>
+		<key>Comment</key>
+		<string>Location before sitting down last.</string>
+		<key>HideFromEditor</key>
+		<integer>1</integer>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Vector3D</string>
+		<key>Value</key>
+		<array>
+			<real>0</real>
+			<real>0</real>
+			<real>0</real>
+		</array>
+		</map>
+	<key>RestrainedLoveRecvimMessage</key>
+		<map>
+		<key>Comment</key>
+		<string>Message to show to people trying to IM you while you are forbidden to receive IMs. Requires a restart.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>The Resident you messaged is prevented by RestrainedLove from reading your IMs at the moment, please try again later.</string>
+		</map>
+	<key>RestrainedLoveSendimMessage</key>
+		<map>
+		<key>Comment</key>
+		<string>Message to show to people when you try to IM them while you are forbidden to send IMs. Requires a restart.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string>*** IM blocked by sender&apos;s viewer (RestrainedLove restriction in force).</string>
+		</map>
+	<key>RestrainedLoveTPOK</key>
+		<map>
+		<key>Comment</key>
+		<string>Set when not restricted for TP</string>
+		<key>HideFromEditor</key>
+		<integer>1</integer>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>0</boolean>
+		</map>
+	<key>UploadAnimationFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All animation uploads will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>UploadMaterialFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All GLTF material uploads will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>UploadModelFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All mesh model uploads will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>UploadSoundFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All sound uploads will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	<key>UploadTextureFolder</key>
+		<map>
+		<key>Comment</key>
+		<string>All texture uploads will be stored in this inventory folder (UUID)</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>String</string>
+		<key>Value</key>
+		<string />
+		</map>
+	</map>
+</llsd>

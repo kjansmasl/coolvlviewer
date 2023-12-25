@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="thumbnail view" title="" rect_control="FloaterThumbnailViewRect"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false"
+ width="274" height="286" min_width="274" min_height="286">
+	<icon name="icon" color="1 1 1 1"
+	 bottom="-18" left="8" height="16" width="16" follows="left|top" />
+	<text name="item_name" font="SansSerifSmall"
+	 left="28" bottom_delta="0" width="240" height="14" follows="left|top">Item name here</text>
+	<view_border name="thumbnail" bevel_style="none" border_thickness="1"
+	 bottom_delta="-262" left="8" height="258" width="258" follows="left|top"/>
+	<string name="thumbnail_tool_tip">Click to open a thumbnail editor for this inventory item.</string>
+</floater>

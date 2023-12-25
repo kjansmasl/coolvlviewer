@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="linksets" title="Pathfinding linksets"
+ can_resize="true" can_minimize="true" can_close="true" can_drag_on_left="false"
+ width="970" height="395" min_width="970" min_height="395" rect_control="PathFindingLinksetsRect">
+	<string name="messaging_initial"></string>
+	<string name="messaging_get_inprogress">Querying for pathfinding linksets ...</string>
+	<string name="messaging_get_error">Error detected while querying for pathfinding linksets.</string>
+	<string name="messaging_set_inprogress">Modifying selected pathfinding linksets ...</string>
+	<string name="messaging_set_error">Error detected while modifying selected pathfinding linksets.</string>
+	<string name="messaging_complete_none_found">No pathfinding linksets.</string>
+	<string name="messaging_complete_available">[NUM_SELECTED] linksets selected out of [NUM_TOTAL].</string>
+	<string name="messaging_not_enabled">This region is not enabled for pathfinding.</string>
+	<string name="linkset_terrain_name">[Terrain]</string>
+	<string name="linkset_terrain_description" />
+	<string name="linkset_terrain_owner" />
+	<string name="linkset_terrain_scripted" />
+	<string name="linkset_terrain_land_impact" />
+	<string name="linkset_terrain_dist_from_you" />
+	<string name="linkset_owner_loading">[Loading]</string>
+	<string name="linkset_owner_unknown">[Unknown]</string>
+	<string name="linkset_owner_group">[group]</string>
+	<string name="linkset_is_scripted">Yes</string>
+	<string name="linkset_is_not_scripted">No</string>
+	<string name="linkset_is_unknown_scripted">?</string>
+	<string name="linkset_use_walkable">Walkable</string>
+	<string name="linkset_use_static_obstacle">Static obstacle</string>
+	<string name="linkset_use_dynamic_obstacle">Movable obstacle</string>
+	<string name="linkset_use_material_volume">Material volume</string>
+	<string name="linkset_use_exclusion_volume">Exclusion volume</string>
+	<string name="linkset_use_dynamic_phantom">Movable phantom</string>
+	<string name="linkset_is_terrain">[unmodifiable]</string>
+	<string name="linkset_is_restricted_state">[restricted]</string>
+	<string name="linkset_is_non_volume_state">[concave]</string>
+	<string name="linkset_is_restricted_non_volume_state">[restricted,concave]</string>
+	<string name="linkset_choose_use">Choose linkset use...</string>
+
+	<text type="string" font="SansSerifSmall"
+	 left="10" bottom_delta="-48" width="56" height="18" follows="left|top">
+		Filter by:
+	</text>
+
+	<text type="string" font="SansSerifSmall"
+	 left_delta="64" bottom_delta="0" width="32" height="18" follows="left|top">
+		Name
+	</text>
+	<line_editor name="filter_by_name" max_length_chars="255"
+	 left_delta="40" bottom_delta="0" width="210" height="20" follows="left|top" />
+
+	<text type="string" font="SansSerifSmall"
+	 left_delta="230" bottom_delta="0" width="64" height="18" follows="left|top">
+		Description
+	</text>
+	<line_editor name="filter_by_description" max_length_chars="255"
+	 left_delta="72" bottom_delta="0" width="210" height="20" follows="left|right|top" />
+
+	<combo_box name="filter_by_linkset_use" allow_text_entry="false"
+	 left_delta="232" bottom_delta="0" width="140" height="20" follows="right|top">
+		<combo_item name="filter_by_linkset_use_none" value="0">
+			Filter by linkset use...
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_walkable" value="1">
+			Walkable
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_static_obstacle" value="2">
+			Static obstacle
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_dynamic_obstacle" value="3">
+			Movable obstacle
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_material_volume" value="4">
+			Material volume
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_exclusion_volume" value="5">
+			Exclusion volume
+		</combo_item>
+		<combo_item name="filter_by_linkset_use_dynamic_phantom" value="6">
+			Movable phantom
+		</combo_item>
+	</combo_box>
+
+    <button name="apply_filters" label="Apply" font="SansSerif"
+	 left_delta="160"  bottom_delta="0" width="72" height="20" follows="right|top" />
+    <button name="clear_filters" label="Clear" font="SansSerif"
+	 left_delta="80" bottom_delta="0" width="72" height="20" follows="right|top" />
+
+	<scroll_list name="objects_scroll_list" multi_select="true" draw_heading="true" column_padding="4"
+	 left="10" bottom_delta="-180" width="950" height="170" follows="all">
+		<column name="name" label="Name (root prim)" dynamicwidth="true" />
+		<column name="description" label="Description (root prim)" width="150" />
+		<column name="owner" label="Owner" width="140" />
+		<column name="scripted" label="Scripts" halign="center" tool_tip="Whether this linkset is scripted or not (or '?' when unknown)" width="60" />
+		<column name="land_impact" label="Impact" halign="right" tool_tip="Land impact" width="60" />
+		<column name="dist_from_you" label="Dist." halign="right" tool_tip="Distance from you" width="60" />
+		<column name="linkset_use" label="Linkset use" width="160" />
+		<column name="a_percent" label="A" halign="right" tool_tip="Walkability coefficient for type A objects" width="40" />
+		<column name="b_percent" label="B" halign="right" tool_tip="Walkability coefficient for type B objects"  width="40" />
+		<column name="c_percent" label="C" halign="right" tool_tip="Walkability coefficient for type C objects"  width="40" />
+		<column name="d_percent" label="D" halign="right" tool_tip="Walkability coefficient for type D objects"  width="40" />
+    </scroll_list>
+
+	<text name="messaging_status" type="string"
+	 left="10" bottom_delta="-28" height="16" width="590" follows="left|bottom|right">
+		Linksets:
+	</text>
+
+	<button name="refresh_objects_list" label="Refresh list" font="SansSerif"
+	 left_delta="600" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="select_all_objects" label="Select all" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="select_none_objects" label="Select none" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+
+	<view_border name="horiz_separator1" bevel_style="none"
+	 left="10" bottom_delta="-8" width="950" height="0" follows="left|bottom|right" />
+
+	<text type="string" font="SansSerifSmall"
+	 left="10" bottom_delta="-22" height="16" width="830" follows="left|bottom|right">
+		Actions on selected linksets (If a linkset is removed from the world, its attributes may be lost):
+	</text>
+	<check_box name="show_beacon" label="Show beacon" font="SansSerifSmall"
+	 left_delta="840" bottom_delta="0" width="110" follows="right|bottom" />
+
+	<button name="take_objects" label="Take" font="SansSerif"
+	 left="10" bottom_delta="-24" width="110" height="20" follows="left|bottom" />
+	<button name="take_copy_objects" label="Take copy" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="left|bottom" />
+
+	<button name="teleport_me_to_object" label="Teleport me to it" font="SansSerif"
+	 left_delta="280" bottom_delta="0" width="140" height="20" follows="left|bottom" />
+
+	<button name="return_objects" label="Return" font="SansSerif"
+	 left_delta="320" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="delete_objects" label="Delete" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+
+	<view_border name="horiz_separator2" bevel_style="none"
+	 left="10" bottom_delta="-8" width="950" height="0" follows="left|bottom|right" />
+
+	<text type="string" font="SansSerifSmall"
+	 left="10" bottom_delta="-22" height="16" width="950" follows="left|bottom|right">
+		Edit attributes of selected linksets and press the button to apply changes
+	</text>
+
+	<combo_box name="edit_linkset_use" allow_text_entry="false"
+	 left="10" bottom_delta="-24" width="160" height="20" follows="left|bottom" />
+
+	<text name="walkability_coefficients_label" type="string" font="SansSerifSmall"
+	 left_delta="230" bottom_delta="0" height="16" width="110" follows="left|bottom">
+		Walkability:
+	</text>
+
+	<text name="edit_a_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type A. Example character type is humanoid."
+	 left_delta="100" bottom_delta="0" height="16" width="20" follows="left|bottom">
+		A:
+	</text>
+	<line_editor name="edit_a_value" max_length_chars="3"
+	 tool_tip="Walkability for characters of type A. Example character type is humanoid."
+	 left_delta="24" bottom_delta="0" width="36" height="20" follows="left|bottom" />
+
+	<text name="edit_b_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type B. Example character type is creature."
+	 left_delta="64" bottom_delta="0" height="16" width="20" follows="left|bottom">
+		B:
+	</text>
+	<line_editor name="edit_b_value" max_length_chars="3" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type B. Example character type is creature."
+	 left_delta="24" bottom_delta="0" width="36" height="20" follows="left|bottom" />
+
+	<text name="edit_c_label" type="string" font="SansSerifSmall"
+	 tool_tip="Walkability for characters of type C. Example character type is mechanical."
+	 left_delta="64" bottom_delta="0" height="16" width="20" follows="left|bottom">
+		C:
+	</text>
+	<line_editor name="edit_c_value" max_length_chars="3" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type C. Example character type is mechanical."
+	 left_delta="24" bottom_delta="0" width="36" height="20" follows="left|bottom" />
+
+	<text name="edit_d_label" type="string" font="SansSerifSmall"
+	 tool_tip="Walkability for characters of type D. Example character type is other."
+	 left_delta="64" bottom_delta="0" height="16" width="20" follows="left|bottom">
+		D:
+	</text>
+	<line_editor name="edit_d_value" max_length_chars="3" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type D. Example character type is other."
+	 left_delta="24" bottom_delta="0" width="36" height="20" follows="left|bottom" />
+
+	<button name="apply_edit_values" label="Apply attribute changes" font="SansSerif"
+	 left_delta="100" bottom_delta="0" width="230" height="20" follows="right|bottom" />
+
+	<text name="suggested_use_a_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type A. Example character type is humanoid."
+	 left="340" bottom_delta="-22" height="16" width="100" follows="left|bottom">
+		(Humanoid)
+	</text>
+
+	<text name="suggested_use_b_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type B. Example character type is creature."
+	 left_delta="92" bottom_delta="0" height="16" width="100" follows="left|bottom">
+		(Creature)
+	</text>
+
+	<text name="suggested_use_c_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type C. Example character type is mechanical."
+	 left_delta="82" bottom_delta="0" height="16" width="100" follows="left|bottom">
+		(Mechanical)
+	</text>
+
+	<text name="suggested_use_d_label" type="string" font="SansSerifSmall" mouse_opaque="true"
+	 tool_tip="Walkability for characters of type D. Example character type is other."
+	 left_delta="96" bottom_delta="0" height="16" width="100" follows="left|bottom">
+		(Other...)
+	</text>
+</floater>

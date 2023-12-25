@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="camera controls" title="" rect_control="FloaterCameraRect3a" mouse_opaque="true"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false" can_tear_off="true" 
+ width="200" min_width="200" height="64" min_height="64" follows="top|right">
+	<!-- Icons are custom buttons in the code -->
+	<string name="rotate_tooltip">Rotate camera around focus</string>
+	<string name="zoom_tooltip">Zoom camera towards focus</string>
+	<string name="move_tooltip">Move camera up and down, left and right</string>
+	<spinner name="draw_distance" label="" label_width="1" control_name="RenderFarClip"
+	 decimal_digits="0" max_val="512" min_val="32" increment="32"
+	 tool_tip="Draw distance"
+	 right="-4" bottom="-40" width="45" height="16" follows="bottom|right" />
+	<check_box name="front_view" label="Front" control_name="CameraFrontView"
+	 tool_tip="Switch the camera to front view"
+	 left_delta="-2" bottom_delta="-20" height="16" width="45" follows="bottom|right" />
+</floater>

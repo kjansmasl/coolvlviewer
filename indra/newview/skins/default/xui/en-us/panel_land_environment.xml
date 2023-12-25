@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="panel_land_environment" label="Environment">
+	<view_border name="source_border" bevel_style="in" border_thickness="1"
+	 left="14" bottom="-160" height="126" width="190" follows="left|top"/>
+	<view_border name="day_params_border" bevel_style="in" border_thickness="1"
+	 left_delta="0" bottom_delta="-178" height="178" width="190" follows="left|top"/>
+	<view_border name="sky_border" bevel_style="in" border_thickness="1"
+	 left="204" bottom_delta="0" height="304" width="240" follows="left|top"/>
+	<text name="env_source_txt" font="SansSerif"
+	 left="25" bottom="-58" width="140" height="18" follows="top|left">
+		Environment source:
+	</text>
+	<button name="use_default_btn" label="Default settings"
+	 left="30" bottom_delta="-26" width="160" height="20" follows="top|left" />
+	<button name="use_inventory_btn" label="Inventory settings"
+	 left="30" bottom_delta="-24" width="160" height="20" follows="top|left" />
+	<button name="use_custom_btn" label="Customized settings"
+	 left="30" bottom_delta="-24" width="160" height="20" follows="top|left" />
+	<check_box name="allow_override_chk" label="Parcel owner may override"
+	 tool_tip="Check this box to allow parcel owner(s) to override the above environment source."
+	 left="30" bottom_delta="-24" width="160" height="20" follows="top|left" />
+	<text name="day_params_txt" font="SansSerif"
+	 left="25" bottom_delta="-30" width="160" height="16" follows="top|left">
+		Day parameters:
+	</text>
+	<text name="day_length_txt" font="SansSerifSmall"
+	 left="40" bottom_delta="-26" width="140" height="16" follows="top|left">
+		Day length (hours)
+	</text>
+	<slider name="day_length_sld" label="" can_edit_text="true"
+	 min_val="4" max_val="168" increment=".5" decimal_digits="1"
+	 left="25" bottom_delta="-20" height="16" width="160" label_width="0" follows="left|top" />
+	<text name="day_offset_txt" font="SansSerifSmall"
+	 left="40" bottom_delta="-26" width="140" height="16" follows="top|left">
+		Day offset (hours)
+	</text>
+	<slider name="day_offset_sld" label="" can_edit_text="true"
+	 min_val="-11.5" max_val="12" increment=".5" decimal_digits="1"
+	 left="25" bottom_delta="-20" height="16" width="157" label_width="0" follows="left|top" />
+	<text name="day_time_txt" font="SansSerifSmall"
+	 left="40" bottom_delta="-26" width="140" height="16" follows="top|left">
+		Apparent time of day:
+	</text>
+	<text name="day_time_value_txt" font="SansSerifSmall" halign="center"
+	 left="20" bottom_delta="-18" width="110" height="16" follows="top|left">
+		HH:MM (XX%)
+	</text>
+	<text name="sky_altitudes_txt" font="SansSerif"
+	 left="215" bottom="-58" width="90" height="18" follows="top|left">
+		Altitudes
+	</text>
+	<button name="reset_alts_btn" label="Reset altitudes"
+	 tool_tip="Reset to default altitudes."
+	 left_delta="90" bottom_delta="-2" width="124" height="20" follows="top|left" />
+	<multi_slider name="altitudes_sld" max_sliders="3"
+	 show_text="false" use_triangle="false" draw_track="true" orientation="vertical"
+	 overlap_threshold="100" min_val="100" max_val="4000" increment="25" decimal_digits="0"
+	 left="212" bottom_delta="-212" width="18" height="200" follows="top|left"/>
+	<text name="alt4_value_txt" font="SansSerifSmall" halign="center"
+	 left="244" bottom="-88" width="184" height="16" follows="top|left">
+		Altitude 4 ([ALT] m) sky
+	</text>
+	<view_border name="alt4_drop_tgt" bevel_style="in" border_thickness="1" mouse_opaque="false"
+	 left_delta="0" bottom_delta="-20" height="18" width="184" follows="left|top"/>
+	<text name="alt3_value_txt" font="SansSerifSmall" halign="center"
+	 left="244" bottom_delta="-34" width="184" height="16" follows="top|left">
+		Altitude 3 ([ALT] m) sky
+	</text>
+	<view_border name="alt3_drop_tgt" bevel_style="in" border_thickness="1" mouse_opaque="false"
+	 left_delta="0" bottom_delta="-20" height="18" width="184" follows="left|top"/>
+	<text name="alt2_value_txt" font="SansSerifSmall" halign="center"
+	 left="244" bottom_delta="-34" width="184" height="16" follows="top|left">
+		Altitude 2 ([ALT] m) sky
+	</text>
+	<view_border name="alt2_drop_tgt" bevel_style="in" border_thickness="1" mouse_opaque="false"
+	 left_delta="0" bottom_delta="-20" height="18" width="184" follows="left|top"/>
+	<text name="ground_txt" font="SansSerifSmall" halign="center"
+	 left="244" bottom_delta="-34" width="184" height="16" follows="top|left">
+		Ground level sky
+	</text>
+	<view_border name="alt1_drop_tgt" bevel_style="in" border_thickness="1" mouse_opaque="false"
+	 left_delta="0" bottom_delta="-20" height="18" width="184" follows="left|top"/>
+	<text name="ground_txt" font="SansSerifSmall" halign="center"
+	 left="244" bottom_delta="-34" width="184" height="16" follows="top|left">
+		Water
+	</text>
+	<view_border name="water_drop_tgt" bevel_style="in" border_thickness="1" mouse_opaque="false"
+	 left_delta="0" bottom_delta="-20" height="18" width="184" follows="left|top"/>
+	<string name="default_settings_label">Default settings</string>
+	<string name="region_settings_label">Region settings</string>
+	<string name="sky_tool_tip">Drop here a sky environment settings item from your inventory, or click to open the inventory sky environment settings picker.</string>
+	<string name="water_tool_tip">Drop here a water environment settings item from your inventory, or click to open the inventory water environment settings picker.</string>
+	<string name="empty">(empty)</string>
+	<string name="region_env">(region environment)</string>
+	<string name="custom">(custom environment)</string>
+</panel>

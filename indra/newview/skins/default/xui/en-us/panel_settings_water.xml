@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="panel_settings_water" label="Water" border="true"
+ left="0" right="0" top="0" bottom="0" follows="top|left|right|bottom">
+	<view_border name="waves_border" bevel_style="in" border_thickness="1"
+	 left="4" bottom_delta="-96" height="90" width="422" follows="left|top"/>
+	<text name="water_fog_text" font="SansSerif"
+	 left="10" bottom_delta="70" width="65" height="16" follows="top|left">
+		Water fog:
+	</text>
+	<color_swatch name="water_fog_color" label=" Color"
+	 left="18" bottom_delta="-55" width="36" height="50" follows="left|top" />
+	<slider name="water_fog_density" label="Density exponent" can_edit_text="true"
+	 min_val="-10" max_val="10" increment=".01" decimal_digits="2"
+	 left_delta="80" bottom_delta="54" height="16" width="320" label_width="110" follows="left|top" />
+	<slider name="water_underwater_mod" label="Underwater modifier" can_edit_text="true"
+	 min_val="0" max_val="20" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="320" label_width="110" follows="left|top" />
+	<slider name="water_fresnel_scale" label="Fresnel scale" can_edit_text="true"
+	 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="320" label_width="110" follows="left|top" />
+	<slider name="water_fresnel_offset" label="Fresnel offset" can_edit_text="true"
+	 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="320" label_width="110" follows="left|top" />
+	<view_border name="refraction_border" bevel_style="in" border_thickness="1"
+	 left="4" bottom_delta="-192" height="176" width="422" follows="left|top"/>
+	<view_border name="waves_border" bevel_style="in" border_thickness="1"
+	 left_delta="428" bottom_delta="0" height="176" width="164" follows="left|top"/>
+	<text name="waves_text" font="SansSerif"
+	 left="10" bottom_delta="156" width="100" height="16" follows="top|left">
+		Waves:
+	</text>
+	<text name="normal_map_text" font="SansSerifSmall"
+	 left_delta="70" bottom_delta="0" width="100" height="16" follows="top|left">
+		Normal map
+	</text>
+	<text name="large_wave_text" font="SansSerifSmall"
+	 left_delta="100"  bottom_delta="0" width="100" height="16" follows="top|left">
+		Large wave speed
+	</text>
+	<text name="small_wave_text" font="SansSerifSmall"
+	 left_delta="128"  bottom_delta="0" width="100" height="16" follows="top|left">
+		Small wave speed
+	</text>
+	<text name="refraction_and_blur_text" font="SansSerif"
+	 left_delta="130" bottom_delta="0" width="150" height="16" follows="top|left">
+		Refraction and blur:
+	</text>
+	<texture_picker name="water_normal_map" allow_no_texture="false" can_apply_immediately="true"
+     default_image_name="Blank"
+	 left="80" bottom_delta="-84" width="65" height="80" follows="top|left" />
+	<text name="wavelet_scale_text" font="SansSerifSmall"
+	 left="10" bottom_delta="-6" width="150" height="16" follows="top|left">
+		Reflection wavelet scale
+	</text>
+	<slider name="water_normal_scale_x" label="X" can_edit_text="true"
+	 min_val="0" max_val="10" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="10" follows="left|top" />
+	<slider name="water_normal_scale_y" label="Y" can_edit_text="true"
+	 min_val="0" max_val="10" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="10" follows="left|top" />
+	<slider name="water_normal_scale_z" label="Z" can_edit_text="true"
+	 min_val="0" max_val="10" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="10" follows="left|top" />
+	<xy_vector name="large_wave_xy" arrow_color="white" logarithmic="true"
+	 min_val_x="-20" max_val_x="20" increment_x="0.01" min_val_y="-20" max_val_y="20" increment_y="0.01"
+	 bottom_delta="0" left_delta="160" height="145" width="120" follows="left|top" />
+	<xy_vector name="small_wave_xy" arrow_color="white" logarithmic="true"
+	 min_val_x="-20" max_val_x="20" increment_x="0.01" min_val_y="-20" max_val_y="20" increment_y="0.01"
+	 left_delta="128" bottom_delta="0" height="145" width="120" follows="left|top" />
+	<text name="water_scale_above_text" font="SansSerifSmall"
+	 left_delta="140" bottom_delta="120" height="16" width="150" follows="left|top">
+		Refraction scale (above)
+	</text>
+	<slider name="water_scale_above" can_edit_text="true"
+	 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="0" follows="left|top" />
+	<text name="water_scale_below_text" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-26" height="16" width="150" follows="left|top">
+		Refraction scale (below)
+	</text>
+	<slider name="water_scale_below" can_edit_text="true"
+	 min_val="0" max_val="1" increment=".01" decimal_digits="2"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="0" follows="left|top" />
+	<text name="water_blur_multip_text" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-26" height="16" width="150" follows="left|top">
+		Blur multiplier
+	</text>
+	<slider name="water_blur_mult" can_edit_text="true"
+	 min_val="-0.5" max_val="0.5" increment=".001" decimal_digits="3"
+	 left_delta="0" bottom_delta="-20" height="16" width="150" label_width="0" follows="left|top" />
+	<string name="normalmap">Normal map</string>
+	<string name="transparent">Transparent</string>
+</panel>

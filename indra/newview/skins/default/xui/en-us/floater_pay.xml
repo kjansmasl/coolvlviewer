@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="give money" title="" rect_control="FloaterPayRectB"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false"
+ width="310" height="140">
+	<text name="payee_label" font="SansSerif" halign="left"
+	 left="12" bottom="-25" width="84" height="18" follows="left|top">
+		Pay resident:
+	</text>
+	<text name="payeename" font="SansSerif" halign="left"
+	  left="90" bottom="-25" width="210" height="18" follows="left|top">
+		[NAME]
+	</text>
+	<text name="payment_message_label" font="SansSerif" halign="right"
+	 left="12" bottom_delta="-25" width="110" height="18" follows="left|top">
+		Reason (optional):
+	</text>
+	<line_editor name="payment_message" font="SansSerifSmall" max_length="127"
+	 left="130" bottom_delta="2" width="170" height="18" follows="left|top" />
+	<text name="fastpay text" font="SansSerif" halign="right"
+	 left="12" bottom_delta="-30" width="110" height="18" follows="left|top">
+		Fast pay:
+	</text>
+	<button name="fastpay 1" label="L$1" font="SansSerif"
+	 left="130" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<button name="fastpay 5" label="L$5" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<button name="fastpay 10" label="L$10" font="SansSerif"
+	 left="130" bottom_delta="-24" width="80" height="20" follows="left|top" />
+	<button name="fastpay 20" label="L$20" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<text name="amount text" font="SansSerif" halign="left"
+	 left="12" bottom_delta="-24" width="48" height="18" follows="left|top">
+		Amount:
+	</text>
+	<line_editor name="amount" font="SansSerif" max_length="9"
+	 handle_edit_keys_directly="false" select_all_on_focus_received="false"
+	 left_delta="52" bottom_delta="2" width="60" height="18" />
+	<button name="pay btn" label="Pay" font="SansSerif" enabled="false"
+	 left="130" bottom_delta="-2" width="80" height="20" follows="left|top" />
+	<button name="cancel btn" label="Cancel" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+</floater>

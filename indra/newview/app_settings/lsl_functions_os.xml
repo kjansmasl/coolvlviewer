@@ -1,0 +1,1334 @@
+<llsd>
+    <map>
+    <key>aaAllRegionInstanceSay</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaAllRegionInstanceSay(integer channelID, string text)
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaAvatarFullName2Key</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaAvatarFullName2Key(string FullName)
+Returns the avatar uuid from their fullname. Where FullName = "Firstname Lastname”.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaDeserializeXMLKeys</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaDeserializeXMLKeys(string xmlData)
+Returns a list of keys from XML data. Where xmlData = xml formatted data keys.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaDeserializeXMLValues</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaDeserializeXMLValues(string xmlData)
+Returns a list of Values from XML data. Where xmlData = xml formatted data Values.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaFreezeAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaFreezeAvatar(key ID)
+Where ID = avatar uuid. If combat permission are granted then avatar can be frozen (no movement).
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetFlyDisabled</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetFlyDisabled(key ID)
+Returns integer of TRUE or FALSE for specifid ID. Where ID = avatar uuid.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetHealth</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetHealth(key uuid)
+Returns float value (0.0 to 100.0) of current health. Where uuid = avatar key.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetIsInfiniteRegion</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetIsInfiniteRegion()
+Returns TRUE or FALSE if region is an infinite region.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetLastOwner</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION.
+aaGetLastOwner(string PrimID) returns last owner UUID of PrimID where PrimID = uuid of prim.
+AaGetLastOwner() returns last owner uuid of prim containg script.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetTeam</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetTeam(key uuid)
+Returns a string of avatars team name. Where uuid = avatar key.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetTeamMembers</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetTeamMembers(string team)
+Return a list of team members. Where team = string of team name.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetText</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetText()
+Returns a string of the hover text of an object.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetTextColor</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetTextColor()
+Returns the hovertext color in rotation. Use Ex: rotation color = aaGetTextColor() to separate color.x, color.y, color.z, color.s  Where s = value of alpha in llSetText.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaGetWalkDisabled</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaGetWalkDisabled(key ID)
+Returns integer of TRUE or FALSE for specifid ID. Where ID = avatar uuid.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaJoinCombat</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaJoinCombat(key uuid)
+Where uuid = avatar key. If (PERMISSION_COMBAT == PERMISSION_COMBAT) and permission is granted then join combat.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaJoinCombatTeam</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaJoinCombatTeam(key uuid, string team)
+Where uuid = key of avatar, team = string of the team name.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaLeaveCombat</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaLeaveCombat(key uuid)
+Where uuid = avatar key.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaQueryDatabase</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaQueryDatabase(string Key, string Token)
+Returns a list with first value is the token, the second the Key, and the third the value
+Where Key = database field name, Token = data-password
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaRaiseError</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaRaiseError(string message)
+Allows you to have errors that end the execution of the event and fire another event in the script.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaRequestCombatPermission</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaRequestCombatPermission(key ID)
+Where ID = avatar uuid. Requests target avatar for Permissions to enter into combat mode.
+Raises a run_time_permissions event. (PERMISSION_COMBAT == PERMISSION_COMBAT).
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSayDistance</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSayDistance(integer channelID, float Distance, string text)
+Where channelID = channel to say on, Distance = float in meters for distance to say, text = string to say.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSayTo</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSayTo(key userID, string text)
+Where userID = avatar key, text = string msg. Similar to llOwnerSay but can be directly targeted to an avatar.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSerializeXML</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSerializeXML(list keys, list values)
+Returns xml formatted string of the keys and values. Where keys = list of keys in the database, values = fields to retrieve from database.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetCharacterStat</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetCharacterStat( ID, StatName, statValue)
+Sets Character Stats. Where ID = avatar uuid, StatName = stat to change, statValue the value to change it to.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetCloudDensity</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetCloudDensity(float density)
+AaSetCloudDensity(0.5) Where float density values are 0.0 = no cloud to 1.0 = 100% cloud.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetConeOfSilence</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetConeOfSilence(float radius)
+Where radius = metres radius from centre of scripted item. This creates an area that sounds can only be heard by the people within the area(radius) and not heard outside and visa-versa.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetEnv</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetEnv(string EnvName, list Value)
+Sets environment values. Where EnvName = ENABLE_GRAVITY, GRAVITY_FORCE_X, GRAVITY_FORCE_Y, GRAVITY_FORCE_Z, ADD_GRAVITY_POINT, ADD_GRAVITY_FORCE, START_TIME_REVERSAL_SAVING,
+STOP_TIME_REVERSAL_SAVING, START_TIME_REVERSAL, STOP_TIME_REVERSAL.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetFlyDisabled</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetFlyDisabled(key ID, integer Value)
+Where ID = avatar uuid, Value = TRUE or FALSE. If PERMISSION_COMBAT is accepted, this disables flying, forcing avatar to walk.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaSetWalkDisabled</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaSetWalkDisabled(key ID, integer Value)
+Where ID = avatar uuid, Value = TRUE or FALSE. If PERMISSION_COMBAT is accepted, this disables walk, forcing avatar to fly.
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaThawAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaThawAvatar(key ID)
+Where ID = avatar uuid. If combat permission are granted then avatar can be un-frozen (movement re-enabled).
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaUpdateDatabase</key>
+        <map>
+        <key>tooltip</key>
+            <string>aUpdateDatabase(string Key, string value, string token)
+Where Key = database field name, xmlDataToPutIntoTheDatabase = serialized XML data, Token = data-password
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightAddDayCycleFrame</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightAddDayCycleFrame(float dayCyclePosition, integer dayCycleFrameToCopy)
+Returns TRUE / FALSE on success status
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightGetDayCycle</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightGetDayCycle()
+Returns a List of settings
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightGetScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightGetScene(list rules)
+aaWindlightGetScene(integer dayCycleKeyFrame, list rules)
+Returns a list
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightGetSceneDayCycleKeyFrameCount</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightGetSceneDayCycleKeyFrameCount()
+Returns integer value
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightGetSceneIsStatic</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightGetSceneIsStatic()
+Returns TRUE / FALSE
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightRemoveDayCycleFrame</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightRemoveDayCycleFrame(int dayCycleFrame)
+Returns TRUE / FALSE on success status
+(Aurora-Sim only).</string>
+        </map>
+    <key>aaWindlightSetScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>aaWindlightSetScene(list list)
+aaWindlightSetScene(integer dayCycleIndex, list list)
+Returns TRUE/FALSE on success
+(Aurora-Sim only).</string>
+        </map>
+    <key>botAddTag</key>
+        <map>
+        <key>tooltip</key>
+            <string>botAddTag(key botID, string tag)
+Where botID = bot uuid, tag = string tag over bot.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botCreateBot</key>
+        <map>
+        <key>tooltip</key>
+            <string>botCreateBot(string FirstName, string LastName, key idToClone, vector startPos)
+Where FirstName and LastName = strings for new bot name. idToClone = uuid of prebuild avatar to clone OR another existing avatar. startPos = vector of starting position on region.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botFollowAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>botFollowAvatar(key botID, string avName, float startFollowDistance, float endFollowDistance)
+Where botID = bot uuid. AvName = sting of avatar name OR avatar uuid. StartFollowDistance = distance to start following from. EndFollowDistance = distance to stop following avatar.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botGetBotsWithTag</key>
+        <map>
+        <key>tooltip</key>
+            <string>botGetBotsWithTag(string tag)
+Where tag = tag string to match. Return a list of bot UUID&apos;s in region with the matching tag.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botGetWaitingTime</key>
+        <map>
+        <key>tooltip</key>
+            <string>botGetWaitingTime(integer waitTime)
+Returns waitTime as vector.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botPauseMovement</key>
+        <map>
+        <key>tooltip</key>
+            <string>botPauseMovement(key botID)
+Where botID = bot uuid. Pauses bot at current position.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botRemoveBot</key>
+        <map>
+        <key>tooltip</key>
+            <string>botRemoveBot(key botID)
+Where botID = uuid of bot. Removes bot identified by botID.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botRemoveBotsWithTag</key>
+        <map>
+        <key>tooltip</key>
+            <string>botRemoveBotsWithTag(string tag)
+Where tag = tag string to match. Removes bot&apos;s matching the tag.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botResumeMovement</key>
+        <map>
+        <key>tooltip</key>
+            <string>botResumeMovement(key botID)
+Where botID = bot uuid. Resumes bot movement.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botSendChatMessage</key>
+        <map>
+        <key>tooltip</key>
+            <string>botSendChatMessage(key botID, string message, integer channel, integer sayType)
+Where botID = bot uuid. Message = string msg. Channel = channel to speak on. SayType = (0=whisper, 1=say, 2=shout).
+(Aurora-Sim only).</string>
+        </map>
+    <key>botSendIM</key>
+        <map>
+        <key>tooltip</key>
+            <string>botSendIM(string bot, string user, string message)
+Send IM to bot. 
+(Aurora-Sim only).</string>
+        </map>
+    <key>botSetMap</key>
+        <map>
+        <key>tooltip</key>
+            <string>botSetMap(key keyOfBot, list positions, list movementType, integer flags)
+keyOfBot = bot uuid, positions = list of position vectors, movementType = corresponding list of move modes: 0 \u2013 walk, 1 \u2013 fly,
+flags = BOT_FOLLOW_FLAG_NONE and BOT_FOLLOW_FLAG_INDEFINITELY.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botSetShouldFly</key>
+        <map>
+        <key>tooltip</key>
+            <string>botSetShouldFly(key botID, integer ShouldFly)
+Where botID = bot uuid. ShouldFly = TRUE/FALSE. Enables or disables flight mode.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botSitObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>botSitObject(key botID, key objectID, vector offset)
+Where botID = bot uuid, objectID = uuid of object to sit on, offset = Vector for sit position (note that VECTOR_ZERO = default sit pos).
+(Aurora-Sim only).</string>
+        </map>
+    <key>botStandUp</key>
+        <map>
+        <key>tooltip</key>
+            <string>botStandUp(key botID)
+Where botID = bot uuid. Command bot to stand up.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botStopFollowAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>botStopFollowAvatar(key botID)
+Where botID = bot uuid. Stops bot from following an avatar.
+(Aurora-Sim only).</string>
+        </map>
+    <key>botTouchObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>botTouchObject(key botID, key objectID)
+Where botID = bot uuid, objectID = object uuid. Causes bot to touch object identified.
+(Aurora-Sim only).</string>
+        </map>
+    <key>cmGetWindlightScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>list cmGetWindlightScene(list rules)
+Get the current LightShare settings.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>cmSetWindlightScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>cmSetWindlightScene(list rules)
+Set the current WindLight scene. Estate managers and owners only.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>cmSetWindlightSceneTargeted</key>
+        <map>
+        <key>tooltip</key>
+            <string>cmSetWindlightSceneTargeted(list rules, key target)
+Set the current WindLight scene directed at a specific avatar. Estate managers and owners only.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>lsGetWindlightScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>list lsGetWindlightScene(list rules)
+Get the current WindLight settings.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>lsSetWindlightScene</key>
+        <map>
+        <key>tooltip</key>
+            <string>lsSetWindlightScene(list rules)
+Set the current WindLight scene. Estate managers and owners only.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>lsSetWindlightSceneTargeted</key>
+        <map>
+        <key>tooltip</key>
+            <string>lsSetWindlightSceneTargeted(list rules, key target)
+Set the current WindLight scene directed at a specific avatar. Estate managers and owners only.
+(Reguires LightShare Enabled Viewer).</string>
+        </map>
+    <key>osAddAgentToGroup</key>
+        <map>
+        <key>tooltip</key>
+            <string>osAddAgentToGroup(key avatarID, string group_name, string role_name)
+Adds an avatar to a group. Where group_name = name of the target group, role_name = role to assign within the group.
+(Aurora-Sim only).</string>
+        </map>
+    <key>osAgentSaveAppearance</key>
+        <map>
+        <key>tooltip</key>
+            <string>osAgentSaveAppearance(key agentId, string notecard)
+Save an Avatar&apos;s current body part, clothing and attachments data to specified notecard in prim inventory.
+The avatar must be present in the region when this function is invoked.
+The baked textures for the avatar (necessary to recreate appearance) are saved permanently).</string>
+        </map>
+    <key>osAvatarName2Key</key>
+        <map>
+        <key>tooltip</key>
+            <string>key osAvatarName2Key(string firstname, string lastname)
+Returns the avatar&apos;s UUID from their firstname, lastname.</string>
+        </map>
+    <key>osAvatarPlayAnimation</key>
+        <map>
+        <key>tooltip</key>
+            <string>osAvatarPlayAnimation(key UUID, string animation)
+Triggers animations contained within the same prim as the script. Does not need the target avatar&apos;s permission.</string>
+        </map>
+    <key>osAvatarStopAnimation</key>
+        <map>
+        <key>tooltip</key>
+            <string>osAvatarStopAnimation(key UUID, string animation)
+Stops specified animation on the specified avatar.</string>
+        </map>
+    <key>osCauseDamage</key>
+        <map>
+        <key>tooltip</key>
+            <string>osCauseDamage(key UUID, float damage)
+Causes damage to specified avatar. Region must be damage enabled.</string>
+        </map>
+    <key>osCauseHealing</key>
+        <map>
+        <key>tooltip</key>
+            <string>osCauseHealing(key UUID, float healing)
+Causes healing to specified avatar.</string>
+        </map>
+    <key>osConsoleCommand</key>
+        <map>
+        <key>tooltip</key>
+            <string>osConsoleCommand(string command)
+Issues commands directly to the OpenSim server console.</string>
+        </map>
+    <key>osDrawEllipse</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawEllipse(string drawList, integer width, integer height)
+Draws an ellipse on a dynamic texture.</string>
+        </map>
+    <key>osDrawFilledPolygon</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawFilledPolygon (string drawList, list x, list y)
+Draws a polygon on a dynamic texture, and fills it with the current pen color.</string>
+        </map>
+    <key>osDrawFilledRectangle</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawFilledRectangle(string drawList, integer width, integer height)
+Draws a rectangle on a dynamic texture, and fills it with the current pen color.</string>
+        </map>
+    <key>osDrawImage</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawImage(string drawList, integer width, integer height, string imageUrl)
+Retrieves an image specified by the imageUrl parameter and draws it at the specified height and width.</string>
+        </map>
+    <key>osDrawLine</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION
+osDrawLine(string drawList, integer startX, integer startY, integer endX, integer endY)
+osDrawLine(string drawList, integer endX, integer endY)
+Draws a line on a dynamic texture.</string>
+        </map>
+    <key>osDrawPolygon</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawPolygon (string drawList, list x, list y)
+Draws a polygon on a dynamic texture.</string>
+        </map>
+    <key>osDrawRectangle</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawRectangle(string drawList, integer width, integer height)
+Draws a rectangle on a dynamic texture.</string>
+        </map>
+    <key>osDrawText</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDrawText(string drawList, string text)
+Renders text on a dynamic texture.</string>
+        </map>
+    <key>osDropAttachment</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDropAttachment()
+Attempts to drop an attachment to the ground.</string>
+        </map>
+    <key>osDropAttachmentAt</key>
+        <map>
+        <key>tooltip</key>
+            <string>osDropAttachmentAt(vector pos, rotation rot)
+Attempts to drop an attachment at the specified coordinates. "pos" = vector position "rot" = rotation of object.</string>
+        </map>
+    <key>osEjectFromGroup</key>
+        <map>
+        <key>tooltip</key>
+            <string>integer osEjectFromGroup(key agentId)
+Returns True / False if user identified by agentID is successfully removed from group. (Object containing script must be attached to a group).</string>
+        </map>
+    <key>osForceAttachToAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceAttachToAvatar(integer attachPoint)
+Attach the object containing this script to the avatar that owns it without asking for PERMISSION_ATTACH to the attachPoint. For example, ATTACH_CHEST.</string>
+        </map>
+    <key>osForceAttachToAvatarFromInventory</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceAttachToAvatarFromInventory(string itemName, integer attachPoint)
+Attach the inventory item in the object containing this script to the avatar that owns it without checking for PERMISSION_ATTACH
+If itemName is not found in the inventory then a warning is sent to the owner. An example of attachPoint is ATTACH_CHEST.</string>
+        </map>
+    <key>osForceAttachToOtherAvatarFromInventory</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceAttachToOtherAvatarFromInventory(string rawAvatarId, string itemName, integer attachPoint) 
+Attach an inventory item in the object containing this script to any avatar in the region without asking for PERMISSION_ATTACH.
+rawAvatarId = The UUID of the avatar to which to attach. itemName = The name of the item. attachPoint = The attachment point. Example, ATTACH_CHEST.</string>
+        </map>
+    <key>osForceBreakAllLinks</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceBreakAllLinks()
+De-links all prims in a link set, without requiring link permissions.</string>
+        </map>
+    <key>osForceBreakLink</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceBreakLink(integer link)
+De-links the prim with the given link number in a linked set, without requiring link permissions.</string>
+        </map>
+    <key>osForceCreateLink</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceCreateLink(key target, integer parent)
+Link the script's object with target, without requiring link permissions.</string>
+        </map>
+    <key>osForceDetachFromAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>Detach the object containing this script from the avatar it is attached to without checking for PERMISSION_ATTACH
+Nothing happens if the object is not attached.</string>
+        </map>
+    <key>osForceDropAttachment</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceDropAttachment()
+Attempts to drop an attachment to the ground while bypassing the script permissions.</string>
+        </map>
+    <key>osForceDropAttachmentAt</key>
+        <map>
+        <key>tooltip</key>
+            <string>osForceDropAttachmentAt(vector pos, rotation rot)
+Attempts to drop an attachment at the specified coordinates while bypassing the script permissions. "pos" = vector position "rot" = rotation of object.</string>
+        </map>
+    <key>osFormatString</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osFormatString(string to_format, list strings)
+Returns string. OsFormatString(&quot;My name is {0}, I&apos;m located in {1}\u201d, [llGetObjectName(), llGetRegionName()])
+Where {num} parameters must be incremented for each list item, starting at zero, surrounded by curly brackets.</string>
+        </map>
+    <key>osGetAgentIP</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetAgentIP(key agent)
+Returns the Avatars IP Address as a string. Allows in-world tools be used to coordinate out of world network services that need access to client IP addresses.
+Should *ONLY* be used by Region Server Owner.</string>
+        </map>
+    <key>osGetAgents</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetAgents()
+Returns a list of all avatars in the region in which the script is running.</string>
+        </map>
+    <key>osGetAvatarList</key>
+        <map>
+        <key>tooltip</key>
+            <string>list osGetAvatarList()
+Returns strided list of the UUID, position, and name of each avatar in the region, except the owner.</string>
+        </map>
+    <key>osGetCurrentSunHour</key>
+        <map>
+        <key>tooltip</key>
+            <string>float osGetCurrentSunHour()
+Returns float value of current sun hour 0...24 0 is sunrise.</string>
+        </map>
+    <key>osGetDrawStringSize</key>
+        <map>
+        <key>tooltip</key>
+            <string>vector osGetDrawStringSize(string contentType, string text, string fontName, integer fontSize)
+Returns a vector containing the horizontal and vertical dimensions in pixels of the specified text.</string>
+        </map>
+    <key>osGetGridCustom</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridCustom(string key)
+Returns the grid&apos;s Grid Info.</string>
+        </map>
+    <key>osGetGridGatekeeperURI</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridGatekeeperURI()
+returns the value of Gatekeeper in [GridService] section for both standalone and grids.</string>
+        </map>
+    <key>osGetGridHomeURI</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridHomeURI()
+Returns the current grid URI.</string>
+        </map>
+    <key>osGetGridLoginURI</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridLoginURI()
+Returns the grid&apos;s LoginURI.</string>
+        </map>
+    <key>osGetGridName</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridName()
+Returns the grid&apos;s name.</string>
+        </map>
+    <key>osGetGridNick</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetGridNick()
+Returns the grid&apos;s nickname.</string>
+        </map>
+    <key>osGetHealth</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetHealth(key avatar)
+Returns avatar's health in float value.</string>
+        </map>
+    <key>osGetInventoryDesc</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetInventoryDesc(string itemName)
+returns the description of an inventory item contained within a prim.</string>
+        </map>
+    <key>osGetLinkPrimitiveParams</key>
+        <map>
+        <key>tooltip</key>
+            <string>list osGetLinkPrimitiveParams(integer linknumber, list rules)
+Returns prim params for the linkset prims specified by linknum.
+If using linkset constants (e.g. LINK_SET, LINK_ALL_CHILDREN, etc), the requested params of each relevant prim are concatenated to the end of the list.
+Otherwise, usage is identical to llGetPrimitiveParams().</string>
+        </map>
+    <key>osGetMapTexture</key>
+        <map>
+        <key>tooltip</key>
+            <string>key osGetMapTexture()
+Returns the map texture UUID of current region.</string>
+        </map>
+    <key>osGetNotecard</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetNotecard(string name)
+Reads the entire notecard and return its data as a string.</string>
+        </map>
+    <key>osGetNotecardLine</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetNotecardLine(string name, integer line)
+Reads the requested notecard line and return its data as a string.</string>
+        </map>
+    <key>osGetNumberOfAttachments</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetNumberOfAttachments(key avatar, list attachmentPoints)
+Returns a strided list of the specified attachmentPoints and the number of attachments on those points. "avatar" = avatar UUID,  "attachmentPoints" = list of ATTACH_* constants.</string>
+        </map>
+    <key>osGetNumberOfNotecardLines</key>
+        <map>
+        <key>tooltip</key>
+            <string>integer osGetNumberOfNotecardLines(string name)
+Returns total number of lines in a notecard.</string>
+        </map>
+    <key>osGetPhysicsEngineType</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetPhysicsEngineType()
+Returns a string containing the name of the Physics Engine.</string>
+        </map>
+    <key>osGetPrimitiveParams</key>
+        <map>
+        <key>tooltip</key>
+            <string>list osGetPrimitiveParams(key prim, list rules)
+Gets the parameters of the primitive, specified by key.</string>
+        </map>
+    <key>osGetRegionMapTexture</key>
+        <map>
+        <key>tooltip</key>
+            <string>key osGetRegionMapTexture(string regionName)
+Returns the map texture UUID for the regionName requested.</string>
+        </map>
+    <key>osGetRegionSize</key>
+        <map>
+        <key>tooltip</key>
+            <string>vector osGetRegionSize()
+Returns the size of the region in meters.</string>
+        </map>
+    <key>osGetRegionStats</key>
+        <map>
+        <key>tooltip</key>
+            <string>list osGetRegionStats()
+Returns a list of float values representing a number of region statistics (21 of the values shown in the statistics bar of LL-based clients).</string>
+        </map>
+    <key>osGetRezzingObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetRezzingObject()
+Get the key of the object that rezzed this object. Will return NULL_KEY if rezzed by agent or otherwise unknown source.</string>
+        </map>
+    <key>osGetScriptEngineName</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetScriptEngineName()
+Returns the name of the script engine which is currently enabled on the server.</string>
+        </map>
+    <key>osGetSimulatorMemory</key>
+        <map>
+        <key>tooltip</key>
+            <string>integer osGetSimulatorMemory()
+Returns integer of current memory used by simulator instance.</string>
+        </map>
+    <key>osGetSimulatorVersion</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osGetSimulatorVersion()
+Returns current server version information as a string.</string>
+        </map>
+    <key>osGetSunParam</key>
+        <map>
+        <key>tooltip</key>
+            <string>float osGetSunParam(string param)
+Returns current float values for param, where param = day_length, year_length, day_night_offset, update_interval.</string>
+        </map>
+    <key>osGetTerrainHeight</key>
+        <map>
+        <key>tooltip</key>
+            <string>osGetTerrainHeight(integer x, integer y)
+Returns current terrain height as float at the given coordinates.</string>
+        </map>
+    <key>osGetWindParam</key>
+        <map>
+        <key>tooltip</key>
+            <string>float osGetWindParam(string plugin, string param)
+Returns float value of param for plugin. SimpleRandomWind plugin param = strength.
+ConfigurableWind plugin params = avgStrength, avgDirection, varStrength, varDirection, rateChange.</string>
+        </map>
+    <key>osInviteToGroup</key>
+        <map>
+        <key>tooltip</key>
+            <string>integer osInviteToGroup(key agentId)
+Returns TRUE/FALSE if user identified by agentID is successfully added to group (object containing script must be attached to a group).</string>
+        </map>
+    <key>osIsNpc</key>
+        <map>
+        <key>tooltip</key>
+            <string>key osIsNpc(key NPC)
+Returns TRUE if &apos;key&apos; is an NPC (non-player-character).</string>
+        </map>
+    <key>osIsUUID</key>
+        <map>
+        <key>tooltip</key>
+            <string>osIsUUID(string thing)
+Checks if thing is a UUID. Returns TRUE if thing is a valid UUID, FALSE otherwise.</string>
+        </map>
+    <key>osKey2Name</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osKey2Name(key UUID)
+Returns avatar name from their UUID key.</string>
+        </map>
+    <key>osKickAvatar</key>
+        <map>
+        <key>tooltip</key>
+            <string>osKickAvatar(string FirstName, string LastName, string alert)
+Kicks avatar from region with an alert message.</string>
+        </map>
+    <key>osList2Double</key>
+        <map>
+        <key>tooltip</key>
+            <string>double osList2Double(list src, integer index)
+Returns double-precision value from src at index.</string>
+        </map>
+    <key>osListenRegex</key>
+        <map>
+        <key>tooltip</key>
+            <string>osListenRegex(integer channelID, string name, string ID, string msg, integer regexBitfield)
+Identical to llListen except for a bitfield which indicates which string parameters should be parsed as regex patterns. Params = integer channelID, string name, string ID, string msg, integer regexBitfield. Where regexBitfield = OS_LISTEN_REGEX_NAME or OS_LISTEN_REGEX_MESSAGE.</string>
+        </map>
+    <key>osLoadedCreationDate</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osLoadedCreationDate()
+Returns Creation Date from meta data of OAR.</string>
+        </map>
+    <key>osLoadedCreationID</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osLoadedCreationID()
+Returns creation ID from meta data of OAR. Can not be used to identify a machine.</string>
+        </map>
+    <key>osLoadedCreationTime</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osLoadedCreationTime()
+Returns Creation Time from meta data of OAR.</string>
+        </map>
+    <key>osMakeNotecard</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMakeNotecard(string notecardName, list contents)
+Write a Notecard contained in Prim with contents of list.</string>
+        </map>
+    <key>osMatchString</key>
+        <map>
+        <key>tooltip</key>
+            <string>list osMatchString(string src, string pattern, integer start)
+Returns list of matches for the pattern and its components inside the source string. The pattern is a regular expression.
+Each match in the result is the string that matched and its position in the source.</string>
+        </map>
+    <key>osMax</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMax(float A, float B)
+Returns the larger of two numbers. Wraps to system Math.Max().</string>
+        </map>
+    <key>osMessageAttachments</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMessageAttachments(key avatar, string message, list attachmentPoints, integer flags)
+Sends message to avatar's attachments on the specified attachmentPoints. Behaves as osMessageObject(), without the sending script needing to know the attachment keys in advance. "avatar" =avatar UUID,  "message" = message string. "attachmentPoints" = list of ATTACH_* constants, or -1 for all attachments. If -1 is specified and OS_ATTACH_MSG_INVERT_POINTS is present in flags, no action is taken.. "flags" = flags further constraining the attachments to deliver the message to.</string>
+        </map>
+    <key>osMessageObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMessageObject(key UUID, string message)
+Sends string to object identified by UUID.
+Receiving object requires a dataserver(key queryid, string data) in a contained script(s).
+The queryid passed will be the id of the calling object.</string>
+        </map>
+    <key>osMin</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMin(float A, float B)
+Returns the smaller of two numbers. Wraps to system Math.Min().</string>
+        </map>
+    <key>osMovePen</key>
+        <map>
+        <key>tooltip</key>
+            <string>osMovePen(string drawList, integer x, integer y)
+Moves the pen&apos;s location to the coordinates specified by the x and y parameters, without drawing anything.</string>
+        </map>
+    <key>osNpcCreate</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION
+osNpcCreate(string firstname, string lastname, vector position, string notecard)
+osNpcCreate(string firstname, string lastname, vector position, string notecard, integer options)
+Creates an NPC (Non Player Character) clone named firstname lastname at position from a notecard containing the specifications.</string>
+        </map>
+    <key>osNpcGetOwner</key>
+        <map>
+        <key>tooltip</key>
+            <string>rotation osNpcGetOwner(key npc)
+Returns the NPC owner UUID.</string>
+        </map>
+    <key>osNpcGetPos</key>
+        <map>
+        <key>tooltip</key>
+            <string>vector osNpcGetPos(key npc)
+Returns current position vector of the NPC.</string>
+        </map>
+    <key>osNpcGetRot</key>
+        <map>
+        <key>tooltip</key>
+            <string>rotation osNpcGetRot(key npc)
+Gets the rotation of the avatar. Only the rotation around the Z plane in Euler rotation (horizontal rotation) has any meaning.</string>
+        </map>
+    <key>osNpcLoadAppearance</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcLoadAppearance(key npc, string notecard)
+Load NPC appearance from notecard.
+This notecard must contain appearance data created with the save appearance function.</string>
+        </map>
+    <key>osNpcMoveTo</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcMoveTo(key npc, vector position)
+Moves an NPC to a location within the region.</string>
+        </map>
+    <key>osNpcMoveToTarget</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcMoveToTarget(key npc, vector target, integer options)
+Moves NPC to given target over time. Options = OS_NPC_FLY, OS_NPC_NO_FLY, OS_NPC_LAND_AT_TARGET.</string>
+        </map>
+    <key>osNpcPlayAnimation</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcPlayAnimation(key npc, string animation)
+Makes NPC identified by key npc to play animation.</string>
+        </map>
+    <key>osNpcRemove</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcRemove(key npc)
+Removes an NPC.</string>
+        </map>
+    <key>osNpcSaveAppearance</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcSaveAppearance(key npc, string notecard)
+Save NPC&apos;s current body part, clothing and attachments data to notecard in prim inventory.
+The avatar must be present in the region when this function is invoked.
+The baked textures for the avatar (necessary to recreate appearance) are saved permanently).</string>
+        </map>
+    <key>osNpcSay</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcSay(key npc, string message)
+Makes an NPC say something.</string>
+        </map>
+    <key>osNpcSetRot</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcSetRot(key npc, rotation rot)
+Set the rotation of the NPC. Only setting the rotation in the Z plane in Euler rotation will have any meaningful effect (turning NPC facing direction).
+Setting X or Y Euler values will result in the avatar rotating in an undefined manner.</string>
+        </map>
+    <key>osNpcShout</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcShout(key npc, integer channel, string message).</string>
+        </map>
+    <key>osNpcSit</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcSit(key npc, key primkey, integer options)
+Makes NPC sit on prim/item.</string>
+        </map>
+    <key>osNpcStand</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcStand(key npc)
+Makes NPC identified by UUID to stand.</string>
+        </map>
+    <key>osNpcStopAnimation</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcStopAnimation(key npc, string animation)
+Makes NPC identified by key npc stop playing animation.</string>
+        </map>
+    <key>osNpcStopMoveToTarget</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcStopMoveToTarget(key npc)
+Stop a current move to a target.</string>
+        </map>
+    <key>osNpcTouch</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcTouch(key npcKey, key object_key, integer link_num)
+Allows the NPC, npcKey, to touch the specified object, object_key, and its link number, link_num.</string>
+        </map>
+    <key>osNpcWhisper</key>
+        <map>
+        <key>tooltip</key>
+            <string>osNpcWhisper(key npc, integer channel, string message).</string>
+        </map>
+    <key>osOwnerSaveAppearance</key>
+        <map>
+        <key>tooltip</key>
+            <string>osOwnerSaveAppearance(string notecard)
+Save Owner&apos;s current body part, clothing and attachments data to notecard in prim inventory.
+The avatar must be present in the region when this function is invoked.
+The baked textures for the avatar (necessary to recreate appearance) are saved permanently.</string>
+        </map>
+    <key>osParcelJoin</key>
+        <map>
+        <key>tooltip</key>
+            <string>osParcelJoin(vector start, vector end)
+Where start = top corner, end = bottom corner.
+Subdivides from start vector to end vector. Z is ignored but must exist in syntax.</string>
+        </map>
+    <key>osParcelSubdivide</key>
+        <map>
+        <key>tooltip</key>
+            <string>osParcelSubdivide(vector start, vector end)
+Where start = top corner, end = bottom corner.
+Subdivides from start vector to end vector. Z is ignored but must exist in syntax.</string>
+        </map>
+    <key>osParseJSON</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osParseJSON(string JSON)
+Returns a deserialized JSON.</string>
+        </map>
+    <key>osParseJSONNew</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osParseJSON(string JSON)
+Returns a deserialized JSON object.</string>
+        </map>
+    <key>osRegexIsMatch</key>
+        <map>
+        <key>tooltip</key>
+            <string>osRegexIsMatch(string input, string pattern)
+Wraps to bool Regex.IsMatch(string input, string pattern)
+string input = string to test for match
+string pattern = string to use as pattern
+returns boolean TRUE/FALSE.</string>
+        </map>
+    <key>osRegionNotice</key>
+        <map>
+        <key>tooltip</key>
+            <string>osRegionNotice(string msg)
+Broadcasts a notification message to all agents on the current region.</string>
+        </map>
+    <key>osRegionRestart</key>
+        <map>
+        <key>tooltip</key>
+            <string>osRegionRestart(float seconds)
+Restart the current region in the specified number of seconds from now.</string>
+        </map>
+    <key>osReplaceString</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osReplaceString(string src, string pattern, string replace, integer count, integer start)
+Returns new string with replacements completed.</string>
+        </map>
+    <key>osReturnObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>osReturnObject(key userID)
+Returns object to specified avatars UUID.
+(Aurora-Sim only).</string>
+        </map>
+    <key>osReturnObjects</key>
+        <map>
+        <key>tooltip</key>
+            <string>osReturnObjects(float Parameter)
+Returns group of objects. Parameter&apos;s are numeric, values are owner objects = 0, everyone except owner objects = 1, group objects = 2.
+(Aurora-Sim only).</string>
+        </map>
+    <key>osRezObject</key>
+        <map>
+        <key>tooltip</key>
+            <string>osRezObject(string inventory, vector position, vector velocity, rotation rot, integer param, integer isRezAtRoot, integer doRecoil, integer SetDieAtEdge, integer CheckPos)
+Where inventory = object to rez. Position = vector to rez object. Velocity = initial velocity. Rot = initial rotation. Param = onrez event.
+IzAtRoot = TRUE/FALSE flag changes llRezAtRoot to llRezObject. doRecoil =TRUE/FALSE to push avatar. SetDieAtEdge = TRUE/FALSE for rezzed object to die at edge of region.
+CheckPos = TRUE/FALSE enable/disable 10m rez limit.
+(Aurora-Sim only).</string>
+        </map>
+    <key>osSetContentType</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetContentType(key id, string type)
+Sets the response type for an HTTP request/response.</string>
+        </map>
+    <key>osSetDynamicTextureData</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureData(key dynamicID, string contentType, string data, string extraParams, integer timer)
+Writes text and vector graphics onto a prim face.</string>
+        </map>
+    <key>osSetDynamicTextureDataBlend</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureDataBlend(key dynamicID, string contentType, string data, string extraParams, integer timer, integer alpha)
+Allows for two dynamic textures to blend on the prim containing this script.</string>
+        </map>
+    <key>osSetDynamicTextureDataBlendFace</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureDataBlendFace(key dynamicID, string contentType, string data, string extraParams, integer blend, integer disp, integer timer, integer alpha, integer face)
+Allows for two dynamic textures to blend on the specified face of the prim containing this script.</string>
+        </map>
+    <key>osSetDynamicTextureURL</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureURL(key dynamicID, string contentType, string url, string extraParams, integer timer )
+Renders a web texture on the prim containing the script, and returns the UUID of the newly created texture.</string>
+        </map>
+    <key>osSetDynamicTextureURLBlend</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureURLBlend(key dynamicID, string contentType, string url, string extraParams, integer timer, integer alpha)
+Allows for two dynamic textures to blend on the prim containing this script.</string>
+        </map>
+    <key>osSetDynamicTextureURLBlendFace</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetDynamicTextureURLBlendFace(key dynamicID, string contentType, string url, string extraParams, integer blend, integer disp, integer timer, integer alpha, integer face)
+Loads a web texture on a prim.</string>
+        </map>
+    <key>osSetEstateSunSettings</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetEstateSunSettings(integer sunFixed, float sunHour)
+sunFixed = TRUE or FALSE, sunHour = 00.00 to 24.00.</string>
+        </map>
+    <key>osSetFontName</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetFontName(string drawList, string fontName)
+Sets current font to be used by osDrawText. Font must exist on region server to display.</string>
+        </map>
+    <key>osSetFontSize</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetFontSize(string drawList, integer fontSize)
+Sets the font size to be used in osDrawText.</string>
+        </map>
+    <key>osSetParcelDetails</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetParcelDetails(vector pos, list rules)
+Set parcel details at position x,y,x.
+Rules = PARCEL_DETAILS_NAME, PARCEL_DETAILS_DESC, PARCEL_DETAILS_OWNER, PARCEL_DETAILS_GROUP.</string>
+        </map>
+    <key>osSetParcelMediaURL</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetParcelMediaURL(string url)
+Sets parcel media URL.</string>
+        </map>
+    <key>osSetParcelSIPAddress</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetParcelSIPAddress(string SIPAddress)
+Sets parcel SIP Address for Voice.</string>
+        </map>
+    <key>osSetPenCap</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetPenCap(string drawList, string direction, string type)
+Apply a shape on the end of a line. This allows using arrow, diamond, round and flat caps.</string>
+        </map>
+    <key>osSetPenColor</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetPenColor(string drawList, string color)
+Sets the pen color that is to be used when drawing dynamic textures.</string>
+        </map>
+    <key>osSetPenSize</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetPenSize(string drawList, integer penSize)
+Sets the pen size (line thickness) that is to be used when drawing dynamic textures.</string>
+        </map>
+    <key>osSetPrimFloatOnWater</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetPrimFloatOnWater(integer floatYN)
+Make physical prims float at the water level, TRUE or FALSE.</string>
+        </map>
+    <key>osSetPrimitiveParams</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetPrimitiveParams(key prim, list rules)
+Sets primitive Params.</string>
+        </map>
+    <key>osSetProjectionParams</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION
+osSetProjectionParams(key prim. integer projection, key texture, float fov, float focus, float ambience)
+osSetProjectionParams(integer projection, key texture, float fov, float focus, float ambience)
+osSetProjectionParams(key prim, integer projection, key texture, float fov, float focus, float ambience).</string>
+        </map>
+    <key>osSetRegionSunSettings</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetRegionSunSettings(integer useEstateSun, integer sunFixed, float sunHour)
+Changes the estate sun settings, then triggers a sun update
+&apos;sunFixed&apos; TRUE to keep the sun stationary, FALSE to use global time
+&apos;sunHour&apos; The sun hour that is desired, 0...24, 0 is sunrise.</string>
+        </map>
+    <key>osSetRegionWaterHeight</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetRegionWaterHeight(float height)
+Adjusts water height on region.</string>
+        </map>
+    <key>osSetSpeed</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetSpeed(key UUID, float SpeedModifier)
+Multiplies the normal running, walking, and flying speed of the specified avatar.</string>
+        </map>
+    <key>osSetStateEvents</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetStateEvents(integer events)
+Used in the past as a workaround for a bug with Opensim, which has long since been fixed.</string>
+        </map>
+    <key>osSetSunParam</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetSunParam(string param, float value)
+Sets region&apos;s sun parameters, where param = day_length, year_length, day_night_offset, update_interval.</string>
+        </map>
+    <key>osSetTerrainHeight</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetTerrainHeight(integer x, integer y, float val)
+Sets terrain height at the given coordinates. Use osTerrainFlush() afterwards.</string>
+        </map>
+    <key>osSetTerrainTexture</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetTerrainTexture(integer level, key texture)
+Sets terrain texture to level specified using the specific UUID of the texture.</string>
+        </map>
+    <key>osSetTerrainTextureHeight</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetTerrainTextureHeight(int corner, float low, float high)
+Sets terrain texture in corner specified between the low and high levels. Identical to setting textures in Region Manager within the viewer.</string>
+        </map>
+    <key>osSetWindParam</key>
+        <map>
+        <key>tooltip</key>
+            <string>osSetWindParam(string plugin, string param, float value)
+Sets value of param for plugin. SimpleRandomWind plugin param = strength.
+ConfigurableWind plugin params = avgStrength, avgDirection, varStrength, varDirection, rateChange.</string>
+        </map>
+    <key>osShutDown</key>
+        <map>
+        <key>tooltip</key>
+            <string>osShutDown()
+Shut&apos;s down current Simulator. Authorized Admin Only by config.
+(Aurora-Sim only).</string>
+        </map>
+    <key>osTeleportAgent</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION
+osTeleportAgent(key agent, integer regionX, integer regionY, vector position, vector lookat)
+osTeleportAgent(key agent, string regionName, vector position, vector lookat)
+osTeleportAgent(key agent, vector position, vector lookat)
+Teleports the specified agent to a specified location in the region, the grid, or the hypergrid.</string>
+        </map>
+    <key>osTeleportOwner</key>
+        <map>
+        <key>tooltip</key>
+            <string>POLYMORPHIC FUNCTION
+osTeleportOwner(integer regionX, integer regionY, vector position, vector lookat)
+osTeleportOwner(string regionName, vector position, vector lookat)
+osTeleportOwner(vector position, vector lookat)
+Teleports the owner of the object that holds the script to a specified location in the region, the grid, or the hypergrid.</string>
+        </map>
+    <key>osTerrainFlush</key>
+        <map>
+        <key>tooltip</key>
+            <string>osTerrainFlush()
+Updates terrain data. Call this after you are done using osTerrainSetHeight.</string>
+        </map>
+    <key>osUnixTimeToTimestamp</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osUnixTimeToTimestamp(integer unixtime)
+Converts unixtime to an llGetTimeStamp() formated string.</string>
+        </map>
+    <key>osWindActiveModelPluginName</key>
+        <map>
+        <key>tooltip</key>
+            <string>string osWindActiveModelPluginName()
+Returns the current working wind module installed
+These are SimpleRandomWind or ConfigurableWind.</string>
+        </map>
+    </map>
+</llsd>

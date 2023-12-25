@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- IMPORTANT: if you change the name for this floater, change it as well in LLAppViewer::disconnectViewer() -->
+<floater name="image preview" title=""
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false"
+ height="440" min_height="140" min_width="300" width="300">
+	<text bottom_delta="-36" follows="top|left" height="12" left="10" name="name_label">
+		Name:
+	</text>
+	<line_editor bottom_delta="-24" follows="top|left|right" height="19" max_length="254"
+	     name="name_form" width="280" />
+	<text bottom_delta="-18" follows="top|left" height="12" name="description_label">
+		Description:
+	</text>
+	<line_editor bottom_delta="-24" follows="top|left|right" height="19" max_length="254"
+	     name="description_form" width="280" spell_check="true" />
+	<text bottom_delta="-20" follows="top|left" height="12" name="preview_label">
+		Preview image as:
+	</text>
+	<combo_box bottom_delta="-6" follows="left|top" height="18" label="Clothing type"
+	     left="120" name="clothing_type_combo" width="160">
+		<combo_item name="Image">
+			Image
+		</combo_item>
+		<combo_item name="Hair">
+			Hair
+		</combo_item>
+		<combo_item name="FemaleHead">
+			Female Head
+		</combo_item>
+		<combo_item name="FemaleUpperBody">
+			Female Upper Body
+		</combo_item>
+		<combo_item name="FemaleLowerBody">
+			Female Lower Body
+		</combo_item>
+		<combo_item name="MaleHead">
+			Male Head
+		</combo_item>
+		<combo_item name="MaleUpperBody">
+			Male Upper Body
+		</combo_item>
+		<combo_item name="MaleLowerBody">
+			Male Lower Body
+		</combo_item>
+		<combo_item name="Skirt">
+			Skirt
+		</combo_item>
+		<combo_item name="SculptedPrim">
+			Sculpted Prim
+		</combo_item>
+	</combo_box>
+	<text name="bad_image_text" visible="false"
+	 left="10" bottom="250" follows="top|left">
+		Unable to read image.
+
+Try saving image as 24 bit Targa (.tga).
+	</text>
+	<check_box name="lossless_check" control_name="LosslessJ2CUpload" enabled="false"
+	 label="Use lossless compression" font="SansSerifSmall"
+	 left="10" bottom="36" width="158" height="16" follows="bottom|left" />
+	<check_box name="temp_check" visible="false"
+	 label="Temporary (free)" font="SansSerifSmall"
+	 tooltip="Sets the texture asset to be temporary, meaning it is free but, in return, only valid/available for as long as the server keeps texture bakes around."
+	 left_delta="160" bottom="36" width="135" height="16" follows="bottom|left" />
+	<button name="ok_btn" label="Upload (L$[AMOUNT])"
+	 left="15" bottom="10" width="125" height="20" follows="bottom|left" />
+	<button name="cancel_btn" label="Cancel"
+	 left="165" bottom="10" width="125" height="20" follows="bottom|right" />
+	<string name="thumbnail">Inventory object thumbnail</string>
+</floater>

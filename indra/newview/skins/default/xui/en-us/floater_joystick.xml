@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="joystick" title="Joystick configuration" can_minimize="true" can_resize="false"
+ height="500" width="550">
+
+	<check_box name="enable_joystick" control_name="JoystickEnabled" label="Enable joystick:"
+	 left="14" bottom="-38" width="96" height="16" follows="left|top" />
+	<text name="joystick_type"
+	 left="120" bottom_delta="0" width="380" height="16" follows="left|top" />
+
+	<spinner name="JoystickAxis1" control_name="JoystickAxis1" label="X axis mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="20" bottom_delta="-24" width="140" height="18" follows="left|top" />
+	<spinner name="JoystickAxis2" control_name="JoystickAxis2" label="Y axis mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="190" bottom_delta="0" width="140" height="18" follows="left|top" />
+	<spinner name="JoystickAxis0" control_name="JoystickAxis0" label="Z axis mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="360" bottom_delta="0" width="140" height="18" follows="left|top" />
+
+	<spinner name="JoystickAxis4" control_name="JoystickAxis4" label="Pitch mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="20" bottom_delta="-20" width="140" height="18" follows="left|top" />
+	<spinner name="JoystickAxis5" control_name="JoystickAxis5" label="Yaw mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="190" bottom_delta="0" width="140" height="18" follows="left|top" />
+	<spinner name="JoystickAxis3" control_name="JoystickAxis3" label="Roll mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="360" bottom_delta="0" width="140" height="18" follows="left|top" />
+
+	<spinner name="JoystickAxis6" control_name="JoystickAxis6" label="Zoom mapping"
+	 label_width="100" decimal_digits="0" increment="1" min_val="-1" max_val="5"
+	 left="20" bottom_delta="-20" width="140" height="18" follows="left|top" />
+	<check_box name="ZoomDirect" control_name="ZoomDirect" label="Direct zoom"
+	 left_delta="164" bottom_delta="-2" width="110" height="18" follows="left|top" />
+	<check_box name="Cursor3D" control_name="Cursor3D" label="3D cursor"
+	 left_delta="120" bottom_delta="0" width="110" height="18" follows="left|top" />
+	<check_box name="AutoLeveling" control_name="AutoLeveling" label="Auto level"
+	 left_delta="120" bottom_delta="0" width="110" height="18" follows="left|top" />
+
+	<text name="Control Modes:" font="SansSerifSmall"
+	 left="20" bottom_delta="-20" width="100" height="18" follows="left|top">
+		Control modes:
+	</text>
+	<check_box name="JoystickAvatarEnabled" control_name="JoystickAvatarEnabled" label="Avatar"
+	 left_delta="110" bottom_delta="0" width="60" height="18" follows="left|top" />
+	<check_box name="JoystickBuildEnabled" control_name="JoystickBuildEnabled" label="Build"
+	 left_delta="70" bottom_delta="0" width="60" height="18" follows="left|top" />
+	<check_box name="JoystickFlycamEnabled" control_name="JoystickFlycamEnabled" label="Flycam"
+	 left_delta="70" bottom_delta="0" width="60" height="18" follows="left|top" />
+	<spinner name="JoystickButtonFlyCam" control_name="JoystickButtonFlyCam" label="Flycam toggle button"
+	 label_width="120" decimal_digits="0" increment="1" min_val="-1" max_val="15"
+	 bottom_delta="-2" left="350" width="160" height="18" follows="left|top" />
+
+	<text name="XScale" halign="right"
+	 left="20" bottom_delta="-30" width="94" height="18" follows="left|top">
+		X scale
+	</text>
+	<spinner name="AvatarAxisScale1" control_name="AvatarAxisScale1"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-50" max_val="50"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisScale1" control_name="BuildAxisScale1"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale1" control_name="FlycamAxisScale1"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="YScale" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Y scale
+	</text>
+	<spinner name="AvatarAxisScale2" control_name="AvatarAxisScale2"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-50" max_val="50"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisScale2" control_name="BuildAxisScale2"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale2" control_name="FlycamAxisScale2"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="ZScale" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Z scale
+	</text>
+	<spinner name="AvatarAxisScale0" control_name="AvatarAxisScale0"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-50" max_val="50"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisScale0" control_name="BuildAxisScale0"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale0" control_name="FlycamAxisScale0"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="PitchScale" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Pitch scale
+	</text>
+	<spinner name="AvatarAxisScale4" control_name="AvatarAxisScale4"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisScale4" control_name="BuildAxisScale4"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale4" control_name="FlycamAxisScale4"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="YawScale" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Yaw scale
+	</text>
+	<spinner name="AvatarAxisScale5" control_name="AvatarAxisScale5"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisScale5" control_name="BuildAxisScale5"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale5" control_name="FlycamAxisScale5"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="RollScale" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Roll scale
+	</text>
+	<spinner name="BuildAxisScale3" control_name="BuildAxisScale3"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisScale3" control_name="FlycamAxisScale3"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="XDeadZone" halign="right"
+	 bottom_delta="-30" left="20" width="94" height="18" follows="left|top">
+		X dead zone
+	</text>
+	<spinner name="AvatarAxisDeadZone1" control_name="AvatarAxisDeadZone1"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisDeadZone1" control_name="BuildAxisDeadZone1"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone1" control_name="FlycamAxisDeadZone1"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="no_monitor" halign="center"
+	 left="340" bottom_delta="0" width="180" height="36" follows="left|top">
+		NOTE: no joystick monitoring
+available at login screen.
+	</text>
+
+	<text name="YDeadZone" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Y dead zone
+	</text>
+	<spinner name="AvatarAxisDeadZone2" control_name="AvatarAxisDeadZone2"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisDeadZone2" control_name="BuildAxisDeadZone2"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone2" control_name="FlycamAxisDeadZone2"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="ZDeadZone" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Z dead zone
+	</text>
+	<spinner name="AvatarAxisDeadZone0" control_name="AvatarAxisDeadZone0"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisDeadZone0" control_name="BuildAxisDeadZone0"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone0" control_name="FlycamAxisDeadZone0"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="PitchDeadZone" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Pitch dead zone
+	</text>
+	<spinner name="AvatarAxisDeadZone4" control_name="AvatarAxisDeadZone4"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisDeadZone4" control_name="BuildAxisDeadZone4"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone4" control_name="FlycamAxisDeadZone4"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 bottom_delta="0" left="265" width="56" height="18" follows="left|top" />
+
+	<text name="YawDeadZone" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Yaw dead zone
+	</text>
+	<spinner name="AvatarAxisDeadZone5" control_name="AvatarAxisDeadZone5"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="125" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="BuildAxisDeadZone5" control_name="BuildAxisDeadZone5"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone5" control_name="FlycamAxisDeadZone5"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="RollDeadZone" halign="right"
+	 left="20" bottom_delta="-20" width="94" height="18" follows="left|top">
+		Roll dead zone
+	</text>
+	<spinner name="BuildAxisDeadZone3" control_name="BuildAxisDeadZone3"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="195" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="FlycamAxisDeadZone3" control_name="FlycamAxisDeadZone3"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<text name="Feathering" halign="right"
+	 left="20" bottom_delta="-30" width="94" height="18" follows="left|top">
+		Feathering
+	</text>
+	<slider name="AvatarFeathering" control_name="AvatarFeathering" label=""
+	 can_edit_text="false" show_text="false" decimal_digits="0" increment="1" max_val="32" min_val="1"
+	 left="116" bottom_delta="0" width="73" height="16" follows="left|top" />
+	<slider name="BuildFeathering" control_name="BuildFeathering" label=""
+	 can_edit_text="false" show_text="false" decimal_digits="0" increment="1" max_val="32" min_val="1"
+	 left="186" bottom_delta="0" width="73" height="16" follows="left|top" />
+	<slider name="FlycamFeathering" control_name="FlycamFeathering" label=""
+	 can_edit_text="false" show_text="false" decimal_digits="0" increment="1" max_val="32" min_val="1"
+	 left="256" bottom_delta="0" width="73" height="16" follows="left|top" />
+
+	<text name="ZoomScale2" halign="right"
+	 left="20" bottom_delta="-30" width="94" height="18" follows="left|top">
+		Zoom scale
+	</text>
+	<spinner name="FlycamAxisScale6" control_name="FlycamAxisScale6"
+	 label_width="0" decimal_digits="2" increment="0.1" min_val="-1024" max_val="1024"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+
+	<spinner name="JoystickButtonJump" control_name="JoystickButtonJump" label="Avatar jump button"
+	 label_width="120" decimal_digits="0" increment="1" min_val="-1" max_val="15"
+	 bottom_delta="0" left="350" width="160" height="18" follows="left|top" />
+
+	<text name="ZoomDeadZone" halign="right"
+	 bottom_delta="-20" left="20" width="94" height="18" follows="left|top">
+		Zoom dead zone
+	</text>
+	<spinner name="FlycamAxisDeadZone6" control_name="FlycamAxisDeadZone6"
+	 label_width="0" decimal_digits="2" increment="0.01" min_val="0" max_val="1"
+	 left="265" bottom_delta="0" width="56" height="18" follows="left|top" />
+	<spinner name="JoystickRunThreshold" control_name="JoystickRunThreshold" label="Run threshold"
+	 label_width="110" decimal_digits="2" increment="0.05" min_val="0" max_val="1"
+	 left="350" bottom_delta="0" width="160" height="18" follows="left|top"/>
+
+	<button name="init_btn" label="Initialize joystick" font="SansSerif"
+	left="20"  bottom_delta="-26" height="20" width="140" follows="left|top" />
+	<flyout_button name="defaults_btn" label="Set to defaults" font="SansSerif"
+	 left_delta="146" bottom_delta="0" width="170" height="20" follows="left|top">
+		<flyout_button_item value="previous" name="previous">
+			Set to previous settings
+		</flyout_button_item>
+		<flyout_button_item value="spacenavigator" name="spacenavigator">
+			Set to SpaceNavigator defaults
+		</flyout_button_item>
+	</flyout_button>
+	<button name="ok_btn" label="OK" font="SansSerif"
+	 left_delta="176" bottom_delta="0" width="90" height="20" follows="left|top" />
+	<button name="cancel_btn" label="Cancel" font="SansSerif"
+	 left_delta="96" bottom_delta="0" width="90" height="20" follows="left|top" />
+
+	<text name="btn0_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 0 is pressed."
+	 left="504" bottom="-166" width="40" height="12" follows="left|top">
+		btn 0
+	</text>
+	<text name="btn1_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 1 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 1
+	</text>
+	<text name="btn2_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 2 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 2
+	</text>
+	<text name="btn3_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 3 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 3
+	</text>
+	<text name="btn4_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 4 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 4
+	</text>
+	<text name="btn5_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 5 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 5
+	</text>
+	<text name="btn6_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 6 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 6
+	</text>
+	<text name="btn7_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 7 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 7
+	</text>
+	<text name="btn8_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 8 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 8
+	</text>
+	<text name="btn9_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 9 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 9
+	</text>
+	<text name="btn10_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 10 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 10
+	</text>
+	<text name="btn11_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 11 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 11
+	</text>
+	<text name="btn12_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 12 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 12
+	</text>
+	<text name="btn13_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 13 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 13
+	</text>
+	<text name="btn14_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 14 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 14
+	</text>
+	<text name="btn15_text" mouse_opaque="true" visible="false"
+	 tool_tip="White while joystick button 15 is pressed."
+	 left="504" bottom_delta="-16" width="40" height="12" follows="left|top">
+		btn 15
+	</text>
+
+	<string name="JoystickMonitor">Joystick monitor</string>
+	<string name="Axis">Axis [NUM]</string>
+	<string name="NoDevice">no device detected</string>
+</floater>

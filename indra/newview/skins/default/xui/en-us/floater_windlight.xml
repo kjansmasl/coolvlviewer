@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="windlight" title="Windlight editor" rect_control="FloaterWindlightRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ height="366" min_height="366" width="650" min_width="650">
+	<text name="time_label" font="SansSerifSmall"
+	 bottom="-44" left="10" height="16" width="100" follows="left|top">
+		Time of day
+	</text>
+	<icon name="EnvDayCycle" image_name="icon_diurnal.tga"
+	 bottom_delta="-5" left="84" height="25" width="200" follows="left|top" />
+	<text name="EnvTimeText" font="SansSerifSmall"
+	 bottom_delta="-26" left="24" height="16" width="40" follows="left|top">
+		00:00
+	</text>
+	<slider name="EnvTimeSlider" label="" show_text="false" can_edit_text="false"
+	 decimal_digits="0" increment="0.0069444" min_val="0" max_val="0.99"
+	 tool_tip="Use this slider to change the day's phase locally on the viewer."
+	 bottom_delta="0" left_delta="56" height="16" width="210" follows="left|top" />
+	<check_box name="EnvUseEstateTimeCheck" label="Estate time in use" control_name="UseWLEstateTime" enabled="false"
+	 tool_tip="When checked, indicates that the time of day is the estate's Windlight time."
+	 left="20" bottom_delta="-28" width="140" height="16" follows="left|top" />
+	<button name="preview_btn" label="Preview frame" font="SansSerif" visible="false"
+	 tool_tip="Adopt the Windlight sky and water settings for the current frame as Extended Environment local settings for preview."
+	 left_delta="164" bottom_delta="0" height="20" width="100" follows="left|top" />
+	<slider name="EnvCloudSlider" label="Cloud cover" show_text="true"
+	 decimal_digits="2" increment="0.01" max_val="1" min_val="0" label_width="66"
+	 tool_tip="Use this slider to control how much the clouds cover the sky."
+	 left="320" bottom="-44" width="316" height="16" follows="left|top" />
+	<text name="EnvWaterColorText" font="SansSerifSmall"
+	 left="320" bottom_delta="-28" width="100" height="16" follows="left|top">
+		Water color
+	</text>
+	<color_swatch name="EnvWaterColor" label="" can_apply_immediately="true"
+	 tool_tip="Click to open the color picker and change the color of the water."
+	 left_delta="80" bottom_delta="-24" width="32" height="48" follows="left|top" />
+	<slider name="EnvWaterFogSlider" label="Water fog" show_text="true"
+	 decimal_digits="1" increment="0.1" max_val="10" min_val="0" label_width="66"
+	 tool_tip="Controls how dense the fog is underwater."
+	 left="320" bottom_delta="-6" width="316" height="16" follows="left|top" />
+	<tab_container name="tabs" tab_position="top"
+	 left="6" bottom="-362" width="640" height="254" follows="left|top|right|bottom">
+		<panel name="day_cycle" label="Day cycle" border="true" follows="left|top|right|bottom">
+			<text name="DayCyclePresetsText" font="SansSerif"
+		     left="10" bottom="-28" width="140" height="16" follows="left|top">
+				Edited day cycle preset:
+			</text>
+			<combo_box name="WLDayCycleCombo" allow_text_entry="false"
+			 left_delta="145" bottom_delta="0" width="200" height="18" follows="left|top" />
+			<button name="WLNewDayCycle" label="New" font="SansSerif"
+			 left_delta="210" bottom_delta="-2" width="70" height="20" follows="left|top" />
+			<button name="WLSaveDayCycle" label="Save" font="SansSerif"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<button name="WLDeleteDayCycle" label="Delete"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<button name="WLDayCycleHelp" label="?" font="SansSerifSmall"
+			 left_delta="88" bottom_delta="0" width="18" height="18" follows="left|top" />
+			<button name="WLAddKey" label="Add key" font="SansSerif"
+			 left="552" bottom_delta="-24" width="80" height="20" follows="left|top" />
+			<button name="WLDeleteKey" label="Delete key" font="SansSerif"
+			 left_delta="0" bottom_delta="-24" width="80" height="20" follows="left|top" />
+			<multi_slider name="WLTimeSlider" label="" show_text="false"
+		     decimal_digits="0" max_sliders="20" max_val="24" min_val="0" increment="0.08333333333"
+			 draw_track="false" allow_overlap="false" can_edit_text="true" use_triangle="true"
+			 left="20" bottom_delta="32" width="525" height="10" follows="top|left|right" />
+			<multi_slider name="WLDayCycleKeys" label="" show_text="false"
+			 decimal_digits="0" max_sliders="20" max_val="24" min_val="0" increment="0.08333333333"
+			 allow_overlap="false" can_edit_text="true"
+			 left="20" bottom_delta="-25" width="525" height="10" follows="top|left|right" />
+			<text name="H00" font="SansSerif"
+			 left="20" bottom_delta="-20" width="4" height="14" follows="left|top|right">
+				|
+			</text>
+			<text name="H03" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="11" follows="left|top|right">
+				I
+			</text>
+			<text name="H06" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="14" follows="left|top|right">
+				|
+			</text>
+			<text name="H09" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="11" follows="left|top|right">
+				I
+			</text>
+			<text name="H12" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="14" follows="left|top|right">
+				|
+			</text>
+			<text name="H15" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="11" follows="left|top|right">
+				I
+			</text>
+			<text name="H18" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="14" follows="left|top|right">
+				|
+			</text>
+			<text name="H21" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="11" follows="left|top|right">
+				I
+			</text>
+			<text name="H24" font="SansSerif"
+			 left_delta="65" bottom_delta="0" width="4" height="14" follows="left|top|right">
+				|
+			</text>
+			<text name="H0000" font="SansSerifSmall"
+			 left="8" bottom_delta="-10" width="55" height="6" follows="left|top|right">
+				00:00
+			</text>
+			<text name="H0300" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				03:00
+			</text>
+			<text name="H0600" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				06:00
+			</text>
+			<text name="H0900" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				09:00
+			</text>
+			<text name="H1200" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				12:00
+			</text>
+			<text name="H1500" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				15:00
+			</text>
+			<text name="H1800" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				18:00
+			</text>
+			<text name="H2100" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				21:00
+			</text>
+			<text name="H2400" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="55" height="6" follows="left|top|right">
+				24:00
+			</text>
+			<text name="DayCyclePreviewText" font="SansSerif" halign="center"
+			 left="262" bottom_delta="-40" width="110" height="18" follows="left|top">
+				Preview:
+			</text>
+			<button name="WLAnimSky" label="Play" font="SansSerif"
+			 left_delta="4" bottom_delta="-24" width="50" height="20" follows="left|top" />
+			<button name="WLStopAnimSky" label="Stop" font="SansSerif"
+			 left_delta="55" bottom_delta="0" width="50" height="20" follows="left|top" />
+			<text name="DayCycleLengthText" font="SansSerif" halign="center"
+			 left_delta="108" bottom_delta="24" width="200" height="18" follows="left|top">
+				Length of cycle:
+			</text>
+			<spinner name="WLLengthOfDayHour" label="Hour" label_width="30"
+			 can_edit_text="true" decimal_digits="0" increment="1" max_val="99" min_val="0"
+			 left_delta="0" bottom_delta="-20" width="70" height="16" follows="left|top" />
+			<spinner name="WLLengthOfDayMin" label="Min" label_width="20"
+			 can_edit_text="true" decimal_digits="0" increment="1" max_val="59" min_val="0"
+			 left_delta="75" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="WLLengthOfDaySec" label="Sec" label_width="20"
+			 can_edit_text="true" decimal_digits="0" increment="1" max_val="59" min_val="0"
+			 left_delta="65" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<text name="no_live_preview_text" font="SansSerifSmall" halign="center" visible="false"
+			 left="214" bottom_delta="-72" width="220" height="60" follows="left|top">
+				Live preview is not available in
+Extended Environment rendering    
+mode: use the 'Preview frame' button.    
+			</text>
+			<view_border name="key_frame_settings_border"
+			 bevel_style="none" border_thickness="1"
+			 left="12" bottom_delta="0" width="190" height="115" follows="left|top" />
+			<text name="WLCurKeyFrameText" font="SansSerif"
+			 left="20" bottom_delta="95" width="150" height="16" follows="left|top">
+				Key frame settings:
+			</text>
+			<text name="WLCurKeyTimeText" font="SansSerif"
+			 left="30" bottom_delta="-20" width="100" height="16" follows="left|top">
+				Key time:
+			</text>
+			<spinner name="WLCurKeyHour" label="Hours" label_width="40"
+			 can_edit_text="true" decimal_digits="0" increment="1" max_val="99" min_val="0"
+			 left_delta="0" bottom_delta="-20" width="80" height="16" follows="left|top" />
+			<spinner name="WLCurKeyMin" label="Minutes" label_width="40"
+			 can_edit_text="true" decimal_digits="0" increment="5" max_val="55" min_val="0"
+			 left_delta="85" bottom_delta="0" width="80" height="16" follows="left|top" />
+			<text name="WLCurKeyPresetText" font="SansSerif"
+			 left="30" bottom_delta="-25" width="100" height="16" follows="left|top">
+				Key sky preset:
+			</text>
+			<combo_box name="WLKeyPresets" allow_text_entry="false"
+			 left_delta="0" bottom_delta="-22" width="155" height="18" follows="left|top" />
+		</panel>
+		<panel name="sky" label="Sky" border="true" follows="left|top|right|bottom">
+			<text name="SkyPresetsText" font="SansSerif"
+		     left="10" bottom="-28" width="100" height="16" follows="left|top">
+				Edited sky preset:
+			</text>
+			<combo_box name="WLPresetsCombo" allow_text_entry="false"
+			 left_delta="110" bottom_delta="0" width="200" height="18" follows="left|top" />
+			<button name="WLNewPreset" label="New" font="SansSerif"
+			 left_delta="210" bottom_delta="-2" width="70" height="20" follows="left|top" />
+			<button name="WLSavePreset" label="Save" font="SansSerif"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<button name="WLDeletePreset" label="Delete"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<tab_container name="WindLight Tabs" tab_position="top"
+			 left="0" bottom_delta="-208" width="640" height="198" follows="left|top">
+				<panel name="Atmosphere" label="Atmosphere" border="true"
+				 follows="left|top|right|bottom">
+					<text name="BHText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Use the Red/Green/Blue (RGB) sliders to adjust the color of the sky. You can use the Intensity (I) slider to move all three RGB sliders in unison."
+				     left="10" bottom="-20" width="100" height="16" follows="left|top">
+						Blue horizon
+					</text>
+					<slider name="WLBlueHorizonR" label="R" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the red channel for the color of the sky."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueHorizonG" label="G" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the green channel for the color of the sky."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueHorizonB" label="B" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the blue channel for the color of the sky."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueHorizonI" label="I" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the all three color channels for the color of the sky, varying the intensity."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="HHText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Haze horizon is one of the most useful parameters for adjusting overall light exposure in the scene. It is effective for simulating many exposure settings, such as white-outs from the sun and darker, closed-iris settings."
+				     left="10" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Haze horizon
+					</text>
+					<slider name="WLHazeHorizon" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Haze horizon is one of the most useful parameters for adjusting overall light exposure in the scene. It is effective for simulating many exposure settings, such as white-outs from the sun and darker, closed-iris settings."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="BDensText2" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Blue density affects the overall color saturation of the sky and fog. If you move the Intensity (I) slider to the right, colors will become brighter and more vibrant. If you move it all the way to the left, the colors will become duller, eventually fading to black and white. If you want to fine-tune the sky's color balance, you can control individual elements of saturation by using the Red/Green/Blue (RGB) sliders."
+				     left="230" bottom="-20" width="355" height="16" follows="left|top">
+						Blue density
+					</text>
+					<slider name="WLBlueDensityR" label="R" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Blue density affects the overall color saturation of the sky and fog. If you want to fine-tune the sky's color balance, you can control the red channel of the saturation by using this slider."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueDensityG" label="G" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Blue density affects the overall color saturation of the sky and fog. If you want to fine-tune the sky's color balance, you can control the green channel of the saturation by using this slider."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueDensityB" label="B" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Blue density affects the overall color saturation of the sky and fog. If you want to fine-tune the sky's color balance, you can control the blue channel of the saturation by using this slider."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLBlueDensityI" label="I" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Blue density affects the overall color saturation of the sky and fog. If you move the this slider to the right, colors will become brighter and more vibrant. If you move it all the way to the left, the colors will become duller, eventually fading to black and white.."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="HDText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Haze density controls the level of dull, gray haze in the atmosphere. It is effective for simulating scenes with high levels of smoke and man-made pollutants. It is also effective for simulating fog and mist."
+				     left="230" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Haze density
+					</text>
+					<slider name="WLHazeDensity" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="4" min_val="0"
+					 tool_tip="Haze density controls the level of dull, gray haze in the atmosphere. It is effective for simulating scenes with high levels of smoke and man-made pollutants. It is also effective for simulating fog and mist."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="DensMultText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="The Density multiplier can be used to affect the overall atmospheric density. At lower settings, it creates a feeling of &quot;thin air&quot;, and at higher settings, it creates a very heavy, smoggy effect."
+				     left="450" bottom="-20" width="150" height="16" follows="left|top">
+						Density multiplier
+					</text>
+					<slider name="WLDensityMult" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="0.9" min_val="0"
+					 tool_tip="The Density multiplier can be used to affect the overall atmospheric density. At lower settings, it creates a feeling of &quot;thin air&quot;, and at higher settings, it creates a very heavy, smoggy effect."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="WLDistanceMultText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Adjusts WindLight's perceived distance. A value of zero effectively turns off WindLight's influence on terrain and objects. Values greater than 1 simulate greater distances for thicker atmospheric effects."
+				     left="450" bottom_delta="-30" width="150" height="16" follows="left|top">
+						Distance multiplier
+					</text>
+					<slider name="WLDistanceMult" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="1" increment="0.1" max_val="100" min_val="0"
+					 tool_tip="Adjusts WindLight's perceived distance. A value of zero effectively turns off WindLight's influence on terrain and objects. Values greater than 1 simulate greater distances for thicker atmospheric effects."
+					 left="436" bottom_delta="-20" width="206" height="16" follows="left|top" />
+					<text name="MaxAltText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Max altitude adjusts the altitude calculations WindLight performs when computing its atmospheric lighting. At later times of day, it is useful for adjusting how &quot;deep&quot; the sunset appears."
+				     left="450" bottom_delta="-29" width="150" height="16" follows="left|top">
+						Max altitude
+					</text>
+					<slider name="WLMaxAltitude" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="0" increment="1" max_val="4000" min_val="0"
+					 tool_tip="Max altitude adjusts the altitude calculations WindLight performs when computing its atmospheric lighting. At later times of day, it is useful for adjusting how &quot;deep&quot; the sunset appears."
+					 left="436" bottom_delta="-20" width="202" height="16" follows="left|top" />
+				</panel>
+				<panel name="Lighting" label="Lighting" border="true"
+				 follows="left|top|right|bottom">
+					<text name="SLCText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Adjusts the color and intensity of the direct light in the scene."
+				     left="10" bottom="-20" width="100" height="16" follows="left|top">
+						Sunlight color
+					</text>
+					<slider name="WLSunlightR" label="R" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the red channel for the direct light in the scene."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLSunlightG" label="G" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the green channel for the direct light in the scene."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLSunlightB" label="B" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the blue channel for the direct light in the scene."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLSunlightI" label="I" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the intensity for the direct light in the scene."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="TODText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the location of the Sun in the sky. Similar to elevation."
+				     left="10" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Sun position
+					</text>
+					<icon name="SkyDayCycle" image_name="icon_diurnal.tga"
+					 left="20" bottom_delta="-30" width="148" height="20" follows="left|top" />
+					<slider name="WLSunAngle" label="" label_width="0"
+					 can_edit_text="false" show_text="true"
+			    	 decimal_digits="3" increment="0.001" max_val="1" min_val="0"
+					 tool_tip="Controls the location of the Sun in the sky. Similar to elevation."
+					 left="14" bottom_delta="-22" width="200" height="16" follows="left|top" />
+					<text name="WLAmbientText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Adjusts the color and intensity of ambient atmospheric light in the scene."
+				     left="230" bottom="-20" width="100" height="16" follows="left|top">
+						Ambient
+					</text>
+					<slider name="WLAmbientR" label="R" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the red channel for the of the ambient atmospheric light in the scene."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLAmbientG" label="G" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the green channel for the of the ambient atmospheric light in the scene."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLAmbientB" label="B" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the blue channel for the of the ambient atmospheric light in the scene."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLAmbientI" label="I" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the intensity of the ambient atmospheric light in the scene."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="WLEastAngleText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the location of the sun in the sky. Similar to azimuth."
+				     left="230" bottom_delta="-25" width="100" height="16" follows="left|top">
+						East angle
+					</text>
+					<slider name="WLEastAngle" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls the location of the sun in the sky. Similar to azimuth."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="SunGlowText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="The Size slider controls the size of the Sun. The Focus slider controls how blurred the Sun is over the sky."
+				     left="450" bottom="-20" width="150" height="16" follows="left|top">
+						Sun glow
+					</text>
+					<slider name="WLGlowR" label="Size" label_width="35"
+					 can_edit_text="false" show_text="true"
+				     decimal_digits="2" increment="0.01" max_val="1.99" min_val="1"
+					 tool_tip="This slider controls the size of the Sun."
+					 left="454" bottom_delta="-20" width="180" height="16" follows="left|top" />
+					<slider name="WLGlowB" label="Focus" label_width="35"
+					 can_edit_text="false" show_text="true"
+				     decimal_digits="2" increment="0.01" max_val="0.5" min_val="0"
+					 tool_tip="This slider controls how blurred the Sun is over the sky."
+					 left="454" bottom_delta="-20" width="180" height="16" follows="left|top" />
+					<text name="SceneGammaText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Adjust the screen's distribution of light and dark."
+				     left="450" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Scene gamma
+					</text>
+					<slider name="WLGamma" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="10" min_val="0"
+					 tool_tip="Adjust the screen's distribution of light and dark."
+					 left="436" bottom_delta="-20" width="204" height="16" follows="left|top" />
+					<text name="WLStarText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Adjusts the brightness of the stars in the sky."
+				     left="450" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Star brightness
+					</text>
+					<slider name="WLStarAlpha" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="2" min_val="0"
+					 tool_tip="Adjusts the brightness of the stars in the sky."
+					 left="436" bottom_delta="-20" width="196" height="16" follows="left|top" />
+				</panel>
+				<panel name="Clouds" label="Clouds" border="true"
+				 follows="left|top|right|bottom">
+					<text name="WLCloudColorText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Edits the color of the clouds. It is generally recommended to keep it whitish, but hey, have fun if you want."
+				     left="10" bottom="-20" width="100" height="16" follows="left|top">
+						Cloud color
+					</text>
+					<slider name="WLCloudColorR" label="R" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the red channel for the color of the clouds."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudColorG" label="G" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the green channel for the color of the clouds."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudColorB" label="B" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the blue channel for the color of the clouds."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudColorI" label="I" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Adjusts the intensity for the color of the clouds."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="WLCloudColorText2" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Allows you to control the position of the clouds with the X and Y sliders and how dense they are with the the D slider."
+				     left="10" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Cloud X/Y/density
+					</text>
+					<slider name="WLCloudX" label="X" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Changes the X position of the clouds."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudY" label="Y" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Changes the Y position of the clouds."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudDensity" label="D" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Changes the density of the clouds."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="WLCloudCoverageText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how much the clouds cover the sky."
+				     left="230" bottom="-20" width="100" height="16" follows="left|top">
+						Cloud coverage
+					</text>
+					<slider name="WLCloudCoverage" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls how much the clouds cover the sky."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="WLCloudCoverageText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the scaling of the cloud image on the sky dome."
+				     left="230" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Cloud scale
+					</text>
+					<slider name="WLCloudScale" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0.01"
+					 tool_tip="Controls the scaling of the cloud image on the sky dome."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="WLCloudDetailText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the detail image layered on top of the main cloud image. X and Y control its position. D (Density) controls how puffy or fractured the clouds appear."
+				     left="230" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Cloud detail (X/Y/density)
+					</text>
+					<slider name="WLCloudDetailX" label="X" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls the X position of the detail image layered on top of the main cloud image."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudDetailY" label="Y" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls the Y position of the detail image layered on top of the main cloud image."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WLCloudDetailDensity" label="D" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls how puffy or fractured the clouds appear."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="WLCloudScrollXText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the speed of the clouds as they move in the X direction."
+				     left="450" bottom="-20" width="80" height="16" follows="left|top">
+						Cloud scroll X
+					</text>
+					<check_box name="WLCloudLockX" label="Lock" font="SansSerifSmall"
+				     left_delta="90" bottom_delta="0" width="50" height="16" follows="left|top" />
+					<slider name="WLCloudScrollX" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="10" min_val="-10"
+					 tool_tip="Controls the speed of the clouds as they move in the X direction."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="WLCloudScrollYText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the speed of the clouds as they move in the Y direction."
+				     left="450" bottom_delta="-25" width="80" height="16" follows="left|top">
+						Cloud scroll Y
+					</text>
+					<check_box name="WLCloudLockY" label="Lock" font="SansSerifSmall"
+				     left_delta="90" bottom_delta="0" width="50" height="16" follows="left|top" />
+					<slider name="WLCloudScrollY" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="10" min_val="-10"
+					 tool_tip="Controls the speed of the clouds as they move in the Y direction."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<check_box name="DrawClassicClouds" control_name="SkyUseClassicClouds"
+					 label="Draw classic clouds" font="SansSerifSmall"
+					 tool_tip="Check this box to enable the rendering of the particles-like (legacy), low altitude clouds in addition to WindLight's high altitude clouds."
+				     left="450" bottom_delta="-32" width="150" height="16" follows="left|top" />
+				</panel>
+			</tab_container>
+			<string name="WLDefaultSkyNames">
+				A-12AM:A-12PM:A-3AM:A-3PM:A-4.30PM:A-6AM:A-6PM:A-9AM:A-9PM:Barcelona:Blizzard:Blue Midday:Coastal Afternoon:Coastal Sunset:Default:Desert Sunset:Fine Day:Fluffy Big Clouds:Foggy:Funky Funky:Funky Funky Funky:Gelatto:Ghost:Incongruent Truths:Midday 1:Midday 2:Midday 3:Midday 4:Night:Pirate:Purple:Sailor&apos;s Delight:Sheer Sensuality
+			</string>
+		</panel>
+		<panel name="water" label="Water" border="true" follows="left|top|right|bottom">
+			<text name="WaterPresetsText" font="SansSerif"
+		     left="10" bottom="-28" width="110" height="16" follows="left|top">
+				Edited water preset:
+			</text>
+			<combo_box name="WaterPresetsCombo" allow_text_entry="false"
+			 left_delta="120" bottom_delta="0" width="200" height="18" follows="left|top" />
+			<button name="WaterNewPreset" label="New" font="SansSerif"
+			 left_delta="210" bottom_delta="-2" width="70" height="20" follows="left|top" />
+			<button name="WaterSavePreset" label="Save" font="SansSerif"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<button name="WaterDeletePreset" label="Delete"
+			 left_delta="80" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<tab_container name="Water Tabs" tab_position="top"
+			 left="0" bottom_delta="-208" width="640" height="198" follows="left|top">
+				<panel name="Settings" label="Settings" border="true"
+				 follows="left|top|right|bottom">
+					<text name="WaterFogColorText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Allows to change the color of the water fog."
+				     left="10" bottom="-20" width="100" height="16" follows="left|top">
+						Water fog color
+					</text>
+					<color_swatch name="WaterFogColor" label="" can_apply_immediately="true"
+					 tool_tip="Click to open the color picker and change the color of the water fog."
+					 left="32" bottom_delta="-60" width="32" height="48" follows="left|top" />
+					<text name="WaterFogDensText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how dense the water fog is and how far you can see underwater."
+				     left="10" bottom_delta="-14" width="150" height="16" follows="left|top">
+						Fog density exponent
+					</text>
+					<slider name="WaterFogDensity" label=" " label_width="12"
+					 tool_tip="Controls how dense the water fog is and how far you can see underwater."
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="1" increment="0.1" max_val="10" min_val="0"
+					 left="4" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="WaterUnderWaterFogModText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Modifies the effect of the 'Fog density exponent' to control how far you can see when your avatar is underwater."
+				     left="10" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Underwater fog modifier
+					</text>
+					<slider name="WaterUnderWaterFogMod" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="2" min_val="0"
+					 tool_tip="Modifies the effect of the 'Fog density exponent' to control how far you can see when your avatar is underwater."
+					 left="4" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="ReflectionText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls the scaling of the three wavelets that make up the water."
+				     left="230" bottom="-20" width="150" height="16" follows="left|top">
+						Reflection wavelet scale
+					</text>
+					<slider name="WaterNormalScaleX" label="1" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="1" increment="0.1" max_val="10" min_val="0"
+					 tool_tip="Controls the scaling of the first of the three wavelet that make up the water."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WaterNormalScaleY" label="2" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="1" increment="0.1" max_val="10" min_val="0"
+					 tool_tip="Controls the scaling of the second of the three wavelet that make up the water."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<slider name="WaterNormalScaleZ" label="3" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="1" increment="0.1" max_val="10" min_val="0"
+					 tool_tip="Controls the scaling of the third of the three wavelet that make up the water."
+					 left="234" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="FresnelScaleText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how much light is reflected at different angles."
+				     left="230" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Fresnel scale
+					</text>
+					<slider name="WaterFresnelScale" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls how much light is reflected at different angles."
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="FresnelOffsetText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how much light intensity is reflected."
+				     left="230" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Fresnel offset
+					</text>
+					<slider name="WaterFresnelOffset" label=" " label_width="12"
+					 tool_tip="Controls how much light intensity is reflected."
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 left="234" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="RefractionAboveText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how much light is refracted from looking above the water surface."
+				     left="450" bottom="-20" width="150" height="16" follows="left|top">
+						Refract scale above
+					</text>
+					<slider name="WaterScaleAbove" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls how much light is refracted from looking above the water surface."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="RefractionBelowText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how much light is refracted from looking below the water surface."
+				     left="450" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Refract scale below
+					</text>
+					<slider name="WaterScaleBelow" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="1" min_val="0"
+					 tool_tip="Controls how much light is refracted from looking below the water surface."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<text name="BlurMultiplierText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls how waves and reflections are mixed."
+				     left="450" bottom_delta="-25" width="100" height="16" follows="left|top">
+						Blur multiplier
+					</text>
+					<slider name="WaterBlurMult" label=" " label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="3" increment="0.001" max_val="0.16" min_val="0"
+					 tool_tip="Controls how waves and reflections are mixed."
+					 left="436" bottom_delta="-20" width="200" height="16" follows="left|top" />
+				</panel>
+				<panel name="Waves" label="Image" border="true"
+				 follows="left|top|right|bottom">
+					<text name="BigWavesDirText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls where and how fast the large scaled version of the normal map moves in the X and Y directions."
+				     left="10" bottom="-20" width="150" height="16" follows="left|top">
+						Big waves direction
+					</text>
+					<slider name="WaterWave1DirX" label="X" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="4" min_val="-4"
+					 tool_tip="Controls where and how fast the large scaled version of the normal map moves in the X direction."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WaterWave1DirY" label="Y" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="4" min_val="-4"
+					 tool_tip="Controls where and how fast the large scaled version of the normal map moves in the Y direction."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="LittleWavesDirText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls where and how fast the small scaled version of the normal map moves in the X and Y directions."
+				     left="10" bottom_delta="-25" width="150" height="16" follows="left|top">
+						Little waves direction
+					</text>
+					<slider name="WaterWave2DirX" label="X" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="4" min_val="-4"
+					 tool_tip="Controls where and how fast the small scaled version of the normal map moves in the X direction."
+					 left="14" bottom_delta="-20" width="200" height="16" follows="left|top" />
+					<slider name="WaterWave2DirY" label="Y" label_width="12"
+					 can_edit_text="false" show_text="true"
+					 decimal_digits="2" increment="0.01" max_val="4" min_val="-4"
+					 tool_tip="Controls where and how fast the small scaled version of the normal map moves in the Y direction."
+					 left="14" bottom_delta="-18" width="200" height="16" follows="left|top" />
+					<text name="NormalMapText" font="SansSerif" mouse_opaque="true"
+					 tool_tip="Controls what normal map is layered across the water to determine reflections/refractions."
+				     left="230" bottom="-20" width="100" height="16" follows="left|top">
+						Normal map
+					</text>
+					<texture_picker name="WaterNormalMap" label=""
+					 tool_tip="Click to change the normal map texture that is layered across the water to determine reflections/refractions."
+					 left="235" bottom_delta="-160" width="128" height="150" follows="left|top" />
+				</panel>
+			</tab_container>
+			<string name="WLDefaultWaterNames">
+				Default:Glassy:Pond:Murky:Second Plague:SNAKE!!!:Valdez
+			</string>
+		</panel>
+	</tab_container>
+</floater>

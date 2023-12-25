@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="save wearable" title=""
+ can_close="false" can_drag_on_left="false" can_minimize="false" can_resize="false" can_tear_off="true"
+ left="415" bottom="372" width="240" height="100" min_width="100" min_height="100">
+	<button name="Save" label="Save" font="SansSerif"
+	 left="20" bottom="-90" width="82" height="20" />
+	<button name="Cancel" label="Cancel" font="SansSerif"
+	 left="138" bottom="-90" width="82" height="20" />
+	<text name="Save item as:"  font="SansSerif"
+	 left="20" bottom="-26" height="16" width="200" follows="left|top">
+		Save item as:
+	</text>
+	<line_editor name="name ed" font="SansSerif" max_length="63"
+	 bevel_style="in" border_style="line" border_thickness="1"
+	 handle_edit_keys_directly="true" select_on_focus="false" select_all_on_focus_received="false"
+	 left="20" bottom="-50" width="200" height="20" follows="left|top">
+		New [DESC]
+	</line_editor>
+</floater>

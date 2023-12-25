@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="mini_mapview" label="Mini-map" border="false" mouse_opaque="false"
+ tool_tip="(right-click to open the context menu, SHIFT-click and drag to pan, double-click to open the Map and track clicked location, CTRL-double-click to teleport)"
+ background_opaque="false" background_visible="true" bg_alpha_color="MiniMapBackgroundColor"
+ width="196" height="216" follows="left|top|right|bottom">
+	<text name="w_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="40" bottom="-80" width="10" height="10">
+		W
+	</text>
+	<text name="nw_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="60" bottom="-60" width="22" height="10">
+		NW
+	</text>
+	<text name="sw_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="60" bottom="-100" width="22" height="10">
+		SW
+	</text>
+	<text name="n_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="80" bottom="-40" width="10" height="10">
+		N
+	</text>
+	<text name="s_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="80" bottom="-120" width="10" height="10">
+		S
+	</text>
+	<text name="ne_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="100" bottom="-60" width="22" height="10">
+		NE
+	</text>
+	<text name="se_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="100" bottom="-100" width="22" height="10">
+		SE
+	</text>
+	<text name="e_label" font="SansSerifSmall" text_color="1, 1, 1, 0.7"
+	 left="120" bottom="-80" width="10" height="10">
+		E
+	</text>
+	<string name="region_prefix">Region:</string>
+	<string name="parcel_prefix">Parcel:</string>
+	<string name="owner_prefix">Owner:</string>
+</panel>

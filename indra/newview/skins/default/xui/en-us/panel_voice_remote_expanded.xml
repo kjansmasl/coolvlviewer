@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="voice_remote" border="false" use_bounding_rect="true"
+ left="0" bottom="0" width="130" height="45" follows="right|bottom">
+	<panel name="panel_bg_tab" filename="panel_bg_tab.xml"
+	 left="0" bottom="1" width="130" height="47" />
+	<button name="end_call_btn" label="" image_overlay="icn_voice-call-end.tga"
+	 tool_tip="Click to hang up"
+	 left="4" bottom="-20" width="20" height="20" />
+	<button name="voice_channel_bg" label="" scale_image="true"
+	 image_disabled="icn_rounded-text-field.tga"
+     image_disabled_selected="icn_rounded-text-field.tga"
+     image_hover_selected="icn_rounded-text-field.tga"
+     image_hover_unselected="icn_rounded-text-field.tga"
+     image_selected="icn_rounded-text-field.tga"
+     image_unselected="icn_rounded-text-field.tga"
+     left_delta="23" bottom="-21" width="102" height="22" />
+	<icon name="voice_channel_icon" image_name="icn_voice-localchat.tga" mouse_opaque="false"
+	 left_delta="4" bottom="-18" width="16" height="16" />
+	<text name="channel_label" label="" font="SansSerifSmall" text_color="0 0 0"
+	 left_delta="18" bottom="-19" width="65" height="16" />
+	<panel filename="panel_voice_controls.xml" left="1" bottom="13" />
+</panel>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" follows="left|top|right|bottom"
+ height="408" label="General" left="102" mouse_opaque="true"
+ name="general_panel" width="517">
+	<text name="start_location_textbox" font="SansSerifSmall"
+	 bottom="-24" left="10" height="17" width="394" follows="left|top">
+		Start location:
+	</text>
+	<radio_group name="default_start_location" draw_border="false"
+	 bottom_delta="0" left="130" height="20" width="220" follows="left|top">
+		<radio_item name="Home" value="0" bottom="-20" left="0" height="20" width="50"
+		 tool_tip="Log into my home location by default.">
+			My home
+		</radio_item>
+		<radio_item name="LastLoc" bottom="-20" left="100" height="20" width="50"
+		 tool_tip="Log into my last location by default.">
+			My last location
+		</radio_item>
+	</radio_group>
+	<text name="maturity_desired_label" font="SansSerifSmall"
+	 bottom_delta="-24" left="10" height="18" width="394" follows="left|top">
+		 Rating:
+	</text>
+	<text name="maturity_desired_prompt" font="SansSerifSmall"
+	 bottom_delta="0" left="135" height="18" width="250" follows="left|top">
+		 I want to access content rated:
+	</text>
+	<text name="maturity_desired_textbox" font="SansSerifSmall"
+	 bottom_delta="0" left="315" height="18" width="150" follows="left|top">
+		 PG only
+	</text>
+	<combo_box name="maturity_desired_combobox"
+	 bottom_delta="2" left="315" height="18" width="150" follows="left|top">
+		<combo_item name="Desired_Adult" value="42">
+			PG, mature and adult
+		</combo_item>
+		<combo_item name="Desired_Mature" value="21">
+			PG and mature
+		</combo_item>
+		<combo_item name="Desired_PG" value="13">
+			PG only
+		</combo_item>
+	</combo_box>
+	<text name="avatar_names_textbox" font="SansSerifSmall"
+	 bottom_delta="-30" left="10" height="18" width="394" follows="left|top">
+		Avatar names:
+	</text>
+	<combo_box name="fade_out_combobox"
+	 bottom_delta="2" left="130" height="18" width="170" follows="left|top">
+		<combo_item name="Never" value="default">
+			Never show name tag
+		</combo_item>
+		<combo_item name="Show Temporarily" value="default">
+			Show name tag temporarily
+		</combo_item>
+		<combo_item name="Always" value="default">
+			Always show name tag
+		</combo_item>
+	</combo_box>
+	<slider name="bubble_opacity" show_text="true" label="Opacity" control_name="ChatBubbleOpacity"
+	 can_edit_text="false" min_val="0" max_val="1" increment="0.05" decimal_digits="3"
+	 tool_tip="Note that this setting is the same as the &apos;Chat bubble opacity&apos; in the &apos;Text chat&apos; tab."
+	 bottom_delta="0" left="310" height="16" width="180" follows="left|top"/>
+	<check_box name="small_avatar_names_checkbox" control_name="SmallAvatarNames"
+	 label="Small avatar names" font="SansSerifSmall"
+	 bottom_delta="-24" left="130" height="16" width="150" follows="left|top"/>
+	<check_box name="show_my_name_checkbox" control_name="RenderNameHideSelf"
+	 label="Hide my name tag on my screen" font="SansSerifSmall"
+	 bottom_delta="0" left="300" height="16" width="200" follows="left|top"/>
+	<view_border name="display_names_border" bevel_style="none" border_thickness="1"
+	 bottom_delta="-128" left="130" height="125" width="355" follows="left|top"/>
+	<text name="display_names_text_box1" font="SansSerifSmall"
+	 bottom_delta="113" left="138" height="10" width="350" follows="left|top">
+		Avatar names displaying type for name tags, chat, IM, radar...
+	</text>
+	<text name="no_display_names_text_box" font="SansSerifSmall"
+	 bottom_delta="0" left_delta="0" height="10" width="350" follows="left|top">
+		This grid does not use display names.
+	</text>
+	<text name="display_names_text_box2" font="SansSerifSmall"
+	 bottom_delta="-12" left_delta="0" height="10" width="350" follows="left|top">
+		(the legacy name is always used when no display name exists):
+	</text>
+	<radio_group name="display_names_usage" draw_border="false" control_name="DisplayNamesUsage"
+	 bottom_delta="-60" left="135" height="55" width="325" follows="left|top">
+		<radio_item name="legacy_names"
+		 tool_tip="Example: 'John Doe' for an old resident (username: john.doe) or 'JohnDoe Resident' for a new resident (username: johndoe)"
+		 left_delta="10" bottom="-18" height="18" width="100" follows="left|top">
+			Legacy name
+		</radio_item>
+		<radio_item name="both_names"
+		 tool_tip="Example: 'Johnny [John Doe]' for an old resident (username: john.doe) or 'Johnny [JohnDoe Resident]' for a new resident (username: johndoe) with their display name set to 'Johnny'"
+		 bottom="-36" left_delta="0" height="18" width="100" follows="left|top">
+			Display name [Legacy name]
+		</radio_item>
+		<radio_item name="display_names"
+		 tool_tip="Example: 'Johnny' for any resident with their display name set to 'Johnny'"
+		 bottom="-54" left_delta="0" height="18" width="100" follows="left|top">
+			Display name
+		</radio_item>
+	</radio_group>
+	<text name="always_legacy_names_text" font="SansSerifSmall"
+	 bottom_delta="-20" left="138" height="18" width="160" follows="left|top">
+		Always use legacy names for:
+	</text>
+	<check_box name="legacy_names_for_friends_check" control_name="LegacyNamesForFriends"
+	 label="Friends" font="SansSerifSmall"
+	 tool_tip="The problem with display names, is that they can change... It is usually easier to keep track of your friends via their legacy name. With this setting checked, the viewer will use legacy names for your friends list and the online/offline notifications."
+	 bottom_delta="2" left_delta="168" height="16" width="80" follows="left|top" />
+	<check_box name="legacy_names_for_speakers_check" control_name="LegacyNamesForSpeakers"
+	 label="Speakers" font="SansSerifSmall"
+	 tool_tip="Another problem with display names, is that they can can be difficult to spot in a list (because of UTF-8 silly characters resulting in an unintuitive sort order in the list) or be too long to fit the list width: it is easier to spot legacy names in such lists. With this setting checked, the viewer will use legacy names for the speakers list in IM and voice panels."
+	 bottom_delta="0" left_delta="90" height="16" width="80" follows="left|top" />
+	<check_box name="omit_resident_last_name_check" control_name="OmitResidentAsLastName"
+	 label="Never display 'Resident' as the last name in legacy names" font="SansSerifSmall"
+	 tool_tip="With this option checked, new residents will not be listed with 'Resident' as their last name in their legacy name"
+	 bottom_delta="-22" left="135" height="16" width="370" follows="left|top"/>
+	<text name="group_titles_textbox" font="SansSerifSmall"
+	 bottom_delta="-26" left="10" height="16" width="394" follows="left|top">
+		Group titles:
+	</text>
+	<check_box name="show_all_title_checkbox" control_name="RenderHideGroupTitleAll"
+	 label="Hide all group titles" font="SansSerifSmall"
+	 bottom_delta="0" left="130" height="16" width="150" follows="left|top"/>
+	<check_box name="show_my_title_checkbox" control_name="RenderHideGroupTitle"
+	 label="Hide my group title" font="SansSerifSmall"
+	 bottom_delta="0" left="300" height="16" width="200" follows="left|top"/>
+	<spinner name="afk_timeout_spinner" control_name="AFKTimeout"
+	 min_val="0" max_val="3600" increment="30" decimal_digits="0"
+	 tool_tip="Timeout in seconds without any interaction with the keyboard or mouse from your part after which the viewer will take the &apos;Away action&apos; as defined in the setting below (0 to disable). Any value between 1 and 30 is interpreted as 30s."
+	 label="Away timeout:" label_width="120"
+	 bottom_delta="-28" left="10" height="16" width="180" follows="left|top"/>
+	<text name="seconds_textbox"
+	 drop_shadow_visible="true"
+	 font="SansSerifSmall" halign="left"
+	 bottom_delta="0" left="200" height="16" width="200" follows="left|top">
+		seconds (0 to disable)
+	</text>
+	<text name="away_label" mouse_opaque="true" font="SansSerifSmall"
+	 tool_tip="This is the action the viewer takes when the above &apos;Away timeout&apos; delay (see above) has elapsed without any interaction with the keyboard or mouse from your part."
+	 bottom_delta="-24" left="10" height="18" width="394" follows="left|top">
+		 Away action:
+	</text>
+	<radio_group name="away_action" control_name="AwayAction" draw_border="false"
+	 left="130" bottom_delta="0" width="350" height="16" follows="left|top">
+		<radio_item name="0" value="0"
+		 left="0" bottom="-16" width="90" height="16" follows="left|top">
+			Set away
+		</radio_item>
+		<radio_item name="1" value="1"
+		 left_delta="50" bottom_delta="0" width="90" height="16" follows="left|top">
+			Set busy
+		</radio_item>
+		<radio_item name="2" value="2"
+		 left_delta="50" bottom_delta="0" width="100" height="16" follows="left|top">
+			Set auto-reply mode
+		</radio_item>
+	</radio_group>
+	<slider name="ui_scale_slider" control_name="UIScaleFactor"
+	 can_edit_text="true" min_val="0.75" max_val="2.0" increment="0.025" decimal_digits="3"
+	 show_text="true" label="UI size:" label_width="112"
+	 bottom_delta="-28" left="10" height="18" width="474" follows="left|top" />
+	<check_box name="ui_auto_scale" control_name="UIAutoScale"
+	 label="Use resolution independent scale" font="SansSerifSmall"
+	 bottom_delta="-20" left="130" height="18" width="230" follows="left|top"/>
+	<slider name="hud_scale_slider" control_name="HUDScaleFactor"
+	 can_edit_text="true" min_val="1.0" max_val="2.0" increment="0.025" decimal_digits="3"
+	 show_text="true" label="HUD objects scale:" label_width="112"
+	 bottom_delta="-24" left="10" height="18" width="474" follows="left|top" />
+	<text name="effects_color_textbox" font="SansSerifSmall"
+	 bottom_delta="-22" left="10" height="18" width="394" follows="left|top">
+		Color for my effects:
+	</text>
+	<text type="string" name="effects_color_explain_textbox" font="SansSerifSmall"
+	 bottom_delta="-12" left="10" height="16" width="394" follows="left|top">
+		(beam &amp; particles)
+	</text>
+	<color_swatch name="effect_color_swatch" control_name="EffectColor"
+	 border_color="0.45098 0.517647 0.607843 1" can_apply_immediately="false" label=""
+	 tool_tip="Click to open Color Picker"
+	 bottom_delta="-18" left="130" height="48" width="32" follows="left|top" />
+	<text name="language_textbox" font="SansSerifSmall"
+	 bottom_delta="-14" left="10" height="18" width="394" follows="left|top">
+		Language:
+	</text>
+	<combo_box name="language_combobox" allow_text_entry="true" max_chars="135"
+	 tool_tip="Please note that by lack of translators, the Cool VL Viewer only provides an English UI. This setting will therefore only affect scripts, when the 'Share language with objects' setting is also checked."
+	 bottom_delta="4" left="132" height="16" width="146" follows="left|top">
+		<combo_item type="string" length="1" enabled="true" name="System Default Language" value="default">
+			System default
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="English" value="en-us">
+			English
+		</combo_item>
+		
+		<!-- After "System Default" and "English", please keep the rest of these combo_items in alphabetical order by the first character in the string. -->
+		
+		<combo_item type="string" length="1" enabled="true" name="Danish" value="da">
+			Dansk (Danish) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Deutsch(German)" value="de">
+			Deutsch (German) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Spanish" value="es">
+			Español (Spanish) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="French" value="fr">
+			Français (French) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Italian" value="it">
+			Italiano (Italian) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Hungarian" value="hu">
+			Magyar (Hungarian) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Dutch" value="nl">
+			Nederlands (Dutch) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Polish" value="pl">
+			Polski (Polish) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Portugese" value="pt">
+			Portugués (Portuguese) - Beta
+		</combo_item>
+ 		<combo_item type="string" length="1" enabled="true" name="Russian" value="ru">
+ 			Русский (Russian) - Beta
+ 		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Turkish" value="tr">
+			Türkçe (Turkish) - Beta
+		</combo_item>
+ 		<combo_item type="string" length="1" enabled="true" name="Ukrainian" value="uk">
+ 			Українська (Ukrainian) - Beta
+ 		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="Chinese" value="zh">
+			中文 (简体) (Chinese) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="(Japanese)" value="ja">
+			日本語 (Japanese) - Beta
+		</combo_item>
+		<combo_item type="string" length="1" enabled="true" name="(Korean)" value="ko">
+			한국어 (Korean) - Beta
+		</combo_item>
+	</combo_box>
+	<check_box name="language_is_public" control_name="LanguageIsPublic"
+	 label="Share language with objects" font="SansSerifSmall"
+	 tool_tip="This lets in-world objects know your preferred language."
+	 bottom_delta="-2" left="300" height="18" width="256" follows="left|top"/>
+</panel>

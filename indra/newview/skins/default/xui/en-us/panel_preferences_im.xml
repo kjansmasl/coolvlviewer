@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="im" label="IM &amp; logs" border="true"
+ left="0" bottom="0" width="517" height="440" follows="left|top|right|bottom">
+	<text name="text_box20" type="string" font="SansSerifSmall"
+	 left="10" bottom="-20" width="100" height="16" follows="left|top">
+		Instant messaging:
+	</text>
+	<view_border name="im_border" bevel_style="none" border_thickness="1"
+	 left="10" bottom_delta="-182" width="477" height="182" follows="left|top"/>
+	<text name="text_box" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="160" width="100" height="18" follows="left|top">
+		Online status:
+	</text>
+	<check_box name="online_visibility" label="Only my friends and groups can see when I am online"
+	 font="SansSerifSmall" 
+	 left="120" bottom_delta="0" width="350" height="16" follows="left|top" />
+	<text name="text_box2" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="-25" width="100" height="18" follows="left|top">
+		IM options:
+	</text>
+	<string name="log_in_to_change">
+		log in to change
+	</string>
+	<check_box name="send_im_to_email" label="Send IM to email ([EMAIL])"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="0" width="350" height="16" follows="left|top" />
+	<text name="email_settings_text" font="SansSerifSmall" mouse_opaque="true"
+	 left_delta="4" bottom_delta="0" width="350" height="17" follows="left|top">
+		Click to open your SL email settings web page
+	</text>
+	<check_box name="include_im_in_chat_console" label="Include IM in chat console"
+	 font="SansSerifSmall"
+	 left_delta="-4" bottom_delta="-20" width="180" height="16" follows="left|top" />
+	<check_box name="show_timestamps_check" label="Show timestamps in IM"
+	 font="SansSerifSmall"
+	 left_delta="190" bottom_delta="0" width="180" height="16" follows="left|top" />
+	<check_box name="open_on_incoming_check" font="SansSerifSmall"
+	 label="Open new IM session as soon as someone starts typing to you"
+	 tool_tip="When enabled and while not in away/busy/auto-reply mode, this feature will cause a new IM session tab to be opened as soon as another resident starts typing a first IM to you (i.e. even before they send that IM)."
+	 left="120" bottom_delta="-20" width="350" height="16" follows="left|top" />
+	<text name="text_box3" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="-38" width="100" height="32" follows="left|top">
+		Busy mode
+response:
+	</text>
+	<button name="busy_response_help" label="?" font="SansSerif"
+	 tool_tip="Click for info about the auto-response message."
+	 left_delta="76" bottom_delta="12" width="18" height="18" follows="left|top" />
+	<string name="help_text">
+The busy mode auto-response is sent in reply to new IM sessions initiated by others while you are set busy or when the auto-reply mode is enabled.
+The auto-response message is prefixed with 'Busy mode auto-response:' when you are set Busy, or with 'Auto-response:' when the auto-reply mode is enabled.
+
+If you check the 'Also when away' option, then the busy mode auto-response message is sent as well in reply to new IM sessions initiated by others while you are set away.
+In this case however, the auto-response message is prefixed with 'Away mode auto-response:'.
+	</string>
+	<check_box name="busy_response_when_away" label="Also when away" font="SansSerifSmall"
+	 tool_tip="When this box is checked, the busy mode auto-response is also sent in reply to new IM sessions initiated by others while you are set away. In this case, the auto-response message is prefixed with 'Away mode auto-response: '."
+	 left="12" bottom_delta="-32" width="84" height="16" follows="left|top" />
+	<text_editor name="busy_response" type="string" max_length="255"
+	 font="SansSerifSmall" word_wrap="true"
+	 left="124" bottom_delta="-10" width="352" height="64" follows="left|top" />
+	<spinner name="snooze_spinner" control_name="GroupIMSnoozeDuration"
+	 label="Snooze duration for group IM sessions:" font="SansSerifSmall" label_width="220"
+	 tool_tip="You may close group IM sessions with a 'Snooze' button instead of closing them definitively with the 'X' button (which leaves the IM sessions server-side and lasts until you log off). When doing so, the IMs to the snoozed groups will not cause a new session floater/tab to get reoppened for the duration (in minutes) configured here. A duration of 0 entirely disables the snoozing feature (making it unavailable from the Group IM floater)."
+	 decimal_digits="0" min_val="0" max_val="995" increment="5"
+	 left="120" bottom_delta="-22" width="270" height="16" follows="left|top" />
+	<text name="text_box_minutes" type="string" font="SansSerifSmall"
+	 left_delta="280" bottom_delta="0" width="100" height="16" follows="left|top">
+		minutes
+	</text>
+	<text name="text_box21" type="string" font="SansSerifSmall"
+	 left="10" bottom_delta="-30" width="100" height="16" follows="left|top">
+		Logging options:
+	</text>
+	<view_border name="im_border" bevel_style="none" border_thickness="1"
+	 left="10" bottom_delta="-210" height="210" width="477" follows="left|top"/>
+	<text name="text_box4" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="188" width="100" height="18" follows="left|top">
+		IM logging:
+	</text>
+	<check_box name="log_instant_messages" label="Save a log of instant messages on my computer"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="0" width="300" height="16" follows="left|top" />
+	<check_box name="log_instant_messages_timestamp" label="Show timestamps in IM log"
+	 font="SansSerifSmall"
+	 left_delta="20" bottom_delta="-20" width="217" height="16" follows="left|top" />
+	<check_box name="log_server_fetch" label="Fetch group log from server"
+	 font="SansSerifSmall"
+	 tool_tip="On grids where this feature is available, you may fetch the past (recent) log for group IM sessions (in excess of your local log file) by checking this box."
+	 left="310" bottom_delta="0" width="180" height="16" follows="left|top" />
+	<check_box name="log_open_in_built_in_browser" label="'View log' in built-in browser"
+	 font="SansSerifSmall"
+	 tool_tip="When the 'Load and show the backlog' setting in the 'Common options' below is checked, a 'View Log...' button becomes available in the IM panel, allowing to open the conversation past log into a browser or editor. If this settings is also checked, then the log will be opened in the built-in web browser instead of in an external program."
+	 left="140" bottom_delta="-20" width="190" height="16" follows="left|top" />
+	<text name="text_box22" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="-20" width="100" height="18" follows="left|top">
+		Chat logging:
+	</text>
+	<check_box name="log_chat" label="Save a local chat log on my computer"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="0" width="300" height="16" follows="left|top" />
+	<check_box name="log_chat_timestamp" label="Show timestamps in local chat log"
+	 font="SansSerifSmall"
+	 left_delta="20" bottom_delta="-20" width="217" height="16" follows="left|top" />
+	<check_box name="log_chat_IM" label="Show incoming IM in local chat log"
+	 font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-20" width="217" height="16" follows="left|top" />
+	<text name="text_box22" type="string" font="SansSerifSmall"
+	 left="20" bottom_delta="-20" width="100" height="18" follows="left|top">
+		Common options:
+	</text>
+	<check_box name="log_show_history" label="Load and show the backlog"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="0" width="190" height="16" follows="left|top" />
+	<spinner name="backlog_size"
+	 label="Backlog size:" label_width="90" font="SansSerifSmall"
+	 decimal_digits="0" min_val="2" max_val="256" increment="1"
+	 tool_tip="This is the maximum size (in kilobytes) of the backlog loaded and shown."
+	 left="312" bottom_delta="0" width="136" height="16" follows="left|top" />
+	<text name="backlog_kb" type="string" font="SansSerifSmall"
+	 left_delta="144" bottom_delta="0" width="30" height="16" follows="left|top">
+		KB
+	</text>
+	<check_box name="log_date_timestamp" label="Include date with timestamps"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="-20" width="164" height="16" follows="left|top" />
+	<check_box name="log_seconds_timestamp" label="Timestamps with seconds"
+	 font="SansSerifSmall"
+	 left="310" bottom_delta="0" width="180" height="16" follows="left|top" />
+	<check_box name="logfile_name_datestamp" label="Append date to log filename"
+	 font="SansSerifSmall"
+	 left="120" bottom_delta="-20" width="164" height="16" follows="left|top" />
+	<check_box name="logfile_name_resident" label="Omit ' Resident' in filename"
+	 tool_tip="In SL, new avatar accounts have their last name set to 'Resident' while old accounts got a true last name. If you check this box, the log filenames will not include ' Resident', which should allow to share the same log files directory with v3 viewers (but not with v1 and old v2 viewers)."
+	 font="SansSerifSmall"
+	 left="310" bottom_delta="0" width="150" height="16" follows="left|top" />
+	<button name="log_path_button" label="Change path" font="SansSerif"
+	 left="20" bottom_delta="-24" width="95" height="20" follows="left|top" />
+	<line_editor name="log_path_string" max_length="254" font="SansSerifSmall" enabled="false"
+	 left="124" bottom_delta="2" width="370" height="19" follows="top|left|right" />
+	<string name="verified">
+		Your email ([EMAIL]) has been verified.
+	</string>
+	<string name="unverified">
+		Your email ([EMAIL]) has not been verified and cannot be used to send you offline IMs.
+	</string>
+	<string name="unknown">
+		Your email ([EMAIL]) verification status is unknown.
+	</string>
+	<string name="unset">
+		not set
+	</string>
+	<string name="sl_email_url">
+		https://accounts.secondlife.com/change_email
+	</string>
+</panel>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<floater name="marketplace association" title="Marketplace listings association"
+ can_close="true" can_resize="false" can_drag_on_left="false" can_minimize="true"
+ width="350" height="100" rect_control="FloaterMarketplaceAssociationRect">
+	<string name="associating">
+		Associating:
+	</string>
+	<string name="invalid">
+		Invalid folder !
+	</string>
+	<text name="prompt" align="left"
+	 bottom_delta="-40" left="10" right="-10" height="16" follows="left|right|top"/>
+	<line_editor name="listing_id"
+	 bottom_delta="-22" left="10" right="-10" height="18" follows="left|right|top"/>
+	<button name="Cancel" label="Cancel"
+	 bottom_delta="-28" left="10" width="80" height="20" follows="left|bottom"/>
+	<button name="OK" label="OK"
+	 bottom_delta="0" right="-10" width="80" height="20" follows="right|bottom"/>
+</floater>

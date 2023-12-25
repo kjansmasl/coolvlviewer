@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="Experiences" label="Experiences" border="true"
+ left="0" right="0" top="0" bottom="0" follows="top|left|right|bottom">
+	<string name="trusted_estate_text">
+Any experience may be a Key one.
+Key experiences have permission to run on this estate.
+Additionally, if the estate does not allow public access, residents participating in any Key experience may enter the estate and can remain as long as they are in the experience.
+  	</string>
+	<string name="allowed_estate_text">
+Only experiences that are not land-scope may be allowed.
+Allowed experiences have permission to run on this estate.
+	</string>
+	<string name="blocked_estate_text">
+Only land-scope experiences may be blocked.
+Blocked experiences may not run on this estate.
+	</string>
+	<string name="allowed_parcel_text">
+Only experiences that are not land-scope may be allowed.
+Allowed experiences have permission to run on this parcel if they are not blocked by the estate.
+	</string>
+	<string name="blocked_parcel_text">
+Only land-scope experiences may be blocked.
+Blocked experiences may not run on this parcel.
+	</string>
+	<layout_stack orientation="vertical"
+	 left="5" right="-5" top="-5" bottom="5" follows="top|left|right|bottom">
+    	<layout_panel name="help_text_layout_panel" auto_resize="false" user_resize="false" min_height="20" height="20"
+		 follows="top|left|right|bottom">
+			<text name="experiences_help_text" halign="center"
+			 left="5" width="480" height="20" bottom_delta="-20" follows="left|top">
+				Changes to settings on this tab will affect all the regions in the estate.
+			</text>
+		</layout_panel>
+    	<layout_panel name="trusted_layout_panel" follows="top|left|right|bottom">
+			<panel name="panel_trusted" filename="panel_experience_list_editor.xml"
+			 follows="top|left|bottom|right" />
+		</layout_panel>
+		<layout_panel follows="top|left|right|bottom">
+			<panel name="panel_allowed" filename="panel_experience_list_editor.xml"
+			 follows="top|left|bottom|right" />
+		</layout_panel>
+		<layout_panel follows="top|left|right|bottom">
+			<panel name="panel_blocked" filename="panel_experience_list_editor.xml"
+			 follows="top|left|bottom|right" />
+		</layout_panel>
+	</layout_stack>
+</panel>

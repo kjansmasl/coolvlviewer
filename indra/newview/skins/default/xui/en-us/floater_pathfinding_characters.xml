@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="characters" title="Pathfinding characters"
+ can_resize="true" can_minimize="true" can_close="true" can_drag_on_left="false"
+ width="630" height="260" min_width="630" min_height="260" rect_control="PathFindingCharactersRect">
+	<string name="messaging_initial" />
+	<string name="messaging_get_inprogress">Querying for pathfinding characters ...</string>
+	<string name="messaging_get_error">Error detected while querying for pathfinding characters.</string>
+	<string name="messaging_set_inprogress" />
+	<string name="messaging_set_error" />
+	<string name="messaging_complete_none_found">No pathfinding characters.</string>
+	<string name="messaging_complete_available">[NUM_SELECTED] characters selected out of [NUM_TOTAL].</string>
+	<string name="messaging_not_enabled">This region is not enabled for pathfinding.</string>
+	<string name="character_cpu_time">[CPU_TIME] µs</string>
+	<string name="character_owner_loading">[Loading]</string>
+	<string name="character_owner_unknown">[Unknown]</string>
+	<string name="character_owner_group">[group]</string>
+
+	<scroll_list name="objects_scroll_list" multi_select="true" draw_heading="true" column_padding="4"
+	 left="10" bottom_delta="-165" height="135"	 width="610" follows="all">
+		<column name="name" label="Name" dynamicwidth="true" />
+		<column name="description" label="Description" width="150" />
+		<column name="owner" label="Owner" width="140" />
+		<column name="cpu_time" label="CPU" halign="right" tool_tip="Server CPU time used by the character" width="60" />
+		<column name="altitude" label="Alt." halign="right" tool_tip="Altitude" width="60" />
+    </scroll_list>
+
+	<text name="messaging_status" type="string"
+	 left="10" bottom_delta="-28" height="16" width="250" follows="left|bottom|right">
+		Characters:
+	</text>
+
+	<button name="refresh_objects_list" label="Refresh list" font="SansSerif"
+	 left_delta="260" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="select_all_objects" label="Select all" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="select_none_objects" label="Select none" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+
+	<view_border name="horiz_separator1" bevel_style="none"
+	 left="10" bottom_delta="-8" width="610" height="0" follows="left|bottom|right" />
+
+	<text type="string" font="SansSerifSmall"
+	 left="10" bottom_delta="-22" height="16" width="320" follows="left|bottom|right">
+		Actions on selected characters:
+	</text>
+	<check_box name="show_physics_capsule" label="Show physics capsule" font="SansSerifSmall"
+	 left_delta="330" bottom_delta="0" width="130" follows="right|bottom" />
+	<check_box name="show_beacon" label="Show beacon" font="SansSerifSmall"
+	 left_delta="140" bottom_delta="0" width="130" follows="right|bottom" />
+
+	<button name="take_objects" label="Take" font="SansSerif"
+	 left="10" bottom_delta="-24" width="110" height="20" follows="left|bottom" />
+	<button name="take_copy_objects" label="Take copy" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="left|bottom" />
+
+	<button name="teleport_me_to_object" label="Teleport me to it" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="130" height="20" follows="left|bottom" />
+
+	<button name="return_objects" label="Return" font="SansSerif"
+	 left_delta="140" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+	<button name="delete_objects" label="Delete" font="SansSerif"
+	 left_delta="120" bottom_delta="0" width="110" height="20" follows="right|bottom" />
+</floater>

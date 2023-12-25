@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inventory filters" title="Inventory filters"
+ can_close="true" can_minimize="false" can_resize="false"
+ can_drag_on_left="false" can_tear_off="true"
+ left="457" bottom="-495" width="160" height="448" min_width="160" min_height="448">
+	<icon name="icon_animation" image_name="inv_item_animation.tga"
+	 left="8" bottom="410" width="16" height="16" follows="left|top" />
+	<check_box name="check_animation" label="Animation" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_calling_card" image_name="inv_item_callingcard_online.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_callingcard" label="Calling cards" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_clothing" image_name="inv_item_shirt.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_clothing" label="Clothing" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_gesture" image_name="inv_item_gesture.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_gesture" label="Gestures" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_landmark" image_name="inv_item_landmark_visited.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_landmark" label="Landmarks" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_notecard" image_name="inv_item_notecard.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_notecard" label="Notecards" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_object" image_name="inv_item_object.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_object" label="Objects" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_script" image_name="inv_item_script.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_script" label="Scripts" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_sound" image_name="inv_item_sound.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_sound" label="Sounds" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_texture" image_name="inv_item_texture.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_texture" label="Textures" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_snapshot" image_name="inv_item_snapshot.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_snapshot" label="Snapshots" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_settings" image_name="inv_item_settings.tga"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_settings" label="Settings" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_material" image_name="inv_item_material.tga" mouse_opaque="true"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_material" label="Material" font="SansSerifSmall"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_mesh" image_name="inv_item_mesh.tga" enabled="false" mouse_opaque="true"
+	 left="8" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_mesh" label="Meshes" font="SansSerifSmall" enabled="false"
+	 left="26" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<button name="All" label="All" font="SansSerif"
+	 left="8" bottom_delta="-24" width="72" height="20" follows="left|top" />
+	<button name="None" label="None" font="SansSerif"
+	 left_delta="74" bottom_delta="0" width="72" height="20" follows="left|top" />
+	<check_box name="check_show_empty" label="Always show folders" font="SansSerifSmall"
+	 left="8" bottom_delta="-20" width="144" height="16" follows="left|top" />
+	<check_box name="check_since_logoff" label="Since logoff" font="SansSerifSmall"
+	 left="8" bottom_delta="-20" width="144" height="16" follows="left|top" />
+	<text name="or" font="SansSerifSmall" halign="center"
+	 left="8" bottom_delta="-12" width="144" height="12" follows="left|top">
+		- OR -
+	</text>
+	<spinner name="spin_hours_ago" label="Hours ago:" label_width="80"
+	 min_val="0" max_val="240000" increment="1" decimal_digits="2" initial_val="0"
+	 left="12" bottom_delta="-20" width="136" height="16" follows="left|top" />
+	<spinner name="spin_days_ago" label="Days ago:" label_width="80"
+	 min_val="0" max_val="10000" increment="1" decimal_digits="0" initial_val="0"
+	 left="12" bottom_delta="-20" width="136" height="16" follows="left|top" />
+	<button name="Reset" label="Reset" font="SansSerif"
+	 left="8"  bottom_delta="-24" width="72" height="20" follows="left|top" />
+	<button name="Close" label="Close" font="SansSerif"
+	 left_delta="74"  bottom_delta="0" width="72" height="20" follows="left|top" />
+	<string name="not_supported">
+		This inventory type is not supported in the current agent region.
+	</string>
+	<string name="mesh_deprecated">
+		This inventory type was never used in the production grid and is deprecated.
+	</string>
+</floater>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="audio volume" title="Volume" rect_control="FloaterAudioVolumeRect"
+ can_resize="false" can_close="true" can_minimize="false"
+ height="172" width="180" max_height="172" max_width="180" min_height="172" mim_width="180">
+	<panel name="Volume Panel" label="Volume" border="false"
+	 left="5" bottom_delta="-168" width="172" height="148" follows="left|top">
+	<slider name="System Volume" label="Master" control_name="AudioLevelMaster"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_audio" control_name="MuteAudio" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="UI Volume" label="UI" control_name="AudioLevelUI"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_ui" control_name="MuteUI" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="SFX Volume" label="Sounds" control_name="AudioLevelSFX"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_sfx" control_name="MuteSounds" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="Wind Volume" label="Ambient" control_name="AudioLevelAmbient"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_wind" control_name="MuteAmbient" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="Music Volume" label="Music" control_name="AudioLevelMusic"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_music" control_name="MuteMusic" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="Media Volume" label="Media" control_name="AudioLevelMedia"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_media" control_name="MuteMedia" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	<slider name="Voice Volume" label="Voice" control_name="AudioLevelVoice"
+	 label_width="48" show_text="false" volume="true" mouse_opaque="true"
+	 increment="0.05" initial_val="0.5" max_val="1" min_val="0"
+	 left="10" bottom_delta="-20" width="130" height="15" follows="left|top" />
+	<button name="mute_voice" control_name="MuteVoice" toggle="true"
+	 label="" image_unselected="icn_speaker_dark.tga" image_selected="icn_speaker-muted_dark.tga"
+	 left="150" bottom_delta="0" width="24" height="16" follows="left|top" />
+	</panel>
+</floater>

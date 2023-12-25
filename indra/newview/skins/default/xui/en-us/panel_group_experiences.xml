@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="experiences_tab" label="Experiences" border="true"
+ left="1" bottom="0" width="418" height="466" follows="all">
+	<string name="help_text">
+		Experiences allow to regroup a bunch of
+permissions into a single permission request.
+This tab lists all the experiences pertaining
+to this group.
+	</string>
+	<string name="no_experiences_text">
+		There are no experiences.
+	</string>
+	<button bottom="-24" font="SansSerif" halign="center" height="16" label="?"
+	 label_selected="?" left="391" name="help_button" width="20"/>
+	<text name="lbl" font="SansSerifBig" halign="left"
+	 left="7" bottom="-20" height="16" width="436" follows="top|left">
+		Experiences list for this group
+	</text>
+	<scroll_list name="experiences_list" multi_select="false"
+	 background_visible="true" column_padding="0"
+	 draw_border="true" draw_heading="true" heading_height="14" heading_font="SansSerifSmall"
+	 left="7" bottom_delta="-208" width="404" height="200" follows="top|left">
+		<column name="experience_name" label="Experience name"
+		 tool_tip="Double-click the name of an experience to show its profile."
+		 width="400"/>
+	</scroll_list>
+</panel>

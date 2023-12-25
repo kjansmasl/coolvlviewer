@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" follows="left|top|right|bottom"
+     height="408" label="Network &amp; web" left="102" name="network"
+     width="517">
+	<view_border name="border_network" bevel_style="none" border_thickness="1"
+	 left="6" bottom="-90" width="486" height="86" follows="left|top"/>
+	<view_border name="border_cache" bevel_style="none" border_thickness="1"
+	 left="6" bottom="-166" width="486" height="76" follows="left|top"/>
+	<view_border name="border_browser" bevel_style="none" border_thickness="1"
+	 left="6" bottom="-258" width="486" height="92" follows="left|top"/>
+	<view_border name="border_proxy" bevel_style="none" border_thickness="1"
+	 left="6" bottom="-438" width="486" height="180" follows="left|top"/>
+	<spinner name="max_bandwidth" label="Max UDP bandwidth:" label_width="110"
+	 min_val="256" max_val="32768" decimal_digits="0" increment="256"
+	 tool_tip="Maximum network bandwidth for UDP messaging/data transfer with sim servers in kilo bits per second. Note that non-sim and HTTP traffic (HTTP texture fetches, mesh fetches, embedded web browser, media, etc) is not affected/limited by this setting."
+	 bottom="-25" left="12" height="16" width="180" follows="left|top" />
+	<text name="bw_kbps_label" font="SansSerifSmall" halign="left"
+	 left_delta="185" bottom_delta="0" width="30" height="16" follows="left|top">
+		kbps
+	</text>
+	<check_box name="connection_port_enabled"
+	 label="Custom UDP port number:" font="SansSerifSmall"
+	 tool_tip="Check this box to use a custom port to communicate with the simulators via UDP messages. It doesn't affect HTTP communications. Takes only effect after a restart."
+	 bottom_delta="0" left_delta="36" height="16" width="150" follows="left|top" />
+	<spinner name="connection_port" label="" label_width="0"
+	 min_val="13000" max_val="13050" initial_val="13008" increment="1" decimal_digits="0"
+	 tool_tip="This is the port used to communicate with the simulators via UDP messages. It does not affect HTTP communications. Takes only effect after a restart."
+	 left_delta="170" bottom_delta="0" height="16" width="60" follows="left|top" />
+	<check_box name="http_texture_fetch" label="Use HTTP texture fetches" font="SansSerifSmall"
+	 tool_tip="For grids that support it, texture fetching via HTTP leads to shorter texture rezzing time and helps alleviating the load on sim servers. For grids not supporting HTTP texture fetching, the viewer automatically falls back to SIM texture fetches. NOTE: when logged in SL, this setting is ignored (HTTP fetches are always enabled in SL)."
+	 left="10" bottom_delta="-20"  height="16" width="180" follows="left|top" />
+	<spinner name="max_texture_http_concurrency" label="Max texture requests:" font="SansSerifSmall"
+	 min_val="2" max_val="32" decimal_digits="0" increment="1"
+	 tool_tip="Maximum number of simultaneous HTTP requests for texture fetches."
+	 left_delta="226" bottom_delta="0" width="162" label_width="115" height="16" follows="left|top" />
+	<spinner name="max_mesh_http_concurrency" label="Max mesh requests:" font="SansSerifSmall"
+	 min_val="2" max_val="128" decimal_digits="0" increment="1"
+	 tool_tip="Maximum number of simultaneous HTTP requests for mesh fetches (using the old, non-pipelining GetMesh capability)."
+	 left="12" bottom_delta="-20" width="162" label_width="115" height="16" follows="left|top" />
+	<spinner name="max_mesh2_http_concurrency" label="Max mesh2 requests:" font="SansSerifSmall"
+	 min_val="2" max_val="32" decimal_digits="0" increment="1"
+	 tool_tip="Maximum number of simultaneous HTTP requests for mesh fetches (using the new pipelining capabilities GetMesh2 or ViewerAsset)."
+	 bottom_delta="-0" left_delta="224" width="162" label_width="115" height="16" follows="left|top" />
+	<check_box name="sl_http_pipelining_check" label="Use HTTP pipelining in SecondLife" font="SansSerifSmall"
+	 tool_tip="HTTP pipelining may be used for assets (including textures and meshes) fetching via new capabilities. By checking this setting, you allow to use HTTP pipelining in SecondLife."
+	 left="10" bottom_delta="-20" width="200" height="16" follows="left|top" />
+	<check_box name="os_http_pipelining_check" label="Use HTTP pipelining in OpenSim" font="SansSerifSmall"
+	 tool_tip="HTTP pipelining may be used for assets (including textures and meshes) fetching via new capabilities. OpenSim grids servers may not be properly configured for it. By checking this setting, you allow to use HTTP pipelining in OpenSim."
+	 left_delta="222" bottom_delta="0" width="200" height="16" follows="left|top" />2
+	<slider name="cache_size" label="Disk cache size:" font="SansSerifSmall"
+	 show_text="true" can_edit_text="true"
+	 decimal_digits="0" min_val="50" max_val="10000" increment="50"
+	 left="12" bottom_delta="-28" width="450" height="15" follows="left|top" />
+	<text name="cache_mb_label" font="SansSerifSmall" halign="left"
+	 left_delta="455" bottom_delta="0" width="40" height="16" follows="left|top">
+		MB
+	</text>
+	<text name="cache_path_label" font="SansSerifSmall" halign="left"
+	 left="12" bottom_delta="-26" width="90" height="20" follows="left|top">
+		Disk cache path:
+	</text>
+	<line_editor name="cache_path" font="SansSerif" word_wrap="false" enabled="false"
+	 bevel_style="in" border_style="line" border_thickness="1"
+	 handle_edit_keys_directly="true" select_all_on_focus_received="false"
+	 left_delta="95" bottom_delta="2" width="380" height="20" follows="left|top" />
+	<button name="set_cache" label="Set" font="SansSerif"
+	 left_delta="0" bottom_delta="-24" width="80" height="20" follows="left|top" />
+	<button name="reset_cache" label="Reset" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<button name="clear_disk_cache" label="Clear disk cache" font="SansSerif"
+	 left="338" bottom_delta="0" width="150" height="20" follows="left|top" />
+	<radio_group name="use_external_browser" draw_border="false" font="SansSerifSmall"
+	 left="12" bottom_delta="-44" width="480" height="36" follows="top|left">
+		<radio_item name="external"
+		 left="0" bottom="-18" width="480" height="18"
+		 tool_tip="Use the default system web browser for help, web links, etc. This would not affect the SL web-based profiles and search which always use the built-in browser in their own floater.">
+			Use the default, system-configured web browser (Firefox, Chrome, Opera, etc)
+		</radio_item>
+		<radio_item name="internal"
+		 left="0" bottom="-38" width="480" height="18"
+		 tool_tip="Use the built-in web browser for help, web links, etc. This browser opens as a new window inside the viewer.">
+			Use the built-in web browser
+		</radio_item>
+	</radio_group>
+	<button name="clear_browser_cache" label="Clear browser cache" font="SansSerif" halign="center"
+	 tool_tip="Clear the built-in web browser cache."
+	 left="338" bottom_delta="-4" width="150" height="20" follows="left|top" />
+	<text name="privacy_label" font="SansSerifSmall" halign="left"
+	 left="15" bottom_delta="-22" width="100" height="16" follows="left|top">
+		Privacy/security:
+	</text>
+	<check_box name="cookies_enabled" label="Accept cookies from sites" font="SansSerifSmall"
+	 tool_tip="Enable cookies in the web media plugin (the SL web profiles cannot work when this option is disabled)."
+	 left="140" bottom_delta="-2" width="180" height="16" follows="left|top" />
+	<button name="clear_cookies" label="Clear stored cookies" font="SansSerif" halign="center"
+	 tool_tip="Clear the built-in web browser cookies."
+	 left="338" bottom_delta="-2" width="150" height="20" follows="left|top" />
+	<check_box name="javascript_enabled" label="Enable Javascript" font="SansSerifSmall"
+	 tool_tip="Enable javascript in the web media plugin (the SL web based search cannot work when this option is disabled)."
+	 left="140" bottom_delta="-20" width="256" height="16" follows="left|top" />
+	<check_box name="plugins_enabled" label="Enable plugins" font="SansSerifSmall"
+	 tool_tip="Allow the web media plugin to launch and use other plugins. This is now only used for PDF document viewing support."
+	 left="338" bottom_delta="0" width="256" height="16" follows="left|top" />
+	<check_box name="web_proxy_enabled" label="Use a proxy for the built-in web plugin and browser" font="SansSerifSmall"
+	 left="10" bottom_delta="-24" width="360" height="16" follows="left|top" />
+	<text name="proxy_text_label" font="SansSerifSmall" halign="left"
+	 left="20" bottom_delta="-22" width="50" height="16" follows="left|top">
+		Address:
+	</text>
+	<line_editor name="web_proxy_editor" font="SansSerif"
+	 tool_tip="The name or IP address of the proxy you would like to use"
+	 left_delta="60" bottom_delta="0" width="250" height="20" follows="left|top" />
+	<spinner name="web_proxy_port" label="Port number:" label_width="75"
+	 decimal_digits="0" min_val="0" max_val="65535" increment="1"
+	 left_delta="260" bottom_delta="-3" width="140" height="20" follows="left|top" />
+	<check_box name="socks5_proxy_enabled" label="Enable SOCKS 5 proxy" font="SansSerifSmall"
+	 left="10" bottom_delta="-24" width="256" height="16" follows="left|top" />
+	<text name="socks5_host_label" font="SansSerifSmall" halign="left"
+	 left="20" bottom_delta="-28" width="50" height="20" follows="left|top">
+		Address:
+	</text>
+	<line_editor name="socks5_proxy_host" font="SansSerif"
+     tool_tip="The name or IP address of the SOCKS5 proxy you would like to use"
+	 left_delta="60" bottom_delta="2" width="250" height="20" follows="left|top" />
+	<spinner name="socks5_proxy_port" label="Port number:" label_width="75"
+	 decimal_digits="0" min_val="0" max_val="65535" increment="1"
+	 left_delta="260" bottom_delta="-3" width="140" height="20" follows="left|top" />
+	<text name="socks5_auth_label" font="SansSerifSmall" halign="left"
+	 left="20" bottom_delta="-28" width="128" height="20" follows="left|top">
+		SOCKS 5 authentication:
+	</text>
+	<radio_group name="socks5_auth" draw_border="false"
+	 left_delta="162" bottom_delta="3" width="420" height="20" follows="left|top">
+	     <radio_item name="None"
+		  left="0" bottom="0" height="20" width="50">
+			None
+	     </radio_item>
+	     <radio_item name="UserPass"
+		 left="70" bottom="0" width="50" height="20">
+			Username/password
+	     </radio_item>
+	</radio_group>
+	<text name="socks5_username_label" font="SansSerifSmall" halign="left"
+	 left="20" bottom_delta="-28" width="60" height="20" follows="left|top">
+		Username:
+	</text>
+	<line_editor name="socks5_proxy_username" font="SansSerif"
+     tool_tip="Username for the Socks5 proxy"
+	 left_delta="70" bottom_delta="3" width="150" height="20" follows="left|top" />
+	<text name="socks5_password_label" font="SansSerifSmall" halign="left"
+	 left_delta="170" bottom_delta="-3" width="60" height="20" follows="left|top">
+		Password:
+	</text>
+	<line_editor name="socks5_proxy_password" font="SansSerif"
+     tool_tip="Password for the SOCKS 5 proxy"
+	 left_delta="70" bottom_delta="3" width="150" height="20" follows="left|top" />
+	<text name="socks5_auth_label" font="SansSerifSmall" halign="left"
+	 left="12" bottom_delta="-32" width="160" height="20" follows="left|top">
+		Other HTTP traffic proxy:
+	</text>
+	<radio_group name="http_proxy_type" draw_border="false"
+	 left_delta="170" bottom_delta="3" width="200" height="20" follows="left|top">
+	     <radio_item name="None" tool_tip="No HTTP proxy"
+		 left="0" bottom="0" width="50" height="20">
+			None
+	     </radio_item>
+	     <radio_item name="Socks" tool_tip="Use SOCKS 5 as the HTTP proxy"
+		  left="70" bottom="0" width="50" height="20">
+			SOCKS 5
+	     </radio_item>
+	     <radio_item name="Web" tool_tip="Use configured web proxy as the HTTP proxy"
+		  left="150" bottom="0" width="50" height="20">
+			Web proxy
+	     </radio_item>
+	</radio_group>
+</panel>

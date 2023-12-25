@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="group ban" title="Group ban"
+ can_resize="true" can_close="true" can_drag_on_left="false" can_minimize="true"
+ width="220" min_width="220" height="388" min_height="388">
+	<panel name="bulk_ban_panel" label="Ban residents"
+	 left="0" bottom_delta="-394" width="210" height="374" follows="left|top|bottom|right">
+		<text name="group_name_label" font="SansSerifSmall"
+		 left="10" bottom_delta="-22" width="40" height="16" follows="left|top">
+			Group:
+		</text>
+		<text name="group_name_text" font="SansSerifSmall"
+		 left_delta="40" bottom_delta="0" width="155" height="16" follows="left|top|right">
+			Loading...
+		</text>
+		<text name="help_text" font="SansSerifSmall" halign="center"
+		 left="5" bottom_delta="-52" width="210" height="50" follows="top|left|right">
+			You can select multiple avatars to ban
+from your group. Click &apos;Open avatar
+picker&apos; to start.
+		</text>
+		<button name="add_button" label="Open avatar picker"
+		 left_delta="5" bottom_delta="-20" width="200" height="20" follows="top|left|right"/>
+		<name_list name="banned_agent_list"
+		 multi_select="true" allow_calling_card_drop="true" column_padding="0"
+ 		 left_delta="0" bottom_delta="-214" width="200" height="206" follows="top|bottom|left|right"
+		 tool_tip="Hold the Ctrl key and click avatar names to multi-select" />
+		<button name="remove_button" label="Remove avatar(s) from list"
+		 tool_tip="Removes the avatars selected above from the ban list"
+ 		 left_delta="0" bottom_delta="-26" width="200" height="20" follows="bottom|left|right" />
+		<button name="ban_button" label="Ban listed avatars"
+ 		 left_delta="0" bottom_delta="-24" width="125" height="20" follows="bottom|left|right" />
+		<button name="cancel_button" label="Cancel"
+ 		 left_delta="130" bottom_delta="0" width="70" height="20" follows="bottom|right" />
+		<string name="loading">
+			(loading...)
+		</string>
+		<string name="ban_selection_too_large">
+			Group bans not sent: too many Residents selected. Group bans are limited to 100 per request.
+		</string>
+		<string name="ban_not_permitted">
+			Group ban not sent: you do not have 'Manage ban list' ability.
+		</string>
+		<string name="ban_limit_fail">
+			Group ban not sent: your group have reached limit of allowed ban records.
+		</string>
+		<string name="partial_ban">
+			Some group bans were not sent:[REASONS]
+		</string>
+		<string name="ban_failed">
+			Group bans were not sent:[REASONS]
+		</string>
+		<string name="already_banned">
+			- The following resident(s) are already banned: [RESIDENTS].
+		</string>
+		<string name="cant_ban_yourself">
+			- You cannot ban yourself from a group.
+		</string>
+	</panel>
+</floater>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="collada export" title="Collada export" rect_control="FloaterColladaExportRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ height="250" width="240" mouse_opaque="true">
+	<string name="export_progress">Collada Export: saving textures (%d remaining)</string>
+	<text name="object_info" font="SansSerif"
+	 left="14" bottom="-48" width="200" height="20" follows="top|left">
+		Object info:
+	</text>
+	<text name="object_name_label" font="SansSerifSmall"
+	 left="20" bottom_delta="-18" width="35" height="16" follows="top|left">
+		Name:
+	</text>
+	<text name="object_name" font="SansSerifSmall"
+	 left_delta="40" bottom_delta="0" width="170" height="16" follows="top|left">
+		[NAME]
+	</text>
+	<text name="prims_count_label" font="SansSerifSmall"
+	 left="20" bottom_delta="-20" width="120" height="16" follows="top|left">
+		Exportable primitives:
+	</text>
+	<text name="prims_count" font="SansSerifSmall"
+	 left_delta="136" bottom_delta="0" width="90" height="16" follows="top|left">
+		0/0
+	</text>
+	<text name="textures_count_label" font="SansSerifSmall"
+	 left="20" bottom_delta="-20" width="120" height="16" follows="top|left">
+		Exportable textures:
+	</text>
+	<text name="textures_count" font="SansSerifSmall"
+	 left_delta="136" bottom_delta="0" width="90" height="16" follows="top|left">
+		0/0
+	</text>
+	<check_box name="export_texture_check" label="Export textures as:" control_name="DAEExportTextures"
+	 left="10" bottom_delta="-24" width="100" height="16" follows="top|left" />
+	<combo_box name="texture_type_combo" control_name="DAEExportTexturesType"
+	 left_delta="146" bottom_delta="0" width="70" height="20" follows="top|left">
+		<combo_item name="0" value="0">TGA</combo_item>
+		<combo_item name="1" value="1">PNG</combo_item>
+		<combo_item name="2" value="2">J2C</combo_item>
+		<combo_item name="3" value="3">BMP</combo_item>
+		<combo_item name="4" value="4">JPG</combo_item>
+	</combo_box>
+	<check_box name="consolidate_check" label="Consolidate faces" control_name="DAEExportConsolidateMaterials"
+	 tool_tip="When this box is checked, faces bearing the same texture are combined into one where possible."
+	 left="10" bottom_delta="-20" width="200" height="20" follows="top|left" />
+	<check_box name="skip_transparent_check" label="Skip transparent faces" control_name="DAEExportSkipTransparent"
+	 tool_tip="When this box is checked, faces bearing the default transparent texture or which are fully transparent are skipped and not exported."
+	 left="10" bottom_delta="-20" width="200" height="20" follows="top|left" />
+	<check_box name="texture_params_check" label="Apply texture parameters"  control_name="DAEExportTextureParams"
+	 tool_tip="When this box is checked, the texture parameters such as repeats are applied to the exported UV map."
+	 left="10" bottom_delta="-20" width="200" height="20" follows="top|left" />
+	<check_box name="single_uv_map_check" label="Use a single UV map"  control_name="DAEExportSingleUVMap"
+	 tool_tip="When this box is checked, a single UV map is exported for the whole set of objects."
+	 left="10" bottom_delta="-20" width="200" height="20" follows="top|left" />
+	<button name="export_btn" label="Export as a Collada file" font="SansSerif"
+	 left="10" bottom_delta="-32" width="220" height="24" follows="top|left" />
+</floater>

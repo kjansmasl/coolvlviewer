@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Land Pie">
+	<menu_item_call name="About Land..." label="About land..." enabled="false">
+		<on_click function="ShowFloater" userdata="about land" />
+	</menu_item_call>
+	<menu_item_call name="Create" label="Create" enabled="false">
+		<on_click function="Land.Build" />
+		<on_enable function="EnableEdit" />
+	</menu_item_call>
+	<menu_item_call name="Go Here" label="Go here" enabled="false">
+		<on_click function="GoToObject" />
+	</menu_item_call>
+	<menu_item_call name="Sit Here" label="Sit here" enabled="false">
+		<on_click function="Land.Sit" />
+		<on_enable function="Land.CanSit" />
+	</menu_item_call>
+	<menu_item_separator />
+	<menu_item_call name="Land Buy Pass" label="Buy pass..." enabled="false">
+		<on_click function="Land.BuyPass" />
+		<on_enable function="Land.EnableBuyPass" />
+	</menu_item_call>
+	<menu_item_call name="Edit Terrain" label="Edit terrain" enabled="false">
+		<on_click function="Land.Edit" />
+		<on_enable function="EnableEdit" />
+	</menu_item_call>
+	<menu_item_call name="Land Buy" label="Buy land..." enabled="false">
+		<on_click function="ShowFloater" userdata="buy land" />
+		<on_enable function="World.EnableBuyLand" />
+	</menu_item_call>
+</pie_menu>

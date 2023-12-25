@@ -1,0 +1,100 @@
+1.- Build dependencies:
+
+You need a Visual Studio 2022 Community Edition C++ build environment, Python
+and CMake.
+
+When installing Visual Studio, only install the desktop application C++
+development tools (VC++ 2022, ATL Visual C++, VC++ 2022 latest v143 tools,
+Visual C++ tools for CMake, JIT debugger), with the latest Windows 10 SDK (the
+one selected by default in the installer); you do not need to install any other
+SDK, even for running the viewer under Windows 7, 8 or 11 since the build
+target API version (Win 7) is specified in the viewer cmake files via the
+appropriate defines. Do not install any bundled Python either. If you wish to
+build with clang, also select the clang tools.
+
+Get Python from Python's site (https://www.python.org/).
+Run the installer as administrator (right click, "Run as administrator"); this
+way, you will be able to install Python in C:\Programs, for example (instead
+of in your roaming profile).
+You may use the custom installation option to remove the unnecessary components
+that would otherwise clutter your hard disk/SSD for nothing: just keep Python
+itself and the Python launcher (1).
+Do make sure to ask the installer to update your PATH environment variable.
+
+For CMake, you may use the latest release (the Cool VL Viewer build system is
+regularly updated to work with the latest cmake version); v3.16+ recommended
+for a faster compilation. Get it from from CMake's site:
+https://cmake.org/files/LatestRelease/ (you may use the 64 bits version).
+Do ask to the installer to update your PATH environment variable so that cmake
+can be found.
+
+You may have to restart your session after installation so that the new PATH is
+taken into account.
+
+To verify that everything is installed properly, you may open a command prompt
+console and type the following commands:
+python --version
+cmake --version
+
+
+2.- Building instructions:
+
+Untar (2) the Cool VL Viewer sources and place the resulting "linden" folder
+inside the Visual Studio "source" directory.
+You may want to open the linden/indra/cmake/00-BuildOptions.cmake file to
+review the various build options; they are set to their default used for the
+official builds, but you may want to add or remove features.
+
+Then you can choose between two methods:
+
+a.- Automated, batch-file based building:
+
+Point a file explorer into the linden/ directory of the sources tree and
+double-click on "windows-build.bat", so to launch the build. The script will
+pause at the end of the configuring step: simply press a key to continue with
+the building itself.
+
+b.- GUI build:
+
+Proceed like above, but at the pause occurring after the configuration step,
+press CTRL C to interrupt the script, and confirm its termination at the next
+prompt.
+
+After the command console has closed, point the explorer inside the
+linden/build-vs* directory that just got created and double-click on the
+"CoolVLViewer.sln" file so to load it into Visual Studio.
+
+Then simply press CTRL SHIFT B to launch the viewer building process.
+
+
+Note: since all the development and debugging process of the Cool VL Viewer is
+done under Linux, only the "Release" build target is supported and available
+under Windows. You may nonetheless decently debug the viewer under Windows by
+simply copying the CoolVLViewer.pdb file produced during the building process
+into the viewer-win64-release directory and launch/debug the viewer from there.
+
+
+3.- Packaging and distribution:
+
+Once the build has completed successfully, you get a ready to launch viewer in:
+linden/viewer-win64-release/
+
+If you wish to distribute your build, you will need to use InstallJammer v1.3
+(https://sourceforge.net/projects/installjammer/files/InstallJammer/snapshots/installjammer-1.3-snapshot.zip/download)
+with the provided script in linden/scripts/installers/windows64/ (in the latter
+script, using WordPad or an editor able to deal with UNIX files, change the
+occurrences of "C:/Users/root/source/cvxxxx/" with the path of whatever folder
+you copied the source files into).
+Simply load the CoolVLViewer-x86_64-1.32.x.mpi file into InstallJammer, select
+"Build Installers" in the tree on the left, then check "Build for final release"
+on the bottom and press the "Build Install" button. The distributable package
+will be created in linden/scripts/installers/windows/output/
+
+
+Notes:
+(1) You may also install "pip" if you want to use Python for other purposes
+    than just building the Cool VL Viewer (which does not need it), including
+    LL's viewer or other TPVs (which do need pip to install LL's build system).
+
+(2) 7-Zip (http://www.7-zip.org/) may be used to extract the viewer sources
+    from the tar archive.

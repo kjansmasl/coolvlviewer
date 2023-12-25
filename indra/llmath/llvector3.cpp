@@ -1,0 +1,367 @@
+/**
+ * @file llvector3.cpp
+ * @brief LLVector3 class implementation.
+ *
+ * $LicenseInfo:firstyear=2000&license=viewergpl$
+ *
+ * Copyright (c) 2000-2009, Linden Research, Inc.
+ *
+ * Second Life Viewer Source Code
+ * The source code in this file ("Source Code") is provided by Linden Lab
+ * to you under the terms of the GNU General Public License, version 2.0
+ * ("GPL"), unless you have obtained a separate licensing agreement
+ * ("Other License"), formally executed by you and Linden Lab.  Terms of
+ * the GPL can be found in doc/GPL-license.txt in this distribution, or
+ * online at http://secondlifegrid.net/programs/open_source/licensing/gplv2
+ *
+ * There are special exceptions to the terms and conditions of the GPL as
+ * it is applied to this Source Code. View the full text of the exception
+ * in the file doc/FLOSS-exception.txt in this software distribution, or
+ * online at
+ * http://secondlifegrid.net/programs/open_source/licensing/flossexception
+ *
+ * By copying, modifying or distributing this software, you acknowledge
+ * that you have read and understood your obligations described above,
+ * and agree to abide by those obligations.
+ *
+ * ALL LINDEN LAB SOURCE CODE IS PROVIDED "AS IS." LINDEN LAB MAKES NO
+ * WARRANTIES, EXPRESS, IMPLIED OR OTHERWISE, REGARDING ITS ACCURACY,
+ * COMPLETENESS OR PERFORMANCE.
+ * $/LicenseInfo$
+ */
+
+#include "linden_common.h"
+
+#include "llvector3.h"
+
+#include "llvector2.h"
+#include "llvector4.h"
+#include "llmatrix4.h"
+#include "llmatrix3.h"
+#include "llquaternion.h"
+#include "llquantize.h"
+#include "llvector3d.h"
+
+// LLVector3
+// WARNING: Do not use these for global const definitions !
+// For example:
+//		const LLQuaternion(0.5f * F_PI, LLVector3::zero);
+// at the top of a *.cpp file might not give you what you think.
+const LLVector3 LLVector3::zero(0.f, 0.f, 0.f);
+const LLVector3 LLVector3::x_axis(1.f, 0.f, 0.f);
+const LLVector3 LLVector3::y_axis(0.f, 1.f, 0.f);
+const LLVector3 LLVector3::z_axis(0.f, 0.f, 1.f);
+const LLVector3 LLVector3::x_axis_neg(-1.f, 0.f, 0.f);
+const LLVector3 LLVector3::y_axis_neg(0.f, -1.f, 0.f);
+const LLVector3 LLVector3::z_axis_neg(0.f, 0.f, -1.f);
+const LLVector3 LLVector3::all_one(1.f, 1.f, 1.f);
+
+LLVector3::LLVector3(const LLVector2& vec) noexcept
+{
+	mV[VX] = (F32)vec.mV[VX];
+	mV[VY] = (F32)vec.mV[VY];
+	mV[VZ] = 0.f;
+}
+
+LLVector3::LLVector3(const LLVector3d& vec) noexcept
+{
+	mV[VX] = (F32)vec.mdV[VX];
+	mV[VY] = (F32)vec.mdV[VY];
+	mV[VZ] = (F32)vec.mdV[VZ];
+}
+
+LLVector3::LLVector3(const LLVector4& vec) noexcept
+{
+	mV[VX] = (F32)vec.mV[VX];
+	mV[VY] = (F32)vec.mV[VY];
+	mV[VZ] = (F32)vec.mV[VZ];
+}
+
+const LLVector3& LLVector3::set(const LLVector3d& vec)
+{
+	mV[0] = (F32)vec.mdV[0];
+	mV[1] = (F32)vec.mdV[1];
+	mV[2] = (F32)vec.mdV[2];
+	return *this;
+}
+
+const LLVector3& LLVector3::set(const LLVector4& vec)
+{
+	mV[0] = vec.mV[0];
+	mV[1] = vec.mV[1];
+	mV[2] = vec.mV[2];
+	return *this;
+}
+
+// Clamps each values to range (min,max). Returns true if data changed.
+bool LLVector3::clamp(F32 min, F32 max)
+{
+	bool ret = false;
+
+	if (mV[0] < min) { mV[0] = min; ret = true; }
+	if (mV[1] < min) { mV[1] = min; ret = true; }
+	if (mV[2] < min) { mV[2] = min; ret = true; }
+
+	if (mV[0] > max) { mV[0] = max; ret = true; }
+	if (mV[1] > max) { mV[1] = max; ret = true; }
+	if (mV[2] > max) { mV[2] = max; ret = true; }
+
+	return ret;
+}
+
+// Clamps length to an upper limit. Returns true if the data changed.
+bool LLVector3::clampLength(F32 length_limit)
+{
+	bool changed = false;
+
+	F32 len = length();
+	if (llfinite(len))
+	{
+		if (len > length_limit)
+		{
+			normalize();
+			if (length_limit < 0.f)
+			{
+				length_limit = 0.f;
+			}
+			mV[0] *= length_limit;
+			mV[1] *= length_limit;
+			mV[2] *= length_limit;
+			changed = true;
+		}
+	}
+	else
+	{	// this vector may still be salvagable
+		F32 max_abs_component = 0.f;
+		for (S32 i = 0; i < 3; ++i)
+		{
+			F32 abs_component = fabs(mV[i]);
+			if (llfinite(abs_component))
+			{
+				if (abs_component > max_abs_component)
+				{
+					max_abs_component = abs_component;
+				}
+			}
+			else
+			{
+				// no it can't be salvaged --> clear it
+				clear();
+				changed = true;
+				break;
+			}
+		}
+		if (!changed)
+		{
+			// yes it can be salvaged -->
+			// bring the components down before we normalize
+			mV[0] /= max_abs_component;
+			mV[1] /= max_abs_component;
+			mV[2] /= max_abs_component;
+			normalize();
+
+			if (length_limit < 0.f)
+			{
+				length_limit = 0.f;
+			}
+			mV[0] *= length_limit;
+			mV[1] *= length_limit;
+			mV[2] *= length_limit;
+		}
+	}
+
+	return changed;
+}
+
+bool LLVector3::clamp(const LLVector3& min_vec, const LLVector3& max_vec)
+{
+	bool ret = false;
+
+	if (mV[0] < min_vec[0]) { mV[0] = min_vec[0]; ret = true; }
+	if (mV[1] < min_vec[1]) { mV[1] = min_vec[1]; ret = true; }
+	if (mV[2] < min_vec[2]) { mV[2] = min_vec[2]; ret = true; }
+
+	if (mV[0] > max_vec[0]) { mV[0] = max_vec[0]; ret = true; }
+	if (mV[1] > max_vec[1]) { mV[1] = max_vec[1]; ret = true; }
+	if (mV[2] > max_vec[2]) { mV[2] = max_vec[2]; ret = true; }
+
+	return ret;
+}
+
+// Sets all values to absolute value of their original values
+// Returns true if data changed
+bool LLVector3::abs()
+{
+	bool ret = false;
+
+	if (mV[0] < 0.f) { mV[0] = -mV[0]; ret = true; }
+	if (mV[1] < 0.f) { mV[1] = -mV[1]; ret = true; }
+	if (mV[2] < 0.f) { mV[2] = -mV[2]; ret = true; }
+
+	return ret;
+}
+
+// Quatizations
+void LLVector3::quantize16(F32 lowerxy, F32 upperxy, F32 lowerz, F32 upperz)
+{
+	F32 x = mV[VX];
+	F32 y = mV[VY];
+	F32 z = mV[VZ];
+
+	x = U16_to_F32(F32_to_U16(x, lowerxy, upperxy), lowerxy, upperxy);
+	y = U16_to_F32(F32_to_U16(y, lowerxy, upperxy), lowerxy, upperxy);
+	z = U16_to_F32(F32_to_U16(z, lowerz,  upperz),  lowerz,  upperz);
+
+	mV[VX] = x;
+	mV[VY] = y;
+	mV[VZ] = z;
+}
+
+void LLVector3::quantize8(F32 lowerxy, F32 upperxy, F32 lowerz, F32 upperz)
+{
+	mV[VX] = U8_to_F32(F32_to_U8(mV[VX], lowerxy, upperxy), lowerxy, upperxy);;
+	mV[VY] = U8_to_F32(F32_to_U8(mV[VY], lowerxy, upperxy), lowerxy, upperxy);
+	mV[VZ] = U8_to_F32(F32_to_U8(mV[VZ], lowerz, upperz), lowerz, upperz);
+}
+
+void LLVector3::snap(S32 sig_digits)
+{
+	mV[VX] = snap_to_sig_figs(mV[VX], sig_digits);
+	mV[VY] = snap_to_sig_figs(mV[VY], sig_digits);
+	mV[VZ] = snap_to_sig_figs(mV[VZ], sig_digits);
+}
+
+const LLVector3& LLVector3::rotVec(const LLMatrix3& mat)
+{
+	*this = *this * mat;
+	return *this;
+}
+
+const LLVector3& LLVector3::rotVec(const LLQuaternion& q)
+{
+	*this = *this * q;
+	return *this;
+}
+
+const LLVector3& LLVector3::transVec(const LLMatrix4& mat)
+{
+	set(mV[VX] * mat.mMatrix[VX][VX] + mV[VY] * mat.mMatrix[VX][VY] +
+		mV[VZ] * mat.mMatrix[VX][VZ] + mat.mMatrix[VX][VW],
+		mV[VX] * mat.mMatrix[VY][VX] + mV[VY] * mat.mMatrix[VY][VY] +
+		mV[VZ] * mat.mMatrix[VY][VZ] + mat.mMatrix[VY][VW],
+		mV[VX] * mat.mMatrix[VZ][VX] + mV[VY] * mat.mMatrix[VZ][VY] +
+		mV[VZ] * mat.mMatrix[VZ][VZ] + mat.mMatrix[VZ][VW]);
+
+	return *this;
+}
+
+const LLVector3& LLVector3::rotVec(F32 angle, const LLVector3& vec)
+{
+	if (angle && !vec.isExactlyZero())
+	{
+		*this = *this * LLQuaternion(angle, vec);
+	}
+	return *this;
+}
+
+const LLVector3& LLVector3::rotVec(F32 angle, F32 x, F32 y, F32 z)
+{
+	LLVector3 vec(x, y, z);
+	if (angle && !vec.isExactlyZero())
+	{
+		*this = *this * LLQuaternion(angle, vec);
+	}
+	return *this;
+}
+
+const LLVector3& LLVector3::scaleVec(const LLVector3& vec)
+{
+	mV[VX] *= vec.mV[VX];
+	mV[VY] *= vec.mV[VY];
+	mV[VZ] *= vec.mV[VZ];
+
+	return *this;
+}
+
+LLVector3 LLVector3::scaledVec(const LLVector3& vec) const
+{
+	LLVector3 ret = LLVector3(*this);
+	ret.scaleVec(vec);
+	return ret;
+}
+
+const LLVector3& operator*=(LLVector3& a, const LLQuaternion& rot)
+{
+    const F32 rw = -rot.mQ[VX] * a.mV[VX] - rot.mQ[VY] * a.mV[VY] -
+				   rot.mQ[VZ] * a.mV[VZ];
+    const F32 rx = rot.mQ[VW] * a.mV[VX] + rot.mQ[VY] * a.mV[VZ] -
+				   rot.mQ[VZ] * a.mV[VY];
+    const F32 ry = rot.mQ[VW] * a.mV[VY] + rot.mQ[VZ] * a.mV[VX] -
+				   rot.mQ[VX] * a.mV[VZ];
+    const F32 rz = rot.mQ[VW] * a.mV[VZ] + rot.mQ[VX] * a.mV[VY] -
+				   rot.mQ[VY] * a.mV[VX];
+
+    a.mV[VX] = -rw * rot.mQ[VX] + rx * rot.mQ[VW] - ry * rot.mQ[VZ] +
+			   rz * rot.mQ[VY];
+    a.mV[VY] = -rw * rot.mQ[VY] + ry * rot.mQ[VW] - rz * rot.mQ[VX] +
+			   rx * rot.mQ[VZ];
+    a.mV[VZ] = -rw * rot.mQ[VZ] + rz * rot.mQ[VW] - rx * rot.mQ[VY] +
+			   ry * rot.mQ[VX];
+
+	return a;
+}
+
+//static
+bool LLVector3::parseVector3(const std::string& buf, LLVector3* value)
+{
+	if (!value || buf.empty())
+	{
+		return false;
+	}
+
+	LLVector3 v;
+	S32 count = sscanf(buf.c_str(), "%f %f %f", v.mV, v.mV + 1, v.mV + 2);
+	if (count != 3)
+	{
+		count = sscanf(buf.c_str(), "%f, %f, %f", v.mV, v.mV + 1, v.mV + 2);
+	}
+	if (count == 3)
+	{
+		value->set(v);
+		return true;
+	}
+
+	return false;
+}
+
+//static
+LLVector3 LLVector3::pointToBoxOffset(const LLVector3& pos,
+									  const LLVector3* box)
+{
+	LLVector3 offset;
+
+	for (S32 i = 0; i < 3; ++i)
+	{
+		if (pos[i] < box[0][i])
+		{
+			offset[i] = pos[i] - box[0][i];
+		}
+		else if (pos[i] > box[1][i])
+		{
+			offset[i] = pos[i] - box[1][i];
+		}
+		else
+		{
+			offset[i] = 0.f;
+		}
+	}
+
+	return offset;
+}
+
+//static
+bool LLVector3::boxValidAndNonZero(const LLVector3* box)
+{
+	return box[0].isFinite() && box[1].isFinite() &&
+		   box[0] != LLVector3::zero && box[1] != LLVector3::zero;
+}

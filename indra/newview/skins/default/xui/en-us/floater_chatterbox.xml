@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<multi_floater name="communicate" title="Communicate" rect_control="ChatterboxRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="392" height="390" follows="top|left">
+	<icon name="chatterbox_tab_container" image_name="tabarea.tga" scale_image="true"
+	 color="DefaultShadowLight" bg_alpha_color="blue" border="false"
+	 enabled="false" mouse_opaque="false"
+	 left="1" bottom="-388" width="391" height="17" follows="left|right|bottom" />
+	<tab_container name="Preview Tabs" tab_position="bottom" tab_width="80"
+	 left="0" bottom="2" width="395" height="370" follows="left|right|top|bottom" />
+</multi_floater>
+

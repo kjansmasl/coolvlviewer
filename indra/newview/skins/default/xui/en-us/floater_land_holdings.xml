@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="land holdings" title="My land"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="600" min_width="600" height="385" min_height="385" rect_control="FloaterLandHoldingsRect">
+	<scroll_list name="parcel list" multi_select="false" draw_heading="true" column_padding="5"
+	 left="8" bottom="-194" width="584" height="170" follows="left|top|right">
+		<column label="Parcel name" name="name" dynamicwidth="true" />
+		<column label="Region" name="location" width="200" />
+		<column label="Type" name="type" width="140" />
+		<column label="Area" name="area" width="80" />
+		<column label="" name="hidden" width="-1" />
+	</scroll_list>
+	<button name="Teleport" label="Teleport" font="SansSerif"
+	 tool_tip="Teleport to the center of this land."
+	 left="8" bottom_delta="-24" width="100" height="20" follows="left|top"/>
+	<button name="Show on Map" label="Show on map" font="SansSerif"
+	 tool_tip="Show this land on the world map."
+	 left_delta="104" bottom_delta="0" width="100" height="20" follows="left|top"/>
+	<text
+	     bottom="-238" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="12"
+	     mouse_opaque="true" name="contrib_label" width="480">
+		Contributions to your groups:
+	</text>
+	<scroll_list background_visible="true" bottom_delta="-79" column_padding="5"
+	     draw_border="true" draw_heading="true" height="75" left="8"
+	     mouse_opaque="true" multi_select="false" name="grant list" width="584" follows="left|top|right|bottom">
+		<column label="Group" name="group" dynamicwidth="true" />
+		<column label="Area" name="area" width="100" />
+	</scroll_list>
+	<text
+	     bottom_delta="-20" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifSmall" halign="left" height="16" left="12"
+	     mouse_opaque="true" name="allowed_label" width="348">
+		Allowed land holdings at current payment plan:
+	</text>
+	<text
+	     bottom="-337" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="340"
+	     mouse_opaque="true" name="allowed_text" width="132">
+		[AREA] m2
+	</text>
+	<text
+	     bottom="-357" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifSmall" halign="left" height="16" left="12"
+	     mouse_opaque="true" name="current_label" width="348">
+		Current land holdings:
+	</text>
+	<text
+	     bottom="-357" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="340"
+	     mouse_opaque="true" name="current_text" width="132">
+		[AREA] m2
+	</text>
+	<text
+	     bottom="-377" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifBold" halign="left" height="16" left="12"
+	     mouse_opaque="true" name="available_label" width="348">
+		Available for land purchases:
+	</text>
+	<text
+	     bottom="-377" drop_shadow_visible="true" follows="left|bottom"
+	     font="SansSerifBold" halign="left" height="16" left_delta="340"
+	     mouse_opaque="true" name="available_text" width="140">
+		[AREA] m2
+	</text>
+	<string name="area_string">
+		[AREA] m2
+	</string>
+</floater>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="teleport history" title="Teleport history" rect_control="FloaterTeleportHistoryRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="550" min_width="548" height="230" min_height="230">
+	<tab_container name="lists" label="" tab_min_width="100" tab_position="top"
+	 left="0" bottom_delta="-200" width="550" height="180" follows="left|top|right|bottom">
+		<panel name="tp_history" label="History" border="true"
+		 left="1" top="-2" width="548" height="170" follows="left|top|right|bottom">
+			<scroll_list name="places_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 left="4" bottom_delta="-174" width="538" height="168" follows="left|top|right|bottom">
+				<column name="type" label="" width="10" tool_tip="Departure or Arrival flag" />
+				<column name="parcel" label="Parcel" dynamicwidth="true" />
+				<column name="region" label="Region" width="145" />
+				<column name="position" label="Position" width="90" />
+				<column name="timestamp" label="Timestamp" width="125" />
+			</scroll_list>
+		</panel>
+		<panel name="favorite_places" label="Favorite places" border="true"
+		 left="1" top="-2" width="548" height="170" follows="left|top|right|bottom">
+			<scroll_list name="favorites_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 left="4" bottom_delta="-174" width="538" height="168" follows="left|top|right|bottom">
+				<column name="parcel" label="Parcel" dynamicwidth="true" />
+				<column name="region" label="Region" width="145" />
+				<column name="position" label="Position" width="90" />
+				<column name="visits" label="Visits" width="60" />
+			</scroll_list>
+		</panel>
+		<panel name="search_places" label="Search places" border="true"
+		 left="1" top="-2" width="548" height="170" follows="left|top|right|bottom">
+			<scroll_list name="results_list" can_resize="true" multi_select="false"
+			 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+			 left="4" bottom_delta="-174" width="538" height="168" follows="left|top|right|bottom">
+				<column name="parcel" label="Parcel" dynamicwidth="true" />
+				<column name="region" label="Region" width="145" />
+				<column name="position" label="Position" width="90" />
+			</scroll_list>
+		</panel>
+	</tab_container>
+	<button name="teleport" label="Teleport" font="SansSerif" enabled="false"
+	 tool_tip="Teleports your avatar to the selected location."
+	 left="8" bottom_delta="-24" width="70" height="20" follows="left|bottom"
+	/>
+	<button name="show_on_map" label="Show on map" font="SansSerif" enabled="false"
+	 tool_tip="Opens and centers the map on the selected location."
+	 left_delta="75" bottom_delta="0" width="100" height="20" follows="left|bottom"
+	/>
+	<button name="copy_slurl" label="SLURL to clipboard" font="SansSerif" enabled="false"
+	 tool_tip="Copies the selected location as a SLURL into the clipboard."
+	 left_delta="105" bottom_delta="0" width="120" height="20" follows="left|bottom"
+	/>
+	<search_editor name="search" font="SansSerifSmall" max_length="256" visible="false"
+	 label="Pattern (3 letters min)"
+	 tool_tip="Enter a string (case insensitive, 3 characters minimum) to match in the parcel or region names of the teleport history."
+	 left="316" right="-82" bottom_delta="2" height="18" follows="left|right|bottom" />
+	<flyout_button name="remove" label="Remove entry" font="SansSerif"
+	 tool_tip="Removes the selected entry. More actions are available from the drop down button."
+	 right="-82" bottom_delta="-2" width="120" height="20" follows="right|bottom">
+		<flyout_button_item value="remove_entry" name="remove_entry"
+		 tool_tip="Removes the selected entry.">
+			Remove entry
+		</flyout_button_item>
+		<flyout_button_item value="remove_older" name="remove_older"
+		 tool_tip="Removes all entries older than the selected one.">
+			Remove older
+		</flyout_button_item>
+		<flyout_button_item value="remove_newer" name="remove_newer"
+		 tool_tip="Removes all entries newer than the selected one.">
+			Remove newer
+		</flyout_button_item>
+		<flyout_button_item value="remove_parcel" name="remove_parcel"
+		 tool_tip="Remove all entries with the same parcel as the selected one (the latter included).">
+			Remove parcel
+		</flyout_button_item>
+		<flyout_button_item value="remove_region" name="remove_region"
+		 tool_tip="Remove all entries with the same region as the selected one (the latter included).">
+			Remove region
+		</flyout_button_item>
+		<flyout_button_item value="remove_all" name="remove_all"
+		 tool_tip="Empties the history.">
+			Remove all
+		</flyout_button_item>
+	</flyout_button>
+	<button name="refresh" label="Refresh" font="SansSerif" visible="false"
+	 tool_tip="Refreshes the list."
+	 right="-82" bottom_delta="0" width="65" height="20" follows="right|bottom"
+	/>
+	<button name="close" label="Close" font="SansSerif"
+	 tool_tip="Closes this floater."
+	 right="-12" bottom_delta="0" width="65" height="20" follows="right|bottom"
+	/>
+	<string name="number_of_entries">
+		Total number of entries:
+	</string>
+	<string name="no_entry">
+		No entry.
+	</string>
+</floater>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version = "101">
+	<!-- No waving clothes -->
+	<RenderAvatarCloth value="FALSE"/>
+	<!--Default for now-->
+	<RenderAvatarLODFactor value="0.5"/>
+	<!--Short Range-->
+	<RenderFarClip value="96"/>
+	<!--Default for now-->
+	<RenderFlexTimeFactor value="1"/>
+	<!--256... but they don't use this-->
+	<RenderGlowResolutionPow value="8"/>
+	<!--Local lights-->
+	<RenderLocalLightCount value="256"/>
+	<!--Low number-->
+	<RenderMaxPartCount value="2048"/>
+	<!-- Sky only -->
+	<RenderWaterReflectionType value="1"/>
+	<!--Simple-->
+	<RenderTerrainDetail value="1"/>
+	<!--Default for now-->
+	<RenderTerrainLODFactor value="1"/>
+	<!--Default for now-->
+	<RenderTreeLODFactor value="2"/>
+	<!--Impostors and visual muting limits-->
+	<RenderAvatarMaxNonImpostors value="18"/>
+	<RenderAvatarMaxComplexity value="150000"/>
+	<!--Default for now-->
+	<RenderVolumeLODFactor value="1.5"/>
+	<!-- Shaders-->
+	<WindLightUseAtmosShaders value="TRUE"/>
+</settings>

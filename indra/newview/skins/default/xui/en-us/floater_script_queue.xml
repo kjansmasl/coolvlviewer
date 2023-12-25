@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="script queue" title="Progress"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ height="400" width="300" min_height="100" min_width="100" rect_control="CompileOutputRect">
+	<button name="close" label="Close" font="SansSerif" halign="center"
+	 left="220" bottom="-392" width="64" height="24" follows="right|bottom" />
+	<scroll_list name="queue output" multi_select="false" column_padding="5" 
+	 background_visible="true" draw_stripes="true" draw_border="true" draw_heading="false"
+	 left="4" bottom="-364" width="292" height="344" follows="left|top|right|bottom" />
+	<string name="compile_title">
+		Recompilation progress
+	</string>
+	<string name="compile_verb">
+		recompile
+	</string>
+	<string name="reset_title">
+		Reset progress
+	</string>
+	<string name="reset_verb">
+		reset
+	</string>
+	<string name="run_title">
+		Running progress
+	</string>
+	<string name="run_verb">
+		running
+	</string>
+	<string name="stop_title">
+		Stopping progress
+	</string>
+	<string name="stop_verb">
+		stopping
+	</string>
+	<string name="done">
+		Done.
+	</string>
+	<string name="starting">
+		Starting [VERB] in [ITEMS] primitives.
+	</string>
+	<string name="skipping">
+		Skipping script &quot;[SCRIPT]&quot; with experience &quot;[EXP]&quot;.
+	</string>
+	<string name="not_found">
+		Problem downloading script:
+	</string>
+	<string name="bad_perm">
+		Insufficient permissions for script:
+	</string>
+	<string name="failure">
+		Unknown failure to download script:
+	</string>
+	<string name="compiling">
+		Compiling:
+	</string>
+	<string name="resetting">
+		Resetting:
+	</string>
+	<string name="running">
+		Running:
+	</string>
+	<string name="stopping">
+		Stopping:
+	</string>
+</floater>

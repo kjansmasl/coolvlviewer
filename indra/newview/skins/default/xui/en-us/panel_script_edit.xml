@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="script panel"
+ width="500" height="514" follows="left|top|right|bottom">
+	<tab_container name="sources" label="" tab_min_width="90" tab_position="bottom"
+	 left="4" bottom="-396" width="492" height="394" follows="left|top|right|bottom">
+		<panel name="unprocessed" label="Edited script" width="492" height="384" follows="left|top|right|bottom">
+			<text_editor name="unprocessed_script" font="Monospace" max_length="131072"
+			 word_wrap="true" show_line_numbers="true" spell_check="false" embedded_items="false" ignore_tab="false"
+		     bevel_style="none" border_style="line" border_thickness="0"
+			 left="0" width="492" bottom="-380" height="364" follows="left|top|right|bottom">
+				Loading...
+			</text_editor>
+		</panel>
+		<panel name="preprocessed" label="Saved script" width="492" height="386" follows="left|top|right|bottom">
+			<text_editor name="preprocessed_script" font="Monospace" max_length="262144"
+			 word_wrap="true" show_line_numbers="true" spell_check="false" embedded_items="false" ignore_tab="false"
+		     bevel_style="none" border_style="line" border_thickness="0"
+			 text_readonly_color="TextDefaultColor" bg_readonly_color="TextBgWriteableColor" enabled="false"
+			 left="0" width="492" bottom="-380" height="364" follows="left|top|right|bottom" />
+		</panel>
+	</tab_container>
+	<check_box name="mono" label="Mono" font="SansSerif"
+	 left="390" bottom="-486" width="100" height="18" follows="right|bottom" />
+	<button name="save_btn" label="Save" font="SansSerif" visible="false"
+	 left="374" bottom="-506" width="100" height="20" follows="right|bottom" />
+	<flyout_button name="save_flyout_btn" label="Save" font="SansSerif"
+	 left="374" bottom="-506" width="100" height="20" follows="right|bottom">
+		<flyout_button_item value="save_include" name="save_include"
+		 tool_tip="Saves as an escaped, non-preprocessed include sources script.">
+			Save as include
+		</flyout_button_item>
+	</flyout_button>
+	<scroll_list name="lsl errors" multi_select="false" draw_heading="false" column_padding="5"
+	 left="4" bottom="-466" width="494" height="66" follows="left|right|bottom" />
+	<combo_box name="insert_combo" label="Insert..." allow_text_entry="false"
+	 left="12" bottom="-506" width="128" height="20" follows="left|bottom" />
+	<text name="line_col" font="SansSerifSmall"
+	 left="12" bottom="-480" width="128" height="12" follows="left|bottom" />
+	<menu_bar name="script_menu" tear_off="false"
+	 mouse_opaque="false" opaque="false" drop_shadow="false"
+	 left="8" bottom="-18" width="476" height="18" follows="left|top|right">
+		<menu name="file_submenu" label="File" opaque="true" tear_off="false">
+			<menu_item_call name="load" label="Load from file..." />
+			<menu_item_call name="save" label="Save to file..." />
+			<menu_item_call name="external" label="Edit in external editor" />
+			<menu_item_call name="raw" label="Edit raw script text" />
+			<menu_item_separator name="separator1" />
+			<menu_item_call name="revert" label="Revert all changes" />
+		</menu>
+		<menu name="edit_submenu" label="Edit" opaque="true" tear_off="false">
+			<menu_item_call name="undo" label="Undo" />
+			<menu_item_call name="redo" label="Redo" left="0" />
+			<menu_item_separator name="separator2" label="-----------" />
+			<menu_item_call name="cut" label="Cut" />
+			<menu_item_call name="copy" label="Copy" />
+			<menu_item_call name="paste" label="Paste" />
+			<menu_item_separator name="separator3" label="-----------" />
+			<menu_item_call name="select_all" label="Select all" />
+			<menu_item_call name="deselect" label="Deselect" />
+			<menu_item_separator name="separator4" label="-----------" />
+			<menu_item_call name="search" label="Search/replace..." />
+		</menu>
+		<menu name="help_submenu" label="Help" opaque="true" tear_off="false">
+			<menu_item_call name="wiki" label="LSL Wiki..." />
+			<menu_item_call name="help" label="Context sensitive help..." />
+			<menu_item_check name="dynamic" label="Help follows cursor">
+				<on_check control="ScriptHelpFollowsCursor" />
+			</menu_item_check>
+		</menu>
+	</menu_bar>
+	<string name="loading">
+		Loading...
+	</string>
+	<string name="cannot_write">
+		Error writing to local file. Is your hard drive full ?
+	</string>
+	<string name="can_not_view">
+		You are not allowed to view this script.
+	</string>
+	<string name="public_objects_can_not_run">
+		Public objects cannot run scripts
+	</string>
+	<string name="script_running">
+		Running
+	</string>
+	<string name="compiling">
+		Compiling...
+	</string>
+	<string name="preprocessing">
+		Preprocessing...
+	</string>
+	<string name="done">
+		... done.
+	</string>
+	<string name="including_script">
+		Including script:
+	</string>
+	<string name="including_file">
+		Including file
+	</string>
+</panel>

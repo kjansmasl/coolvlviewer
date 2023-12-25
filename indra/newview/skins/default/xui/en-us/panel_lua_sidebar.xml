@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="lua_side_bar" enabled="true" hidden="false" mouse_opaque="false"
+ width="32" height="360" follows="top|left">
+	<button name="btn11" label="11" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn9" label="9" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn7" label="7" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn5" label="5" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn3" label="3" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn1" label="1" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn2" label="2" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn4" label="4" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn6" label="6" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn8" label="8" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn10" label="10" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+	<button name="btn12" label="12" font="SansSerif" visible="false"
+	 left="2" bottom_delta="-30" width="28" height="28" follows="top|left" />
+</panel>

@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="Display panel" label="Graphics" border="true"
+ left="102" bottom="-409" width="517" height="408" follows="left|top|right|bottom">
+	<button name="GraphicsPreferencesHelpButton" label="?" font="SansSerif"
+	  left="470" bottom="-22" width="22" height="18" follows="left|top" />
+	<check_box name="windowed mode" label="Run the viewer in a window" font="SansSerifSmall"
+	 left="10" bottom="-23" width="120" height="16" follows="left|top" />
+	<text name="FullScreenInfo" font="SansSerifSmall" text_color="white"
+	 bottom="-46" left="30" height="20" width="350" follows="left|top">
+		If unchecked, viewer will display full-screen (after restart).
+	</text>
+	<text name="WindowSizeLabel" font="SansSerifSmall" halign="left"
+	 left="10" bottom="-62" width="80" height="12" follows="left|top">
+		Window size:
+	</text>
+	<combo_box name="windowsize combo" allow_text_entry="false"
+	 left_delta="84" bottom_delta="-5" width="150" height="18" follows="left|top">
+		<combo_item type="string" length="1" name="640x480" value="640 x 480">
+			640x480 (VGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="720x480" value="720 x 480">
+			720x480 (NTSC)
+		</combo_item>
+		<combo_item type="string" length="1" name="720x576" value="720 x 576">
+			720x576 (PAL)
+		</combo_item>
+		<combo_item type="string" length="1" name="800x600" value="800 x 600">
+			800x600 (SVGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1024x768" value="1024 x 768">
+			1024x768 (XGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1280x800" value="1280 x 800">
+			1280x800 (WXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1280x1024" value="1280 x 1024">
+			1280x1024 (SXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1360x768" value="1360 x 768">
+			1360x768 (HD)
+		</combo_item>
+		<combo_item type="string" length="1" name="1400x1050" value="1400 x 1050">
+			1400x1050 (SXGA+)
+		</combo_item>
+		<combo_item type="string" length="1" name="1440x900" value="1440 x 900">
+			1440x900 (WXGA+/WSXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1600x900" value="1600 x 900">
+			1600x900 (HD+)
+		</combo_item>
+		<combo_item type="string" length="1" name="1600x1200" value="1600 x 1200">
+			1600x1200 (UXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="1680x1050" value="1680 x 1050">
+			1680x1050 (WSXGA+)
+		</combo_item>
+		<combo_item type="string" length="1" name="1920x1080" value="1920 x 1080">
+			1920x1080 (FHD)
+		</combo_item>
+		<combo_item type="string" length="1" name="1920x1200" value="1920 x 1200">
+			1920x1200 (WUXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="2048x1080" value="2048 x 1080">
+			2048x1080 (2K)
+		</combo_item>
+		<combo_item type="string" length="1" name="2048x1152" value="2048 x 1152">
+			2048x1152 (QWXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="2048x1536" value="2048 x 1536">
+			2048x1536 (QXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="2560x1440" value="2560 x 1440">
+			2560x1440 (WQHD)
+		</combo_item>
+		<combo_item type="string" length="1" name="2560x1600" value="2560 x 1600">
+			2560x1600 (WQXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="2560x2048" value="2560 x 2048">
+			2560x2048 (QSXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="2880x1800" value="2880 x 1800">
+			2880x1800 (QSXGA+)
+		</combo_item>
+		<combo_item type="string" length="1" name="3200x2048" value="3200 x 2048">
+			3200x2048 (WQSXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="3200x2400" value="3200 x 2400">
+			3200x2400 (QUXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="3840x2160" value="3840 x 2160">
+			3840x2160 (QFHD)
+		</combo_item>
+		<combo_item type="string" length="1" name="3840x2400" value="3840 x 2400">
+			3840x2400 (WQUXGA)
+		</combo_item>
+		<combo_item type="string" length="1" name="4096x2160" value="4096 x 2160">
+			4096x2160 (4K)
+		</combo_item>
+		<combo_item type="string" length="1" name="4096x3072" value="4096 x 3072">
+			4096x3072 (HXGA)
+		</combo_item>
+	</combo_box>
+	<check_box name="hi_dpi_check" control_name="RenderHiDPI"
+	 label="High DPI mode" font="SansSerifSmall"
+	 tool_tip="Support for high resolution on Retina screens under macOS (BEWARE: this will more than halve your FPS rate) or user interface scaling under Windows 10."
+	 left_delta="160" bottom_delta="-2" width="150" height="16" follows="left|top" />
+	<text name="DisplayResLabel" font="SansSerifSmall" halign="left"
+	 left="10" bottom="-62" width="128" height="12" follows="left|top">
+		Resolution:
+	</text>
+	<combo_box name="fullscreen combo" allow_text_entry="false"
+	 left_delta="84" bottom="-67" width="150" height="18" follows="left|top" />
+	<text name="AspectRatioLabel1" font="SansSerifSmall" halign="left"
+	 tool_tip="width / height" mouse_opaque="true"
+	 left="10" bottom="-39" width="160" height="12" follows="left|top">
+		Aspect ratio:
+	</text>
+	<combo_box name="aspect_ratio" allow_text_entry="true" max_chars="100"
+	 tool_tip="width / height"
+	 left_delta="84" bottom="-43" width="150" height="16" follows="left|top">
+		<combo_item type="string" length="1" name="4:3(StandardCRT)" value="1.333333">
+			4:3 (standard CRT)
+		</combo_item>
+		<combo_item type="string" length="1" name="5:4(1280x1024LCD)" value="1.25">
+			5:4 (1280x1024 LCD)
+		</combo_item>
+		<combo_item type="string" length="1" name="8:5(Widescreen)" value="1.6">
+			8:5 (widescreen)
+		</combo_item>
+		<combo_item type="string" length="1" name="16:9(Widescreen)" value="1.7777777">
+			16:9 (widescreen)
+		</combo_item>
+	</combo_box>
+	<check_box name="aspect_auto_detect" control_name="FullScreenAutoDetectAspectRatio"
+	 label="Auto-detect ratio" font="SansSerifSmall"
+	 left="358" bottom="-44" width="256" height="16" follows="left|top" />
+	<text name="PerfText" font="SansSerifSmall" halign="left"
+	 left="10" bottom="-85" width="80" height="12" follows="left|top">
+		Performance:
+	</text>
+	<text name="QualityText" font="SansSerifSmall" halign="left"
+	 left_delta="0" bottom_delta="-18" width="95" height="12" follows="left|top">
+		vs
+	</text>
+	<text name="QualityText" font="SansSerifSmall" halign="left"
+	 left_delta="28" bottom_delta="0" width="50" height="12" follows="left|top">
+		Quality:
+	</text>
+	<text name="FasterText" font="SansSerifSmall" halign="left"
+	 left="105" bottom="-86" width="80" height="12" follows="left|top">
+		Faster
+	</text>
+	<text name="ShadersPrefText" font="SansSerifSmall" halign="left"
+     left="138" bottom="-104" width="40" height="12" follows="left|top">
+		Low
+	</text>
+	<text name="ShadersPrefText2" font="SansSerifSmall" halign="left"
+	 left_delta="47" bottom_delta="0" width="40" height="12" follows="left|top">
+		Mid
+	</text>
+	<text name="ShadersPrefText3" font="SansSerifSmall" halign="left"
+	 left_delta="47" bottom_delta="0" width="40" height="12" follows="left|top">
+		High
+	</text>
+	<text name="ShadersPrefText4" font="SansSerifSmall" halign="left"
+	 left_delta="47" bottom_delta="0" width="40" height="12" follows="left|top">
+		Ultra
+	</text>
+	<text name="SlowerText" font="SansSerifSmall" halign="left"
+     left="310" bottom="-86" width="80" height="12" follows="left|top">
+		Slower
+	</text>
+	<icon name="LowGraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left="153" bottom="-89" width="2" height="14" follows="left|top" />
+	<icon name="Mid1GraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left_delta="27" bottom="-89" width="2" height="14" follows="left|top" />
+	<icon name="Mid2GraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left_delta="27" bottom="-89" width="2" height="14" follows="left|top" />
+	<icon name="High1GraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left_delta="27" bottom="-89" width="2" height="14" follows="left|top" />
+	<icon name="High2GraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left_delta="27" bottom="-89" width="2" height="14" follows="left|top" />
+	<icon name="UltraGraphicsDivet" image_name="rounded_square.tga" color="0.12 0.12 0.12 1.0"
+	 left_delta="27" bottom="-89" width="2" height="14" follows="left|top" />
+	<slider name="QualityPerformanceSelection" control_name="RenderQualityPerformance"
+	 label_width="0" show_text="false" can_edit_text="false" max_val="5" min_val="0" increment="1"
+	 left="145" bottom="-90" width="152" height="16" follows="left|top" />
+	<button name="Defaults" label="Recommended" font="SansSerifSmall"
+	 tool_tip="Sets the settings to the recommended ones for the detected class of your graphics card (these recommended settings are rather coarse, but they are a good base for further fine-tuning)."
+	 bottom="-92" left="368" height="20" width="110" follows="left|top" />
+	<check_box name="benchmark_gpu_check" control_name="BenchmarkGPU"
+	 label="Benchmark GPU" font="SansSerifSmall"
+	 tool_tip="Enable GPU benchmarking for class determination when applying recommended settings. Note that this setting is automatically (re)enabled when your GPU is not (yet) among the list of known models."
+	 bottom_delta="-20" left="370" height="16" width="110" follows="left|top" />
+	<tab_container name="graphics_tabs" label="" tab_min_width="90" tab_position="top"
+	 left="0" bottom="0" width="500" height="330">
+		<panel name="Renderer settings" label="Renderer settings" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<view_border bevel_style="none" border_thickness="1" bottom="-306" follows="top|left"
+		     height="300" left="5" name="GraphicsBorder1" width="485" />
+			<view_border bevel_style="none" border_thickness="1" bottom_delta="0" follows="top|left"
+		     height="300" left_delta="0" name="GraphicsBorder2" width="210" />
+			<text name="ShadersText" font="SansSerifSmall" halign="left"
+		     left="10" bottom="-22" width="128" height="12" follows="left|top">
+				Shaders:
+			</text>
+			<check_box name="RenderGlowCheck" control_name="RenderGlow"
+			 label="Glow" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="60" height="16" follows="left|top" />
+			<spinner name="glow_strength" control_name="RenderGlowStrength"
+			 label_width="62" label="Strength:"
+			 decimal_digits="2" min_val="0" max_val="2" increment="0.05"
+			 left_delta="78" bottom_delta="0" width="118" height="16" follows="left|top" />
+			<slider name="GlowResolutionPow" control_name="RenderGlowResolutionPow"
+			 label="Quality:" label_width="46" can_edit_text="false" show_text="false"
+			 decimal_digits="0" min_val="8" max_val="9" increment="1"
+			 tool_tip="This sets the glow map resolution to either 256x256 pixels (low quality) or 512x512 pixels (high quality)."
+			 left="30" bottom_delta="-18" width="116" height="16" follows="left|top" />
+			<text name="GlowResolutionText" font="SansSerifSmall" halign="left"
+			 left_delta="122" bottom_delta="0" width="64" height="16" follows="left|top" />
+			<check_box name="UsePBRCheck" control_name="RenderUsePBR"
+			 label="Physically based rendering"  font="SansSerifSmall"
+			 tool_tip="With this check box you can toggle between the legacy extended environment (EE) renderer and the new physically based rendering (PBR) renderer. The latter is only available for OpenGL drivers v3.1 or newer, and lacks a forward rendering mode, i.e. ALM is always on, with what it incurs in terms of VRAM and RAM consumption, with new PBR maps (4 textures per face). This mode also changes how legacy contents looks (especially for full bright faces, no invisiprim support, etc)."
+			 left="10" bottom_delta="-20" width="256" height="16" follows="left|top" />
+			<check_box name="RenderDeferred" control_name="RenderDeferred"
+			 label="Advanced lighting model" font="SansSerifSmall"
+			 tool_tip="This settings enables deferred rendering, which allows to render materials and (optionnally) shadows. Only available if your graphics card and drivers support FBO and deferred rendering. Note that the hit of this feature requires modern CPU and GPU to avoid seeing the frame rates badly impacted."
+			 left="10" bottom_delta="-20" height="16" width="256"  follows="left|top"/>
+			<slider name="RenderExposureCtrl" control_name="RenderExposure" visible="false"
+			 label="Exposure:" label_width="54"
+			 can_edit_text="false" show_text="true"
+			 decimal_digits="2" min_val="0.5" max_val="1.5" increment="0.05"
+		     left="10" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<combo_box name="RenderShadowDetailCombo" control_name="RenderShadowDetail"
+			 tool_tip="Here, you may enable shadows. Be aware however that the hit of shadows on FPS rates is extremely high, even on modern hardware !"
+			 left="30" bottom_delta="-22" width="175" height="18" follows="left|top">
+				<combo_item type="string" length="1" name="none" value="0">
+					No shadow
+				</combo_item>
+				<combo_item type="string" length="1" name="sun" value="1">
+					Sun &amp; Moon shadows only
+				</combo_item>
+				<combo_item type="string" length="1" name="projectors" value="2">
+					All shadows
+				</combo_item>
+			</combo_box>
+			<text name="no_alm_text" font="SansSerifSmall"
+		     left="12" bottom_delta="0" width="200" height="18" follows="left|top">
+				No shadows, no materials
+			</text>
+			<text name="water_altitude_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Here, you may limit the camera (eye) altitude above which water rendering will be skipped. Setting this altitude to 0 causes the water to always render. Any other altitude will be further dynamically clamped to the draw distance. The default is 1024m."
+		     left="12" bottom_delta="-24" width="200" height="18" follows="left|top">
+				Stop rendering water at altitude:
+			</text>
+			<spinner name="WaterMaxAltitude" control_name="RenderWaterMaxAltitude"
+			 label="" label_width="0"
+			 tool_tip="You may limit with this setting the camera (eye) altitude above which water rendering will be skipped. Setting this altitude to 0 causes the water to always render. Any other altitude will be further dynamically clamped to the draw distance. The default is 1024m."
+			 decimal_digits="0" min_val="0" max_val="4096" increment="128"
+			 bottom_delta="-16" left="30" height="16" width="60" follows="left|top" />
+			<text name="WaterMaxAltitudeMeters" font="SansSerifSmall" halign="left"
+			 left_delta="64" bottom_delta="0" width="150" height="16" follows="left|top">
+				meters above water
+			</text>
+			<text name="water_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Here, you may choose what is reflected at the water surface. Be aware however that beyond 'Terrain and trees', the hit of water reflections on FPS rates is high, even on modern hardware !"
+		     left="12" bottom_delta="-22" width="200" height="18" follows="left|top">
+				Water surface reflections (cumulative):
+			</text>
+			<check_box name="TransparentWaterCheck" control_name="RenderTransparentWater" visible="false"
+			 label="Transparent water &amp; reflections" font="SansSerifSmall"
+			 left="10" bottom_delta="0" width="256" height="16" follows="left|top" />
+			<combo_box name="WaterReflectionTypeCombo" control_name="RenderWaterReflectionType"
+			 tool_tip="Here, you may choose what is reflected at the water surface. Be aware however that beyond 'Terrain and trees', the hit of water reflections on FPS rates is high, even on modern hardware !"
+			 left="30" bottom_delta="-18" width="175" height="18" follows="left|top">
+				<combo_item type="string" length="1" name="opaque" value="0">
+					Nothing (opaque water)
+				</combo_item>
+				<combo_item type="string" length="1" name="sky" value="1">
+					Sky (minimal reflections)
+				</combo_item>
+				<combo_item type="string" length="1" name="terrain" value="2">
+					Terrain and trees
+				</combo_item>
+				<combo_item type="string" length="1" name="static" value="3">
+					All static objects
+				</combo_item>
+				<combo_item type="string" length="1" name="avatars" value="4">
+					All avatars and objects
+				</combo_item>
+				<combo_item type="string" length="1" name="everything" value="5">
+					Everything
+				</combo_item>
+			</combo_box>
+			<check_box name="SSRCheck" control_name="RenderScreenSpaceReflections" visible="false"
+			 tool_tip="When this box is checked, screen space reflections are rendered to better account for dynamic objects with reflection probes. Be aware however that the hit of screen space reflections on FPS rates is high, even on modern hardware."
+			 label="Screen space reflections" font="SansSerifSmall"
+			 left="10" bottom_delta="0" width="256" height="16" follows="left|top" />
+			<check_box name="AvatarCloth" control_name="RenderAvatarCloth"
+			 label="Avatar cloth shader"  font="SansSerifSmall"
+			 tool_tip="This shader is only of use for non-mesh avatars, and causes wavelets to appear on worn legacy clothing (or skin, when naked) while they fly around (i.e. when the relative wind is strong enough). This is a low power budget shader, but not really useful any more..."
+			 left="10" bottom_delta="-24" width="256" height="16" follows="left|top" />
+			<text name="reflections_text" font="SansSerifSmall" mouse_opaque="true" visible="false"
+			 tool_tip="Here, you may choose what is reflected at the surface of PBR shiny materials. Be aware however that the hit of reflections on FPS rates is high, even on modern hardware, with 'Realtime' a total frame rate killer."
+		     left="12" bottom_delta="0" width="68" height="18" follows="left|top">
+				Reflections:
+			</text>
+			<combo_box name="ReflectionDetailCombo" control_name="RenderReflectionProbeDetail" visible="false"
+			 tool_tip="Here, you may choose what is reflected at the surface of PBR shiny materials. Be aware however that the hit of reflections on FPS rates is high, even on modern hardware, with 'Realtime' a total frame rate killer."
+			 left="90" bottom_delta="0" width="115" height="18" follows="left|top">
+				<combo_item type="string" length="1" name="1" value="0">
+					Static only
+				</combo_item>
+				<combo_item type="string" length="1" name="2" value="1">
+					Static &amp; dynamic
+				</combo_item>
+				<combo_item type="string" length="1" name="3" value="2">
+					Realtime
+				</combo_item>
+			</combo_box>
+			<text name="coverage_text" font="SansSerifSmall" mouse_opaque="true" visible="false"
+			 tool_tip="Here, you may choose what is reflection probe coverage; the wider the slower..."
+		     left="12" bottom_delta="-22" width="68" height="18" follows="left|top">
+				Coverage:
+			</text>
+			<combo_box name="ReflectionLevelCombo" control_name="RenderReflectionProbeLevel" visible="false"
+			 tool_tip="Here, you may choose what is reflection probe coverage; the wider the slower..."
+			 left="90" bottom_delta="0" width="115" height="18" follows="left|top">
+				<combo_item type="string" length="1" name="0" value="0">
+					None
+				</combo_item>
+				<combo_item type="string" length="1" name="1" value="1">
+					Manual only
+				</combo_item>
+				<combo_item type="string" length="1" name="2" value="2">
+					Manual &amp; terrain
+				</combo_item>
+				<combo_item type="string" length="1" name="3" value="3">
+					Full scene
+				</combo_item>
+			</combo_box>
+			<check_box name="smaa" control_name="RenderDeferredUseSMAA"
+			 label="SMAA instead of FXAA in ALM" font="SansSerifSmall"
+			 tool_tip="When this box is checked, anti-aliasing in ALM mode is performed via a SMAA (Sub-pixel Morphological Anti-Aliasing) shader instead of the FXAA (Fast approXimate Anti-Aliasing) shader. The advantage is that SMAA does not blur the texture details like FXAA does, but detects and anti-aliases edges only."
+			 left="10" bottom_delta="-22" width="256" height="16" follows="left|top" />
+			<check_box name="sharpen" control_name="RenderDeferredAASharpen"
+			 label="Sharpen shader after AA in ALM" font="SansSerifSmall"
+			 tool_tip="When this box is checked, anti-aliasing in ALM mode is followed with an image sharpening step (Contrast Adaptive Sharpening)."
+			 left="10" bottom_delta="-20" width="256" height="16" follows="left|top" />
+
+			<slider name="DrawDistance" control_name="RenderFarClip"
+			 label="Draw distance:" label_width="145"
+			 can_edit_text="false" show_text="true"
+			 decimal_digits="0" min_val="32" max_val="512" increment="8"
+		     left="222" bottom="-28" width="260" height="16" follows="left|top" />
+			<text name="DrawDistanceMeterText1" font="SansSerifSmall" halign="left"
+			 left_delta="246" bottom_delta="0" width="64" height="16" follows="left|top">
+				m
+			</text>
+			<text name="DrawDistanceMeterText2" font="SansSerifSmall" halign="left"
+			 left_delta="7" bottom_delta="0" width="64" height="16" follows="left|top">
+				m
+			</text>
+			<slider name="LocalLightCount" control_name="RenderLocalLightCount"
+			 label="Maximum local lights:" label_width="145"
+			 can_edit_text="false" show_text="true"
+			 decimal_digits="0" min_val="0" max_val="2048" increment="32"
+			 left="222" bottom_delta="-20" width="268" height="16" follows="left|top" />
+			<slider name="MaxParticleCount" control_name="RenderMaxPartCount"
+			 label="Maximum particle count:" label_width="145"
+			 can_edit_text="false" show_text="true"
+			 decimal_digits="0" min_val="0" max_val="8192" increment="256"
+			 left="222" bottom_delta="-20" width="268" height="16" follows="left|top" />
+			<text name="MeshDetailText" font="SansSerifSmall" halign="left"
+			 left="222" bottom_delta="-22" width="128" height="16" follows="left|top">
+				Level of detail:
+			</text>
+			<slider name="ObjectMeshDetail" control_name="RenderVolumeLODFactor"
+			 label="Objects:" label_width="140"
+			 can_edit_text="false" show_text="false"
+			 decimal_digits="3" min_val="0" max_val="3" increment="0.125"
+			 left="228" bottom_delta="-20" width="222" height="16" follows="left|top" />
+			<text name="ObjectMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<slider name="MeshBoostFactor" control_name="MeshLODBoostFactor"
+			 label="Mesh objects boost factor:" label_width="140"
+			 tool_tip="This boost factor is a multiplicator (that should not need to be pushed beyond 2.0) for the above Objects level of detail, when the objects in questions are meshes. It allows to render badly designed meshes, all those meshes whose creator tell you to push up the RenderVolumeLODFactor setting way above its nornal maximum value (3.0) so that they can render at the right level of detail... BEWARE: if you are yourself a mesh designer, please do test your meshes with this factor set to 1.0, so that they will show up right in all viewers (especially LL's) without having to push settings way beyond the values they were designed for (pushing RenderVolumeLODFactor above 3 does have bad side effects and does cause rendering glitches with some primitives)."
+			 can_edit_text="false" show_text="true"
+			 decimal_digits="1" min_val="1" max_val="3" increment="0.1"
+			 left="228" bottom_delta="-20" width="251" height="16" follows="left|top" />
+			<slider name="FlexibleMeshDetail" control_name="RenderFlexTimeFactor"
+			 label="Flexiprims:" label_width="140"
+			 can_edit_text="false" show_text="false"
+			 decimal_digits="3" min_val="0" max_val="1" increment="0.1"
+			 left="228" bottom_delta="-20" width="222" height="16" follows="left|top" />
+			<text name="FlexibleMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<slider name="TreeMeshDetail" control_name="RenderTreeLODFactor"
+			 label="Trees:" label_width="140"
+			 can_edit_text="false" show_text="false"
+	    	 decimal_digits="3" min_val="0" max_val="3" increment="0.125"
+			 left="228" bottom_delta="-20" width="222" height="16" follows="left|top" />
+			<text name="TreeMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<slider name="AvatarMeshDetail" control_name="RenderAvatarLODFactor"
+			 can_edit_text="false" show_text="false"
+			 decimal_digits="3" min_val="0" max_val="1" increment="0.125"
+			 label="Avatars:" label_width="140"
+			 left="228" bottom_delta="-20" width="222" height="16" follows="left|top" />
+			<text name="AvatarMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<slider name="TerrainMeshDetail" control_name="RenderTerrainLODFactor"
+			 label="Terrain:" label_width="140"
+			 can_edit_text="false" show_text="false"
+			 decimal_digits="3" min_val="1" max_val="2" increment="0.125"
+			 left="228" bottom_delta="-20" width="222" height="16" follows="left|top" />
+			<text name="TerrainMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<text name="TerrainDetailText" font="SansSerifSmall" halign="left"
+			 left="222" bottom_delta="-24" width="140" height="16" follows="left|top">
+				Terrain textures detail:
+			</text>
+			<radio_group name="TerrainDetailRadio" control_name="RenderTerrainDetail" draw_border="false"
+			 left_delta="145" bottom_delta="0" width="220" height="16" follows="left|top">
+				<radio_item name="0" type="string" length="1"
+				 left="0" bottom="0" width="40" height="16" follows="left|top">
+					Low
+				</radio_item>
+				<radio_item name="2" type="string" length="1"
+				  left="54" bottom="0" width="40" height="16" follows="left|top">
+					High
+				</radio_item>
+			</radio_group>
+			<text name="SkyDetailText" font="SansSerifSmall" halign="left"
+			 left="222" bottom_delta="-24" width="90" height="16" follows="left|top">
+				Sky detail:
+			</text>
+			<slider name="SkyMeshDetail" control_name="WLSkyDetail"
+			 label="  High altitude clouds:" label_width="140"
+			 can_edit_text="false" show_text="false"
+			 decimal_digits="0" min_val="16" max_val="128" increment="8"
+			 tool_tip="Note that this setting got almost no effect at all on the clouds prettiness (it only significatively affects the Sun disk geometry and, marginally, clouds on the horizon) but does affect negatively the FPS rate when increased... Better keeping it on low."
+			 left="222" bottom_delta="-20" width="223" height="16" follows="left|top" />
+			<text name="SkyMeshDetailText" font="SansSerifSmall" halign="left"
+			 left_delta="225" bottom_delta="0" width="128" height="16" follows="left|top" />
+			<check_box name="ClassicClouds" control_name="SkyUseClassicClouds"
+		     label="Low altitude clouds" font="SansSerifSmall"
+			 tool_tip="These clouds are also known as the &quot;classic clouds&quot;. They are particle-like clouds. Note that they have a significant impact on the frame rate when they are actually rendered (the Cool VL Viewer stops updating and rendering them on purpose when they are beyond the draw distance)."
+			 left="224" bottom_delta="-20" height="16" width="120" follows="left|top" />
+			<spinner name="CloudsAltitude" control_name="ClassicCloudsAvgAlt"
+			 label="at:" label_width="20"
+			 decimal_digits="0" min_val="-1024" max_val="1024" increment="16"
+			 tool_tip="With this setting you can choose the average altitude of the &quot;classic clouds&quot; (which was fixed at 192m in old SL viewers). A negative value may be set, which will then be substracted to the agent current altitude at the moment a new cloud puff is rezzed, meaning the new cloud puffs will always be rezzed above the agent altitude with a delta height corresponding to the absolute value of that negative value. Since cloud puffs are 48m high and appear at +/-48m from the average altitude, any resulting absolute altitude below below 72m (i.e. 48 / 2 + 48) would get clamped so that the base of any cloud puff is at 0m."
+			 bottom_delta="0" left="356" height="16" width="80" follows="left|top" />
+			<text name="ClassicCloudsText" font="SansSerifSmall" halign="left"
+		     left_delta="86" bottom_delta="0" width="128" height="16" follows="left|top">
+				m
+			</text>
+		</panel>
+		<panel name="GPU/GL features" label="GPU/GL features" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<view_border bevel_style="none" border_thickness="1" bottom="-306" follows="top|left"
+		     height="300" left="5" name="GraphicsBorder3" width="485" />
+			<text name="Filtering:" font="SansSerifSmall" halign="left"
+			 left="10" bottom="-24" width="128" height="12" follows="left|top">
+				OpenGL profile:
+			</text>
+			<check_box name="core_gl" control_name="RenderGLCoreProfile"
+			 label="Enable core GL profile (after restart)" font="SansSerifSmall"
+			 tool_tip="The core GL profile is especially beneficial to NVIDIA graphics cards and drivers under Linux and Windows (with sometimes *massive* FPS gains). It may be detrimental with AMD and Intel drivers. Note also that with the core GL profile activated you loose the GL lines width above 1.0 (used only in a few UI elements, such as the position edit arrows, or the old style, T-like mini-map tracking dots): these lines appear finer and are less visible."
+			 left="148" bottom_delta="-4" width="256" height="16" follows="left|top" />
+			<text name="Filtering:" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-24" width="128" height="12" follows="left|top">
+				Filtering:
+			</text>
+			<check_box name="ani" control_name="RenderAnisotropic"
+			 label="Anisotropic filtering" font="SansSerifSmall"
+			 tool_tip="This setting is better kept enabled. It avoids blur on mostly horizontal surfaces (e.g. floor textures) textures in the distance while having little impact on frame rates (not at all with modern GPUs)."
+			 left="148" bottom_delta="-4" width="256" height="16" follows="left|top" />
+			<text name="Antialiasing:" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-24" width="128" height="12" follows="left|top">
+				Antialiasing:
+			</text>
+			<combo_box name="fsaa" control_name="RenderFSAASamples"
+			 label="Antialiasing" font="SansSerifSmall"
+			 left="148" bottom_delta="-4" width="80" height="16" follows="left|top">
+				<combo_item name="FSAADisabled" value="0">
+					Disabled
+				</combo_item>
+				<combo_item name="2x" value="2">
+					2x
+				</combo_item>
+				<combo_item name="4x" value="4">
+					4x
+				</combo_item>
+				<combo_item name="8x" value="8">
+					8x
+				</combo_item>
+				<combo_item name="16x" value="16">
+					16x
+				</combo_item>
+			</combo_box>
+			<text name="after_restart" font="SansSerifSmall" halign="left"
+			 left_delta="92" bottom_delta="4" width="76" height="12" follows="left|top">
+				(after restart)
+			</text>
+			<text name="Enable Occlusion" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-28" width="128" height="11" follows="left|top">
+				Occlusion:
+			</text>
+			<check_box name="occlusion" control_name="UseOcclusion"
+			 label="Enable object-object occlusion" font="SansSerifSmall"
+			 tool_tip="Speeds up rendering on hardware supporting it. However, it may also sometimes slow down things with very old GPUs: do check your frame rate while toggling this setting on/off and see what works best for your GPU and driver."
+			 left="148" bottom_delta="-5" width="315" height="16" follows="left|top" />
+
+			<spinner name="vram_override" control_name="VRAMOverride"
+			 label_width="138" label="Available VRAM (MB):"
+			 decimal_digits="0" min_val="0" max_val="16384" increment="128"
+			 tool_tip="With this setting, you may override the amount of VRAM detected by the viewer: this is useful with bogus OpenGL drivers reporting fantaisist amounts (e.g. AMD drivers under Windows), or for iGPUs and APUs not having any VRAM at all (in this case, set a reasonable amount that can fit your system RAM). When set to 0, this lets the viewer use the auto-detected VRAM amount."
+			 left="10" bottom_delta="-28" width="202" height="16" follows="left|top" />
+			<text name="vram_override_text" font="SansSerifSmall" halign="left"
+		     left_delta="206" bottom_delta="0" width="100" height="16" follows="left|top">
+				(0 = auto-detect)
+			</text>
+			<check_box name="no_vram_check" control_name="DisableVRAMCheck"
+			 label="Disable VRAM checks" font="SansSerifSmall"
+			 tool_tip="With GPUs/drivers capable of it, the viewer regularly queries for the free VRAM memory and adjusts the textures LOD to make them fit. In case the reports would be broken (could happen for APUs, for example, since they do not have VRAM but use the CPU RAM), which would result in blurry textures, you can disable entirely this memory check with this setting."
+			 left_delta="120" bottom_delta="-2" height="16" width="160" follows="left|top" />
+			<slider name="GrapicsCardTextureMemory" control_name="TextureMemory"
+			 can_edit_text="false" decimal_digits="0" min_val="32" max_val="16384" increment="16"
+			 label_width="135" label="Texture memory (MB):"
+			 tool_tip="Amount of memory to allocate for textures. Please, do NOT confuse this memory amount with the amount of graphics card memory (VRAM): the latter is also used for the GL textures, the frame buffer, the vertex buffers, etc, so, unless texture compression is activated, you should not allocate more than half of your VRAM to the textures if you do not want the graphics driver to 'spill out' its memory allocations into the system RAM, causing a tremendous drop in FPS rates... Reducing this may improve performances but may also make textures blurry."
+			 left="10" bottom_delta="-20" width="407" height="16" follows="left|top" />
+			<slider name="max_boung_gl_tex" control_name="MaxBoundTexMem"
+			 can_edit_text="false" decimal_digits="0" min_val="512" max_val="4096" increment="16"
+			 label_width="135" label="Max GL bound tex (MB):"
+			 tool_tip="Maximum permitted amount of GL bound textures to keep in VRAM. When too large an amount of such textures is loaded in VRAM, the GPU may end up spilling textures and vertex buffers over to the RAM, causing  bad FPS 'hiccups' and sometimes seconds-long 'freezes'. Note that this setting is further bound automatically by the viewer to a portion of the available VRAM."
+			 left="10" bottom_delta="-22" width="400" height="16" follows="left|top" />
+
+			<check_box name="texture_compression" control_name="RenderCompressTextures"
+			 label="Compress textures larger than: " font="SansSerifSmall"
+			 tool_tip="Compresses GL textures in video and driver-allocated memory, allowing for higher resolution textures to be loaded and less memory (both RAM and VRAM) to be used by the viewer, at the cost of some color quality as well as FPS rate (sometimes sever) hiccups (compressing textures takes time). Better kept off !"
+			 left="148" bottom_delta="-22" height="16" width="190" follows="left|top" />
+			<spinner name="compress_throttle" control_name="RenderCompressThreshold"
+			 label_width="0" label=""
+			 decimal_digits="0" min_val="0" max_val="1048576" increment="16384"
+			 tool_tip="The useful values are 0 (to compress all textures), 16384 (128x128), 32678 (256x128), 65536 (256x256), 131072 (512x256), 262144 (512x512) and 524288 (1024x512) pixels."
+			 left_delta="200" bottom_delta="1" width="80" height="16" follows="left|top" />
+			<text name="pixels_text" font="SansSerifSmall"
+			 left_delta="90" bottom_delta="4" width="60" height="12" follows="left|top">
+				pixels
+			</text>
+
+			<spinner name="gamma" control_name="DisplayGamma" label="Display gamma:" label_width="138"
+			 decimal_digits="2" min_val="0.05" max_val="10.0" increment="0.05"
+			 left="10" bottom_delta="-32" width="202" height="16" follows="left|top" />
+			<text name="gamma_text" font="SansSerifSmall" halign="left"
+			 left="222" bottom_delta="2" width="315" height="12" follows="left|top">
+				(brightness, lower is darker, 1=use default)
+			</text>
+
+			<spinner name="gl_threads" control_name="GLWorkerThreads"
+			 label="OpenGL worker threads:" label_width="138"
+			 tool_tip="This setting enables (when non-zero) worker threads with shared OpenGL profiles, currently used for GL images creation and deletion. This provides smoother (less spiky) and higher frame rates while textures are loaded. When enabled and to avoid a bottleneck in GL textures creation, it is recommended to set the number of GL threads to match the number of image decoder threads (as set in the Cool features tab, Misc. sub-tab); -1 ensures an automatic threads number determination, based on the number of CPU cores."
+			 decimal_digits="0" min_val="-1" max_val="64" increment="1"
+			 left="10" bottom_delta="-32" width="182" height="16" follows="left|top" />
+			<text name="threading_text" font="SansSerifSmall" halign="left"
+			 left_delta="192" bottom_delta="0" width="280" height="16" follows="left|top">
+				(-1 = auto, 0 = disabled; read the tooltip !)
+			</text>
+			<text name="rgba16_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-32" width="128" height="16" follows="left|top">
+				Screen buffer format:
+			</text>
+			<check_box name="rgba16_check" control_name="RenderUseRGBA16ATI"
+			 label="Enable the RGBA16 format (read tool tip !)" font="SansSerifSmall"
+			 tool_tip="The RGBA16 format may be used with some OpenGL v4+ capable AMD GPUs instead of the RGBA12 format, providing a better image quality. However, some AMD/ATI GPU/driver/OS combinations may cause a hanging of the driver when this format is used (the viewer would become unresponsive)."
+			 left="148" bottom_delta="-2" width="315" height="16" follows="left|top" />
+		</panel>
+		<panel name="Avatars rendering" label="Avatars rendering" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<view_border bevel_style="none" border_thickness="1" bottom="-306" follows="top|left"
+		     height="300" left="5" name="GraphicsBorder4" width="485" />
+			<slider name="MaxNonImpostors" control_name="RenderAvatarMaxNonImpostors"
+			 label="Max non-impostors" label_width="168" can_edit_text="false" show_text="true"
+			 decimal_digits="0" increment="1" min_val="0" max_val="65"
+			 tool_tip="Impostors are used to render 'muted' avatars as grey silhouettes (dark grey for full mutes, almost black for RestrainedLove visual mutes, light grey for on-demand mutes via 'Mutes>' -> 'Never show' in the avatar pie menu) and colored 'jelly-dolls' for avatar complexity mutes. They also serve for rendering avatars far away or when the amount of avatars raises above the limit set via this slider. If you disable avatar impostors (by setting this slider to 0), none of the mutes in question will be available, but for the RestrainedLove visual mutes."
+			 left="10" bottom="-32" width="430" height="16" follows="left|top" />
+			<slider name="MaximumComplexity" control_name="RenderAvatarMaxComplexity"
+			 can_edit_text="false" min_val="0" max_val="500000" increment="10000" decimal_digits="0"
+			 show_text="true" label="Maximum avatar complexity" label_width="168"
+			 tool_tip="This is the maximum allowed avatar complexity level above wich avatars will be turned into 'jelly-dolls' on your screen (0 for no limit)."
+			 left="10" bottom_delta="-20" height="16" width="458" follows="left|top"/>
+			<slider name="SurfaceAreaLimit" control_name="RenderAutoMuteSurfaceAreaLimit"
+			 can_edit_text="false" min_val="0" max_val="500" increment="10" decimal_digits="0"
+			 show_text="true" label="Maximum surface area" label_width="168"
+			 tool_tip="Maximum surface area of attachments before an avatar is rendered as a jelly-doll (0 for no limit)."
+			 left="10" bottom_delta="-20" height="16" width="438" follows="left|top"/>
+			<slider name="GeometryBytesLimit" control_name="RenderAutoMuteMemoryLimit"
+			 can_edit_text="false" min_val="0" max_val="250" increment="5" decimal_digits="0"
+			 show_text="true" label="Maximum geometry megabytes" label_width="168"
+			 tool_tip="Maximum memory usage (in mega-bytes) of attachments before an avatar is rendered as a jelly-doll (0 for no limit)."
+			 left="10" bottom_delta="-20" height="16" width="438" follows="left|top"/>
+			<check_box name="AlwaysRenderFriends" control_name="AlwaysRenderFriends"
+			 label="Always render friends regardless of their avatar complexity"
+			 font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="458" height="16" follows="left|top" />
+			<check_box name="ColoredJellyDolls" control_name="ColoredJellyDolls"
+			 label="Color jelly-dolls (too complex, impostored avatars)"
+			 font="SansSerifSmall"
+			 tool_tip="When this box is not checked, avatars that are too complex and rendered as jelly-dolls are colored in grey, like visually muted ones, instead of a pseudo-random color."
+			 left="10" bottom_delta="-24" width="458" height="16" follows="left|top" />
+			<slider name="MaxPuppetAvatars" control_name="RenderAvatarMaxPuppets"
+			 label="Maximum animesh avatars" label_width="168" can_edit_text="false" show_text="true"
+			 decimal_digits="0" increment="1" min_val="0" max_val="65"
+			 tool_tip="Maximum number of (standalone, i.e. not attached) animesh avatars to render. Set this to 0 for no limit."
+			 left="10" bottom_delta="-32" width="430" height="16" follows="left|top" />
+			<check_box name="AvatarPhysics" control_name="AvatarPhysics"
+			 label="Enable avatar physics (read carefully the tooltip for this setting)"
+			 tool_tip="This setting allows to turn on avatar physics (AKA jiggling boobs and wobbling buttocks). Note that even when your avatar is wearing a Physics wearable, avatar physics stays off unless this setting is on. Beware: this feature requires a lot of viewer side calculations and may cause a frame rate slow down, especially in crowded areas."
+			 font="SansSerifSmall"
+			 left="10" bottom_delta="-32" width="458" height="16" follows="left|top" />
+			<slider name="AvatarPhysicsLOD" control_name="RenderAvatarPhysicsLODFactor"
+			 can_edit_text="false" min_val="0" max_val="1" increment="0.05" decimal_digits="2"
+			 show_text="true" label_width="156" label="Avatar Physics LOD factor"
+			 tool_tip="This is the 'level of details' for avatar physics (AKA jiggling boobs and wobbling buttocks), which governs how often physics parameters are updated each second (the higher, the CPU power hungrier)."
+			 left="20" bottom_delta="-20" height="16" width="432" follows="left|top"/>
+		</panel>
+	</tab_container>
+	<string name="resolution_format">
+		[RES_X] x [RES_Y]
+	</string>
+	<string name="aspect_ratio_text">
+		[NUM]:[DEN]
+	</string>
+	<string name="tool_tip_bench">
+		Enable GPU benchmarking for class determination when applying recommended settings. Note that this setting is automatically (re)enabled when your GPU is not (yet) among the list of known models. Benchmarked memory bandwitdh is: [BW] GB/s.
+	</string>
+	<string name="tool_tip_no_deferred">
+		The advanced lighting model is disabled. You will not see any shadow neither any material effect (bump map and specular map reflections/diffractions).
+	</string>
+	<string name="core_gl_macos_tip">
+		Under macOS, this setting allows to toggle between the OpenGL v2.1 compatibility profile mode, and the OpenGL v3.2 or v4.1 (depending on the macOS version) core profile mode; the latter is preferrable, as long as your Mac can do it without switching to a software rendering mode (that would totally ruin the performances), which should be the case with all modern Macs. Requires a viewer restart to take effect.
+	</string>
+	<string name="off_text">
+		Off
+	</string>
+</panel>

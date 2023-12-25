@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="panel_settings_day" label="Water" border="true"
+ left="0" right="0" top="0" bottom="0" follows="top|left|right|bottom">
+	<button name="sky4_track" label="Sky 4"
+	 tool_tip="Selects the upper sky level track for editing."
+	 left="10" bottom="-32" width="96" height="20" follows="top|left" />
+	<button name="sky3_track" label="Sky 3"
+	 tool_tip="Selects the third sky level track for editing."
+	 left="10" bottom_delta="-22" width="96" height="20" follows="top|left" />
+	<button name="sky2_track" label="Sky 2"
+	 tool_tip="Selects the second sky level track for editing."
+	 left_delta="0" bottom_delta="-22" width="96" height="20" follows="top|left" />
+	<button name="clone_track" label="Clone track..."
+	 tool_tip="Copy another sky settings track into the currently selected track."
+	 left="112" bottom_delta="0" width="96" height="20" follows="top|left" />
+	<button name="backward_btn" label="◂◂"
+	 left="310" bottom_delta="1" width="24" height="18" follows="top|left" />
+	<button name="play_btn" label="▶"
+	 left_delta="26" bottom_delta="0" width="24" height="18" follows="top|left" />
+	<button name="stop_btn" label="◼" visible="false"
+	 left_delta="0" bottom_delta="0" width="24" height="18" follows="top|left" />
+	<button name="forward_btn" label="▸▸"
+	 left_delta="26" bottom_delta="0" width="24" height="18" follows="top|left" />
+	<button name="add_frame" label="Add [FRAME]"
+	 tool_tip="Adds a new sky frame to the above track slider."
+	 right="-7" bottom_delta="-1" width="96" height="20" follows="top|right" />
+	<button name="sky1_track" label="Ground level"
+	 tool_tip="Selects the ground level sky track for editing."
+	 left="10" bottom_delta="-22" width="96" height="20" follows="top|left" />
+	<button name="load_track" label="Load track..."
+	 tool_tip="Loads an inventory item sky settings into the currently selected track."
+	 left="112" bottom_delta="0" width="96" height="20" follows="top|left" />
+	<text name="lock_edit" font="SansSerifSmall" text_color="yellow"
+	 left="224" bottom_delta="0" width="260" height="18" follows="top|left">
+		Select a key frame to edit from the timeline above
+	</text>
+	<text name="current_time" font="SansSerifSmall" halign="center" text_color="white" visible="false"
+	 left_delta="0" bottom_delta="0" width="250" height="18" follows="top|left" />
+	<button name="load_frame" label="Load [FRAME]..."
+	 tool_tip="Loads a new sky frame from a sky environment settings inventory item to add it to the above track slider."
+	 right="-7" bottom_delta="0" width="96" height="20" follows="top|right" />
+	<button name="water_track" label="Water"
+	 tool_tip="Selects the water and underwater level settings for editing."
+	 left="10" bottom_delta="-22" width="96" height="20" follows="top|left" />
+	<button name="clear_track" label="Clear track"
+	 tool_tip="Clears the currently selected track."
+	 left="112" bottom_delta="0" width="96" height="20" follows="top|left" />
+	<button name="delete_frame" label="Delete [FRAME]"
+	 tool_tip="Deletes the current sky frame from the above track slider."
+	 right="-7" bottom_delta="0" width="96" height="20" follows="top|right" />
+	<panel name="sky_panel" label="" border="false" visible="false"
+	 bottom_delta="-286" left="1" height="280" width="598" follows="left|top" />
+	<panel name="water_panel" label="" border="false"
+	 bottom_delta="0" left_delta="0" height="280" width="598" follows="left|top" />
+	<text name="pct00" font="SansSerifSmall"
+	 left="120" bottom="-18" width="32" height="16" follows="top|left">
+		0%
+	</text>
+	<text name="pct00" font="SansSerifSmall"
+	 left_delta="110" bottom_delta="0" width="32" height="16" follows="top|left">
+		25%
+	</text>
+	<text name="pct00" font="SansSerifSmall"
+	 left_delta="110" bottom_delta="0" width="32" height="16" follows="top|left">
+		50%
+	</text>
+	<text name="pct00" font="SansSerifSmall"
+	 left_delta="110" bottom_delta="0" width="32" height="16" follows="top|left">
+		75%
+	</text>
+	<text name="pct00" font="SansSerifSmall"
+	 left_delta="110" bottom_delta="0" width="32" height="16" follows="top|left">
+		100%
+	</text>
+	<multi_slider name="time_slider" show_text="false" draw_track="false" use_triangle="true"
+	 max_sliders="1" min_val="0" max_val="1" increment="0.005"
+	 left="120" bottom_delta="-12" width="460" height="10" follows="top|left|right" />
+	<multi_slider name="frames_slider" show_text="false"
+	 max_sliders="20" min_val="0" max_val="1" increment="0.005"
+	 overlap_threshold="0.026" loop_overlap="true"
+	 left="120" bottom_delta="-16" width="460" height="12" follows="top|left|right" />
+	<string name="water_label">water</string>
+	<string name="sky_label">sky</string>
+</panel>

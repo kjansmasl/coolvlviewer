@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="experience picker" title="Choose experience"
+ can_close="true" can_resize="true" can_drag_on_left="false" can_minimize="true"
+ min_width="400" min_height="200" width="400" height="350">
+<panel name="experience_search"
+ top="-16" left="2" right="-2" bottom="2" follows="left|top|right|bottom"/>
+</floater>

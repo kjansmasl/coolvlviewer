@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="daycycle track picker" title="Day cycle track picker"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false"
+ width="192" height="140">
+	<text name="select_description" font="SansSerif"
+	 left="10" bottom="-40" width="200" height="18" follows="left|top">
+		Select source sky track:
+	</text>
+	<radio_group name="track_selection" draw_border="false"
+	 left="36" bottom_delta="-84" width="150" height="80" follows="left|top">
+		<radio_item name="4" value="4"
+		 left="0" bottom="-16" width="150" height="16" follows="left|top">
+			Sky 4 [ALT]
+		</radio_item>
+		<radio_item name="3" value="3"
+		 left="0" bottom="-32" width="150" height="16" follows="left|top">
+			Sky 3 [ALT]
+		</radio_item>
+		<radio_item name="2" value="2"
+		 left="0" bottom="-48" width="150" height="16" follows="left|top">
+			Sky 2 [ALT]
+		</radio_item>
+		<radio_item name="1" value="1"
+		 left="0" bottom="-64" width="150" height="16" follows="left|top">
+			Ground level sky
+		</radio_item>
+	</radio_group>
+	<button name="select_btn" label="OK" font="SansSerif"
+	 left="10" bottom="6" width="80" height="20" follows="left|bottom" />
+	<button name="cancel_btn" label="Cancel" font="SansSerif"
+	 left_delta="90" bottom_delta="0" width="80" height="20" follows="left|bottom" />
+</floater>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="Panel Avatar" width="430" height="486">
+	<tab_container name="tab" tab_min_width="50" tab_position="top" mouse_opaque="false"
+	 left="0" bottom="-486" width="430" height="486" follows="left|top|right|bottom">
+		<panel name="2nd Life" label="2nd Life" mouse_opaque="true"
+		 left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<string name="CaptionTextAcctInfo">
+				[ACCTTYPE]
+[PAYMENTINFO]
+			</string>
+			<string name="AcctTypeResident">Resident</string>
+			<string name="AcctTypeTrial">Trial</string>
+			<string name="AcctTypeCharterMember">Charter member</string>
+			<string name="AcctTypeEmployee">Linden Lab employee</string>
+			<string name="PaymentInfoUsed">Payment info used</string>
+			<string name="PaymentInfoOnFile">Payment info on file</string>
+			<string name="NoPaymentInfoOnFile">No payment info on file</string>
+			<text name="Name label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-24" width="56" height="16" follows="left|top">
+				Name:
+			</text>
+			<name_editor name="name" font="SansSerifSmall" max_length="254" enabled="false"
+			 left_delta="70" bottom="-24" width="201" height="16" follows="left|top" />
+			<name_editor name="complete_name" font="SansSerifSmall" max_length="254" enabled="false"
+			 left_delta="0" bottom_delta="0" width="201" height="16" follows="left|top" />
+			<text name="online_yes" font="SansSerifSmall"
+			 left_delta="208" bottom="-24" width="121" height="16" follows="left|top">
+				Currently online
+			</text>
+			<text name="label_born" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-16" width="121" height="16" follows="left|top">
+				Born:
+			</text>
+			<line_editor name="born" font="SansSerifSmall" max_length="254"
+			 left_delta="0" bottom_delta="-16" width="121" height="16" follows="left|top" />
+			<text name="label2" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-19" width="121" height="16" follows="left|top">
+				Account:
+			</text>
+			<view_border name="acct_border"	mouse_opaque="false"
+			 left_delta="0" bottom_delta="-48" width="121" height="48" follows="left|top" />
+			<text name="acct" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="0" width="121" height="48" follows="left|top" />
+			<text name="partner_label" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Second Life partner. For more info on how to set, see www.secondlife.com/partner"
+			 left_delta="0" bottom_delta="-20" width="130" height="16" follows="left|top">
+				Partner:
+			</text>
+			<button bottom_delta="-2" follows="left|top" font="SansSerif" halign="center"
+				height="18" label="i" left_delta="44"
+				mouse_opaque="true" name="partner_info"
+				tool_tip="Click to open partner&apos;s profile" width="18" />
+			<button bottom_delta="0" follows="left|top" font="SansSerif" halign="center"
+				height="18" label="?" left_delta="24"
+				mouse_opaque="true" name="partner_help" width="18" />
+			<line_editor bevel_style="in" border_style="line"
+				border_thickness="1" bottom_delta="-17" enabled="true" follows="left|top"
+				font="SansSerifSmall" height="16" left_delta="-68"
+				max_length="254" mouse_opaque="false" name="partner_edit"
+				tool_tip="Second Life partner. For more info on how to set, see www.secondlife.com/partner"
+				width="121">
+				[FIRST] [LAST]
+			</line_editor>
+			<text name="photo_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-44" width="56" height="16" follows="left|top">
+				Photo:
+			</text>
+			<text name="ratio_label" font="SansSerifSmall" halign="left" mouse_opaque="true"
+			 tool_tip="Set the display ratio of the profile picture to 1:1 instead of 4:3."
+			 left="24" bottom_delta="-30" width="56" height="16" follows="left|top">
+				Ratio:
+			</text>
+			<check_box name="ratio_chk" label="1:1" font="SansSerifSmall"
+			 tool_tip="Set the display ratio of the profile picture to 1:1 instead of 4:3."
+			 left="22" bottom_delta="-20" width="30" height="18" follows="left|top" />
+			<texture_picker name="img" label=""
+			 default_image_name="None" allow_no_texture="true" can_apply_immediately="false"
+			 tool_tip="Click to choose a picture"
+			 left="74" bottom="-178" width="200" height="150" follows="left|top" />
+			<text name="groups_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-180" width="56" height="16" follows="left|top">
+				Groups:
+			</text>
+			<scroll_list name="groups" multi_select="false"
+			 left_delta="68" bottom="-266" width="330" height="99" follows="left|top"  />
+			<text name="about_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-282" width="56" height="16" follows="left|top">
+				About:
+			</text>
+			<text name="sl_about_limit" font="SansSerifSmall" halign="right"
+			 left_delta="0" bottom_delta="-16" width="56" height="16" follows="left|top">
+				(500 chars)
+			</text>
+			<text_editor name="about" font="SansSerifSmall" max_length="65000"
+			 word_wrap="true" embedded_items="false" allow_html="true" parse_html="true"
+			 left_delta="70" bottom="-389" width="328" height="120" follows="left|top" />
+			<text name="Give item" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-410" width="56" height="16" follows="left|top">
+				Give item:
+			</text>
+			<view_border name="drop_target_rect"
+			 left_delta="70" bottom_delta="0" width="328" height="16" follows="left|top" />
+			<text name="give_inventory" font="SansSerifSmall" halign="center" mouse_opaque="true"
+			 tool_tip="Drag an item from your inventory and drop it here to give it to this person. Only transfer-ok items may be given away. BEWARE: no-copy items will be removed from your inventory once given away."
+			 left_delta="0" bottom_delta="0" width="320" height="16" follows="left|top">
+				Drag the item to give from your inventory and drop it here.
+			</text>
+			<check_box name="show_in_search_chk" label="Show in search" font="SansSerifSmall"
+			 tool_tip="Publish extra profile information such as description and image in Search."
+			 left="75" bottom_delta="-28" width="120" height="16" follows="left|top" />
+			<button name="show_in_search_help_btn" label="?" font="SansSerif"
+			 left_delta="128" bottom_delta="-2" width="20" height="20" follows="left|top" />
+			<button name="find_on_map_btn" label="Find on map" font="SansSerif"
+			 left="20" bottom_delta="0" width="100" height="20" follows="left|top" />
+			<button name="offer_tp_btn" label="Offer TP" font="SansSerif"
+			 left_delta="102" bottom_delta="0" width="80" height="20" follows="left|top" />
+			<button name="request_tp_btn" label="Request TP" font="SansSerif"
+			 tool_tip="Request a teleport from this avatar (only works with if the owner of this avatar uses a compatible viewer)."
+			 left_delta="82" bottom_delta="0" width="80" height="20" follows="left|top" />
+			<button name="add_friend_btn" label="Add friend" font="SansSerif"
+			 left_delta="82" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<button name="pay_btn" label="Pay" font="SansSerif"
+			 left="20" bottom_delta="-24" width="100" height="20" follows="left|top" />
+			<button name="im_btn" label="Instant message"
+			 tool_tip="Instant Message (IM)" font="SansSerif"
+			 left_delta="102" bottom_delta="0" width="162" height="20" follows="left|top" />
+			<button name="mute_btn" label="Mute" font="SansSerif"
+			 left_delta="164" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<button name="kick_btn" label="Kick" font="SansSerifSmall"
+			 left="2" bottom="-316" width="66" height="17" follows="left|top" />
+			<button name="freeze_btn" label="Freeze" font="SansSerifSmall"
+			 tool_tip="Stop this resident&apos;s movement and chat."
+			 left_delta="0" bottom_delta="-20" width="66" height="18" follows="left|top" />
+			<button name="unfreeze_btn" label="Unfreeze" font="SansSerifSmall"
+			 tool_tip="Thaw this resident."
+			 left_delta="0" bottom_delta="-20" width="66" height="18" follows="left|top" />
+			<button name="csr_btn" label="CSR" font="SansSerifSmall"
+			 tool_tip="Open customer service tool for this resident."
+			 left_delta="0" bottom_delta="-20" width="66" height="18" follows="left|top" />
+		</panel>
+		<panel name="WebProfile" label="Web" mouse_opaque="true"
+		 left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<line_editor name="url_edit" font="SansSerifSmall" max_length="254" enabled="false"
+			 left="10" bottom_delta="-18" width="400" height="16" follows="left|top" />
+			<flyout_button name="load" label="Load" font="SansSerifSmall" enabled="false" 
+			 tool_tip="Load the homepage for this profile with the embedded web browser. Using the fly-out menu (i.e. by clicking the small down arrow), you may also open the URL in a larger, built-in web browser or in your system web browser, and you can browse back to the homepage URL if you browsed away from it."
+			 left="8" bottom_delta="-22" width="80" height="18" follows="left|top">
+				<flyout_button_item name="builtin_item" value="builtin">In built-in browser</flyout_button_item>
+				<flyout_button_item name="open_item" value="open">In external browser</flyout_button_item>
+				<flyout_button_item name="home_item" value="home">Homepage URL</flyout_button_item>
+			</flyout_button>
+			<button name="web_profile_help" label="?" font="SansSerif"
+			 left_delta="85" bottom_delta="0" width="18" height="18" follows="left|top" />
+			<check_box name="auto_load" label="Always load homepages" font="SansSerifSmall"
+			 tool_tip="Automatically load ALL homepages set by residents in their profile without asking first."
+			 left_delta="35" bottom_delta="0" width="130" height="16" follows="right|top" />
+			<flyout_button name="sl_web_profile" label="SL web profile" font="SansSerifSmall" enabled="false" 
+			 tool_tip="This button loads the SL web-based profile page in the embedded web browser instead of the homepage set by the resident. Using the fly-out menu (i.e. by clicking the small down arrow), you may also open the web profile in a larger, built-in web browser or in your system web browser, and you can browse back to the home URL if you browsed away from it."
+			 left_delta="162" bottom_delta="0" width="120" height="18" follows="left|top">
+				<flyout_button_item name="builtin_item" value="sl_builtin">In built-in browser</flyout_button_item>
+				<flyout_button_item name="open_item" value="sl_open">In external browser</flyout_button_item>
+			</flyout_button>
+			<web_browser name="profile_html" border_visible="false" start_url=""
+			 left="10" bottom="-444" width="400" height="400" follows="top|left|right" />
+			<text name="status_text"
+			 left="15" bottom="5" right="-70" top="25" follows="bottom|left|right" />
+		</panel>
+		<panel name="Interests" label="Interests" mouse_opaque="true"
+		left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<text name="want_to_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-36" width="70" height="16" follows="left|top">
+				I want to:
+			</text>
+			<check_box name="chk0" label="Build" font="SansSerifSmall"
+			 left_delta="74" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="chk1" label="Explore" font="SansSerifSmall"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="chk2" label="Meet" font="SansSerifSmall"
+			 left_delta="-170" bottom_delta="-20" width="57" height="16" follows="left|top" />
+			<check_box name="chk6" label="Be hired" font="SansSerifSmall"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="chk3" label="Group" font="SansSerifSmall"
+			 left_delta="-170" bottom_delta="-20" width="90" height="16" follows="left|top" />
+			<check_box name="chk4" label="Buy" font="SansSerifSmall"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="chk5" label="Sell" font="SansSerifSmall"
+			 left_delta="-170" bottom_delta="-20" width="110" height="16" follows="left|top" />
+			<check_box name="chk7" label="Hire" font="SansSerifSmall" spell_check="true"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<line_editor name="want_to_edit" max_length="254" font="SansSerifSmall"
+			 left="79" bottom_delta="-20" width="330"  height="16" follows="left|top" />
+			<text name="skills_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom_delta="-26" width="70" height="16" follows="left|top">
+				Skills:
+			</text>
+			<check_box name="schk0" label="Textures" font="SansSerifSmall"
+			 left_delta="74" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="schk1" label="Architecture" font="SansSerifSmall"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box name="schk2" label="Event planning" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-20" width="110" height="16" follows="left|top" />
+			<check_box name="schk3" label="Modeling" font="SansSerifSmall"
+			 left_delta="-170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<check_box bottom_delta="-20" follows="left|top" font="SansSerifSmall" height="16"
+				initial_value="false" label="Scripting" left_delta="0" mouse_opaque="true"
+				name="schk4" width="90" />
+			<check_box name="schk5" label="Custom characters" font="SansSerifSmall"
+			 left_delta="170" bottom_delta="0" width="110" height="16" follows="left|top" />
+			<line_editor name="skills_edit" max_length="254" font="SansSerifSmall" spell_check="true"
+			 left="79" bottom_delta="-20" width="330"  height="16" follows="left|top" />
+			<text name="lang_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom_delta="-30" width="70" height="16" follows="left|top">
+				Languages:
+			</text>
+			<line_editor name="languages_edit" max_length="254" font="SansSerifSmall" spell_check="true"
+			 left="79" bottom_delta="0" width="330" height="16" follows="left|top" />
+		</panel>
+		<panel name="Picks" label="Picks" mouse_opaque="true"
+		 left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<text name="favorite_places_label" font="SansSerifSmall"
+			 left="114" bottom="-20" width="302" height="16" follows="left|top">
+				Tell everyone about your favorite places on the grid.
+			</text>
+			<button name="New..." label="New..." font="SansSerif"
+			 left="114" bottom_delta="-24" width="75" height="20" follows="left|top" />
+			<button name="Delete..." label="Delete..." font="SansSerif"
+			 left_delta="79" bottom="-44" width="75" height="20" follows="left|top" />
+			<tab_container name="picks tab" tab_position="left" mouse_opaque="false"
+			 left="4" bottom="-411" width="412" height="363" follows="left|top" />
+			<text name="loading_text" font="SansSerif"
+			 left="114" bottom="-70" width="302" height="20" follows="left|top">
+				Loading...
+			</text>
+		</panel>
+		<panel name="Classified" label="Classified" mouse_opaque="true"
+		 left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<text name="place_classifield_label" font="SansSerifSmall"
+			 left="114" bottom="-20" width="302" height="16" follows="left|top">
+				Place an ad in classified listings.
+			</text>
+			<button name="New..." label="New..." font="SansSerif"
+			 left="114" bottom_delta="-24" width="75" height="20" follows="left|top" />
+			<button name="Delete..." label="Delete..."  font="SansSerif"
+			 left_delta="79" bottom="-44" width="75" height="20" follows="left|top" />
+			<tab_container name="classified tab" tab_position="left" mouse_opaque="false"
+			 left="4" bottom="-443" width="412" height="395" follows="left|top" />
+			<text name="loading_text" font="SansSerif"
+			 left="114" bottom="-70" width="302" height="20" follows="left|top">
+				Loading...
+			</text>
+		</panel>
+		<panel name="1st Life" label="1st Life" mouse_opaque="true"
+		 left="0" bottom="-482" width="430" height="466" follows="left|top|right|bottom">
+			<text name="photo_label" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-36" width="61" height="16" follows="left|top">
+				Photo:
+			</text>
+			<texture_picker name="img" label="" default_image_name="None"
+			 allow_no_texture="true" can_apply_immediately="false"
+			 tool_tip="Click to choose a picture"
+			 left="70" bottom="-171" width="135" height="151" follows="left|top" />
+			<text name="info_lable" font="SansSerifSmall" halign="right"
+			 left="4" bottom="-203" width="61" height="16" follows="left|top">
+				Info:
+			</text>
+			<text name="(250 chars)" font="SansSerifSmall" halign="right"
+			 left="0" bottom_delta="-16" width="65" height="16" follows="left|top">
+				(250 chars)
+			</text>
+			<text_editor name="about" max_length="254" font="SansSerifSmall"
+			 embedded_items="false" allow_html="true" parse_html="true" word_wrap="true"
+			 left="70" bottom="-347" width="330" height="160" follows="left|top" />
+		</panel>
+		<panel name="My Notes" label="My notes" mouse_opaque="true"
+		 left="0" bottom="-482" height="466" width="430" follows="left|top|right|bottom">
+			<string name="Loading">Loading...</string>
+			<text name="label" font="SansSerifSmall"
+			 left="10" bottom="-52" width="412" height="48" follows="left|top">
+				Use this space to record your notes about this person, keep track
+of trades in progress, joint projects, etc. Only you can see these
+notes, this person cannot see them, nor can other people.
+			</text>
+			<text_editor name="notes edit" max_length="1023" font="SansSerif" enabled="false"
+			 embedded_items="false" word_wrap="false" spell_check="true"
+			 left="10" bottom_delta="-260" width="400" height="256" follows="left|top">
+				Loading...
+			</text_editor>
+			<text name="key_label" font="SansSerifSmall" halign="right"
+			 left="10" bottom_delta="-26" width="95" height="16" follows="left|top">
+				Avatar key:
+			</text>
+			<line_editor name="avatar_key" font="SansSerifSmall" max_length="40"
+			 enabled="false" mouse_opaque="false"
+			 text_readonly_color="1, 1, 1, 1" bg_readonly_color="0, 0, 0, 0"
+			 bevel_style="in" border_thickness="1" border_style="line"
+			 left_delta="104" bottom_delta="-1" width="246" height="18" follows="left|top" />
+		</panel>
+	</tab_container>
+	<button bottom="-481" font="SansSerif" halign="center" height="20" label="OK"
+		left="208" mouse_opaque="true" name="OK" width="100" follows="left|top" />
+	<button bottom_delta="0" font="SansSerif" halign="center" height="20" label="Cancel"
+		left_delta="105" mouse_opaque="true" name="Cancel"
+		width="100" follows="left|top" />
+	<string name="ShowOnMapNonFriend">
+		Show location on the map.
+Disabled because you have not
+formed a friendship with them.
+	</string>
+	<string name="ShowOnMapFriendOffline">
+		Show location on the map.
+Disabled because they are not online.
+	</string>
+	<string name="ShowOnMapFriendOnline">Show location on the map.</string>
+	<string name="TeleportGod">Force a teleport to your location.</string>
+	<string name="TeleportPrelude">
+		Offer a teleport to your location.
+Disabled until you leave orientation island.
+	</string>
+	<string name="TeleportNormal">Offer a teleport to your location.</string>
+	<string name="loading">Loading...</string>
+	<string name="click_to_enlarge">Click to view the enlarged picture.</string>
+	<string name="hidden_group">This group is hidden when your profile is viewed by others.</string>
+</panel>

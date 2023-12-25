@@ -1,0 +1,6 @@
+doc/CoolVLViewerReadme.txt  text eol=crlf
+doc/WindowsBuildHowto.txt   text eol=crlf
+doc/licenses-windows.txt    text eol=crlf
+indra/newview/res/viewerRes.rc   text eol=crlf
+indra/newview/windows.manifest   text eol=crlf
+scripts/windows-prebuild.bat     text eol=crlf

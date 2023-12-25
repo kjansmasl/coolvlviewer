@@ -1,0 +1,11 @@
+# -*- cmake -*-
+if (LLCONVEXDECOMPOSITION_CMAKE_INCLUDED)
+  return()
+endif (LLCONVEXDECOMPOSITION_CMAKE_INCLUDED)
+set (LLCONVEXDECOMPOSITION_CMAKE_INCLUDED TRUE)
+
+include(Prebuilt)
+
+include_directories(SYSTEM ${LIBS_PREBUILT_DIR}/include)
+
+include(HACD)

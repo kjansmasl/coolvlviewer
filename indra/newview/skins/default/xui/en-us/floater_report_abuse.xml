@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="abuse report" title="Report abuse"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ height="590" min_height="100" min_width="100" width="390">
+	<texture_picker name="screenshot" label="" allow_no_texture="true" default_image_name="None"
+	 left="238" bottom="-150" width="134" height="114" follows="left|top" />
+	<check_box name="screen_check" label="Include screenshot" font="SansSerifSmall"
+	 left="13" bottom_delta="0" width="116" height="16" follows="left|top" />
+	<text name="reporter_title" font="SansSerifSmall" mouse_opaque="true"
+	 halign="left"
+	 left="16" bottom="-48" width="50" height="16" follows="left|top">
+		Reporter:
+	</text>
+	<text
+	     bottom="-48" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="62"
+	     mouse_opaque="true" name="reporter_field" width="150" />
+	<text
+	     bottom="-64" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="sim_title" width="60">
+		Region:
+	</text>
+	<text
+	     bottom="-64" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="62"
+	     mouse_opaque="true" name="sim_field" width="120">
+		Region name
+	</text>
+	<text
+	     bottom="-80" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="pos_title" width="50">
+		Position:
+	</text>
+	<text
+	     bottom="-80" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="62"
+	     mouse_opaque="true" name="pos_field" width="120" />
+	<text
+	     bottom_delta="-18" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="select_object_label" width="220">
+		Click the button then the object:
+	</text>
+	<button bottom_delta="-30" font="SansSerif" halign="center" height="32" label=""
+	     label_selected="" left="16" mouse_opaque="true" name="pick_btn"
+	     tool_tip="Object Picker - Identify an object as the subject of this report"
+	     width="32" />
+	<text
+	     bottom_delta="16" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="53"
+	     mouse_opaque="true" name="object_name_label" width="60">
+		Name:
+	</text>
+	<text
+	     bottom_delta="0" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="66"
+	     mouse_opaque="true" name="object_name" width="109" />
+	<text
+	     bottom_delta="-16" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="53"
+	     mouse_opaque="true" name="owner_name_label" width="60">
+		Owner:
+	</text>
+	<text
+	     bottom_delta="0" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left_delta="66"
+	     mouse_opaque="true" name="owner_name" width="109" />
+	<combo_box bottom_delta="-48" follows="left|top" height="20" left="16" mouse_opaque="true"
+	     name="category_combo"
+	     tool_tip="Category -- select the category that best describes this report"
+	     width="356">
+<combo_item name="Select_category" value="0">
+Select category
+</combo_item>
+<combo_item name="Age__Age_play" value="31">
+Age > Age play
+</combo_item>
+<combo_item name="Assault__Safe_area" value="35">
+Assault > Shooting, pushing, or shoving another Resident in a Safe Area
+</combo_item>
+<combo_item name="Disclosure__Real_world_information" value="39">
+Disclosure > Real world information
+</combo_item>
+<combo_item name="Disturbing_the_peace__Excessive_scripted_objects" value="43">
+Disturbing the peace > Excessive scripted objects
+</combo_item>
+<combo_item name="Disturbing_the_peace__Object_littering" value="44">
+Disturbing the peace > Object littering
+</combo_item>
+<combo_item name="Disturbing_the_peace__Repetitive_spam" value="45">
+Disturbing the peace > Repetitive spam
+</combo_item>
+<combo_item name="Fraud__US$" value="50">
+Fraud > L$ or US$
+</combo_item>
+<combo_item name="Harassment__Solicting_inciting_others_to_violate_ToS" value="55">
+Harassment > Solicting/inciting others to violate ToS
+</combo_item>
+<combo_item name="Indecency__Broadly_offensive_content_or_conduct" value="57">
+Indecency > Broadly offensive content or conduct
+</combo_item>
+<combo_item name="Indecency__Inappropriate_avatar_name" value="59">
+Indecency > Inappropriate avatar name
+</combo_item>
+<combo_item name="Indecency__Mature_content_in_PG_region" value="60">
+Indecency > Inappropriate content or conduct for Region Rating
+</combo_item>
+<combo_item name="Intolerance" value="61">
+Intolerance
+</combo_item>
+<combo_item name="Land__Encroachment__Objects_textures" value="63">
+Land > Encroachment > Objects/textures
+</combo_item>
+<combo_item name="Wagering_gambling" value="67">
+Skill gaming policy violation
+</combo_item>
+	</combo_box>
+	<text
+	     bottom_delta="-26" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="abuser_name_title" width="180">
+		Abuser name:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+	     border_thickness="1" bottom_delta="-18" follows="left|top"
+	     font="SansSerifSmall" height="16" left="16" max_length="32"
+	     mouse_opaque="true" name="abuser_name_edit"
+	     width="180" />
+	<button bottom_delta="-2" font="SansSerif" halign="center" height="20"
+	     label="Choose resident" left_delta="190"
+	     mouse_opaque="true" name="select_abuser"
+	     tool_tip="Select the name of the abuser from a list" width="160" />
+
+	<check_box bottom_delta="-18" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Don't know abuser's name" left="13" visible="false"
+	     mouse_opaque="true" name="omit_abuser_name" width="116" 
+		 tool_tip="Check this if you are unable to provide the abuser's name"/>
+
+	<text
+	     bottom_delta="-24" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="abuser_name_title2" width="180">
+		Location of abuse:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+	     border_thickness="1" bottom_delta="-18" follows="left|top"
+	     font="SansSerifSmall" height="16" left="16" max_length="256"
+	     mouse_opaque="true" name="abuse_location_edit"
+	     width="356" />
+	<text
+	     bottom_delta="-24" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="sum_title" width="180">
+		Summary:
+	</text>
+	<line_editor bevel_style="in" border_style="line"
+	     border_thickness="1" bottom_delta="-18" follows="left|top"
+	     font="SansSerifSmall" height="16" left="16" max_length="64"
+	     mouse_opaque="true" name="summary_edit" 
+	     width="356" spell_check="true" />
+	<text
+	     bottom_delta="-24" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="dscr_title" width="180">
+		Details:
+	</text>
+	<text
+	     bottom_delta="-32" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="48" left="70"
+	     mouse_opaque="true" name="bug_aviso" width="308">
+		Please be specific about the date, location, nature of
+abuse, relevant chat/IM text, and select the object
+if possible.
+	</text>
+	<text_editor bottom_delta="-152" embedded_items="false"
+	     follows="left|top" font="SansSerifSmall" height="146" left="16"
+	     max_length="800" mouse_opaque="false" name="details_edit"
+	     width="356" word_wrap="true" />
+	<text
+	     bottom_delta="-24" drop_shadow_visible="true" follows="left|top"
+	     font="SansSerifSmall" halign="left" height="16" left="16"
+	     mouse_opaque="true" name="incomplete_title" width="342">
+		Note: incomplete reports will not be investigated.
+	</text>
+	<button name="cancel_btn" label="Cancel" font="SansSerif"
+	 bottom="10" right="373" width="150" height="20" follows="right|bottom" />
+	<button name="send_btn" label="Report abuse" font="SansSerif"
+	 bottom="10" right="217" width="150" height="20" follows="right|bottom" />
+</floater>

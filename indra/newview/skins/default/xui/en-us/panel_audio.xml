@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="false" follows="left|top|right|bottom" height="160"
+     label="Audio &amp; video" name="Media panel" width="220">
+	<slider name="System Volume" label="Master" control_name="AudioLevelMaster"
+	 left="10" bottom_delta="-20" height="15" follows="left|top"
+	     increment="0.05" initial_val="0.5"
+	     label_width="48" max_val="1" min_val="0" mouse_opaque="true"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteAudio" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_audio" toggle="true" width="24" />
+	<slider bottom_delta="-24" control_name="AudioLevelUI" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="UI" label_width="48"
+	     left="10" max_val="1" min_val="0" name="UI Volume" show_text="false"
+	     volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteUI" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_ui" tab_stop="false" toggle="true" width="24" />
+	<slider bottom_delta="-20" control_name="AudioLevelSFX" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="Sounds"
+	     label_width="48" left="10" max_val="1" min_val="0" name="SFX Volume"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteSounds" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_sfx" tab_stop="false" toggle="true" width="24" />
+	<slider bottom_delta="-20" control_name="AudioLevelAmbient" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="Ambient"
+	     label_width="48" left="10" max_val="1" min_val="0" name="Wind Volume"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteAmbient" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_wind" tab_stop="false" toggle="true" width="24" />
+	<slider bottom_delta="-20" control_name="AudioLevelMusic" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="Music"
+	     label_width="48" left="10" max_val="1" min_val="0" name="Music Volume"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteMusic" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_music" tab_stop="false" toggle="true" width="24" />
+	<slider bottom_delta="-20" control_name="AudioLevelMedia" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="Media"
+	     label_width="48" left="10" max_val="1" min_val="0" name="Media Volume"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteMedia" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_media" tab_stop="false" toggle="true" width="24" />
+	<slider bottom_delta="-20" control_name="AudioLevelVoice" follows="left|top"
+	     height="15" increment="0.05" initial_val="0.5" label="Voice"
+	     label_width="48" left="10" max_val="1" min_val="0" name="Voice Volume"
+	     show_text="false" volume="true" width="180" />
+	<button bottom_delta="0" control_name="MuteVoice" follows="left|top" height="16"
+	     image_selected="icn_speaker-muted_dark.tga"
+	     image_unselected="icn_speaker_dark.tga" label=""
+	     left_delta="190" name="mute_voice" tab_stop="false" toggle="true" width="24" />
+</panel>

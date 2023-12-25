@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="gestures" title="Active gestures"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="350" height="465" min_height="200" min_width="350" rect_control="FloaterNewOutfitRect">
+	<text name="help_label" font="SansSerifSmall"
+	 left="15" bottom="-30" follows="top|left">
+		Double-click a gesture to play animations and sounds.
+	</text>
+	<scroll_list name="gesture_list" multi_select="false" draw_border="true" draw_heading="true"
+	 left="15" right="-15" bottom_delta="-390" height="380" follows="top|left|bottom|right">
+		<column label="Trigger" name="trigger" width="70"/>
+		<column label="Key" name="shortcut" width="70"/>
+		<column label="" name="key" width="-1"/>
+		<column label="Name" name="name" width="160"/>
+	</scroll_list>
+	<button name="new_gesture_btn" label="New"
+	 left="15" bottom_delta="-30" width="83" height="20" follows="bottom|right"/>
+<!--
+	<button name="inventory_btn label="Inventory"
+	 left_delta="89" bottom_delta="0" width="83" height="20" follows="bottom|right"/>
+-->
+	<button name="edit_btn" label="Edit"
+	 left_delta="89" bottom_delta="0" width="83" height="20" follows="bottom|right"/>
+	<button name="play_btn" label="Play"
+	 left_delta="89" bottom_delta="0" width="83" height="20" follows="bottom|right"/>
+	<button name="stop_btn" label="Stop"
+	 left_delta="0" bottom_delta="0" width="83" height="20" follows="bottom|right"/>
+</floater>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="authentication" title="Authentication for:"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false"
+ width="400" height="130">
+	<text name="prompt_text" font="SansSerif" halign="center"
+	 left="20" bottom_delta="-40" width="360" height="16" follows="top|left">
+		Credentials for [REALM]
+	</text>
+
+	<text name="name_label" font="SansSerif"
+	 left="10" bottom_delta="-24" width="70" height="20" follows="top|left">
+		User name:
+	</text>
+	<line_editor name="user_name" font="SansSerifSmall" max_length="256"
+	 left_delta="80" bottom_delta="0" width="300" height="18" follows="top|left" />
+
+	<text name="password_label" font="SansSerif"
+	 left="10" bottom_delta="-24" width="70" height="20" follows="top|left">
+		Password:
+	</text>
+	<line_editor name="password" font="SansSerifSmall" max_length="256"
+	 left_delta="80" bottom_delta="0" width="300" height="18" follows="top|left" />
+	<check_box name="show_password" label="Show password" font="SansSerifSmall"
+	 left="90" bottom_delta="-24" width="90" height="16" follows="top|left" />
+
+	<button name="ok" label="OK" font="SansSerif"
+	 right="-80" bottom_delta="-8" width="60" height="20" follows="bottom|right" />
+	<button name="cancel" label="Cancel" font="SansSerif"
+	 right="-10" bottom_delta="0" width="60" height="20" follows="bottom|right" />
+</floater>

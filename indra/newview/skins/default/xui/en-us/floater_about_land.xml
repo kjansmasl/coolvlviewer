@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="about land" title="About land" rect_control="FloaterLandRect5"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false" can_tear_off="false"
+ width="460" min_width="460" height="420" min_height="420" follows="top">
+	<tab_container name="landtab" tab_position="top"
+	 left="1" bottom="-420" width="459" height="400" follows="left|top|right|bottom">
+		<panel name="land_general_panel" label="General"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="NameText" font="SansSerifSmall"
+			 left="4" bottom="-20" width="92" height="16" follows="left|top">
+				Name:
+			</text>
+			<line_editor name="name_editor" max_length="63" font="SansSerifSmall"
+			 handle_edit_keys_directly="false" select_all_on_focus_received="false" select_on_focus="false"
+			 left="80" bottom_delta="0" width="370" height="16" follows="left|top|right" />
+			<text name="DescriptionText" font="SansSerifSmall"
+			 left="4" bottom_delta="-20" width="100" height="16" follows="left|top">
+				Description:
+			</text>
+			<text_editor name="desc_editor" max_length="255" word_wrap="true" font="SansSerifSmall"
+			 embedded_items="false" handle_edit_keys_directly="false"
+			 select_all_on_focus_received="false" select_on_focus="false"
+			 left="80" bottom="-76" width="370" height="52" follows="left|top|right" />
+			<text name="LandType" font="SansSerifSmall"
+			 left="4" bottom_delta="-20" width="92" height="16" follows="left|top">
+				Type:
+			</text>
+			<text name="land_type_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="370" height="16" follows="left|top" />
+			<text name="ContentRating" font="SansSerifSmall"
+			 left="4" bottom_delta="-18" width="92" height="16" follows="left|top">
+				Rating:
+			</text>
+			<text name="rating_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="370" height="16" follows="left|top" />
+			<text name="owner_label" font="SansSerifSmall"
+			 left="4" bottom_delta="-20" width="92" height="16" follows="left|top">
+				Owner:
+			</text>
+			<text name="owner_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="250" height="16" follows="left|top" />
+			<button name="profile_btn" label="Profile..." font="SansSerif"
+			 left="360" bottom_delta="0" width="90" height="20" follows="left|top" />
+			<text name="group_label" font="SansSerifSmall"
+			 left="4" bottom_delta="-22" width="92" height="20" follows="left|top">
+				Group:
+			</text>
+			<text name="group_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="250" height="20" follows="left|top" />
+			<button name="group_btn" label="Set..." font="SansSerif"
+			 left="360" bottom_delta="0" width="90" height="20" follows="left|top" />
+			<check_box name="check_deed" label="Allow 'Deed to group'" font="SansSerifSmall"
+		     tool_tip="A group officer can deed this land to the group, so it will be supported by the group&amp;apos;s land allocation."
+			 left="80" bottom_delta="-22" width="116" height="16" follows="left|top" />
+			<button name="deed_btn" label="Deed..." font="SansSerif"
+		     tool_tip="You may only deed land if you are an officer in the selected group."
+			 left="360" bottom_delta="0" width="90" height="20" follows="left|top" />
+			<check_box name="check_contrib" label="Owner makes contribution with deed" font="SansSerifSmall"
+		     tool_tip="When the land is deeded to the group, the former owner contributes enough land allocation to support it."
+			 left="80" bottom_delta="-20" width="199" height="16" follows="left|top" />
+			<text name="For Sale" font="SansSerifSmall"
+			 left="4" bottom_delta="-20" width="92" height="16" follows="left|top">
+				For sale:
+			</text>
+			<text name="not_for_sale" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top">
+				Not for sale.
+			</text>
+			<text name="sale_price" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top">
+				Price: L$[PRICE] (L$[PRICE_PER_SQM]/m2).
+			</text>
+			<text name="sale_pending" font="SansSerifSmall"
+			 left="80" bottom_delta="-20" width="344" height="16" follows="left|top" />
+			<text name="for_sale_to" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top">
+				For sale to: [BUYER]
+			</text>
+			<button name="sell_btn" label="Sell land..." font="SansSerif"
+			 left="325" bottom_delta="0" width="125" height="20" follows="left|top" />
+			<button name="cancel_sale_btn" label="Cancel land sale" font="SansSerif"
+			 left="325" bottom_delta="0" width="125" height="20" follows="left|top" />
+			<text name="sell_with_objects" font="SansSerifSmall"
+			 left="80" bottom_delta="-20" width="240" height="16" follows="left|top">
+				Objects included in sale.
+			</text>
+			<text name="sell_without_objects" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top">
+				Objects not included in sale.
+			</text>
+			<text name="claimed_text" font="SansSerifSmall"
+			 left="4" bottom="-284" width="92" height="16" follows="left|top">
+				Claimed:
+			</text>
+			<text name="date_claimed_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top" />
+			<button name="reclaim_btn" label="Reclaim land..." font="SansSerif"
+			 left="325" bottom="-300" width="125" height="20" follows="left|top" />
+			<text name="price_label" font="SansSerifSmall"
+			 left="4" bottom="-304" width="92" height="16" follows="left|top">
+				Area:
+			</text>
+			<text name="price_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top" />
+			<text name="Traffic" font="SansSerifSmall"
+			 left="4" bottom="-324" width="92" height="16" follows="left|top">
+				Traffic:
+			</text>
+			<text name="dwell_text" font="SansSerifSmall"
+			 left="80" bottom_delta="0" width="240" height="16" follows="left|top">
+				Loading...
+			</text>
+			<button name="sale_btn" label="Linden sale..." font="SansSerif"
+		     tool_tip="Land must be owned, set content, and not already for auction."
+			 left="325" bottom_delta="0" width="125" height="20" follows="left|top" />
+			<button name="buy_pass_btn" label="Buy pass..." font="SansSerif"
+		     tool_tip="A pass gives you temporary access to this land."
+			 left="210" bottom="-348" width="100" height="20" follows="left|top" />
+			<button name="abandon_btn" label="Abandon land..." font="SansSerif"
+			 left="325" bottom_delta="0" width="125" height="20" follows="left|top" />
+			<button name="buy_land_btn" label="Buy land..." font="SansSerif"
+			 left="210" bottom="-372" width="100" height="20" follows="left|top" />
+			<button name="buy_for_group_btn" label="Buy for group..." font="SansSerif"
+			 left="325" bottom_delta="0" width="125" height="20" follows="left|top" />
+			<string name="anyone">
+				Anyone
+			</string>
+			<string name="area_text">
+				Area
+			</string>
+			<string name="area_size_text">
+				[AREA] m2
+			</string>
+			<string name="auction_id_text">
+				Auction ID: [ID]
+			</string>
+			<string name="need_tier_to_modify">
+				You must approve your purchase to modify this land.
+			</string>
+			<string name="group_owned_text">
+				(Group owned)
+			</string>
+			<string name="profile_text">
+				Profile...
+			</string>
+			<string name="info_text">
+				Info...
+			</string>
+			<string name="public_text">
+				(public)
+			</string>
+			<string name="none_text">
+				(none)
+			</string>
+			<string name="sale_pending_text">
+				(Sale pending)
+			</string>
+			<string name="no_selection_text">
+			No parcel selected.
+Go to World menu > About land or select another parcel to show its details.
+			</string>
+		</panel>
+		<panel name="land_covenant_panel" label="Covenant"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="estate_section_lbl" font="SansSerif"
+			 left="5" bottom="-22" width="100" height="20" follows="left|top">
+				Estate:
+			</text>
+			<text name="estate_name_lbl" font="SansSerifSmall"
+			 left="10" bottom="-40" width="100" height="20" follows="left|top">
+				Name:
+			</text>
+			<text name="estate_name_text" font="SansSerifSmall"
+			 left="80" bottom="-40" width="150" height="20" follows="left|top" />
+			<text name="estate_owner_lbl" font="SansSerifSmall"
+			 left="10" bottom="-60" width="100" height="20" follows="left|top">
+				Owner:
+			</text>
+			<text name="estate_owner_text" font="SansSerifSmall"
+			 left="80" bottom="-60" width="370" height="20" follows="left|top">
+				(none)
+			</text>
+			<text_editor name="covenant_editor" max_length="65535" font="SansSerifSmall"
+			 word_wrap="true" embedded_items="false"
+			 left="80" bottom="-175" width="370" height="115" follows="left|top|right|bottom">
+				There is no covenant provided for this estate.
+			</text_editor>
+			<text name="covenant_timestamp_text" font="SansSerifSmall"
+			 left="80" bottom="-250" width="370" height="20" follows="left|top" />
+			<text name="region_section_lbl" font="SansSerif"
+			 left="5" bottom="-270" width="100" height="20" follows="left|top">
+				Region:
+			</text>
+			<text name="region_name_lbl" font="SansSerifSmall"
+			 left="10" bottom="-290" width="100" height="20" follows="left|top">
+				Name:
+			</text>
+			<text name="region_name_text" font="SansSerifSmall"
+			 left="80" bottom="-290" width="370" height="20" follows="left|top" />
+			<text name="region_landtype_lbl" font="SansSerifSmall"
+			 left="10" bottom="-310" width="100" height="20" follows="left|top">
+				Type:
+			</text>
+			<text name="region_landtype_text" font="SansSerifSmall"
+			 left="80" bottom="-310" width="370" height="20" follows="left|top" />
+			<text name="region_maturity_lbl" font="SansSerifSmall"
+			 left="10" bottom="-330" width="100" height="20" follows="left|top">
+				Rating:
+			</text>
+			<text name="region_maturity_text" font="SansSerifSmall"
+			 left="80" bottom="-330" width="370" height="20" follows="left|top" />
+			<text name="resellable_lbl" font="SansSerifSmall"
+			 left="10" bottom="-350" width="100" height="20" follows="left|top">
+				Resale:
+			</text>
+			<text name="resellable_clause" font="SansSerifSmall"
+			 left="80" bottom="-350" width="370" height="20" follows="left|top" />
+			<text name="changeable_lbl" font="SansSerifSmall"
+			 left="10" bottom="-370" width="100" height="20" follows="left|top">
+				Subdivide:
+			</text>
+			<text name="changeable_clause" font="SansSerifSmall"
+			 left="80" bottom="-380" width="370" height="30" follows="left|top" />
+			<string name="can_resell">
+				Purchased land in this region may be resold.
+			</string>
+			<string name="can_not_resell">
+				Purchased land in this region may not be resold.
+			</string>
+			<string name="can_change">
+				Purchased land in this region may be joined or subdivided.
+			</string>
+			<string name="can_not_change">
+				Purchased land in this region may not be joined or subdivided.
+			</string>
+		</panel>
+		<panel name="land_objects_panel" label="Objects"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="parcel_object_bonus" font="SansSerifSmall"
+			 left="4" bottom="-20" width="364" height="16" follows="left|top">
+				Region object bonus factor:   [BONUS]
+			</text>
+			<text name="primitives_usage" font="SansSerifSmall"
+			 left="4" bottom="-40" width="364" height="16" follows="left|top">
+				Simulator primitive usage:
+			</text>
+			<text name="objects_available" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="290" height="16" follows="left|top">
+				[COUNT] out of [MAX] ([AVAILABLE] available)
+			</text>
+			<string name="objects_available_text">
+				[COUNT] out of [MAX] ([AVAILABLE] available)
+			</string>
+			<string name="objects_deleted_text">
+				[COUNT] out of [MAX] ([DELETED] will be deleted)
+			</string>
+			<text name="primitives_support" font="SansSerifSmall"
+			 left="4" bottom="-60" width="152" height="16" follows="left|top">
+				Primitives parcel supports:
+			</text>
+			<text name="object_contrib_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="290" height="16" follows="left|top">
+				[COUNT]
+			</text>
+			<text name="primitives_on_parcel" font="SansSerifSmall"
+			 left="4" bottom="-80" width="152" height="16" follows="left|top">
+				Primitives on parcel:
+			</text>
+			<text name="total_objects_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="48" height="16" follows="left|top">
+				[COUNT]
+			</text>
+			<text name="owned_by_parcel_owner" font="SansSerifSmall"
+			 left="28" bottom="-100" width="128" height="16" follows="left|top">
+				Owned by parcel owner:
+			</text>
+			<text name="owner_objects_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="60" height="16" follows="left|top">
+				[COUNT]
+			</text>
+			<button name="show_owner_btn" label="Show" font="SansSerifSmall"
+			 left="220" bottom_delta="-1" width="70" height="18" follows="left|top" />
+			<button name="return_owner_btn" label="Return..." font="SansSerifSmall"
+			 tool_tip="Return objects to their owners."
+			 left_delta="80" bottom_delta="0" width="70" height="18" follows="left|top" />
+			<text name="set_to_group" font="SansSerifSmall"
+			 left="28" bottom="-120" width="128" height="16" follows="left|top">
+				Set to group:
+			</text>
+			<text name="group_objects_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="60" height="16" follows="left|top">
+				[COUNT]
+			</text>
+			<button name="show_group_btn" label="Show" font="SansSerifSmall"
+			 left="220" bottom_delta="-1" width="70" height="18" follows="left|top" />
+			<button name="return_group_btn" label="Return..." font="SansSerifSmall"
+		     tool_tip="Return objects to their owners."
+			 left_delta="80" bottom_delta="0" width="70" height="18" follows="left|top" />
+			<text name="owned_by_others" font="SansSerifSmall"
+			 left="28" bottom="-140" width="128" height="16" follows="left|top">
+				Owned by others:
+			</text>
+			<text name="other_objects_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" height="16" width="60" follows="left|top">
+				[COUNT]
+			</text>
+			<button name="show_other_btn" label="Show" font="SansSerifSmall"
+			 left="220" bottom_delta="-1" width="70" height="18" follows="left|top" />
+			<button name="return_other_btn" label="Return..." font="SansSerifSmall"
+			 tool_tip="Return objects to their owners."
+			 left_delta="80" bottom_delta="0" width="70" height="18" follows="left|top" />
+			<text name="selected_sat_upon" font="SansSerifSmall"
+			 left="28" bottom="-160" width="128" height="16" follows="left|top">
+				Selected / sat upon:
+			</text>
+			<text name="selected_objects_text" font="SansSerifSmall"
+			 left="156" bottom_delta="0" width="48" height="16" follows="left|top">
+				[COUNT]
+			</text>
+			<text name="autoreturn" font="SansSerifSmall"
+			 left="4" bottom="-180" width="300" height="16" follows="left|top">
+				Autoreturn other residents&apos; objects (minutes, 0 for off):
+			</text>
+			<line_editor name="auto_return_delay" max_length="6" font="SansSerifSmall"
+			 handle_edit_keys_directly="false"
+			 select_all_on_focus_received="false" select_on_focus="false"
+			 left="306" bottom="-180" width="56" height="16" follows="left|top" />
+			<text name="object_owners" font="SansSerifSmall"
+			 left="4" bottom="-208" width="104" height="20" follows="left|top">
+				Object owners:
+			</text>
+			<button name="refresh_btn" label="Refresh list" font="SansSerifSmall"
+			 left="100" bottom_delta="0" width="100" height="20" follows="left|top" />
+			<button name="return_btn" label="Return objects..." font="SansSerifSmall"
+			 left="210" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<name_list name="owner_list" name_column_index="2" multi_select="false"
+			 allow_calling_card_drop="false" background_visible="true"
+			 column_padding="0" draw_border="true" draw_heading="true" draw_stripes="true"
+			 left="4" bottom="-329" width="450" height="117" follows="left|top|right|bottom">
+				<column name="type" label="Type" sort="online_status" width="24" />
+				<column name="online_status" width="-1" />
+				<column name="name" dynamicwidth="true" label="Name" />
+				<column name="count" label="Count" width="70" />
+				<column name="mostrecent" label="Most recent" width="160" />
+			</name_list>
+		</panel>
+		<panel name="land_options_panel" label="Options"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="allow_label" font="SansSerifSmall"
+			 left="4" bottom="-20" width="278" height="16" follows="left|top">
+				Allow other residents to:
+			</text>
+			<check_box name="edit_land_check" label="Edit terrain" font="SansSerifSmall"
+			 tool_tip="If checked, anyone can terraform your land. It is best to leave this unchecked, as you can always edit your own land."
+			 left="14" bottom_delta="-20" width="268" height="16" follows="left|top" />
+			<text name="allow_create" font="SansSerifSmall"
+			 left="125" bottom_delta="0" width="104" height="16" follows="left|top">
+				Create objects:
+			</text>
+			<check_box name="create_obj_check" label="All residents" font="SansSerifSmall"
+			 left_delta="115" bottom_delta="0" width="100" height="16" follows="left|top" />
+			<check_box name="edit_grp_obj_check" label="Group members" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0" width="100" height="16" follows="left|top" />
+			<check_box name="fly_check" label="Fly" font="SansSerifSmall"
+			 tool_tip="If checked, Residents can fly on your land. If unchecked, they can only fly into and over your land."
+			 left="14" bottom_delta="-20" width="268" height="16" follows="left|top" />
+			<text name="allow_entry" font="SansSerifSmall"
+			 left="125" bottom_delta="0" width="124" height="16" follows="left|top">
+				Make objects enter:
+			</text>
+			<check_box name="all_entry_check" label="All residents" font="SansSerifSmall"
+			 left_delta="115" bottom_delta="0" width="100" height="16" follows="left|top" />
+			<check_box name="group_entry_check" label="Group members" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0"  width="100" height="16" follows="left|top" />
+			<text name="run_scripts" font="SansSerifSmall"
+			 left="125" bottom_delta="-20" width="124" height="16" follows="left|top">
+				Run scripts:
+			</text>
+			<check_box name="allow_scripts_check" label="All residents" font="SansSerifSmall"
+			 left_delta="115" bottom_delta="0" width="100" height="16" follows="left|top" />
+			<check_box name="group_scripts_check" label="Group members" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0" width="100" height="16" follows="left|top" />
+			<text name="land_options_label" font="SansSerifSmall"
+			 left="4" bottom_delta="-15" width="278" height="16" follows="left|top">
+				Land options:
+			</text>
+			<check_box name="no_damage_check" label="Safe (no damage)"
+			 tool_tip="If checked, sets the land to 'Safe', disabling combat damages. Reminder: when an avatar's damages reach 100%, they are forcefully teleported home."
+			 left="14" bottom_delta="-20" width="268" height="16" follows="left|top" font="SansSerifSmall" />
+			<check_box name="restrict_push_check" label="Restricted pushing" font="SansSerifSmall"
+			 tool_tip="Restricts and limits avatars pushing via scripts. Checking this option may be useful for preventing disruptive behavior on your land."
+			 left="160" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<string name="push_restrict_text">
+				Restricted pushing
+			</string>
+			<string name="push_restrict_region_text">
+				Restricted pushing (region override)
+			</string>
+			<check_box name="show_directory_check" label="Show place in search (L$30/week) under:" font="SansSerifSmall"
+		     tool_tip="Let people see this parcel in search results"
+			 left="14" bottom_delta="-20" width="244" height="16" follows="left|top" />
+			<string name="search_enabled_tooltip">
+				Let people see this parcel in search results
+			</string>
+			<string name="search_disabled_small_tooltip">
+				This option is disabled because this parcel&apos;s area is 128m2. or smaller.
+Only large parcels can be listed in search.
+			</string>
+			<string name="search_disabled_permissions_tooltip">
+				This option is disabled because you cannot modify this parcel&apos;s options.
+			</string>
+			<combo_box name="land_category_combo" allow_text_entry="false"
+			 left="260" bottom_delta="0" width="130" height="18" follows="left|top">
+				<combo_item name="AnyCategory" value="any">
+					Any category
+				</combo_item>
+				<combo_item name="LindenLocation" value="linden">
+					Linden location
+				</combo_item>
+				<combo_item name="Arts&amp;Culture" value="arts">
+					Arts &amp; culture
+				</combo_item>
+				<combo_item name="Business" value="store">
+					Business
+				</combo_item>
+				<combo_item name="Educational" value="educational">
+					Educational
+				</combo_item>
+				<combo_item name="Gaming" value="game">
+					Gaming
+				</combo_item>
+				<combo_item name="Hangout" value="gather">
+					Hangout
+				</combo_item>
+				<combo_item name="NewcomerFriendly" value="newcomer">
+					Newcomer friendly
+				</combo_item>
+				<combo_item name="Parks&amp;Nature" value="park">
+					Parks &amp; nature
+				</combo_item>
+				<combo_item name="Residential" value="home">
+					Residential
+				</combo_item>
+				<combo_item name="Shopping" value="shopping">
+					Shopping
+				</combo_item>
+				<combo_item name="Other" value="other">
+					Other
+				</combo_item>
+				<combo_item name="Rental" value="rental">
+					Rental
+				</combo_item>
+			</combo_box>
+			<button name="help_btn" label="?" font="SansSerif"
+			 left="400" bottom_delta="0" width="18" height="18" follows="left|top" />
+			<check_box name="mature_check" label="Mature content" font="SansSerifSmall"
+			 left="14" bottom_delta="-20" height="16" width="107" follows="left|top" />
+			<string name="mature_check_mature">
+				Mature content
+			</string>
+			<string name="mature_check_adult">
+				Adult content
+			</string>
+			<string name="mature_check_mature_tooltip">
+				Your parcel information or content is considered mature.
+			</string>
+			<string name="mature_check_adult_tooltip">
+				Your parcel information or content is considered adult.
+			</string>
+			<check_box name="privacy_check" label="Avatars outside this parcel can see and chat with avatars on this parcel"
+			 tool_tip="Allows residents on other parcels to see and chat with residents on this parcel, and vice versa."
+			 left="14" bottom_delta="-20" height="16" width="400" follows="left|top" />
+			<text name="snapshot_lbl" font="SansSerifSmall"
+			 left="4" bottom_delta="-25" width="278" height="16" follows="left|top">
+				Snapshot:
+			</text>
+			<texture_picker name="snapshot_ctrl" label="" default_image_name=""
+			 allow_no_texture="false" can_apply_immediately="false"
+			 tool_tip="Click to choose a picture"
+			 left="76" bottom_delta="-120" width="180" height="135" follows="left|top" />
+			<text name="landing_point" font="SansSerifSmall"
+			 left="4" bottom_delta="-18" width="278" height="18" follows="left|top">
+				Landing point: [LANDING]
+			</text>
+			<string name="landing_point_none">
+				(none)
+			</string>
+			<button name="set_landing_btn" label="Set" font="SansSerifSmall"
+		     tool_tip="Sets (to your avatar&apos;s current position) the landing point where visitors arrive when they teleport inside this parcel."
+			 left="320" bottom_delta="0" width="55" height="20" follows="left|top" />
+			<button name="clear_landing_btn" label="Clear" font="SansSerifSmall"
+		     tool_tip="Clears the landing point for this parcel."
+			left_delta="60" bottom_delta="0" width="55" height="20" follows="left|top" />
+			<text name="teleport_routing_lbl" font="SansSerifSmall"
+			 left="4" bottom_delta="-25" width="278" height="18" follows="left|top">
+				Teleport routing:
+			</text>
+			<combo_box name="teleport_routing_combo" allow_text_entry="false"
+		     tool_tip="Teleport routing: select how to handle teleports onto your land."
+			 left="120" bottom_delta="0" width="120" height="18" follows="left|top">
+				<combo_item name="Blocked" value="Blocked">
+					Blocked
+				</combo_item>
+				<combo_item name="LandingPoint" value="Landing Point">
+					Landing point
+				</combo_item>
+				<combo_item name="Anywhere" value="Anywhere">
+					Anywhere
+				</combo_item>
+			</combo_box>
+		</panel>
+		<panel name="land_media_panel" label="Media"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="media_type_lbl" font="SansSerifSmall"
+			 left="10" bottom="-25" width="65" height="16" follows="left|top">
+				Type:
+			</text>
+			<combo_box name="media_type_combo" allow_text_entry="false"
+			 tool_tip="Specify if the URL is a movie, web page, or other media"
+			 left="80" bottom_delta="0" width="120" height="18" follows="left|top" />
+			<text name="mime_type" font="SansSerifSmall"
+			 left_delta="130" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<text name="home_url_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-26" width="65" height="16" follows="left|top">
+				Home URL:
+			</text>
+			<line_editor name="media_url" max_length="255" font="SansSerifSmall"
+			 select_all_on_focus_received="true" select_on_focus="true"
+			 text_readonly_color="0.576471 0.662745 0.835294 1"
+			 left="80" bottom_delta="0" right="-90" height="20" follows="left|top|right" />
+			<button name="set_media_url" label="Set..." font="SansSerifSmall"
+			 right="-12" bottom_delta="0" width="70" height="20" follows="right|top" />
+			<text name="current_url_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-26" width="65" height="20" follows="left|top">
+				Current URL:
+			</text>
+			<text name="current_url" font="SansSerifSmall"
+			 left="80" bottom_delta="0" right="-90" height="20" follows="left|top|right" />
+			<button name="reset_media_url" label="Reset" font="SansSerifSmall"
+			 right="-12" bottom_delta="0" width="70" height="20" follows="right|top" />
+			<text name="media_reset" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Amount of time until parcel automatically reverts to default URL (0 for never return)"
+			 left="80" bottom_delta="-22" width="120" height="20" follows="right|top">
+				Return to home URL in:
+			</text>
+			<spinner name="media_reset_time"
+			 initial_val="0" min_val="0" max_val="1024" increment="1" decimal_digits="0"
+			 tool_tip="Amount of time until parcel reverts to default URL (0 for never return)"
+			 left_delta="126" bottom_delta="0" width="64" height="20" follows="right|top" />
+			<text name="minutes" font="SansSerifSmall"
+			 left_delta="72" bottom_delta="0" width="50" height="20" follows="right|top">
+				minutes
+			</text>
+			<text name="desc_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="364" height="18" follows="left|top">
+				Description:
+			</text>
+			<line_editor name="url_description" max_length="255" font="SansSerifSmall"
+			 select_all_on_focus_received="true" select_on_focus="true"
+			 tool_tip="Text displayed for the media play/load button"
+			 left="80" bottom_delta="0" right="-90" height="20" follows="left|top|right" />
+			<text name="media_texture_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-28" width="364" height="16" follows="left|top">
+				Texture:
+			</text>
+			<texture_picker name="media_texture_ctrl" label=""
+			 default_image_name="Default" allow_no_texture="true" can_apply_immediately="false"
+			 tool_tip="Click to choose a texture"
+			 left="80" bottom_delta="-64" width="64" height="80" follows="left|top" />
+			<text name="replace_texture_help" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="270" height="80" follows="left|top">
+				Objects using this texture will show the movie or
+web page after you click the play arrow.
+
+Select the thumbnail to choose a different texture.
+			</text>
+			<text name="options_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-16" width="64" height="17" follows="left|top">
+				Options:
+			</text>
+			<check_box name="media_loop" label="Loop" font="SansSerifSmall"
+			 tool_tip="Play media in a loop: when the media has finished playing, it will restart from the beginning."
+			 left="80" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<check_box name="media_auto_scale" label="Auto-scale" font="SansSerifSmall"
+			 tool_tip="Checking this option will scale the content for this parcel automatically. It may be slightly slower and lower quality visually but no other texture scaling or alignment will be required."
+			 left_delta="80" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<text name="media_size" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Size to render Web media, leave 0 for default."
+			 left="10" bottom_delta="-24" width="85" height="16" follows="left|top">
+				Media size:
+			</text>
+			<spinner name="media_size_width" halign="right"
+			 initial_val="0" min_val="0" max_val="1024" increment="1" decimal_digits="0"
+			 tool_tip="Width to render Web media. Leave 0 for default."
+			 left="80" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<text name="x" font="SansSerifSmall"
+			 left_delta="65" bottom_delta="0" width="12" height="16" follows="left|top">
+				x
+			</text>
+			<spinner name="media_size_height" halign="right"
+			 initial_val="0" min_val="0" max_val="1024" increment="1" decimal_digits="0"
+			 tool_tip="Height to render Web media, leave 0 for default."
+			 left_delta="12" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<text name="pixels" font="SansSerifSmall"
+			 left_delta="64" bottom_delta="0" width="70" height="16" follows="left|top">
+				pixels
+			</text>
+			<text name="interaction_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-30" width="364" height="16" follows="left|top">
+				Interaction:
+			</text>
+			<radio_group name="radio_navigate_allow" draw_border="false" tab_stop="true"
+			 left="80" bottom_delta="-2" width="219" height="22" follows="left|top">
+				<radio_item name="Anyone"
+				 tool_tip="Any resident can interact with the media."
+				 left="0" bottom="-20" width="70" height="16" follows="left|top">
+					Anyone
+				</radio_item>
+				<radio_item name="Group"
+				 tool_tip="Group permissions determine who can interact with the media."
+				 left="80" bottom="-20" width="70" height="16" follows="left|top">
+					Group
+				</radio_item>
+			</radio_group>
+			<text name="moap_label" font="SansSerifSmall"
+			 left="10" bottom_delta="-30" width="364" height="16" follows="left|top">
+				Media on a prim:
+			</text>
+			<check_box name="obscure moap check" label="Restrict to this parcel" font="SansSerifSmall"
+			 tool_tip="Media on a prim located outside the parcel should not play automatically for an agent within this parcel and vice versa."
+			 left="80" bottom_delta="-20" width="250" height="16" follows="left|top" />
+		</panel>
+		<panel name="land_audio_panel" label="Audio"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="music_url_lbl" font="SansSerifSmall"
+			 left="10" bottom="-45" width="364" height="16" follows="left|top">
+				Music URL:
+			</text>
+			<line_editor name="music_url" max_length="255" select_on_focus="true"
+			 left="80" bottom_delta="0" right="-15" height="16" follows="left|top|right" />
+			<text name="sound_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-65" width="364" height="16" follows="left|top">
+				Sounds:
+			</text>
+			<check_box name="check_sound_local" label="Restrict gesture and object sounds to this parcel" font="SansSerifSmall"
+			 left_delta="70" bottom_delta="0" width="200" height="16" follows="left|top" />
+			<check_box name="all av sound check" label="All avatars can emit sounds" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-20" width="200" height="16" follows="left|top" />
+			<check_box name="group av sound check" label="Avatars in land group can emit sounds" font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-20" width="200" height="16" follows="left|top" />
+			<text name="voice_lbl" font="SansSerifSmall"
+			 left="10" bottom_delta="-65" width="364" height="16" follows="left|top">
+				Voice:
+			</text>
+			<radio_group name="parcel_voice_channel" draw_border="false" tab_stop="true"
+			 left="80" bottom_delta="-40" width="219" height="60" follows="left|top">
+				<radio_item name="Estate" font="SansSerifSmall"
+				 tool_tip="Use the estate voice channel."
+				 left="0" bottom="-19" width="70" height="16" follows="left|top">
+					Estate channel
+				</radio_item>
+				<radio_item name="Parcel" font="SansSerifSmall"
+				 tool_tip="Restrict Voice to this parcel."
+				 left="0" bottom="-39" width="70" height="16" follows="left|top">
+					Parcel channel
+				</radio_item>
+				<radio_item name="Disabled" font="SansSerifSmall"
+				 tool_tip="Disable voice on this parcel."
+				 left="0" bottom="-59" width="70" height="16" follows="left|top">
+					Disabled
+				</radio_item>
+			</radio_group>
+		</panel>
+		<panel name="land_access_panel" label="Access"
+		 left="1" bottom="-349" width="458" height="333" follows="left|top|right|bottom">
+			<text name="limit_access_lbl" font="SansSerif"
+			 left="8" bottom="-24"  width="278" height="20" follows="left|top">
+				Access to this parcel
+			</text>
+			<check_box name="public_access" label="Allow public access" font="SansSerifSmall"
+			 left="8" bottom="-45" width="278" height="16" follows="top|left" />
+			<text name="access_label" font="SansSerifSmall"
+			 left_delta="20" bottom_delta="-20" width="278" height="16" follows="top|left">
+				Block access by:
+			</text>
+			<check_box name="limit_payment" label="Residents who have not given payment info" font="SansSerifSmall"
+			 tool_tip="Ban unidentified residents."
+			 left_delta="10" bottom_delta="-20" width="278" height="16" follows="top|left" />
+			<check_box name="limit_age_verified" label="Residents who are not age verified adults" font="SansSerifSmall"
+		     tool_tip="Ban residents who have not verified their age with the grid operator."
+			 left_delta="0" bottom_delta="-20" width="278" height="16" follows="top|left" />
+			<string name="estate_override">
+				One or more of these options is set at the estate level
+			</string>
+			<check_box name="group_access_check" label="Allow access to members of group: [GROUP]" font="SansSerifSmall"
+			 tool_tip="You can set the parcel group in the 'General' tab."
+			 left="8" bottom_delta="-20" width="440" height="16" follows="left|top" />
+			<check_box name="pass_access_check" label="Sell passes to:" font="SansSerifSmall"
+			 tool_tip="Allows temporary access to this parcel."
+			 left="8" bottom_delta="-20" width="120" height="16" follows="left|top"/>
+			<combo_box name="pass_combo" allow_text_entry="false"
+			 left_delta="112" bottom_delta="0" width="80" height="16" follows="left|top">
+				<combo_item name="Anyone" value="anyone">
+					Anyone
+				</combo_item>
+				<combo_item name="Group" value="group">
+					Group
+				</combo_item>
+			</combo_box>
+			<spinner name="price_spin_ctrl" label="Price in L$:" label_width="90"
+			 initial_val="10" increment="1" min_val="1" max_val="500" decimal_digits="0"
+			 left="28" bottom_delta="-20" width="150" height="16" follows="left|top" />
+			<spinner name="hours_spin_ctrl" label="Hours of access:" label_width="90"
+			 min_val="0.25" max_val="24" increment="0.25" initial_val="1" decimal_digits="2"
+			 left="215" bottom_delta="0" width="150" height="16" follows="left|top" />
+			<text name="allowed_lbl" font="SansSerifSmall"
+			 left="12" bottom_delta="-24" width="180" height="16" follows="left|right|top">
+				Allowed residents:
+			</text>
+			<text name="banned_lbl" font="SansSerifSmall"
+			left="215"  bottom_delta="0" width="180" height="16" follows="left|right|top">
+				Banned residents:
+			</text>
+			<name_list name="access_list" multi_select="true"
+			 draw_heading="false" allow_calling_card_drop="false"
+			 draw_border="true" background_visible="true" column_padding="0"
+			 tool_tip="([LISTED] listed, [MAX] max)"
+			 left="10" bottom_delta="-115" height="110" width="195" follows="top|bottom|left" />
+			<name_list name="banned_list" multi_select="true" allow_calling_card_drop="false"
+			 draw_heading="true" heading_font="SansSerifSmall" heading_height="16"
+		     column_padding="0" draw_border="true" background_visible="true"
+			 tool_tip="([LISTED] listed, [MAX] max)"
+			 left="213" bottom_delta="0" width="235" height="110" follows="top|bottom">
+				<column name="name" label="Name" dynamicwidth="true" />
+				<column name="duration" label="Duration" width="95" />
+			</name_list>
+			<button name="add_allowed" label="Add..." font="SansSerifSmall"
+			 left="15" bottom_delta="-24" width="80" height="20" follows="bottom|left"/>
+			<button name="remove_allowed" label="Remove" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0" width="80" height="20" follows="bottom|left"/>
+			<button name="add_banned" label="Add..." font="SansSerifSmall"
+			 left="220" bottom_delta="0" height="20" width="80" follows="bottom|right" />
+			<button name="remove_banned" label="Remove" font="SansSerifSmall"
+			 left_delta="140" bottom_delta="0" width="80" height="22" follows="bottom|right" />
+			<string name="remaining">
+				([DURATION] remaining)
+			</string>
+			<string name="always">
+				always
+			</string>
+		</panel>
+	</tab_container>
+</floater>

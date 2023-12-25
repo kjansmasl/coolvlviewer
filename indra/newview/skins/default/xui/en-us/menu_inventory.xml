@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<menu name="Popup" color="MenuDefaultBgColor"
+ drop_shadow="true" mouse_opaque="false" opaque="true">
+	<menu_item_call name="Task Buy" label="Buy">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="task_buy" />
+	</menu_item_call>
+	<menu_item_call name="Task Open" label="Open">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="task_open" />
+	</menu_item_call>
+	<menu_item_call name="Task Play" label="Play">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="task_play" />
+	</menu_item_call>
+	<menu_item_call name="Task Properties" label="Properties">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="task_properties" />
+	</menu_item_call>
+	<menu_item_call name="Task Rename" label="Rename">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="rename" />
+	</menu_item_call>
+	<menu_item_call name="Task Remove" label="Delete">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="delete" />
+	</menu_item_call>
+	<menu_item_call name="Empty Trash" label="Empty Trash">
+		<on_click filter="" function="Inventory.EmptyTrash" userdata="" />
+	</menu_item_call>
+	<menu_item_call name="Empty Lost And Found" label="Empty Lost And Found">
+		<on_click filter="" function="Inventory.EmptyLostAndFound" userdata="" />
+	</menu_item_call>
+	<menu_item_call name="New Folder" label="New folder">
+		<on_click filter="" function="Inventory.DoCreate" userdata="category" />
+	</menu_item_call>
+	<menu_item_call name="New Script" label="New script">
+		<on_click filter="" function="Inventory.DoCreate" userdata="lsl" />
+	</menu_item_call>
+	<menu_item_call name="New Note" label="New note card">
+		<on_click filter="" function="Inventory.DoCreate" userdata="notecard" />
+	</menu_item_call>
+	<menu_item_call name="New Gesture" label="New gesture">
+		<on_click filter="" function="Inventory.DoCreate" userdata="gesture" />
+	</menu_item_call>
+	<menu_item_call name="New Material" label="New material">
+		<on_click filter="" function="Inventory.DoCreate" userdata="material" />
+	</menu_item_call>
+	<menu name="New Clothes" label="New clothes" color="MenuDefaultBgColor"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false">
+		<menu_item_call name="New Shirt" label="New shirt">
+			<on_click filter="" function="Inventory.DoCreate" userdata="shirt" />
+		</menu_item_call>
+		<menu_item_call name="New Pants" label="New pants">
+			<on_click filter="" function="Inventory.DoCreate" userdata="pants" />
+		</menu_item_call>
+		<menu_item_call name="New Shoes" label="New shoes">
+			<on_click filter="" function="Inventory.DoCreate" userdata="shoes" />
+		</menu_item_call>
+		<menu_item_call name="New Socks" label="New socks">
+			<on_click filter="" function="Inventory.DoCreate" userdata="socks" />
+		</menu_item_call>
+		<menu_item_call name="New Jacket" label="New jacket">
+			<on_click filter="" function="Inventory.DoCreate" userdata="jacket" />
+		</menu_item_call>
+		<menu_item_call name="New Skirt" label="New skirt">
+			<on_click filter="" function="Inventory.DoCreate" userdata="skirt" />
+		</menu_item_call>
+		<menu_item_call name="New Gloves" label="New gloves">
+			<on_click filter="" function="Inventory.DoCreate" userdata="gloves" />
+		</menu_item_call>
+		<menu_item_call name="New Undershirt" label="New undershirt">
+			<on_click filter="" function="Inventory.DoCreate" userdata="undershirt" />
+		</menu_item_call>
+		<menu_item_call name="New Underpants" label="New underpants">
+			<on_click filter="" function="Inventory.DoCreate" userdata="underpants" />
+		</menu_item_call>
+		<menu_item_call name="New Tattoo" label="New tattoo">
+			<on_click filter="" function="Inventory.DoCreate" userdata="tattoo" />
+		</menu_item_call>
+		<menu_item_call name="New Universal" label="New universal">
+			<on_click filter="" function="Inventory.DoCreate" userdata="universal" />
+		</menu_item_call>
+		<menu_item_call name="New Alpha" label="New alpha">
+			<on_click filter="" function="Inventory.DoCreate" userdata="alpha" />
+		</menu_item_call>
+		<menu_item_call name="New Physics" label="New physics">
+			<on_click filter="" function="Inventory.DoCreate" userdata="physics" />
+		</menu_item_call>
+	</menu>
+	<menu name="New Body Parts" label="New body parts" color="MenuDefaultBgColor"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false">
+		<menu_item_call name="New Shape" label="New shape">
+			<on_click filter="" function="Inventory.DoCreate" userdata="shape" />
+		</menu_item_call>
+		<menu_item_call name="New Skin" label="New skin">
+			<on_click filter="" function="Inventory.DoCreate" userdata="skin" />
+		</menu_item_call>
+		<menu_item_call name="New Hair" label="New hair">
+			<on_click filter="" function="Inventory.DoCreate" userdata="hair" />
+		</menu_item_call>
+		<menu_item_call name="New Eyes" label="New eyes">
+			<on_click filter="" function="Inventory.DoCreate" userdata="eyes" />
+		</menu_item_call>
+	</menu>
+	<menu_item_call name="New Calling Card" label="New calling card">
+		<on_click filter="" function="Inventory.DoCreate" userdata="callingcard" />
+	</menu_item_call>
+	<menu name="New Settings" label="New env. settings" color="MenuDefaultBgColor"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false">
+		<menu_item_call name="New Sky" label="New sky">
+			<on_click filter="" function="Inventory.DoCreate" userdata="sky" />
+		</menu_item_call>
+		<menu_item_call name="New Water" label="New water">
+			<on_click filter="" function="Inventory.DoCreate" userdata="water" />
+		</menu_item_call>
+		<menu_item_call name="New Day Cycle" label="New day cycle">
+			<on_click filter="" function="Inventory.DoCreate" userdata="day" />
+		</menu_item_call>
+	</menu>
+	<menu_item_separator name="Upload Prefs Separator" />
+	<menu name="Upload Prefs" label="Use as default for" color="MenuDefaultBgColor"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false">
+		<menu_item_call name="Animation uploads" label="Animation uploads">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="UploadAnimationFolder" />
+		</menu_item_call>
+		<menu_item_call name="Sound uploads" label="Sound uploads">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="UploadSoundFolder" />
+		</menu_item_call>
+		<menu_item_call name="Texture uploads" label="Texture uploads">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="UploadTextureFolder" />
+		</menu_item_call>
+		<menu_item_call name="Material uploads" label="Material uploads">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="UploadMaterialFolder" />
+		</menu_item_call>
+		<menu_item_call name="Model uploads" label="Mesh model uploads">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="UploadModelFolder" />
+		</menu_item_call>
+		<menu_item_call name="New outfits" label="New outfits">
+			<on_click filter="" function="Inventory.FileUploadLocation" userdata="NewOutfitFolder" />
+		</menu_item_call>
+	</menu>
+	<menu_item_call name="Find Original" label="Find original">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="goto" />
+	</menu_item_call>
+	<menu_item_call name="Purge Item" label="Purge item">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="purge" />
+	</menu_item_call>
+	<menu_item_call name="Restore Item" label="Restore item">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="restore" />
+	</menu_item_call>
+	<menu_item_call name="Restore to Last Position" label="Restore to last position">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="restoreToWorld" />
+	</menu_item_call>
+	<menu_item_call name="Open" label="Open">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Landmark Open" label="Teleport">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Animation Open" label="Play menu">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Animation Play" label="Play in world">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="playworld" />
+	</menu_item_call>
+	<menu_item_call name="Animation Audition" label="Play locally">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="playlocal" />
+	</menu_item_call>
+	<menu_item_separator name="Animation Separator" />
+	<menu_item_call name="Sound Open" label="Play menu">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Sound Play1" label="Play in world">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="playworld" />
+	</menu_item_call>
+	<menu_item_call name="Sound Play2" label="Play locally">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="playlocal" />
+	</menu_item_call>
+	<menu_item_separator name="Sound Separator" />
+	<menu_item_call name="Gesture Open" label="Edit">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Settings Open" label="Edit">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="open" />
+	</menu_item_call>
+	<menu_item_call name="Apply Local" label="Apply to myself">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="apply_settings_local" />
+	</menu_item_call>
+	<menu_item_call name="Apply Parcel" label="Apply to current parcel">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="apply_settings_parcel" />
+	</menu_item_call>
+	<menu_item_call name="Apply Region" label="Apply to current region">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="apply_settings_region" />
+	</menu_item_call>
+	<menu_item_separator name="Setings Separator" />
+	<menu_item_call name="Properties" label="Properties">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="properties" />
+	</menu_item_call>
+	<menu_item_call name="Thumbnail" label="Thumbnail...">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="thumbnail" />
+	</menu_item_call>
+	<menu_item_call name="Rename" label="Rename">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="rename" />
+	</menu_item_call>
+	<menu_item_call name="Copy Asset UUID" label="Copy asset UUID">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="copy_uuid" />
+	</menu_item_call>
+	<menu_item_separator name="Copy Separator" />
+	<menu_item_call name="Cut" label="Cut">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="cut" />
+	</menu_item_call>
+	<menu_item_call name="Copy" label="Copy">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="copy" />
+	</menu_item_call>
+	<menu_item_call name="Paste" label="Paste">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="paste" />
+	</menu_item_call>
+	<menu_item_call name="Paste As Link" label="Paste as link">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="paste_link" />
+	</menu_item_call>
+	<menu_item_call name="Move In New Folder" label="Move in new folder">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="group" />
+	</menu_item_call>
+	<menu_item_call name="Extract From Folder" label="Extract contained items">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="degroup" />
+	</menu_item_call>
+	<menu_item_separator name="Paste Separator" />
+	<menu_item_call name="Delete" label="Delete">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="delete" />
+	</menu_item_call>
+	<menu_item_separator name="Folder Wearables Separator" />
+	<menu_item_call name="Update Links" label="Update layers info">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="updatelinks" />
+	</menu_item_call>
+	<menu_item_call name="Take Off Items" label="Take off items">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="removefromoutfit" />
+	</menu_item_call>
+	<menu_item_call name="Add To Outfit" label="Add to outfit">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="addtooutfit" />
+	</menu_item_call>
+	<menu_item_call name="Wear Items" label="Wear/replace items">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="wearitems" />
+	</menu_item_call>
+	<menu_item_call name="Replace Outfit" label="Replace outfit">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="replaceoutfit" />
+	</menu_item_call>
+	<menu_item_separator name="Attach Separator" />
+	<menu_item_call name="Object Wear" label="Wear/replace">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="attach" />
+	</menu_item_call>
+	<menu_item_call name="Object Add" label="Add">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="attach_add" />
+	</menu_item_call>
+	<menu name="Attach To" label="Attach to"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false" />
+	<menu name="Attach To HUD" label="Attach to HUD"
+	 drop_shadow="true" mouse_opaque="false" opaque="true" tear_off="false" />
+	<menu_item_call name="Detach From Yourself" label="Detach from yourself">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="detach" />
+	</menu_item_call>
+	<menu_item_separator name="Wearable Separator" />
+	<menu_item_call name="Edit" label="Edit">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="edit" />
+	</menu_item_call>
+	<menu_item_call name="Inspect" label="Inspect">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="inspect" />
+	</menu_item_call>
+	<menu_item_call name="Wearable Wear" label="Wear/replace">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="wear" />
+	</menu_item_call>
+	<menu_item_call name="Wearable Add" label="Add">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="wear_add" />
+	</menu_item_call>
+	<menu_item_call name="Take Off" label="Take off">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="take_off" />
+	</menu_item_call>
+	<menu_item_separator name="Calling Card Separator" />
+	<menu_item_call label="Start conference chat"
+	     name="Conference Chat Folder">
+		<on_click filter="" function="Inventory.BeginIMSession" userdata="everyone" />
+	</menu_item_call>
+	<menu_item_separator name="Landmark Separator" />
+	<menu_item_call name="About Landmark" label="About landmark">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="about" />
+	</menu_item_call>
+	<menu_item_call name="Show on Map" label="Show on map">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="show_on_map" />
+	</menu_item_call>
+	<menu_item_separator name="Send Instant Message Separator" />
+	<menu_item_call label="Send instant message"
+	     name="Send Instant Message">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="begin_im" />
+	</menu_item_call>
+	<menu_item_call name="Offer Teleport..." label="Offer teleport...">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="lure" />
+	</menu_item_call>
+	<menu_item_call name="Request Teleport..." label="Request teleport...">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="request_teleport" />
+	</menu_item_call>
+	<menu_item_call name="Conference Chat" label="Start conference chat">
+		<on_click filter="" function="Inventory.BeginIMSession" userdata="selected" />
+	</menu_item_call>
+	<menu_item_separator name="Gesture Separator" />
+	<menu_item_call name="Activate" label="Activate">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="activate" />
+	</menu_item_call>
+	<menu_item_call name="Deactivate" label="Deactivate">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="deactivate" />
+	</menu_item_call>
+	<menu_item_separator name="Marketplace Separator" />
+	<menu_item_call name="Marketplace Connect" label="Connect to Marketplace">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_connect" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Create Listing" label="Create listing">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_create_listing" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Associate Listing" label="Associate listing">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_associate_listing" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Get Listing" label="Get/refresh listing">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_get_listing" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Check Listing" label="Check for errors">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_check_listing" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Edit Listing" label="Edit listing">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_edit_listing" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace List" label="List">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_list" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Unlist" label="Unlist">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_unlist" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Activate" label="Activate">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_activate" />
+	</menu_item_call>
+	<menu_item_call name="Marketplace Deactivate" label="Deactivate">
+		<on_click filter="" function="Inventory.DoToSelected" userdata="marketplace_deactivate" />
+	</menu_item_call>
+</menu>

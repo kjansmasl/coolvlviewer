@@ -1,0 +1,7 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleName = "Cool VL Viewer";
+
+CFBundleShortVersionString = "Cool VL Viewer vviewer_version_major.viewer_version_minor.viewer_version_branch.viewer_version_release";
+CFBundleGetInfoString = "Cool VL Viewer version viewer_version_major.viewer_version_minor.viewer_version_branch.viewer_version_release, Copyright 2001-viewer_copyright_year Linden Research Inc., Henri Beauchamp and other Open Source developers";
+

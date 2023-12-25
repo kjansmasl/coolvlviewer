@@ -1,0 +1,1505 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="build" title="" short_title="Build" rect_control="ToolboxRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false" sound_flags="0"
+ height="550" min_height="550" width="272" min_width="272" follows="top|left">
+
+<!-- Main floater tabs -->
+
+	<button bottom="-34" follows="left|top" font="SansSerif" height="32"
+	     image_disabled="tool_zoom.tga"
+	     image_disabled_selected="tool_zoom_active.tga"
+	     image_selected="tool_zoom_active.tga" image_unselected="tool_zoom.tga"
+	     label="" left="4" name="button focus"
+	     tool_tip="Focus" width="32" />
+	<button bottom="-34" follows="left|top" font="SansSerif" height="32"
+	     image_disabled="UIImgGrabUUID"
+	     image_disabled_selected="UIImgGrabSelectedUUID"
+	     image_selected="UIImgGrabSelectedUUID" image_unselected="UIImgGrabUUID"
+	     label="" left="40" name="button move"
+	     tool_tip="Move" width="32" />
+	<button bottom="-34" follows="left|top" font="SansSerif" height="32"
+	     image_disabled="UIImgFaceUUID"
+	     image_disabled_selected="UIImgFaceSelectedUUID"
+	     image_selected="UIImgFaceSelectedUUID" image_unselected="UIImgFaceUUID"
+	     label="" left="76" name="button edit"
+	     tool_tip="Edit" width="32" />
+	<button bottom="-34" follows="left|top" font="SansSerif" height="32"
+	     image_disabled="UIImgCreateUUID"
+	     image_disabled_selected="UIImgCreateSelectedUUID"
+	     image_selected="UIImgCreateSelectedUUID" image_unselected="UIImgCreateUUID"
+	     label="" left="112"
+	     name="button create" tool_tip="Create" width="32" />
+	<button bottom="-34" follows="left|top" font="SansSerif" height="32"
+	     image_disabled="tool_dozer.tga"
+	     image_disabled_selected="tool_dozer_active.tga"
+	     image_selected="tool_dozer_active.tga" image_unselected="tool_dozer.tga"
+	     label="" left="148"
+	     name="button land" tool_tip="Land" width="32" />
+
+<!-- Focus panel -->
+
+	<check_box bottom="-70" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Zoom" left="4"
+	     name="radio zoom" radio_style="true" width="114" />
+	<volume_slider bottom="-69" follows="left|top" height="14" increment="0.01"
+	     initial_val="0.125" left="114" max_val="0.5" min_val="0"
+	     name="slider zoom" width="134" />
+	<check_box bottom="-84" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Orbit (Ctrl)" left="4"
+	     name="radio orbit" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Pan (Ctrl-Shift)" left="4"
+	     name="radio pan" radio_style="true" width="114" />
+
+<!-- Move panel -->
+
+	<check_box bottom="-70" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Move" left="4"
+	     name="radio move" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Lift (Ctrl)" left="4"
+	     name="radio lift" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Spin (Ctrl-Shift)" left="4"
+	     name="radio spin" radio_style="true" width="114" />
+
+<!-- Edit panel -->
+	<check_box bottom="-70" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Position" left="4"
+	     name="radio position" radio_style="true" width="70" />
+	<check_box bottom="-70" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Align" left="75"
+	     name="radio align" radio_style="true" width="50"
+	     tool_tip="Aligns the edges of the selected prims along an axis, Keep SHIFT pressed to pack the prims till they are touching." />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Rotate (Ctrl)" left="4"
+	     name="radio rotate" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Stretch (Ctrl-Shift)" left="4"
+	     name="radio stretch" radio_style="true" width="123" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Select texture" left="4"
+	     name="radio select face" radio_style="true" width="114" />
+	<check_box bottom_delta="-22" control_name="EditLinkedParts" follows="left|top"
+	     font="SansSerifSmall" height="16" initial_value="false"
+	     label="Edit linked parts" left="4"
+	     name="checkbox edit linked parts" width="100" />
+	<button name="prev_child" label="&lt;" font="SansSerifSmall"
+	 tool_tip="Select the previous linked primitive or face (in texture selection mode)."
+	 left_delta="106" bottom_delta="0" width="16" height="18" follows="left|top" />
+	<button name="next_child" label="&gt;" font="SansSerifSmall"
+	 tool_tip="Select the next linked primitive or face (in texture selection mode)."
+	 left_delta="16" bottom_delta="0" width="16" height="18" follows="left|top" />
+	<text
+	     bottom_delta="-20" follows="left|top"
+	     font="SansSerifSmall" height="14" left="6"
+	     name="text ruler mode" width="36">
+		Ruler:
+	</text>
+	<combo_box name="combobox grid mode" allow_text_entry="false" max_chars="20"
+	 left_delta="36" bottom_delta="-2" width="86" height="18" follows="left|top">
+		<combo_item name="World" value="World">
+			World
+		</combo_item>
+		<combo_item name="Local" value="Local">
+			Local
+		</combo_item>
+		<combo_item name="Reference" value="Reference">
+			Reference
+		</combo_item>
+	</combo_box>
+	<check_box name="checkbox use root for pivot" control_name="BuildUseRootForPivot"
+	 label="Use root for pivot" font="SansSerifSmall"
+	 left="143" bottom="-70" width="134" height="15" follows="left|top" />
+	<check_box name="checkbox uniform" control_name="ScaleUniform"
+	 label="Stretch both sides" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-16" width="134" height="15" follows="left|top" />
+	<check_box name="checkbox stretch textures" control_name="ScaleStretchTextures"
+	 label="Stretch textures" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-16" width="134" height="15" follows="left|top" />
+	<button name="Grid Options" label="Grid options" font="SansSerifSmall" valign="center"
+	 left_delta="2" bottom_delta="-17" width="116" height="18" follows="left|top" />
+	<button name="Link" label="Link" font="SansSerifSmall" valign="center"
+	 left_delta="0" bottom_delta="-18" width="54" height="18" follows="left|top" />
+	<button name="Unlink" label="Unlink" font="SansSerifSmall" valign="center"
+	 left_delta="62" bottom_delta="0" width="54" height="18" follows="left|top" />
+	<text name="obj_count" font="SansSerifSmall" mouse_opaque="true"
+	 halign="right"
+	 tool_tip="This is the total number of selected objects. Click for detailed statistics."
+	 left="128" bottom_delta="-14" width="133" height="14" follows="left|top">
+		Selected objects: [COUNT]
+	</text>
+	<text name="prim_count" font="SansSerifSmall" mouse_opaque="true"
+	 halign="right"
+	 tool_tip="This is the total number of selected primitives. When the land impact is different than the number of primitives, it is presented between parenthesis after the latter. Click for detailed statistics."
+	 left="128" bottom_delta="-14" width="133" height="14" follows="left|top">
+		primitives: [COUNT]
+	</text>
+
+<!-- Help text -->
+
+	<text bottom="-52" follows="left|top"
+	     font="SansSerifSmall" height="16" left="4"
+	     name="text status" width="264">
+		Drag to move, shift-drag to copy
+	</text>
+
+<!-- Create panel -->
+
+	<button bottom="-75" follows="left|top" font="SansSerif" height="24"
+	     image_disabled="object_cube.tga"
+	     image_disabled_selected="object_cube_active.tga"
+	     image_selected="object_cube_active.tga" image_unselected="object_cube.tga"
+	     label="" left="4" name="ToolCube"
+	     scale_image="true" width="24" tool_tip="Cube"/>
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_prism.tga"
+	     image_disabled_selected="object_prism_active.tga"
+	     image_selected="object_prism_active.tga"
+	     image_unselected="object_prism.tga" label=""
+	     left_delta="23" name="ToolPrism" scale_image="true"
+        tool_tip="Prism" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_pyramid.tga"
+	     image_disabled_selected="object_pyramid_active.tga"
+	     image_selected="object_pyramid_active.tga"
+	     image_unselected="object_pyramid.tga" label=""
+	     left_delta="23" name="ToolPyramid" scale_image="true"
+		 tool_tip="Pyramid" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_tetrahedron.tga"
+	     image_disabled_selected="object_tetrahedron_active.tga"
+	     image_selected="object_tetrahedron_active.tga"
+	     image_unselected="object_tetrahedron.tga" label=""
+	     left_delta="23" name="ToolTetrahedron"
+	     scale_image="true" tool_tip="Tetrahedron" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_cylinder.tga"
+	     image_disabled_selected="object_cylinder_active.tga"
+	     image_selected="object_cylinder_active.tga"
+	     image_unselected="object_cylinder.tga" label=""
+	     left_delta="23" tool_tip="Cylinder" name="ToolCylinder" scale_image="true"
+	     width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_hemi_cylinder.tga"
+	     image_disabled_selected="object_hemi_cylinder_active.tga"
+	     image_selected="object_hemi_cylinder_active.tga"
+	     image_unselected="object_hemi_cylinder.tga" label=""
+	     left_delta="23" name="ToolHemiCylinder"
+	     scale_image="true" tool_tip="Hemicylinder" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_cone.tga"
+	     image_disabled_selected="object_cone_active.tga"
+	     image_selected="object_cone_active.tga" image_unselected="object_cone.tga"
+	     label="" left_delta="23"
+	     name="ToolCone" scale_image="true" tool_tip="Cone" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_hemi_cone.tga"
+	     image_disabled_selected="object_hemi_cone_active.tga"
+	     image_selected="object_hemi_cone_active.tga"
+	     image_unselected="object_hemi_cone.tga" label=""
+	     left_delta="23" name="ToolHemiCone" scale_image="true"
+		 tool_tip="Hemicone" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_sphere.tga"
+	     image_disabled_selected="object_sphere_active.tga"
+	     image_selected="object_sphere_active.tga"
+	     image_unselected="object_sphere.tga" label=""
+	     left_delta="23" name="ToolSphere" scale_image="true"
+	     width="24" tool_tip="Sphere" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_hemi_sphere.tga"
+	     image_disabled_selected="object_hemi_sphere_active.tga"
+	     image_selected="object_hemi_sphere_active.tga"
+	     image_unselected="object_hemi_sphere.tga" label=""
+	     left_delta="23" name="ToolHemiSphere"
+	     scale_image="true" tool_tip="Hemisphere" width="24" />
+	<button bottom_delta="-23" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_torus.tga"
+	     image_disabled_selected="object_torus_active.tga"
+	     image_selected="object_torus_active.tga"
+	     image_unselected="object_torus.tga" label="" left="4"
+	     name="ToolTorus" scale_image="true" tool_tip="Torus" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_tube.tga"
+	     image_disabled_selected="object_tube_active.tga"
+	     image_selected="object_tube_active.tga" image_unselected="object_tube.tga"
+	     label="" left_delta="23"
+	     name="ToolTube" scale_image="true" tool_tip="Tube" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_ring.tga"
+	     image_disabled_selected="object_ring_active.tga"
+	     image_selected="object_ring_active.tga" image_unselected="object_ring.tga"
+	     label="" left_delta="23"
+	     name="ToolRing" scale_image="true" tool_tip="Ring" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_tree.tga"
+	     image_disabled_selected="object_tree_active.tga"
+	     image_selected="object_tree_active.tga" image_unselected="object_tree.tga"
+	     label="" left_delta="23"
+	     name="ToolTree" scale_image="true" tool_tip="Tree" width="24" />
+	<button bottom_delta="0" follows="left|top" font="SansSerif"
+	     height="24" image_disabled="object_grass.tga"
+	     image_disabled_selected="object_grass_active.tga"
+	     image_selected="object_grass_active.tga"
+	     image_unselected="object_grass.tga" label=""
+	     left_delta="23" name="ToolGrass" scale_image="true"
+	     tool_tip="Grass" width="24" />
+	<text name="tree_grass_label" font="SansSerifSmall"
+	 right="-5" bottom="-104" width="135" height="16" follows="left|top"/>
+	<combo_box name="tree_grass" allow_text_entry="false" max_chars="20"
+	 enabled="false"
+     right="-5" bottom="-122" width="135" height="18" follows="left|top" />
+	<check_box bottom="-117" control_name="CreateToolKeepSelected" follows="left|top"
+	     font="SansSerifSmall" height="16" initial_value="false"
+	     label="Keep selected" left="4"
+	     name="checkbox sticky" width="128" />
+	<check_box bottom_delta="-15" control_name="CreateToolCopySelection" follows="left|top"
+	     font="SansSerifSmall" height="16" initial_value="false"
+	     label="Copy selected" left_delta="0"
+	     name="checkbox copy selection" width="134" />
+	<check_box bottom_delta="-16" control_name="CreateToolCopyCenters" follows="left|top"
+	     font="SansSerifSmall" height="16" initial_value="true" label="Center"
+	     left_delta="18" name="checkbox copy centers"
+	     width="134" />
+	<check_box bottom_delta="-16" control_name="CreateToolCopyRotates" follows="left|top"
+	     font="SansSerifSmall" height="16" initial_value="false" label="Rotate"
+	     left_delta="0" name="checkbox copy rotates" width="134" />
+
+<!-- Land panel -->
+
+	<check_box bottom="-69" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Select land" left="4"
+	     name="radio select land" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Flatten" left="4"
+	     name="radio flatten" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Raise" left="4"
+	     name="radio raise" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Lower" left="4"
+	     name="radio lower" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Smooth" left="4"
+	     name="radio smooth" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Roughen" left="4"
+	     name="radio noise" radio_style="true" width="114" />
+	<check_box bottom_delta="-15" follows="left|top" font="SansSerifSmall" height="16"
+	     initial_value="false" label="Revert" left="4"
+	     name="radio revert" radio_style="true" width="114" />
+	<button bottom="-72" follows="left|top" font="SansSerifSmall"
+	     height="20" label="Apply"
+	     left="116" name="button apply to selection"
+	     tool_tip="Modify Selected Land" width="78" />
+	<text bottom_delta="-16"
+	     follows="left|top" font="SansSerifSmall" height="12" left="118"
+	     name="Bulldozer:" width="100">
+	          Bulldozer:
+	</text>
+	<text bottom_delta="-18"
+	     follows="left|top" font="SansSerifSmall" height="12" left="132"
+	     name="Dozer Size:" width="100">
+	          Size
+	</text>
+	<volume_slider bottom_delta="-4" follows="left|top" height="16"
+         increment="0.1" initial_val="2.0" left="178" max_val="11.0" min_val="1.0"
+	     name="slider brush size" width="80" />	
+	<text bottom_delta="-18"
+	     follows="left|top" font="SansSerifSmall" height="12" left="132"
+	      name="Strength:" width="100">
+	          Strength
+	</text>
+	<volume_slider bottom_delta="-4" follows="left|top" height="16"
+	     increment="0.1" initial_val="0.00" left="178" max_val="2.0" min_val="-1.0"
+	     name="slider force" width="80" />
+
+<!-- Sub-tabs -->
+
+	<tab_container bottom="-550" follows="left|top" height="384" left="0" mouse_opaque="false"
+	     name="Object Info Tabs" tab_max_width="52" tab_min_width="40"
+	     tab_position="top" width="272">
+		<panel border="true" bottom="-383" follows="left|top|right|bottom" height="367"
+		     label="General" left="1" mouse_opaque="false" name="General" width="270">
+			<text bottom="-20" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="Name:" width="78">
+				Name:
+			</text>
+			<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-26"
+			     follows="left|top|right" font="SansSerifSmall" height="16" left="88"
+			     max_length="63" name="Object Name"
+			     select_all_on_focus_received="true" width="172" />
+			<text bottom="-40" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="Description:" width="78">
+				Description:
+			</text>
+			<line_editor bevel_style="in" border_style="line" border_thickness="1" bottom="-46"
+			     follows="left|top|right" font="SansSerifSmall" height="16" left="88"
+			     max_length="127" name="Object Description"
+			     select_all_on_focus_received="true" width="172" />
+			<text bottom="-66" follows="left|top"
+			     font="SansSerifSmall" height="16" left="10"
+			     name="Creator:" width="78">
+				Creator:
+			</text>
+			<text bottom="-66" follows="left|top"
+			     font="SansSerifSmall" height="16" left_delta="78"
+			     name="Creator Name" width="88" />
+			<button bottom="-66" follows="top|right" font="SansSerifSmall"
+			     height="18" label="Profile..." left_delta="94"
+			     name="button creator profile"
+			     width="78" />
+			<text bottom="-86" follows="left|top"
+			     font="SansSerifSmall" height="16" left="10"
+			     name="Owner:" width="78">
+				Owner:
+			</text>
+			<text bottom="-86" follows="left|top"
+			     font="SansSerifSmall" height="16" left_delta="78"
+			     name="Owner Name" width="88" />
+			<button bottom="-86" follows="top|right" font="SansSerifSmall"
+			     height="18" label="Profile..." left_delta="94"
+			     name="button owner profile"
+			     width="78" />
+			<text bottom="-106" follows="left|top"
+			     font="SansSerifSmall" height="16" left="10"
+			     name="Group:" width="78">
+				Group:
+			</text>
+			<text bottom="-106" follows="left|top"
+			     font="SansSerifSmall" height="16" left_delta="78"
+			     name="Group Name Proxy" visible="false"
+			     width="88" />
+			<button bottom="-106" follows="top|right" font="SansSerifSmall"
+			     height="18" label="Set..." left_delta="94"
+			     name="button set group" width="78" />
+			<text bottom_delta="-20" follows="left|top"
+			     font="SansSerifSmall" height="16" left="10"
+			     name="Permissions:" width="85">
+				Permissions:
+			</text>
+			<text bottom_delta="-20" follows="left|top|right"
+			     font="SansSerifSmall" height="16" left="10"
+			     name="perm_modify" width="250">
+				You can modify this object.
+			</text>
+			<check_box name="share_with_group" label="Share with group" font="SansSerifSmall"
+			 tool_tip="Allow all members of the set group to share and use your permissions for this object. You must Deed to enable role restrictions."
+			 left="10" bottom_delta="-20" width="166" height="16" follows="left|top" />
+			<string name="text deed continued">
+				Deed...
+			</string>
+			<string name="text deed">
+				Deed
+			</string>
+			<button name="button deed" label="Deed..." font="SansSerifSmall"
+			 tool_tip="Group shared objects can be deeded by you if you are a group officer. BEWARE: deeding an object to a group also means relinquishing its ownership to that group, i.e. you will not any more be considered as the owner of the object and owner-specific actions on it (such as taking the object back to your inventory, but not only) will become unavailable to you."
+			 left_delta="172" bottom_delta="-1" width="78" height="18" follows="left|top" />
+			<check_box name="allow_export" label="Allow anyone to export" font="SansSerifSmall"
+			 left="10" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<check_box name="everyone_move" label="Allow anyone to move" font="SansSerifSmall"
+			 left="10" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<check_box name="everyone_copy" label="Allow anyone to copy" font="SansSerifSmall"
+			 left="10" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<check_box name="search_check" label="Show in search" font="SansSerifSmall"
+		     tool_tip="Let people see this object in search results"
+			 left="10" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<check_box name="for_sale" label="For sale" font="SansSerifSmall"
+			 left="10" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<text name="Cost" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="90" width="78" height="16" follows="left|top">
+				Price:  L$
+			</text>
+			<line_editor name="Edit Cost" font="SansSerifSmall" max_length="25"
+			 left_delta="80" bottom_delta="0" width="75" height="16" follows="left|top|right" />
+			<radio_group name="sale type" draw_border="false"
+			 left="42" bottom_delta="-20" width="218" height="16" follows="left|top|right">
+				<radio_item name="Original"
+				 left="0" bottom="-16" width="70" height="16" follows="left|top">
+					Original
+				</radio_item>
+				<radio_item name="Copy"
+				 left="70" bottom="-16" width="70" height="16" follows="left|top">
+					Copy
+				</radio_item>
+				<radio_item name="Contents"
+				 left="140" bottom="-16" width="70" height="16" follows="left|top">
+					Contents
+				</radio_item>
+			</radio_group>
+			<text name="next_owner_can" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the permissions for the next person who will acquire this object (either by copying it, being it given by you, or buying it from you)."
+			 left="10" bottom_delta="-20" width="250" height="16" follows="left|top|right">
+				Next owner will be able to:
+			</text>
+			<check_box name="next_can_modify" label="Modify" font="SansSerifSmall"
+			 left="10" bottom_delta="-20" width="66" height="16" follows="left|top" />
+			<check_box name="next_can_copy" label="Copy" font="SansSerifSmall"
+			 left_delta="70" bottom_delta="0" width="66" height="16" follows="left|top" />
+			<check_box name="next_can_transfer" label="Transfer" font="SansSerifSmall"
+			 left_delta="70" bottom_delta="0" width="66" height="16" follows="left|top" />
+			<text name="label click action" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="100" height="16" follows="left|top">
+				When left-clicked:
+			</text>
+			<combo_box name="clickaction" allow_text_entry="false" max_chars="20"
+			 left_delta="110" bottom_delta="0" width="140" height="18" follows="left|top">
+			     <!-- Do not reorder these items: the index numbers are used internally. -->
+				<combo_item name="Touch/grab(default)" value="Touch/grab (default)">
+					Touch/grab (default)
+				</combo_item>
+				<combo_item name="Sitonobject" value="Sit on object">
+					Sit on object
+				</combo_item>
+				<combo_item name="Buyobject" value="Buy object">
+					Buy object
+				</combo_item>
+				<combo_item name="Payobject" value="Pay object">
+					Pay object
+				</combo_item>
+				<combo_item name="Open" value="Open">
+					Open
+				</combo_item>
+				<combo_item name="Play" value="Play">
+					Play parcel media
+				</combo_item>
+				<combo_item name="Opemmedia" value="Open Media">
+					Open parcel media
+				</combo_item>
+				<combo_item name="Zoom" value="Zoom">
+					Zoom on object
+				</combo_item>
+				<combo_item name="None" value="None">
+					No action
+				</combo_item>
+				<combo_item name="Ignore" value="Ignore">
+					Ignore object
+				</combo_item>
+			</combo_box>
+			<icon name="navmeshicon" image_name="nav_mesh_info.tga" mouse_opaque="true" visible="false"
+			 tool_tip="The current selection got navmesh/pathfinding attributes."
+			 bottom_delta="-18" left="6" height="16" width="32" />
+			<text name="navmeshinfo" font="SansSerifSmall" visible="false"
+			 bottom_delta="-2" left_delta="32" height="16" width="224" />
+			<text name="B:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the base permissions; the object can never be more permissive than this. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+			 left="88" bottom="-115" width="50" height="10" follows="left|top" >
+				B:
+			</text>
+			<text name="O:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the owner permissions. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+			 left_delta="55" bottom_delta="0" width="50" height="10" follows="left|top" >
+				O:
+			</text>
+			<text name="G:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the group permissions (the group the object is set or deeded to is shown next to 'Group:' above). V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer."
+			 left_delta="55" bottom_delta="0" width="50" height="10" follows="left|top" >
+				G:
+			</text>
+			<text name="E:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the permissions everyone else has on the object. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer, E = Export."
+			 left="88" bottom="-127" width="50" height="10" follows="left|top" >
+				E:
+			</text>
+			<text name="N:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the permissions the next person to own the object will have. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer."
+			 left_delta="55" bottom_delta="0" width="50" height="10" follows="left|top" >
+				N:
+			</text>
+			<text name="F:" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="These are the permissions of the object as a whole (F = full), including all permissions of the object's contents. For example, a copyable object which has a no-copy item added to its contents becomes non-copyable as a whole because it's restricted by the no-copy content item. V = Velocity (allow anyone to move), M = Modify, C = Copy, T = Transfer."
+			 left_delta="55" bottom_delta="0" width="50" height="10" follows="left|top" >
+				F:
+			</text>
+			<string name="text modify info 1">
+				You can modify this object.
+			</string>
+			<string name="text modify info 2">
+				You can modify these objects.
+			</string>
+			<string name="text modify info 3">
+				You cannot modify this object.
+			</string>
+			<string name="text modify info 4">
+				You cannot modify these objects.
+			</string>
+			<string name="text modify info 5">
+				You can't modify this object across a region boundary.
+			</string>
+			<string name="text modify info 6">
+				You can't modify these objects across a region boundary.
+			</string>
+			<string name="text modify warning">
+				Must select entire object to set permissions.
+			</string>
+			<string name="Cost Default">
+			Price:           L$
+			</string>
+			<string name="Cost Total">
+			Total Price:  L$
+			</string>
+			<string name="Cost Per Unit">
+			Price Per:     L$
+			</string>
+			<string name="Cost Mixed">
+			Mixed Price
+			</string>
+			<string name="Sale Mixed">
+			Mixed Sale
+			</string>
+		</panel>
+
+<!-- Object sub-tab -->
+
+		<panel border="true" bottom="-383" follows="left|top|right|bottom" height="367"
+		     label="Object" left="1" mouse_opaque="false" name="Object" width="270">
+			<text bottom="-16" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="select_single" width="252">
+				Select only one primitive to edit parameters.
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left_delta="0"
+			     name="edit_object" width="135">
+				Edit object parameters:
+			</text>
+			<check_box bottom_delta="-6" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Paste shape" left="150"
+			     name="paste_shape"
+			     tool_tip="If checked and on 'Paste' action, causes the shape parameters to be set to the last copied ones."
+			     width="100" />
+			<check_box bottom_delta="-18" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Locked" left="8"
+			     name="checkbox locked"
+			     tool_tip="Prevents object from being moved or deleted. Frequently useful during building to avoid unintended edits."
+			     width="123" />
+			<check_box bottom_delta="-16" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Temporary" left="8"
+			     name="Temporary Checkbox Ctrl"
+			     tool_tip="Causes object to be deleted 1 minute after creation." width="123" />
+			<check_box bottom_delta="-16" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Phantom" left="8"
+			     name="Phantom Checkbox Ctrl"
+			     tool_tip="Causes object to not collide with other objects or avatars"
+			     width="123" />
+			<text bottom_delta="-28" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="label position" width="121">
+				Position (meters)
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="X" label_width="10" left="10"
+			     max_val="512" min_val="-256" name="Pos X"
+			     text_enabled_color="110, 15, 15, 255" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Y" label_width="10" left="10"
+			     max_val="512" min_val="-256" name="Pos Y"
+			     text_enabled_color="0, 100, 40, 255" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Z" label_width="10" left="10"
+			     max_val="4096" min_val="-32" name="Pos Z"
+			     text_enabled_color="0, 67, 132, 255" width="87" />
+			<check_box bottom_delta="-18" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Paste pos." left="3"
+			     name="paste_position"
+			     tool_tip="If checked and on 'Paste' action, causes the position coordinates to be set to the last copied ones."
+			     width="123" />
+			<text bottom_delta="-12" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="label size" width="121">
+				Size (meters)
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="X" label_width="10" left="10"
+			     max_val="256" min_val="0.01" name="Scale X"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Y" label_width="10" left="10"
+			     max_val="256" min_val="0.01" name="Scale Y"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Z" label_width="10" left="10"
+			     max_val="256" min_val="0.01" name="Scale Z"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<check_box bottom_delta="-18" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Paste size" left="3"
+			     name="paste_size"
+			     tool_tip="If checked and on 'Paste' action, causes the size dimensions to be set to the last copied ones."
+			     width="123" />
+			<text bottom_delta="-12" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="label rotation" width="121">
+				Rotation (degrees)
+			</text>
+			<spinner bottom_delta="-22" decimal_digits="2" follows="left|top" height="16"
+			     increment="1" initial_val="0" label="X" label_width="10" left="10"
+			     max_val="9999" min_val="-9999" name="Rot X"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="2" follows="left|top" height="16"
+			     increment="1" initial_val="0" label="Y" label_width="10" left="10"
+			     max_val="9999" min_val="-9999" name="Rot Y"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<spinner bottom_delta="-18" decimal_digits="2" follows="left|top" height="16"
+			     increment="1" initial_val="0" label="Z" label_width="10" left="10"
+			     max_val="9999" min_val="-9999" name="Rot Z"
+			     text_enabled_color="1, 1, 1, 1" width="87" />
+			<check_box bottom_delta="-18" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Paste rot." left="3"
+			     name="paste_rotation"
+			     tool_tip="If checked and on 'Paste' action, causes the rotation angles to be set to the last copied ones."
+			     width="123" />
+			<button name="copy" label="Copy" font="SansSerifSmall"
+			 tool_tip="Copy all the parameters of this primitive to the object clipboard."
+			 bottom_delta="-16" left="6" height="14" width="50" follows="left|top"/>
+			<button name="paste" label="Paste" font="SansSerifSmall"
+			 tool_tip="Paste the selected (with 'Paste ...' check boxes) parameters from the object clipboard."
+			 bottom_delta="0" left_delta="55" height="14" width="50" follows="left|top"/>
+			<text bottom="-32" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="label basetype" width="141">
+				Building block type
+			</text>
+			<combo_box allow_text_entry="false" bottom_delta="-24" follows="left|top" height="18"
+			     left="121" max_chars="20" name="comboBaseType"
+			     width="141">
+				<combo_item name="Box" value="Box">
+					Box
+				</combo_item>
+				<combo_item name="Cylinder" value="Cylinder">
+					Cylinder
+				</combo_item>
+				<combo_item name="Prism" value="Prism">
+					Prism
+				</combo_item>
+				<combo_item name="Sphere" value="Sphere">
+					Sphere
+				</combo_item>
+				<combo_item name="Torus" value="Torus">
+					Torus
+				</combo_item>
+				<combo_item name="Tube" value="Tube">
+					Tube
+				</combo_item>
+				<combo_item name="Ring" value="Ring">
+					Ring
+				</combo_item>
+				<combo_item name="Sculpted" value="Sculpted">
+					Sculpted
+				</combo_item>
+			</combo_box>
+			<text bottom_delta="-12" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text cut" width="141">
+				Path cut begin and end
+			</text>
+			<spinner bottom_delta="-22" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.025" initial_val="0" label="B" label_width="10" left="121"
+			     max_val="0.98" min_val="0" name="cut begin" width="68" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.025" initial_val="1" label="E" label_width="10" left_delta="73"
+			     max_val="1" min_val="0.02" name="cut end" width="68" />
+			<text bottom_delta="-14" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text hollow" width="68">
+				Hollow
+			</text>
+			<text
+			     bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left_delta="78"
+			     name="text skew" width="63">
+				Skew
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="1" follows="left|top" height="16"
+			     increment="5" initial_val="0" left="121" max_val="95" min_val="0"
+			     name="Scale 1" width="68" />
+			<spinner bottom_delta="0" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" left_delta="73" max_val="0.95"
+			     min_val="-0.95" name="Skew" width="68" />
+			<text bottom_delta="-15" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="Hollow Shape" width="141">
+				Hollow shape
+			</text>
+			<combo_box allow_text_entry="false" bottom_delta="-24" follows="left|top" height="18"
+			     left="121" max_chars="20" name="hole" width="141">
+				<combo_item name="Default" value="Default">
+					Default
+				</combo_item>
+				<combo_item name="Circle" value="Circle">
+					Circle
+				</combo_item>
+				<combo_item name="Square" value="Square">
+					Square
+				</combo_item>
+				<combo_item name="Triangle" value="Triangle">
+					Triangle
+				</combo_item>
+			</combo_box>
+			<text bottom_delta="-12" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text twist" width="141">
+				Twist begin and end
+			</text>
+			<spinner bottom_delta="-22" decimal_digits="0" follows="left|top" height="16"
+			     increment="9" initial_val="0" label="B" label_width="10" left="121"
+			     max_val="180" min_val="-180" name="Twist Begin"
+			     width="68" />
+			<spinner bottom_delta="0" decimal_digits="0" follows="left|top" height="16"
+			     increment="9" initial_val="0" label="E" label_width="10" left_delta="73"
+			     max_val="180" min_val="-180" name="Twist End"
+			     width="68" />
+			<text bottom_delta="-14" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="scale_taper" width="141">
+				Taper
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="scale_hole" width="141">
+				Hole size
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="X" label_width="10" left="121"
+			     max_val="1" min_val="-1" name="Taper Scale X"
+			     width="68" />
+			<spinner bottom_delta="0" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="Y" label_width="10" left_delta="73"
+			     max_val="1" min_val="-1" name="Taper Scale Y"
+			     width="68" />
+			<text bottom_delta="-14" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text topshear" width="141">
+				Top shear
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="X" label_width="10" left="121"
+			     max_val="0.5" min_val="-0.5" name="Shear X" width="68" />
+			<spinner bottom_delta="0" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="Y" label_width="10" left_delta="73"
+			     max_val="0.5" min_val="-0.5" name="Shear Y" width="68" />
+			<text bottom_delta="-14" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="advanced_cut" width="141">
+				Profile cut begin and end
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left_delta="0"
+			     name="advanced_dimple" width="141">
+				Dimple begin and end
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left_delta="0"
+			     name="advanced_slice" width="141">
+				Slice begin and end
+			</text>
+			<spinner bottom_delta="-19" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.02" initial_val="0" label="B" label_width="10" left="121"
+			     max_val="0.98" min_val="0" name="Path Limit Begin"
+			     width="68" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.02" initial_val="1" label="E" label_width="10" left_delta="73"
+			     max_val="1" min_val="0.02" name="Path Limit End"
+			     width="68" />
+			<text bottom_delta="-14" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text taper2" width="141">
+				Taper
+			</text>
+			<spinner bottom_delta="-19" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="X" label_width="10" left="121"
+			     max_val="1" min_val="-1" name="Taper X" width="68" />
+			<spinner bottom_delta="0" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" label="Y" label_width="10" left_delta="73"
+			     max_val="1" min_val="-1" name="Taper Y" width="68" />
+			<text bottom_delta="-12" follows="left|top"
+			     font="SansSerifSmall" height="10" left="121"
+			     name="text radius delta" width="78">
+				Radius
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left_delta="73"
+			     name="text revolutions" width="68">
+				Revolutions
+			</text>
+			<spinner bottom_delta="-19" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.05" initial_val="0" left="121" max_val="1" min_val="-1"
+			     name="Radius Offset" width="68" />
+			<spinner bottom_delta="0" decimal_digits="2" follows="left|top" height="16"
+			     increment="0.1" initial_val="1" left_delta="73" max_val="4" min_val="1"
+			     name="Revolutions" width="68" />
+			<texture_picker allow_no_texture="false" bottom="-211" can_apply_immediately="true"
+			     default_image_name="Default" follows="left|top" height="141"
+			     label="Sculpt texture" left="121" mouse_opaque="true"
+			     name="sculpt texture control" tool_tip="Click to choose a picture"
+			     visible="false" width="141" />
+            <check_box bottom_delta="-24" follows="left|top" font="SansSerifSmall" height="16"
+                 initial_value="false" label="Mirror" left="121"
+                 name="sculpt mirror control" visible="false"
+                 tool_tip="Flips sculpted prim along the X axis."
+                 width="121" />
+            <check_box bottom_delta="-20" follows="left|top" font="SansSerifSmall" height="16"
+                 initial_value="false" label="Inside-out" left="121"
+                 name="sculpt invert control" visible="false"
+                 tool_tip="Inverts the sculpted prims normals, making it appear inside-out."
+                 width="121" />
+			<text bottom_delta="-20"
+			     follows="left|top" font="SansSerifSmall" height="10" left="121"
+			     name="label sculpt type" visible="false"
+			     width="121">
+				Stitching type
+			</text>
+			<combo_box allow_text_entry="false" bottom_delta="-24" follows="left|top" height="18"
+			     left="121" max_chars="20" name="sculpt type control"
+			     visible="false" width="141">
+				<combo_item name="None" value="None">
+					(none)
+				</combo_item>
+				<combo_item name="Sphere" value="Sphere">
+					Sphere
+				</combo_item>
+				<combo_item name="Torus" value="Torus">
+					Torus
+				</combo_item>
+				<combo_item name="Plane" value="Plane">
+					Plane
+				</combo_item>
+				<combo_item name="Cylinder" value="Cylinder">
+					Cylinder
+				</combo_item>
+			</combo_box>
+		</panel>
+
+<!-- Features sub-tab -->
+
+		<panel border="true" bottom="-383" follows="left|top|right|bottom" height="367"
+		     label="Features" left="1" mouse_opaque="false" name="Features" width="270">
+			<text bottom="-20" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="select_single" width="252">
+				Select only one primitive to edit features.
+			</text>
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="10" left="10"
+			     name="edit_object" width="252">
+				Edit object features:
+			</text>
+			<check_box bottom_delta="-26" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Flexible path" left="10"
+			     name="Flexible1D Checkbox Ctrl"
+			     tool_tip="Allows object to flex about the Z axis. (Client-side only)"
+			     width="120" />
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="16" left="140"
+			     name="label material" width="120">
+				Material:
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="1" initial_val="2" label="Softness" label_width="55" left="10"
+			     max_val="3" min_val="0" name="FlexNumSections"
+			     width="118" />
+			<combo_box allow_text_entry="false" bottom_delta="-2" follows="left|top" height="18"
+			     left="140" max_chars="20" name="material" width="118">
+				<combo_item name="Stone" value="Stone">
+					Stone
+				</combo_item>
+				<combo_item name="Metal" value="Metal">
+					Metal
+				</combo_item>
+				<combo_item name="Glass" value="Glass">
+					Glass
+				</combo_item>
+				<combo_item name="Wood" value="Wood">
+					Wood
+				</combo_item>
+				<combo_item name="Flesh" value="Flesh">
+					Flesh
+				</combo_item>
+				<combo_item name="Plastic" value="Plastic">
+					Plastic
+				</combo_item>
+				<combo_item name="Rubber" value="Rubber">
+					Rubber
+				</combo_item>
+			</combo_box>
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.5" initial_val="0.3" label="Gravity" label_width="55"
+			     left="10" max_val="10" min_val="-10" name="FlexGravity"
+			     width="118" />
+			<text bottom_delta="0" follows="left|top"
+			     font="SansSerifSmall" height="14" left="140"
+			     name="label physicsshapetype" width="120">
+				Physics shape type:
+			</text>
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.5" initial_val="2" label="Drag" label_width="55" left="10"
+			     max_val="10" min_val="0" name="FlexFriction"
+			     width="118" />
+			<combo_box allow_text_entry="false" bottom_delta="-2" follows="left|top" height="18"
+			     left="140" max_chars="20" name="Physics Shape Type Combo Ctrl"
+			     visible="false" width="118" tool_tip="Choose the physics shape type"/>
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.5" initial_val="0" label="Wind" label_width="55" left="10"
+			     max_val="10" min_val="0" name="FlexWind" width="118" />
+			<check_box name="Physical Checkbox Ctrl" label="Physical" font="SansSerifSmall"
+			 tool_tip="Allows object to be pushed and affected by gravity."
+			 left="138" bottom_delta="-2" width="120" height="16" follows="left|top" />
+			<spinner bottom_delta="-18" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.5" initial_val="1" label="Tension" label_width="55" left="10"
+			     max_val="10" min_val="0" name="FlexTension" width="118" />
+			<spinner bottom_delta="0" decimal_digits="1" follows="left|top" height="16"
+			     increment="1" initial_val="1" label="Gravity" label_width="55" left="140"
+			     max_val="28" min_val="-1" name="Physics Gravity"
+			     width="118" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Force X" label_width="55" left="10"
+			     max_val="10" min_val="-10" name="FlexForceX"
+			     width="118" />
+			<spinner bottom_delta="0" decimal_digits="1" follows="left|top" height="16"
+			     increment="0.1" initial_val="0" label="Friction" label_width="55" left="140"
+			     max_val="255" min_val="0" name="Physics Friction"
+			     width="118" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Force Y" label_width="55" left="10"
+			     max_val="10" min_val="-10" name="FlexForceY"
+			     width="118" />
+			<spinner bottom_delta="0" decimal_digits="1" follows="left|top" height="16"
+			     increment="0.1" initial_val="0" label="Density" label_width="55" left="140"
+			     max_val="22587" min_val="1" name="Physics Density"
+			     width="118" tool_tip="Density in 100 kg/m3" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Force Z" label_width="55" left="10"
+			     max_val="10" min_val="-10" name="FlexForceZ"
+			     width="118" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.01" initial_val="0" label="Restitution" label_width="55" left="140"
+			     max_val="1" min_val="0" name="Physics Restitution"
+			     width="118" />
+			<check_box bottom_delta="-30" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Light" left="10"
+			     name="Light Checkbox Ctrl" tool_tip="Causes object to emit light"
+			     width="55" />
+			<color_swatch border_color="0.45098, 0.517647, 0.607843, 1" bottom_delta="-32"
+			     can_apply_immediately="true" color="0.5, 0.5, 0.5, 1" follows="left|top"
+			     height="48" label="Color" left="90" mouse_opaque="true" name="colorswatch"
+			     tool_tip="Light color. Click to change." width="32" />
+			<texture_picker allow_no_texture="true" bottom_delta="0" can_apply_immediately="true"
+			     default_image_name="Default" follows="left|top" height="48" width="32" label="Projection"
+			     left_delta="128" mouse_opaque="true" name="light texture control"
+			     tool_tip="Click to choose a projection image (its effect is only seen with deferred rendering enabled)" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.1" initial_val="0.5" label="Intensity" label_width="55"
+			     left="10" max_val="1" min_val="0"
+			     name="Light Intensity" width="118" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.1" initial_val="0.5" label="FOV" label_width="55"
+			     left="140" max_val="3" min_val="0"
+			     name="Light FOV" width="118" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.1" initial_val="5" label="Radius" label_width="55"
+			     left="10" max_val="20" min_val="0"
+			     name="Light Radius" width="118" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.5" initial_val="0.5" label="Focus" label_width="55"
+			     left="140" max_val="20" min_val="-20"
+			     name="Light Focus" width="118" />
+			<spinner bottom_delta="-20" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.25" initial_val="1" label="Falloff" label_width="55"
+			     left="10" max_val="2" min_val="0"
+			     name="Light Falloff" width="118" />
+			<spinner bottom_delta="0" decimal_digits="3" follows="left|top" height="16"
+			     increment="0.05" initial_val="1" label="Ambiance" label_width="55"
+			     left="140" max_val="1" min_val="0"
+			     name="Light Ambiance" width="118" />
+			<check_box bottom_delta="-28" follows="left|top" font="SansSerifSmall" height="16"
+			     initial_value="false" label="Animated mesh" left="10"
+			     name="AniMesh Checkbox Ctrl"
+			     tool_tip="Allows rigged mesh objects to be animated independently"
+			     width="120" />
+			<button name="reflection_probe" label="Reflection probe" font="SansSerifSmall"
+			 tool_tip="Click to open the setup menu for an object used as a reflection probe."
+			 bottom_delta="-2" left_delta="130" height="20" width="110" follows="left|top"/>
+			<string name="None">
+				None
+			</string>
+			<string name="Prim">
+				Prim
+			</string>
+			<string name="Convex Hull">
+				Convex hull
+			</string>
+		</panel>
+
+<!-- Texture sub-tab -->
+
+		<panel name="Texture" label="Texture" border="true" mouse_opaque="false"
+		 left="1" bottom="-383" width="270" height="367" follows="left|top|right|bottom">
+			<text name="color_text" font="SansSerifSmall"
+			 left="10" bottom="-18" width="42" height="14" follows="left|top">
+				Color
+			</text>
+			<color_swatch name="colorswatch" label="" color="1, 1, 1, 1"
+			 can_apply_immediately="true"
+			 tool_tip="Click to open the color picker"
+			 left_delta="44" bottom="-36" width="40" height="32" follows="left|top" />
+			<check_box name="checkbox fullbright" font="SansSerifSmall" label="Full bright"
+			 left="8" bottom="-39" width="80" height="16" follows="left|top" />
+			<spinner name="ColorTrans" label="Transparency" label_width="80"
+			 decimal_digits="0" increment="2" max_val="100" min_val="0"
+			 left="104" bottom="-20" width="142" height="16" follows="left|top" />
+			<text name="color trans" font="SansSerifSmall"
+			 left_delta="146" bottom_delta="0" width="12" height="14" follows="left|top">
+				%
+			</text>
+			<spinner name="glow" label="Glow strength" label_width="80"
+			 decimal_digits="2" increment="0.05" max_val="1" min_val="0"
+			 left="104" bottom_delta="-19" width="142" height="16" follows="left|top" />
+			<text name="label maps" font="SansSerifSmall"
+			 left="10" bottom="-60" width="110" height="16" follows="left|top">
+				▼ Texture maps ▼
+			</text>
+			<button name="reset_material" label="Reset material" font="SansSerifSmall"
+			 tool_tip="Clicking this button causes the removal of the material data for the selected faces."
+			 left="150" bottom="-62" width="100" height="20" follows="left|top" />
+			<radio_group name="map_selector" draw_border="false"
+			 left="8" bottom_delta="-22" height="20" width="280" follows="left|top">
+				<radio_item name="0" value="0" bottom="-18" left="0" height="20" width="68"
+				 tool_tip="When this button is checked, you can edit the diffuse map (texture) and associated parameters for the selected face(s).">
+					Diffuse
+				</radio_item>
+				<radio_item name="1" value="1" bottom="-18" left="70" height="20" width="68"
+				 tool_tip="When this button is checked, you can edit the normal map (bumpiness) for the selected face(s).">
+					Normal
+				</radio_item>
+				<radio_item name="2" value="2" bottom="-18" left="140" height="20" width="68"
+				 tool_tip="When this button is checked, you can edit the specular map (shininess) and associated parameters for the selected face(s).">
+					Specular
+				</radio_item>
+				<radio_item name="3" value="3" bottom="-18" left="210" height="20" width="38" enabled="false"
+				 tool_tip="When this button is checked, you can edit the PBR (Physical Based Rendering) material and associated parameters for the selected face(s).">
+					PBR
+				</radio_item>
+			</radio_group>
+			<button name="btn_edit_pbr" label="Edit this material" font="SansSerifSmall" visible="false"
+			 tool_tip="Click for live editing of the selected faces PBR material."
+			 left="10" bottom_delta="-24" width="120" height="20" follows="left|top" />
+			<button name="btn_local_pbr" label="Use local material" font="SansSerifSmall" visible="false"
+			 tool_tip="Click to load/apply a local preview of a PBR material (based on a local GLTF file)."
+			 left_delta="126" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<button name="btn_load_pbr" label="Load from inventory" font="SansSerifSmall" visible="false"
+			 tool_tip="Click to apply the PBR material from an inventory item."
+			 left="10" bottom_delta="-24" width="120" height="20" follows="left|top" />
+			<button name="btn_save_pbr" label="Save to inventory" font="SansSerifSmall" visible="false"
+			 tool_tip="Click to save the selected face PBR material into a material inventory item."
+			 left_delta="126" bottom_delta="0" width="120" height="20" follows="left|top" />
+			<texture_picker name="texture control" label="Texture" default_image_name="Default"
+			 allow_no_texture="false" allow_invisible_texture="true" can_apply_immediately="true"
+			 tool_tip="Click to choose a texture"
+			 left="10" bottom_delta="-40" width="64" height="80" follows="left|top" />
+			<texture_picker name="normal control" label="Normal map (bumpiness)"
+			 allow_no_texture="true" allow_invisible_texture="false" can_apply_immediately="false"
+			 tool_tip="Click to choose a texture for the normal map (bumpiness)." visible="false"
+			 left_delta="0" bottom_delta="0" width="64" height="80" follows="left|top" />
+			<texture_picker name="specular control" label="Specular map (shininess)"
+			 allow_no_texture="true" allow_invisible_texture="false" can_apply_immediately="false"
+			 tool_tip="Click to choose a texture for the specular map (shininess)." visible="false"
+			 left_delta="0" bottom_delta="0" width="64" height="80" follows="left|top" />
+			<text name="label bumpiness" font="SansSerifSmall" visible="false"
+			 left_delta="80" bottom_delta="76" width="70" height="10" follows="left|top">
+				Bumpiness
+			</text>
+			<text name="label shininess" font="SansSerifSmall" visible="false"
+			 left_delta="90" bottom_delta="0" width="80" height="10" follows="left|top">
+				Shininess
+			</text>
+			<text name="label alphamode" font="SansSerifSmall"
+			 left_delta="-90" bottom_delta="0" width="80" height="12" follows="left|top">
+				Alpha mode
+			</text>
+			<combo_box name="combobox bumpiness" allow_text_entry="false" max_chars="20" visible="false"
+			 left_delta="0" bottom_delta="-24" width="90" height="18" follows="left|top">
+				<combo_item name="None" value="None">
+					None
+				</combo_item>
+				<combo_item name="Brightness" value="Brightness">
+					Brightness
+				</combo_item>
+				<combo_item name="Darkness" value="Darkness">
+					Darkness
+				</combo_item>
+				<combo_item name="woodgrain" value="woodgrain">
+					woodgrain
+				</combo_item>
+				<combo_item name="bark" value="bark">
+					bark
+				</combo_item>
+				<combo_item name="bricks" value="bricks">
+					bricks
+				</combo_item>
+				<combo_item name="checker" value="checker">
+					checker
+				</combo_item>
+				<combo_item name="concrete" value="concrete">
+					concrete
+				</combo_item>
+				<combo_item name="crustytile" value="crustytile">
+					crustytile
+				</combo_item>
+				<combo_item name="cutstone" value="cutstone">
+					cutstone
+				</combo_item>
+				<combo_item name="discs" value="discs">
+					discs
+				</combo_item>
+				<combo_item name="gravel" value="gravel">
+					gravel
+				</combo_item>
+				<combo_item name="petridish" value="petridish">
+					petridish
+				</combo_item>
+				<combo_item name="siding" value="siding">
+					siding
+				</combo_item>
+				<combo_item name="stonetile" value="stonetile">
+					stonetile
+				</combo_item>
+				<combo_item name="stucco" value="stucco">
+					stucco
+				</combo_item>
+				<combo_item name="suction" value="suction">
+					suction
+				</combo_item>
+				<combo_item name="weave" value="weave">
+					weave
+				</combo_item>
+			</combo_box>
+			<combo_box name="combobox alphamode" allow_text_entry="false" max_chars="30"
+			 left_delta="0" bottom_delta="0" width="160" height="18" follows="left|top">
+				<combo_item name="None" value="None">
+					None
+				</combo_item>
+				<combo_item name="Alpha blending" value="Alpha blending">
+					Alpha blending
+				</combo_item>
+				<combo_item name="Alpha masking" value="Alpha masking">
+					Alpha masking
+				</combo_item>
+				<combo_item name="Emissive mask" value="Emissive mask">
+					Emissive mask
+				</combo_item>
+			</combo_box>
+			<combo_box name="combobox shininess" allow_text_entry="false" max_chars="20" visible="false"
+			 left_delta="90" bottom_delta="0" width="70" height="18" follows="left|top">
+				<combo_item name="None" value="None">
+					None
+				</combo_item>
+				<combo_item name="Low" value="Low">
+					Low
+				</combo_item>
+				<combo_item name="Medium" value="Medium">
+					Medium
+				</combo_item>
+				<combo_item name="High" value="High">
+					High
+				</combo_item>
+			</combo_box>
+			<string name="use_texture">
+				Texture
+			</string>
+			<text name="label shinycolor" font="SansSerifSmall" visible="false"
+			 left_delta="-94" bottom_delta="10" width="40" height="10" follows="left|top">
+				Color
+			</text>
+			<color_swatch name="shinycolorswatch" label="" color="1, 1, 1, 1"
+			 can_apply_immediately="false" visible="false"
+			 tool_tip="Click to open Color Picker"
+			 left_delta="40" bottom_delta="-26" width="32" height="44" follows="left|top" />
+			<text name="label glossiness" font="SansSerifSmall" visible="false"
+			 left_delta="-40" bottom_delta="2" width="90" height="10" follows="left|top">
+				Glossiness
+			</text>
+			<text name="label maskcutoff" font="SansSerifSmall"
+			 left_delta="4" bottom_delta="0" width="90" height="10" follows="left|top">
+				Mask cutoff
+			</text>
+			<text name="label environment" font="SansSerifSmall" visible="false"
+			 left_delta="92" bottom_delta="0" width="100" height="10" follows="left|top">
+				Environment
+			</text>
+			<spinner name="glossiness" label="" label_width="0" visible="false"
+			 decimal_digits="0" increment="1" max_val="255" min_val="0"
+			 left_delta="-96" bottom_delta="-22" width="60" height="16" follows="left|top" />
+			<spinner name="maskcutoff" label="" label_width="0"
+			 decimal_digits="0" increment="1" max_val="255" min_val="0"
+			 left_delta="4" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="environment" label="" label_width="0" visible="false"
+			 decimal_digits="0" increment="1" max_val="255" min_val="0"
+			 left_delta="92" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<button name="btn_align_map" label="Align map" font="SansSerifSmall"
+			 tool_tip="Aligns the currently selected map on all selected faces of all selected objects to the last selected face repeats, offsets and rotation."
+			 left_delta="0" bottom_delta="-24" width="72" height="20" follows="left|top" />
+			<text name="tex gen" font="SansSerifSmall"
+			 left="10" bottom_delta="-16" width="60" height="16" follows="left|top">
+				Mapping:
+			</text>
+			<combo_box name="combobox texgen" allow_text_entry="false" max_chars="20"
+			 left_delta="60" bottom_delta="0" width="80" height="18" follows="left|top">
+				<combo_item name="Default" value="Default">
+					Default
+				</combo_item>
+				<combo_item name="Planar" value="Planar">
+					Planar
+				</combo_item>
+			</combo_box>
+			<check_box name="checkbox planar align" label="Align faces" font="SansSerifSmall"
+			 tool_tip="Aligns textures on all selected faces to the last selected face. Requires Planar texture mapping."
+			 left_delta="90" bottom_delta="-1" width="80" height="16" follows="left|top" />
+			<text name="tex scale" font="SansSerifSmall"
+			 left="10" bottom_delta="-19" width="70" height="10" follows="left|top">
+				Repeats
+			</text>
+			<text name="tex scale horiz" font="SansSerifSmall"
+			 left_delta="60" bottom_delta="2" width="80" height="10" follows="left|top">
+				Horizontal (U)
+			</text>
+			<text name="tex scale vert" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0" width="80" height="10" follows="left|top">
+				Vertical (V)
+			</text>
+			<text name="tex scale unit" font="SansSerifSmall"
+			 left="10" bottom_delta="-22" width="70" height="16" follows="left|top">
+				per face:
+			</text>
+			<string name="string repeats per meter">
+				per meter:
+			</string>
+			<string name="string repeats per face">
+				per face:
+			</string>
+			<spinner name="TexScaleU" label="" label_width="0"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left="70" bottom_delta="2" width="50" height="16" follows="left|top" />
+			<spinner name="BumpyScaleU" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<spinner name="ShinyScaleU" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<spinner name="PbrScaleU" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<check_box name="TexFlipS" label="Flip" font="SansSerifSmall"
+			 left_delta="52" bottom_delta="-2" width="40" height="16" follows="left|top" />
+			<check_box name="BumpyFlipS" label="Flip" font="SansSerifSmall" visible="false"
+			 left_delta="0" bottom_delta="0" width="40" height="16" follows="left|top" />
+			<check_box name="ShinyFlipS" label="Flip" font="SansSerifSmall" visible="false"
+			 left_delta="0" bottom_delta="0" width="40" height="16" follows="left|top" />
+			<spinner name="TexScaleV" label="" label_width="0"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="48" bottom_delta="2" width="50" height="16" follows="left|top" />
+			<spinner name="BumpyScaleV" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<spinner name="ShinyScaleV" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<spinner name="PbrScaleV" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="0"
+			 left_delta="0" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<check_box name="TexFlipT" label="Flip" font="SansSerifSmall"
+			 left_delta="52" bottom_delta="-2" width="40" height="16" follows="left|top" />
+			<check_box name="BumpyFlipT" label="Flip" font="SansSerifSmall" visible="false"
+			 left_delta="0" bottom_delta="0" width="40" height="16" follows="left|top" />
+			<check_box name="ShinyFlipT" label="Flip" font="SansSerifSmall" visible="false"
+			 left_delta="0" bottom_delta="0" width="40" height="16" follows="left|top" />
+			<text name="rpt" font="SansSerifSmall"
+			 left="10" bottom_delta="-24" width="102" height="20" follows="left|top">
+				Repeats
+per meter:
+			</text>
+			<spinner name="rptctrl" label="" label_width="0"
+			 decimal_digits="2" increment="0.1" max_val="999" min_val="-999"
+			 left_delta="60" bottom_delta="-2" width="50" height="16" follows="left|top" />
+			<text name="tex rotate" font="SansSerifSmall"
+			 left_delta="60" bottom_delta="2" width="60" height="20" follows="left|top">
+				Rotation
+(degrees):
+			</text>
+			<spinner name="TexRot" label="" label_width="0"
+			 decimal_digits="2" increment="1" max_val="9999" min_val="-9999"
+			 left_delta="60" bottom_delta="-2" width="70" height="16" follows="left|top" />
+			<spinner name="BumpyRot" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="1" max_val="360" min_val="0"
+			 left_delta="0" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<spinner name="ShinyRot" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="1" max_val="360" min_val="0"
+			 left_delta="0" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<spinner name="PbrRot" label="" label_width="0" visible="false"
+			 decimal_digits="2" increment="1" max_val="360" min_val="0"
+			 left_delta="0" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<text name="tex offset" font="SansSerifSmall"
+			 left="10" bottom_delta="-32" width="80" height="10" follows="left|top">
+				Offsets:
+			</text>
+			<text name="tex offset horiz" font="SansSerifSmall"
+			 left_delta="60" bottom_delta="10" width="80" height="10" follows="left|top">
+				Horizontal (U)
+			</text>
+			<text name="tex offset vert" font="SansSerifSmall"
+			 left_delta="100" bottom_delta="0" width="80" height="10" follows="left|top">
+				Vertical (V)
+			</text>
+			<spinner name="TexOffsetU" label="" label_width="0"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="-1"
+			 left="70" bottom_delta="-22" width="60" height="16" follows="left|top" />
+			<spinner name="BumpyOffsetU" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="ShinyOffsetU" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="PbrOffsetU" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="TexOffsetV" label="" label_width="0"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="-1"
+			 left_delta="100" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="BumpyOffsetV" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="ShinyOffsetV" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<spinner name="PbrOffsetV" label="" label_width="0" visible="false"
+			 decimal_digits="3" increment="0.05" max_val="1" min_val="0"
+			 left_delta="0" bottom_delta="0" width="60" height="16" follows="left|top" />
+			<text name="media label" font="SansSerifSmall"
+			 left="10" bottom_delta="-32" width="40" height="18" follows="left|top">
+				Media:
+			</text>
+			<button name="button align" label="Align" font="SansSerifSmall"
+			 tool_tip="NOTE: the media texture must first be loaded before it can be aligned."
+			 left_delta="42" bottom_delta="0" width="48" height="20" follows="left|top" />
+			<button name="edit_media" label="Edit" font="SansSerifSmall"
+			 left_delta="52" bottom_delta="0" width="48" height="20" follows="left|top" />
+			<button name="add_media" label="Add" font="SansSerifSmall"
+			 left_delta="52" bottom_delta="0" width="48" height="20" follows="left|top" />
+			<button name="delete_media" label="Delete" font="SansSerifSmall"
+			 left_delta="52" bottom_delta="0" width="56" height="20" follows="left|top" />
+			<text name="media_info" font="SansSerifSmall" text_color="cyan" mouse_opaque="true"
+			 left="10" bottom_delta="-14" width="250" height="10" follows="left|top" />
+		</panel>
+		<panel border="true" bottom="-383" follows="left|top|right|bottom" height="367"
+		     label="Content" left="1" mouse_opaque="false" name="Contents" width="270">
+			<button name="button new script" label="New script" font="SansSerif"
+			 left="10" bottom="-30" width="100" height="20" follows="left|top" />
+			<button name="button permissions" label="Permissions..." font="SansSerif"
+			 left_delta="110" bottom_delta="0" width="100" height="20" follows="left|top" />
+			<panel name="ContentsInventory" mouse_opaque="true"
+			 left="10" bottom_delta="-330" width="252" height="325" follows="left|top" />
+		</panel>
+	</tab_container>
+
+<!-- Land Info sub-tab -->
+
+	<panel bottom="-550" follows="left|top" height="384" left="0" mouse_opaque="true"
+	     name="land info panel" width="272">
+	<!-- Parcel Information -->
+		<text bottom="-40" follows="left|top"
+		     font="SansSerifSmall" height="16" left="40"
+		     name="label_parcel_info" width="150">
+			Parcel information
+		</text>
+		<text
+		     bottom_delta="-24" follows="left|top"
+		     font="SansSerifSmall" height="16" left="48"
+		     name="label_area_price" width="150">
+			Price: L$[PRICE] for [AREA] m2
+		</text>
+		<text bottom_delta="0" follows="left|top"
+		     font="SansSerifSmall" height="16" left="48"
+		     name="label_area" width="150">
+			Area: [AREA] m2
+		</text>
+		<button bottom_delta="-24" follows="left|top" font="SansSerif"
+		     height="20" label="About land..." left="48"
+		     name="button about land" width="112" />
+		<check_box bottom_delta="-24" control_name="ShowParcelOwners" follows="left|top"
+		     tool_tip="Colour parcels according to their ownership" font="SansSerifSmall"
+		     height="16" initial_value="false" label="Show owners" left="48" 
+		     name="checkbox show owners" width="100" />
+			<button bottom_delta="0" follows="left|top" font="SansSerif"
+			     height="18" label="?" left_delta="94"
+			     name="button show owners help" width="18" />
+	<!-- Modify Parcel -->
+		<text bottom_delta="-56" follows="left|top"
+		     font="SansSerifSmall" height="16" left="40"
+		     name="label_parcel_modify" width="150">
+			Modify parcel
+		</text>
+		<button bottom_delta="-24" follows="left|top" font="SansSerif"
+		     height="20" label="Subdivide..." left="48"
+		     name="button subdivide land"
+		     width="112" />
+		<button bottom_delta="-24" follows="left|top" font="SansSerif"
+		     height="20" label="Join..." left="48"
+		     name="button join land" width="112" />
+	<!-- Land Transactions -->
+		<text bottom_delta="-56" follows="left|top"
+		     font="SansSerifSmall" height="16" left="40"
+		     name="label_parcel_trans" width="150">
+			Land transactions
+		</text>
+		<button bottom_delta="-24" follows="left|top" font="SansSerif"
+		     height="20" label="Buy land..." left="48"
+		     name="button buy land" width="112" />
+		<button bottom_delta="-24" follows="left|top" font="SansSerif"
+		     height="20" label="Abandon land..."
+		     left="48" name="button abandon land"
+		     width="112" />
+	</panel>
+	<string name="status_align">
+		Click arrows to align objects, Shift-click to pack
+	</string>
+	<string name="status_rotate">
+		Drag colored bands to rotate object
+	</string>
+	<string name="status_scale">
+		Click and drag to stretch selected side
+	</string>
+	<string name="status_move">
+		Drag to move, shift-drag to copy
+	</string>
+	<string name="status_modifyland">
+		Click and hold to modify land
+	</string>
+	<string name="status_camera">
+		Click and drag to change view
+	</string>
+	<string name="status_grab">
+		Drag to move, Ctrl to lift, Ctrl-Shift to rotate
+	</string>
+	<string name="status_place">
+		Click inworld to build
+	</string>
+	<string name="status_selectland">
+		Click and drag to select land
+	</string>
+	<string name="grid_screen_text">
+		Screen
+	</string>
+	<string name="grid_local_text">
+		Local
+	</string>
+	<string name="grid_world_text">
+		World
+	</string>
+	<string name="grid_reference_text">
+		Reference
+	</string>
+	<string name="grid_attachment_text">
+		Attachment
+	</string>
+</floater>

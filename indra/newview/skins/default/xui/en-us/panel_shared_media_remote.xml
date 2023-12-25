@@ -1,0 +1,14 @@
+<panel name="shared_media_remote" border="false"
+ enabled="true" mouse_opaque="true" bottom="-34" follows="left|top">
+	<button name="media_list" label="" image_overlay="moap_icon.tga" control_name="ShowNearbyMedia"
+	 tool_tip="Shared media (AKA 'media on a prim') controls. You may also click this button to toggle the nearby media floater."
+	 left="2" bottom="-22" width="26" height="22" follows="left|top" />
+	<button name="media_play" label="" scale_image="true"
+	 image_selected="green_checkmark.png" image_unselected="green_checkmark.png"
+	 tool_tip="Enable all nearby shared media."
+	 left_delta="28" bottom="-18" width="14" height="14" follows="left|top" />
+	<button name="media_stop" label="" scale_image="true"
+	 image_selected="red_x.png" image_unselected="red_x.png"
+	 tool_tip="Disable all nearby shared media."
+	 left_delta="18" bottom="-18" width="14" height="14" follows="left|top" />
+</panel>

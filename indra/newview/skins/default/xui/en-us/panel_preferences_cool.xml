@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel name="cool" label="Cool features" mouse_opaque="true" border="true"
+ left="10" top="20" width="517" height="440" follows="left|top|right|bottom">
+	<tab_container name="Cool Prefs" label="Cool prefs" tab_position="top"
+	 left="0" bottom="0" width="500" height="440">
+		<panel name="User Interface" label="User interface" border="true" mouse_opaque="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<view_border name="border1" bevel_style="none" border_thickness="1"
+			 bottom_delta="-76" left="10" height="60" width="470" follows="left|top"/>
+			<text name="toolbar_buttons" font="SansSerifSmall" halign="left"
+			 bottom="-38" left="20" height="18" width="300" follows="left|top">
+				Show the following buttons in the toolbar:
+			</text>
+			<check_box name="show_chat_button_check" control_name="ShowChatButton" label="Chat" font="SansSerifSmall"
+			 left="15" bottom_delta="-16" width="70" height="16" follows="left|top" />
+			<check_box name="show_im_button_check" control_name="ShowIMButton" label="IM" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_friends_button_check" control_name="ShowFriendsButton" label="Friends" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_group_button_check" control_name="ShowGroupsButton" label="Groups" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_fly_button_check" control_name="ShowFlyButton" label="Fly" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_snapshot_button_check" control_name="ShowSnapshotButton" label="Snapshot" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_search_button_check" control_name="ShowSearchButton" label="Search" font="SansSerifSmall"
+			 left="15" bottom_delta="-18" width="70" height="16" follows="left|top" />
+			<check_box name="show_build_button_check" control_name="ShowBuildButton" label="Build" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_radar_button_check" control_name="ShowRadarButton" label="Radar" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_minimap_button_check" control_name="ShowMiniMapButton" label="Mini-map" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_map_button_check" control_name="ShowMapButton" label="Map" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="show_inventory_button_check" control_name="ShowInventoryButton" label="Inventory" font="SansSerifSmall"
+			 left_delta="75" bottom_delta="0" width="70" height="16" follows="left|top" />
+			<check_box name="hide_master_remote_check" control_name="HideMasterRemote"
+			 label="Hide the 'Master remote' volume control when useless" font="SansSerifSmall"
+			 tool_tip="With this setting enabled, the small master volume button above the toolbar is automatically hidden when no voice, no media and no parcel music stream are present."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<spinner name="fade_mouselook_exit_tip" control_name="FadeMouselookExitTip"
+			 label="Fade mouselook mode exit tip/instruction after:" font="SansSerifSmall" label_width="250"
+			 tool_tip="When entering mouselook mode, a 'Press SHIFT ESC to leave Mouselook' tip is displayed in the upper left corner of the screen. With this setting you can make the tip fade out after a number of seconds (minimum is 5s, with 0s meaning 'never fade out')."
+			 decimal_digits="0" min_val="0" max_val="995" increment="5"
+			 left="18" bottom_delta="-20" width="300" height="16" follows="left|top" />
+			<text name="fade_mouselook_exit_seconds"
+			 left_delta="304" bottom_delta="0" width="160" height="16" follows="left|top">
+				seconds (0 = never fade out)
+			</text>
+			<check_box name="use_old_chat_history_check" control_name="UseOldChatHistory"
+			 label="Use the old style 'Chat history' window (requires a restart)" font="SansSerifSmall"
+			 tool_tip="The old-style chat history does not have a chat input line, gesture combo and Say button (these are already present in the toolbar chat line), letting more room for the actual history."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="auto_open_text_input_check" control_name="AutoOpenTextInput"
+			 label="Auto-open the text input floater when the chat or IM input lines are scrolled" font="SansSerifSmall"
+			 tool_tip="When you fill up the chat or IM input lines with text, they start scrolling left to let you input more text (and up to 1023 characters) but then you loose visibility of what you typed at the start and editing your text is hard. With this setting checked, the Text Input floater gets automatically opened whenever the chat or IM input line is scrolled left for the first time when a new text is typed."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="im_tabs_vertical_stacking_check" control_name="IMTabsVerticalStacking"
+			 label="Stack IM tabs vertically (requires a restart)" font="SansSerifSmall"
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="use_old_statusbar_icons_check" control_name="UseOldStatusBarIcons"
+			 label="Use the old, more readable, status bar icons" font="SansSerifSmall"
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="use_old_tracking_dots_check" control_name="UseOldTrackingDots"
+			 label="Use the old T-like tracking dots in the mini-map" font="SansSerifSmall"
+			 tool_tip="With this setting activated, the tiny V-like avatar tracking dots in the mini-map are replaced with larger and more visible T-like dots (inverted T for avatars below your own avatar's altitude, and normal T for avatars above). Note that whether this setting is enabled or not, avatars at the same altitude as yours are represented by a round dot, and avatars with an unknown altitude are represented by a dash-like dot."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<spinner name="decimals_for_tools_spinner" control_name="DecimalsForTools"
+			 label="Decimals for Pos, Size and Rot parameters in the build tool:" font="SansSerifSmall"
+			 decimal_digits="0" min_val="0" max_val="5" increment="1" label_width="315"
+			 left="18" bottom_delta="-20" width="350" height="16" follows="left|top" />
+			<check_box name="hide_teleport_progress_check" control_name="HideTeleportProgress"
+			 label="Hide the teleport progress screen" font="SansSerifSmall"
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<view_border name="border2" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-95" width="385" height="90" follows="left|top"/>
+			<text name="minimized_floaters" font="SansSerifSmall"
+			 left="20" bottom_delta="65" width="300" height="18" follows="left|top">
+				Minimized floaters stacking on screen:
+			</text>
+			<check_box name="stack_minimized_top_to_bottom_check" control_name="StackMinimizedTopToBottom"
+			 label="Stack minimized floaters from top to bottom" font="SansSerifSmall"
+			 left="40" bottom_delta="-16" width="400" height="16" follows="left|top" />
+			<check_box name="stack_minimized_right_to_left_check" control_name="StackMinimizedRightToLeft"
+			 label="Stack minimized floaters from right to left" font="SansSerifSmall"
+			 left="40" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<spinner name="stack_screen_width_fraction_spinner" control_name="StackScreenWidthFraction"
+			 label="Fraction of the screen width to use for minimized floaters:   1/" font="SansSerifSmall"
+			 decimal_digits="0" min_val="1" max_val="20" increment="1" label_width="320"
+			 left="20" bottom_delta="-20" width="360" height="16" follows="left|top" />
+			<view_border name="border3" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-60" width="460" height="40" follows="left|top"/>
+			<text name="time_format_text_box" font="SansSerifSmall"
+			 left="20" bottom_delta="18" width="80" height="10" follows="left|top">
+				Time format:
+			</text>
+			<combo_box name="time_format_combobox" allow_text_entry="false" max_chars="20"
+			 left_delta="80" bottom_delta="-6" width="130" height="18" follows="left|top">
+				<combo_item name="24hours" value="default">
+					24 hours clock
+				</combo_item>
+				<combo_item name="12hours" value="default">
+					12 hours clock
+				</combo_item>
+			</combo_box>
+			<text name="date_format_text_box" font="SansSerifSmall"
+			 left_delta="150" bottom_delta="6" width="80" height="10" follows="left|top">
+					Date format:
+			</text>
+			<combo_box name="date_format_combobox" allow_text_entry="false" max_chars="20"
+			 left_delta="80" bottom_delta="-6" width="130" height="18" follows="left|top">
+				<combo_item name="year_first" value="default">
+					YYYY-MM-DD
+				</combo_item>
+				<combo_item name="day_first" value="default">
+					DD/MM/YYYY
+				</combo_item>
+				<combo_item name="month_first" value="default">
+					MM/DD/YYYY
+				</combo_item>
+			</combo_box>
+		</panel>
+		<panel name="Chat/IM" label="Chat, IM &amp; text" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<view_border name="border4" bevel_style="none" border_thickness="1"
+			 left="10" bottom="-54" width="400" height="48" follows="left|top"/>
+			<check_box name="allow_mu_pose_check" control_name="AllowMUpose" font="SansSerifSmall"
+			 label="Allow MU* pose style in chat and IM (with ':' as a synonymous to '/me ')"
+			 tool_tip="On MUCKs/MUXes/MUSHes/MUDs, to 'pose' or 'emote' you simply have to prefix your text with a colon (':'), while on IRC and in SL, you normally need to prefix your text with '/me '. It is of course faster and easier to type ':bows in greetings.' than '/me bows in greetings.'... With this setting activated, you can use either '/me ' or ':' to prefix your poses/emotes in both chat and IMs."
+			 left="15" bottom_delta="24" width="400" height="16" follows="left|top" />
+			<check_box name="auto_close_ooc_check" control_name="AutoCloseOOC" font="SansSerifSmall"
+			 label="Auto-close OOC chat/IM (i.e. add '))' if not found and '((' was used)"
+			 tool_tip="By convention and in most MMORPG, text enclosed between double parenthesis is considered Out Of Character text (i.e. text exchanged between players (example: '((Sorry, phone, BRB))'), in contrast with In Character text exchanged between their characters/avatars for the actual role-play). With this setting activated, you can omit the closing double-parenthesis and the viewer will add it automatically for you."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<view_border name="border5" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-100" width="475" height="90" follows="left|top"/>
+			<check_box name="highlight_own_name_in_chat_check" control_name="HighlightOwnNameInChat"
+			 label="Highlight posts containing your own name/nicknames in chat" font="SansSerifSmall"
+			 left="15" bottom_delta="66" width="370" height="16" follows="left|top" />
+			<check_box name="highlight_own_name_in_im_check" control_name="HighlightOwnNameInIM"
+			 label="Highlight posts containing your own name/nicknames in group IMs" font="SansSerifSmall"
+			 left="15" bottom_delta="-20" width="370" height="16" follows="left|top" />
+			<text name="higlight_color_label" font="SansSerifSmall"
+			 left="400" bottom_delta="0" width="40" height="30" follows="left|top">
+				Color:
+			</text>
+			<color_swatch name="OwnNameChatColor" control_name="OwnNameChatColor" label=""
+			 can_apply_immediately="true" border_color="0.45098 0.517647 0.607843 1" initial_color="1 1 1 1"
+			 left="440" bottom_delta="-10" width="36" height="50" follows="left|top" />
+			<text name="nickname_label" font="SansSerifSmall"
+			 left="15" bottom_delta="-15" width="60" height="20" follows="left|top">
+				Nicknames:
+			</text>
+			<line_editor name="highlight_nicknames_text" font="SansSerif" max_length="512"
+			 tool_tip="Enter a space or comma separated list of nicknames."
+			 word_wrap="false" handle_edit_keys_directly="true" select_all_on_focus_received="true"
+			 left_delta="70" bottom_delta="3" width="390" height="20" follows="left|top"/>
+			<check_box name="highlight_display_name_check" font="SansSerifSmall"
+			 label="Highlight posts containing any (4+ characters) word part of your display name"
+			 left="15" bottom_delta="-20" height="16" width="400" follows="left|top" />
+			<view_border name="border6" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-126" width="475" height="116" follows="left|top"/>
+			<check_box name="spell_check_check" control_name="SpellCheck"
+			 label="Spell checking in text and line editors" font="SansSerifSmall"
+			 tool_tip="When spell checking is enabled, right-clicking on a misspelled word presents you with a menu containing suggestions for a replacement. This is the global setting (each line and text editor may have spell checking disabled, thus overriding this setting)."
+			 left="15" bottom_delta="92" width="370" height="16" follows="left|top" />
+			<check_box name="spell_check_show_check" control_name="SpellCheckShow"
+			 label="Highlight misspelled words in text" font="SansSerifSmall"
+			 tool_tip="When this setting is enabled, the highligthing (underlining with a red wave-like line) of the misspelled words is enabled by default in spell-check enabled line and text editors. Note that you always can toggle on and off the highligthing for each line or text editor via their context menu."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="add_avatar_names_to_ignore_check" control_name="AddAvatarNamesToIgnore"
+			 label="Add surrounding avatars' names to the Ignore list" font="SansSerifSmall"
+			 tool_tip="When this setting is enabled, each time you attempt to auto-complete an avatar name by hitting the TAB key in the chat input (see the corresponding option in the Text Chat settings), the names of the surrounding avatars (avatars within chat range) are automatically added to the ignore list of the spell checker (keep in mind that this list is not kept after logout, so it would not affect next sessions), thus avoiding getting the names wrongly flagged as mispelled by the spell checker."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<text name="language_label" font="SansSerifSmall"
+			 left="15" bottom_delta="-25" width="140" height="20" follows="left|top">
+				Current spelling language:
+			</text>
+			<combo_box name="installed_dicts_combo" allow_text_entry="false" max_chars="64"
+			 tool_tip="Choose the dictionary to use for spell checking."
+			 left_delta="150" bottom_delta="3" width="230" height="18" follows="left|top" />
+			<text name="dictionary_label" font="SansSerifSmall"
+			 left="15" bottom_delta="-25" width="140" height="20" follows="left|top">
+				Get a new dictionary:
+			</text>
+			<text name="downloading" font="SansSerifSmall" text_color="white" visible="false" mouse_opaque="true"
+			 tool_tip="A dictionary is being downloaded. Note that this operation is asynchronous and will complete even if you close the preferences floater."
+			 left_delta="150" bottom_delta="0" width="300" height="20" follows="left|top">
+				Downloading a dictionary, please wait...
+			</text>
+			<combo_box name="download_dict_combo" allow_text_entry="false" max_chars="64"
+			 tool_tip="Choose a new dictionary to download."
+			 left_delta="0" bottom_delta="3" width="230" height="18" follows="left|top" />
+			<button name="dict_download_button" label="Download" font="SansSerifSmall"
+			 tool_tip="Click this button to download the chosen dictionary."
+			 left_delta="236" bottom_delta="-1" width="76" height="20" follows="left|top" />
+			<spinner name="task_bar_button_flash_time_spinner" control_name="TaskBarButtonFlashTime"
+			 tool_tip="When IM/chat happens while the viewer window is not visible, the viewer sends an event to the desktop task bar, asking it to flash its button or icon. This setting allows to adjust the flashing duration (counted in seconds), or to disable it entirely (when set to 0). Note that this duration could get overridden by your desktop settings (e.g. it could use a given number of flashes instead of a duration)."
+			 label="Duration for the viewer button flashing in the desktop task bar (0 to disable):" font="SansSerifSmall"
+			 decimal_digits="0" min_val="0" max_val="60" increment="1" label_width="410"
+			 left="15" bottom_delta="-32" width="450" height="16" follows="left|top" />
+		</panel>
+		<panel name="Inventory" label="Inventory" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<check_box name="rez_with_land_group_check" control_name="RezWithLandGroup"
+			 label="Rez objects with land group when possible" font="SansSerifSmall"
+			 tool_tip="Setting the proper land group on scripted objects is important since failing to do it might restrict the permissions of their scripts (for example, the rezzing permission if the parcel is set to allow only group members to rez). This setting automatically takes care of setting the rezzed objects group to the land group, provided you are a member of that land group."
+			 left="15" bottom_delta="-24" width="400" height="16" follows="left|top" />
+			<check_box name="os_use_cof_check" control_name="OSUseCOF"
+			 label="Use the COF in OpenSim grids" font="SansSerifSmall"
+			 tool_tip="The COF (Current Outfit Folder) is only used by the Cool VL Viewer to allow SSB (server-side baking) support. Since SSB is not implemented in OpenSim, you may not care at all about the COF and even want to be able to delete it altogether, unless you are also using another viewer relying on the COF to restore the initial outfit, in which case you will want this setting checked... Note that this setting would get automatically overridden for sims supporting SSB."
+			 left="300" bottom_delta="0" width="160" height="16" follows="left|top" />
+			<text name="sound_action_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="The radio-buttons below let you choose which action will be performed when you double-click on a sound item in the inventory."
+			 bottom_delta="-20" left="18" height="16" width="400" follows="left|right|top">
+				Action to perform for double-click on sounds in inventory:
+			</text>
+			<radio_group name="sound_preview" control_name="DoubleClickInventorySoundAction" draw_border="false"
+			 left="32" bottom_delta="-18" width="350" height="16" follows="left|top">
+				<radio_item name="0" value="0"
+				 tool_tip="With this option checked, the preview floater will be opened. That floater contains the description of the sound and two buttons to play it either locally or in-world."
+				 left="0" bottom="-16" width="50" height="16" follows="left|top">
+					Open preview
+				</radio_item>
+				<radio_item name="1" value="1"
+				 tool_tip="With this option checked, the sound will be played locally (in this viewer only)."
+				 left_delta="60" bottom_delta="0" width="50" height="16" follows="left|top">
+					Play locally
+				</radio_item>
+				<radio_item name="2" value="2"
+				 tool_tip="With this option checked, the sound will be played in-world (i.e. anyone around your avatar will hear the sound, unless they got sounds muted)."
+				 left_delta="60" bottom_delta="0" width="50" height="16" follows="left|top">
+					Play in-world
+				</radio_item>
+			</radio_group>
+			<text name="upload_folder_animation_text" font="SansSerifSmall"
+			 left="18" bottom_delta="-20" width="190" height="16" follows="left|top">
+				Do not allow to wear more than one:
+			</text>
+			<check_box name="no_multiple_skirts_check" control_name="NoMultipleSkirts"
+			 label="Skirt" font="SansSerifSmall"
+			 tool_tip="While it is possible to wear more than one skirt, given how rendering is currently impemented in (all) viewers, the length of the combination of worn skirts is determined by the shortest one, even if it is worn below longer skirts, making it a mess... With this setting checked, any 'Add' action on a skirt wearable will be interpreted as a 'Wear', thus replacing any already worn skirt with the new one."
+			 left_delta="200" bottom_delta="-2" width="50" height="16" follows="left|top" />
+			<check_box name="no_multiple_shoes_check" control_name="NoMultipleShoes"
+			 label="Pair of shoes" font="SansSerifSmall"
+			 tool_tip="While it is possible to wear more than one pair of shoes, it does not really make any sense and beside, only the last worn pair determines the shape of the shoes (heels height, platform height, toes width and thickness, etc...). With this setting checked, any 'Add' action on a shoes wearable will be interpreted as a 'Wear', thus replacing any already worn pair with the new one."
+			 left_delta="60" bottom_delta="0" width="90" height="16" follows="left|top" />
+			<check_box name="no_multiple_physics_check" control_name="NoMultiplePhysics"
+			 label="Physics layer" font="SansSerifSmall"
+			 tool_tip="While it is possible to wear more than one Physics, only the last worn one is actually taken into account. With this setting checked, any 'Add' action on a Physics wearable will be interpreted as a 'Wear', thus replacing any already worn Physics with the new one."
+			 left_delta="100" bottom_delta="0" width="90" height="16" follows="left|top" />
+			<check_box name="thumbnail_check" control_name="AutoShowInventoryThumbnails"
+			 label="Automatically show any associated thumbnail when selecting an inventory object" font="SansSerifSmall"
+			 tool_tip="When enabled, and you select (left click on) an inventory object (folder or item) which got an associated thumbnail image, this feature auto-opens a thumbnail viewing floater. Note that this only works when the AISv3 inventory protocol is available (i.e. so far in SL only) and enabled (it should be, unless you disabled it from the Advanced -> Network menu)."
+			 left="15" bottom_delta="-20" width="430" height="16" follows="left|top" />
+			<spinner name="thumbnail_view_timeout" control_name="ThumbnailViewTimeout"
+			 label="Thumbnail view timeout:" label_width="130" font="SansSerifSmall"
+			 tool_tip="Number of seconds after which a newly opened thumbnail view floater will auto-close (0 to never auto-close), not counting the time it takes for the thumbnail texture to fully load (i.e. the timer starts only after the texture is fully loaded). Note that this does not affect the inventory thumbnail edit floater."
+			 decimal_digits="0" min_val="0" max_val="999" increment="1"
+			 left="35" bottom_delta="-20" width="180" height="16" follows="left|top" />
+			<text name="thumbnail_view_timeout_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="Number of seconds after which a newly opened thumbnail view floater will auto-close (0 to never auto-close), not counting the time it takes for the thumbnail texture to fully load (i.e. the timer starts only after the texture is fully loaded). Note that this does not affect the inventory thumbnail edit floater."
+			 left_delta="186" bottom_delta="0" width="230" height="16" follows="left|top">
+				seconds (0 to keep open indefinitely).
+			</text>
+			<view_border name="border7" bevel_style="none" border_thickness="1"
+			 bottom_delta="-290" left="10" height="282" width="476" follows="left|top"/>
+			<text name="upload_folder_animation_text" font="SansSerifSmall"
+			 left="20" bottom_delta="262" width="400" height="12" follows="left|top">
+				Inventory folder to use for uploaded animations:
+			</text>
+			<button name="reset_animation_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the upload folder for animations to the default one ('Animations' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="upload_folder_animation" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where animations are uploaded. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+			<text name="upload_folder_sound_text" font="SansSerifSmall"
+			 left="20" bottom_delta="-22" width="400" height="12" follows="left|top">
+				Inventory folder to use for uploaded sounds:
+			</text>
+			<button name="reset_sound_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the upload folder for sounds to the default one ('Sounds' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="upload_folder_sound" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where sounds are uploaded. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+			<text name="upload_folder_texture_text" font="SansSerifSmall"
+			 left="20" bottom_delta="-22" width="400" height="12" follows="left|top">
+				Inventory folder to use for uploaded textures:
+			</text>
+			<button name="reset_texture_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the upload folder for textures to the default one ('Textures' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="upload_folder_texture" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where textures are uploaded. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+			<text name="upload_material_folder_text" font="SansSerifSmall"
+			 left="20" bottom_delta="-22" width="400" height="12" follows="left|top">
+				Inventory folder to use for uploaded GLTF materials:
+			</text>
+			<button name="reset_material_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the upload folder for GLTF materials to the default one ('Materials' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="upload_material_folder" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where new GLTF materials are uploaded. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+			<text name="upload_folder_model_text" font="SansSerifSmall"
+			 left="20" bottom_delta="-22" width="400" height="12" follows="left|top">
+				Inventory folder to use for uploaded mesh models:
+			</text>
+			<button name="reset_model_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the upload folder for mesh models to the default one ('Objects' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="upload_folder_model" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where mesh models are uploaded. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+			<text name="new_outfits_folder_text" font="SansSerifSmall"
+			 left="20" bottom_delta="-22" width="400" height="12" follows="left|top">
+				Inventory folder to use for newly created outfits:
+			</text>
+			<button name="reset_new_outfits_folder" label="Reset to default" font="SansSerifSmall"
+			 tool_tip="Reset the folder where new outfits are stored to the default one ('Clothing' folder, at root inventory level)."
+			 left_delta="354" bottom_delta="-4" width="102" height="19" follows="left|top" />
+			<line_editor name="new_outfits_folder" font="SansSerifSmall" max_length="512"
+			 word_wrap="false" enabled="false"
+			 tool_tip="This is the inventory folder where new outfits (created with the 'Make new outfit' floater) are stored. You can choose another folder for this purpose from the inventory context menu for folders."
+			 left="20" bottom_delta="-20" width="456" height="18" follows="left|top"/>
+		</panel>
+		<panel name="Animations" label="Animations" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<text name="animation_upload" font="SansSerifSmall"
+			 left="10" bottom_delta="-28" width="150" height="16" follows="left|top">
+				Animation upload preview:
+			</text>
+			<check_box name="preview_anim_in_world_check" control_name="PreviewAnimInWorld"
+			 label="Preview animations on the avatar instead on a dummy before uploading" font="SansSerifSmall"
+			 left="15" bottom_delta="-24" width="400" height="16" follows="left|top" />
+			<text name="animation_permissions" font="SansSerifSmall"
+			 left="10" bottom_delta="-28" width="150" height="16" follows="left|top">
+				Script permissions:
+			</text>
+			<check_box name="revoke_perms_on_stand_up_check" control_name="RevokePermsOnStandUp"
+			 label="On standing up, revoke permissions for the object your avatar was sitting on" font="SansSerifSmall"
+			 tool_tip="When you sit on a scripted object, it automatically gains some permissions, such as being allowed to animate your avatar. Some buggy scripts do not properly detect the moment when you stand up and may, for example, wrongly keep animating your avatar. This setting prevents this from happening since then all permissions get automatically revoked when you stand up. NOTE: in SL, only the animation and animation override permissions are currently (2013-09) revoked because of server-side limitations."
+			 left="15" bottom_delta="-24" width="400" height="16" follows="left|top" />
+			<check_box name="revoke_perms_on_stop_anims_check" control_name="RevokePermsOnStopAnimation"
+			 label="On 'Stop animating my avatar', revoke the animation permissions" font="SansSerifSmall"
+			 tool_tip="When using the 'Stop animating my avatar' feature and this setting is checked, the animation permissions granted to the scripted objects in the current region are revoked."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="reset_overrides_on_stop_anims_check" control_name="ResetAnimOverrideOnStopAnimation"
+			 label="On 'Stop animating my avatar', reset the animation overrides" font="SansSerifSmall"
+			 tool_tip="When using the 'Stop animating my avatar' feature and this setting is checked, the animation overrides set by scripts (via the llSetAnimationOverride() LSL function) are also reset."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<text name="agent_permissions" font="SansSerifSmall"
+			 left="10" bottom_delta="-28" width="150" height="16" follows="left|top">
+				Agent animations:
+			</text>
+			<check_box name="appearance_animation_check" control_name="AppearanceAnimation"
+			 label="Play the editing animation when entering appearance editing mode" font="SansSerifSmall"
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<check_box name="turn_towards_selected_object_check" control_name="TurnTowardsSelectedObject"
+			 label="When selecting an object, turn the avatar around to face it" font="SansSerifSmall"
+			 tool_tip="Normally, when you select an object by right-clicking on it while the camera is not focused on your avatar, the viewer automatically turns your avatar around if needed to face the object. You may disable this by un-checking this setting."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+		</panel>
+		<panel name="Miscellaneous" label="Misc." border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<check_box name="allow_multiple_viewers_check" control_name="AllowMultipleViewers"
+			 label="Allow multiple simultaneous viewer sessions" font="SansSerifSmall"
+			 left="15" bottom_delta="-24" width="400" height="16" follows="left|top" />
+			<spinner name="bg_yield_time" control_name="BackgroundYieldTime"
+			 label="Background yield time:" label_width="130" font="SansSerifSmall"
+			 tool_tip="Amount of time to yield every frame to other applications when the viewer is not the foreground window. Do set this to 0 when benchmarking the viewer !  Note: when yielding, the FPS counter in the status bar turns white."
+			 decimal_digits="0" min_val="0" max_val="999" increment="1"
+			 left="18" bottom_delta="-20" width="180" height="16" follows="left|top" />
+			<text name="speed_rez_seconds" font="SansSerifSmall"
+			 left_delta="186" bottom_delta="0" width="32" height="16" follows="left|top">
+				ms
+			</text>
+			<spinner name="fps_limit" control_name="FrameRateLimit"
+			 label="Frame rate limit:" label_width="90" font="SansSerifSmall"
+			 tool_tip="Voluntary frame rate limiting, to lower the power consumption or heating. When rendering a frame at a speed corresponding to a frame rate above this value, the viewer will first attempt to use the 'free' time to complete ancillary tasks (so that no time is lost to rez new objects or textures), and then possibly sleep the CPU until the time corresponding to the requested maximum frame rate is exhausted for this frame. A value of 19 or less disables the limiting entirely. Do set this to 0 when benchmarking the viewer !  Note: when the frame rate is actually limited, the FPS counter in the status bar turns white."
+			 decimal_digits="0" min_val="0" max_val="300" increment="60"
+			 left_delta="50" bottom_delta="0" width="142" height="16" follows="left|top" />
+			<text name="fps_limit_off" font="SansSerifSmall"
+			 left_delta="150" bottom_delta="0" width="100" height="16" follows="left|top">
+				&lt; 20 to disable
+			</text>
+			<check_box name="speed_rez_check" control_name="SpeedRez"
+			 label="Enable speed-rezzing via draw distance stepping" font="SansSerifSmall"
+			 tool_tip="When activated, this feature automatically reduces the draw distance to 32m before departure when you TP away (or when you log in) and increases it back progressively to its previous value on arrival. This allows the closest objects and avatars to get rezzed first and thus provides a (subjectively) speedier rezzing experience."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<spinner name="speed_rez_interval" control_name="SpeedRezInterval"
+			 label="Draw distance stepping interval:" label_width="200" font="SansSerifSmall"
+			 tool_tip="This is the interval of time, in seconds, between each increase of the draw distance (the distance is doubled at each step, till it reaches the value it was set to before the TP or login). The default value is 20s; if your network is slow, you might want to use larger delays (25s or more), while with a fast network shorter delays (15s or less) are best."
+			 decimal_digits="0" min_val="5" max_val="60" increment="5"
+			 left="35" bottom_delta="-20" width="250" height="16" follows="left|top" />
+			<text name="speed_rez_seconds" font="SansSerifSmall"
+			 left="290" bottom_delta="0" width="100" height="16" follows="left|top">
+				seconds
+			</text>
+			<spinner name="num_image_decode_threads" control_name="NumImageDecodeThreads"
+			 label="Number of image decode threads:" label_width="217" font="SansSerifSmall"
+			 tool_tip="Number of image decode threads to use. 0 for automatic, based on number of available CPU cores. This setting will take effect after a viewer restart."
+			 decimal_digits="0" min_val="0" max_val="64" increment="1"
+			 left="18" bottom_delta="-28" width="267" height="16" follows="left|top" />
+			<text name="decode_threads_text" font="SansSerifSmall"
+			 left="290" bottom_delta="0" width="200" height="16" follows="left|top">
+				(0 = automatic; requires a restart)
+			</text>
+			<spinner name="fetch_boost_after_tp" control_name="TextureFetchBoostTimeAfterTP"
+			 label="Duration of texture fetch boost after TP:" label_width="217" font="SansSerifSmall"
+			 tool_tip="This is the time (after login and each far-TP) during which the texture fetcher will see its parameters boosted so to allow for a faster rezzing of the textures. 0 to disable. Note that boosting texture fetching reduces the frame rate (many more textures get updated at each frame)."
+			 decimal_digits="0" min_val="0" max_val="180" increment="5"
+			 left="18" bottom_delta="-20" width="267" height="16" follows="left|top" />
+			<text name="fetch_boost_seconds" font="SansSerifSmall"
+			 left="290" bottom_delta="0" width="100" height="16" follows="left|top">
+				seconds
+			</text>
+			<check_box name="teleport_history_departure_check" control_name="TeleportHistoryDeparture"
+			 label="Log the TP departure locations into the 'Teleport history'" font="SansSerifSmall"
+			 tool_tip="The teleport history always logs the arrival location. With this setting you may as well log the departure location."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<slider name="sun_position_at_login" control_name="SunPositionAtLogin"
+			 can_edit_text="false" min_val="-0.005" max_val="0.995" increment="0.005" decimal_digits="2"
+			 show_text="false" label="Sun position at login"
+			 tool_tip="This slider is for setting a fixed sun position at login, or to adopt the simulator time (the latter normally being the default and corresponding to the leftmost position of this slider). NOTE: the 'Midday' setting provided in the 'World' -> 'Environment Settings' menu corresponds to 13:33."
+			 left="18" bottom_delta="-28" height="16" width="300" follows="left|top"/>
+			<text name="sun_position_text" font="SansSerifSmall" mouse_opaque="true" halign="left"
+			 bottom_delta="0" left_delta="310" height="16" width="90" follows="left|right|top">
+				= sim time
+			</text>
+			<check_box name="ignore_server_mute_list_check" control_name="MuteListIgnoreServer"
+			 label="Ignore the mute list sent by the grid server" font="SansSerifSmall"
+			 tool_tip="The Cool VL Viewer saves your mute list both on the server (like any other viewer) and in a separate per-user account file (this file is local to the computer); it also loads both the server-provided mute list and the local mute list file on login (the mutes are added together, so should one list lack one, it would be recovered from the other). In case the server mute list gets corrupted (for example, preventing you from removing a mute which would reappear on next login), you may check this box to fully ignore the server-provided mute list. Ignoring the server mute list also allows to keep separate mute lists on seperate computers (e.g. home and work) for the same avatar account."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<check_box name="ban_wall_render_always_check" control_name="RenderBanWallAlways"
+			 label="Always render known close ban walls regardless of collision risks"
+			 tool_tip="When checked and when &quot;View&quot; -> &quot;Show ban lines&quot; is enabled, causes the parcel ban walls to be always rendered (when the server already sent the related info to the viewer, and when they are close enough) and not only when risking to collide with them (which is the default behaviour and quite inappropriate when driving a vehicle at high speed or with a high inertia)."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<spinner name="ban_walls_max_distance" control_name="RenderBanWallMaxDist"
+			 label="Ban walls maximum rendering distance:" font="SansSerifSmall"
+			 tool_tip="The default for this value is 13, and may be varied between 10 and 50 meters. Please note that ban walls will nonetheless not always render below this distance, should the above setting be un-checked, or when the server did not yet consider your avatar close enough (or in risk with colliding with the ban wall) to send the ban lines info to the viewer."
+			 decimal_digits="0" min_val="10" max_val="50" increment="1" label_width="217"
+			 left="18" bottom_delta="-20" width="267" height="16" follows="left|top" />
+			<text name="ban_walls_max_distance_meters" font="SansSerifSmall"
+			 left="290" bottom_delta="0" width="50" height="16" follows="left|top">
+				meters
+			</text>
+			<check_box name="os_bom_uploads_check" control_name="OSAllowBakeOnMeshUploads"
+			 label="Upload additional bakes in OpenSim regions advertising bake-on-mesh support" font="SansSerifSmall"
+			 tool_tip="When in an OpenSim region advertising bake on mesh (actually Universal wearable) support, do upload the additional bake-on-mesh-only bakes."
+			 left="15" bottom_delta="-28" width="400" height="16" follows="left|top" />
+			<check_box name="os_terrain_map_check" control_name="OSWorldMapHasTerrain"
+			 label="Enable the terrain map tab in the world map floater in OpenSim (requires a restart)" font="SansSerifSmall"
+			 tool_tip="OpenSim grids (so far) do not produce/transmit any terrain-only map tile. The corresponding tab is therefore not created when logged in on an OpenSim grid. A change in this setting is only taken into account after a viewer restart."
+			 left="15" bottom_delta="-24" width="400" height="16" follows="left|top" />
+			<text name="external_editor_text" font="SansSerifSmall" mouse_opaque="true"
+			 tool_tip="This is the command to use for opening source assets or files (LSL or Lua scripts) with an external editor. Use %s for the filename in the command line parameters."
+			 left="10" bottom_delta="-36" height="16" width="80" follows="left|top">
+				External editor:
+			</text>
+			<line_editor name="external_editor_cmd" control_name="ExternalEditor" font="SansSerifSmall"
+			 max_length="512" word_wrap="false" label="Example: [CMD]"
+			 tool_tip="This is the command to use for opening source assets or files (LSL or Lua scripts) with an external editor. Use %s for the filename in the command line parameters."
+			 left_delta="85" bottom_delta="0" width="394" height="18" follows="left|top"/>
+		</panel>
+		<panel name="RestrainedLove" label="RestrainedLove" border="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<check_box name="restrained_love_check" control_name="RestrainedLove"
+			 label="RestrainedLove mode (requires a restart)" font="SansSerifSmall"
+			 tool_tip="RestrainedLove allows scripts in your *own* objects to take control on some features of the viewer, and in particular restrict what you can do with it in given situations. This is used by many BDSM scripted toys to try and improve your role-play experience, but may also be used by other scripted objects not related with BDSM (for example, by a scripted outfit manager)."
+			 left="15" bottom_delta="-30" width="400" height="16" follows="left|top" />
+			<text name="user_profile_text" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-20" left="10" height="16" width="65" follows="left|right|top"
+			 tool_tip="This setting allows to set the RestrainedLoveBlacklist variable with preset black lists matching each user profile. You may also set a custom profile by clicking on the corresponding button, in which case no radio button will be checked here. Note that user profile changes will only be taken into account after a viewer restart.">
+				User Profile:
+			</text>
+			<radio_group name="user_profile" draw_border="false"
+			 left_delta="70" bottom_delta="0" height="20" width="340" follows="left|top">
+				<radio_item name="personna_player" bottom="-20" left="0" height="20" width="140"
+				 tool_tip="Persona-players are people who consider they make one with their avatar (their avatar is bearing their own persona, even if they do not share the same appearance or even gender). For them, IC (In Character) and OOC (Out Of Character) do not really mean anything (they are both IC and OOC at the same time when they play). They enjoy being restricted in the same way as their avatar and even further. RestrainedLove was primarily designed for persona-players. With this setting checked, no RestrainedLove command will be blacklisted.">
+					BDSM Persona-Player
+				</radio_item>
+				<radio_item name="role_player" bottom="-20" left="140" height="20" width="120"
+				 tool_tip="Role-players are people who consider that, while their avatar may share some of their own traits, it is just a character (like the character in a novel) that they use to play a role. For them, IC (In Character) and OOC (Out Of Character) are two, entirely different things just like the writer of the novel (their OOC self), and a character in the novel (their IC self). They do not want to be restricted as a player (no OOC restrictions), but enjoy seeing their avatar restricted as a part of and as an enhancement to the role-play.">
+					BDSM Role-Player
+				</radio_item>
+				<radio_item name="non_bdsm" bottom="-20" left="260" height="20" width="80"
+				 tool_tip="If you are not into BDSM and yet wish to benefit from some features RestrainedLove can offer to you, such as allowing scripts to change what your avatar is wearing, or to redirect your chat (used by emoters), or to TP you automatically (used by teleporting gates), but do not wish to get restricted in what you can do in any way, then this profile is for you !">
+					Non-BDSM
+				</radio_item>
+				<radio_item name="custom" bottom="-20" left="340" height="20" width="60" visible="false"
+				 tool_tip="Choose this setting to compose your own profile by selecting individual blacklist categories yourself.">
+					Custom
+				</radio_item>
+			</radio_group>
+			<button name="custom_profile_button" label="Custom" font="SansSerifSmall"
+			 tool_tip="Click this button to open the custom blacklist floater that will entitle you to blacklist groups of RestrainedLove commands."
+			 left_delta="344" bottom_delta="-1" width="64" height="20" follows="left|top" />
+			<check_box name="restrained_love_no_setenv_check" control_name="RestrainedLoveNoSetEnv"
+			 label="Ignore @setenv commands (requires a restart)" font="SansSerifSmall"
+			 tool_tip="The @setenv commands are used to change the Windlight settings in your viewer. They can potentially get you into troubles if your graphics card and/or driver cannot cope with Windlight shaders (if you must keep the 'Atmospheric shaders' off in the 'Graphics' settings tab for the viewer to function properly or fast enough, it is likely the case). In this latter case, it is recommended that you check this setting."
+			 left="15" bottom_delta="-19" width="260" height="16" follows="left|top" />
+			<text name="rlv_inventory_text"
+			 left="10" bottom_delta="-16" width="460" height="16" follows="left|top">
+				Inventory related options:
+			</text>
+			<view_border name="border9" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-64" width="415" height="64" follows="left|top"/>
+			<check_box name="restrained_love_allow_wear_check" control_name="RestrainedLoveAllowWear"
+			 label="Allow 'Wear' and 'Add to/Replace outfit' in inventrory" font="SansSerifSmall"
+			 tool_tip="When this setting is checked and unless @defaultwear is in force, the 'Wear', 'Add to outfit' and 'Replace outfit' commands are made available in the inventory context menus even when an attachment has been locked on your avatar. Such commands may cause locked attachments to get kicked off your avatar, but RestrainedLove would then (attempt to) reattach them after a delay (see the auto-reattach delay setting below). If you do not want to risk getting your locked attachments accidentally detached (a few old ones may break when they are), or if the asset server is being too laggy to allow auto-reattach to work properly, you may want to un-check this setting."
+			 left="15" bottom_delta="42" width="400" height="16" follows="left|top" />
+			<spinner name="restrained_love_reattach_delay" control_name="RestrainedLoveReattachDelay"
+			 label="Auto-reattach delay for accidentally kicked locked items:" font="SansSerifSmall"
+			 tool_tip="This is the delay after which RestrainedLove will attempt to reattach any locked attachment that got accidentally kicked off your avatar. The delay must be long enough to allow the item that got the attachment kicked to rez before auto-reattach is attempted, and for the sim to properly send the state (scripts states, especially) of the accidentally kicked attachment to the asset server before it is reattached (else, bad things can happen, like scripts forgetting last actions, recolored/resized prims forgetting their new color/position, etc). SL used to be extremely lazy (and laggy) with attachments rezzing/saving and 15s was a safe setting in the past. Knowadays, things have much improved and 10s should suffice in most cases."
+			 decimal_digits="0" min_val="5" max_val="30" increment="5" label_width="300"
+			 left="18" bottom_delta="-20" width="350" height="16" follows="left|top" />
+			<text name="restrained_love_reattach_delay_seconds"
+			 left_delta="354" bottom_delta="0" width="160" height="16" follows="left|top">
+				seconds
+			</text>
+			<check_box name="restrained_love_forbid_give_to_rlv_check" control_name="RestrainedLoveForbidGiveToRLV"
+			 label="Forbid giving items to the #RLV/ 'shared' inventory folder." font="SansSerifSmall"
+			 tool_tip="RestrainedLove devices may give you a sub-folder that would go into your #RLV/ 'shared' inventory folder and once this sub-folder accepted, they would most probably force-wear the items it contains onto your avatar (many 'transformation' devices proceed in this way). While you *always* can refuse such an inventory offer with the usual Accept/Decline permission dialog of the viewer, you may also want to force the viewer to put such accepted offers elsewhere so that items are not force-worn on your avatar once accepted. With this setting checked, the offered folder would go at the root of your inventory instead of inside #RLV/."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<text name="rlv_chat_text"
+			 left="10" bottom_delta="-24" width="460" height="16" follows="left|top">
+				Chat related options:
+			</text>
+			<view_border name="border10" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-64" width="415" height="64" follows="left|top"/>
+			<check_box name="restrained_love_show_ellipsis_check" control_name="RestrainedLoveShowEllipsis"
+			 label="Show '...' for muted text when deafened" font="SansSerifSmall"
+			 tool_tip="When your avatar is deafened and cannot hear chat, a '...' ellipsis is printed in chat instead. If you do not wish to see this ellipsis, you may un-check this setting."
+			 left="15" bottom_delta="42" width="400" height="16" follows="left|top" />
+			<check_box name="restrained_love_emotes_check" control_name="RestrainedLoveUntruncatedEmotes"
+			 label="Untruncated emotes (requires a restart)" font="SansSerifSmall"
+			 tool_tip="By default, and to prevent 'cheating' (by faking chat with emotes), RestrainedLove truncates emotes to a small amount of characters when your avatar is prevented from chatting. This is a huge impairement for true role-players who would not try and cheat but instead want to enjoy posing long emotes during their RP. While many RestrainedLove toys use '@emote=add' to lift such an annoying restriction, some do not. If you are a true role-player and do not want your emotes to be truncated when your avatar's chatting ability is restricted, you can check this setting."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<check_box name="restrained_love_can_ooc_check" control_name="RestrainedLoveCanOoc"
+			 label="OOC chat always allowed (requires a restart)" font="SansSerifSmall"
+			 tool_tip="Out Of Character chat (i.e. text enclosed between double parenthesis) is normally always allowed, even when chat is restricted/muted by RestrainedLove. By disabling this setting, you may further restrict your ability to communicate with others by preventing OOC chat to go through when chat is restricted. Only the hardcore persona-players may wish to disable this setting..."
+			 left="15" bottom_delta="-20" width="400" height="16" follows="left|top" />
+			<text name="rlv_im_text"
+			 left="10" bottom_delta="-24" width="460" height="16" follows="left|top">
+				Instant Messaging related options (require a restart to take effect):
+			</text>
+			<view_border name="border11" bevel_style="none" border_thickness="1"
+			 left="10" bottom_delta="-158" width="475" height="158" follows="left|top"/>
+			<text name="receive_im_text"
+			 left="18" bottom_delta="138" width="450" height="16" follows="left|top">
+				Message shown to people trying to IM you while you are forbidden to receive IMs:
+			</text>
+			<text_editor name="receive_im_message_editor" embedded_items="false"
+			 font="SansSerifSmall" max_length="255" word_wrap="true"
+			 left_delta="0" bottom_delta="-54" width="458" height="54" follows="left|top" />
+			<text name="send_im_text"
+			 left_delta="0" bottom_delta="-22" width="460" height="16" follows="left|top">
+				Message shown to people when you try to IM them while you are forbidden to send IMs:
+			</text>
+			<text_editor name="send_im_message_editor" embedded_items="false"
+			 font="SansSerifSmall" max_length="255" word_wrap="true"
+			 left_delta="0" bottom_delta="-54" width="458" height="54" follows="left|top" />
+		</panel>
+	</tab_container>
+	<string name="when_logged_in">THIS SETTING CAN ONLY BE CHANGED ONCE LOGGED IN.</string>
+</panel>

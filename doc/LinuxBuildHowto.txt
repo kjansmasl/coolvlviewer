@@ -1,0 +1,145 @@
+1.- Build dependencies:
+
+The tools required to build the viewer are:
+ - gcc/g++ v7.5 or newer (1), or clang/clang++ v3.5 or newer (2).
+ - binutils (as, ld & Co) and optionally elfutils (for eu-strip)
+ - cmake (v3.5 or newer); v3.16+ recommended for a much faster compilation.
+ - make
+ - python (among v3.10 to v3.3, v2.7 or v2.6, in this preference order)
+ - bzip2
+ - gzip
+ - tar
+ - bash
+ - grep (for the linux-build.sh script)
+ - coreutils (for the linux-build.sh script)
+
+You will also need:
+ - The headers and shared libraries for glibc v2.27 or newer.
+ - The headers and shared libraries for libstdc++ v6.0.25 or newer.
+ - The headers and libraries for X11, Xrender, Xinerama, OpenGL, Mesa (GL/GLU).
+ - A working connection to Internet for the automatic retrieval of the
+   pre-built libraries (note that once those libraries are cached on your
+   build system, the connection is no more necessary).
+
+(1) It *might* be possible to build the viewer with gcc v6 and v7.0 to 7.4, but
+this is untested (v5.5 or older fails, that's for sure). The building process
+was only tested and working (without any warning) with gcc/g++ v7.5.0, v11.4.0
+and v12.3.0. Note that I won't support a viewer built with gcc versions other
+than those.
+For gcc versions other than v7.5 (for x86_64) and v11.4 (for aarch64), shared
+boost libraries are used instead of static ones, so to avoid boost static
+libraries link failures, due to boost messing up dirtily with symbols naming,
+causing mismatches... This results in a larger viewer distribution (the full
+boost shared libraries are bundled, instead of just having the actually used
+boost functions merged into the viewer binary).
+
+(2) The building process was only tested and working (without any warning) with
+clang/clang++ v16.0.6 and v17.0.6. Note that I won't support a viewer built
+with clang versions other than those.
+
+
+2.- Distribution-neutral building instructions (for RPM builds, see chapter 4):
+
+Extract the viewer sources tarball, which will create a linden/ sub-directory
+in the destination directory.
+You may want to open the linden/indra/cmake/00-BuildOptions.cmake file to
+review the various build options; they are set to their default used for the
+official builds, but you may want to add/remove features such as plugins,
+memory management, experimental features, etc...
+
+To launch the build, simply open a terminal, change to the linden/ directory of
+the viewer sources and type:
+  ./linux-build.sh
+
+If you want to build with clang, use:
+  ./linux-build.sh --clang
+
+Notes:
+a.- If your version of gcc/clang spews warnings and aborts the compilation
+    (seen when using compiler versions that are not among the tested ones: see
+    paragraph 1), then you can force the compilation, not treating warnings as
+    errors with: ./linux-build.sh [--clang] --ignore-warnings
+b.- If you have patches you want to apply to personal builds, you may place
+    them inside ~/.secondlife/patches/cool_vl_viewer/ and have them
+    automatically applied when the build is done with the --patches option.
+    Note that the patches must have been produced with:
+        diff -durN linden linden-patched >your_patch_name
+    They may then be left as plain text patches, or be gzipped, bzipped or
+    xzipped.
+c.- Use "./linux-build.sh --help" to learn about more build options.
+d.- The Voice client, still being a 32 bits binary, needs for the minimum 32
+    bits compatibility libraries (glibc & Co) to be installed on the target
+    system in order to be usable (but the end user may use the provided
+    install-wine-SLVoice.sh script to install the Windows version of the
+    SLVoice client and use that instead, via Wine).
+
+
+3.- Distribution-neutral packaging and distribution:
+
+If you wish to distribute your build, you will need to use InstallJammer v1.3
+(https://sourceforge.net/projects/installjammer/files/InstallJammer/snapshots/installjammer-1.3-snapshot.tar.gz/download)
+with the provided script in linden/scripts/installers/linux[64]/ (in the latter
+script, using a text editor, change the occurrences of
+"/usr/local/CoolVLViewer-1.30.x/" with the path of whatever directory you
+installed the viewer into).
+Simply load the CoolVLViewer-x86_64-1.32.x.mpi file into InstallJammer,
+select "Build Installers" in the tree on the left, then check "Build for final
+release" on the bottom and press the "Build Install" button. The distributable
+package will be created in linden/scripts/installers/linux64/output/
+
+
+4.- RPM packaging (for Mandriva, Fedora, Suse and all their forks):
+
+The build process described here works for 64 bits RPM-based distributions. It
+has been tested and working on two Mandriva forks (Rosa 2016 and PCLinuxOS);
+other RPM-based distributions may require a slight adjustement of the .spec
+file (depending on possible RPM %macros peculiarities/oddities).
+
+You will find a CoolVLViewer.spec file in the scripts/installers/rpm/ sub-
+directory of the viewer sources. Place it into the SPECS/ sub-directory of your
+RPM build tree (which may be /usr/src/RPM, /usr/src/rpm, /usr/src/rpmbuild or
+~/rpmbuild, depending on your Linux distribution), then either place the
+corresponding sources tarball in SOURCES/ or, to get the tarball automatically
+downloaded into SOURCES/, type (from the RPM build tree):
+  touch SOURCES/CoolVLViewer-src-130BR.tar.bz2 
+where 'B' is the branch number and 'R' is the release number: those are listed
+in the first lines of the spec file, respectively as "micro" and "nano") so to
+create an empty file (so that rpmbuild would not complain about a missing
+source tarball).
+
+Finally launch the build by typing:
+  rpmbuild -ba SPECS/CoolVLViewer.spec
+
+You may also specify options to build with specific gcc versions (when they are
+installed on your system) not matching your system gcc version, or with clang
+(here again, if installed on your system).
+For example, to build with gcc vX.N (with X=5 to 10) when available:
+  rpmbuild -ba --with gcc55 SPECS/CoolVLViewer.spec
+Or to build with clang when available:
+  rpmbuild -ba --with clang SPECS/CoolVLViewer.spec
+
+You may also enable tuned optimizations (*) for the CPU model of the computer
+you build the viewer onto with:
+  rpmbuild -ba --with tune SPECS/CoolVLViewer.spec
+The tune option may be mixed with gccXN or clang, e.g.:
+  rpmbuild -ba --with gcc55 --with tune SPECS/CoolVLViewer.spec
+
+If you have patches you want to apply to personal builds, you may place them
+inside ~/.secondlife/patches/cool_vl_viewer/ and have them automatically
+applied when the build is done --with tune. Note that the patches must have
+been produced with: diff -durN linden linden-patched >your_patch_name.patch
+They may then be left as plain text patches, or be gzipped, bzipped or xzipped.
+
+For distribution specific patches, you will have to edit manually the .spec
+file and add them in the usual way ("PatchN: your_patch_N.patch" lines below
+the "Source0:" line, then "%patchN -p1" lines in the %prep section, just after
+the "cd linden" line).
+
+Note that the Voice client, still being a 32 bits binary, needs for the minimum
+32 bits compatibility libraries (glibc & Co) to be installed on the target
+system in order to be usable. So you might want to add the corresponding 32bits
+package(s) as "Requires" in the spec file for your Linux distro.
+
+
+(*) IMPORTANT: the built RPM package may be distributed *IF AND ONLY IF* the
+"tune" option was *NOT* used.

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="sounds list" title="Sounds list" rect_control="FloaterSoundsListRect"
+	can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+	min_width="595" min_height="200" width="600" height="300">
+	<scroll_list name="sounds_list" can_resize="true" multi_select="false"
+	 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+	 left="10" right="-10" bottom="28" top="-24" follows="left|top|right|bottom">
+		<column name="sound" label="Sound Id" width="250"
+		 tool_tip="This is the sound asset Id. The same sound asset may be played by several different objects. Sound assets in red are blocked." />
+		<column name="object" label="Object name" dynamicwidth="true"
+		 tool_tip="This is the name of the object associated with this sound source (or &lt;none&gt; for an unattached source). An object may play several different sounds and thus appear several times in the list. Objects in red are muted. Note that if the object is beyond the draw distance and out of your camera FOV, the name may never load. To force-load the name, use the 'Show' button to bring the object within your camera FOV, and hover the mouse pointer on it. You may also double-click the object line in the list, to enable the tracker arrow and help you finding it." />
+		<column name="owner" label="Owner name"  width="170"
+		 tool_tip="This is the name of the owner of this sound source. Owners in red have all their sounds muted." />
+		<!-- used to store the associated audio source, object and owner ids: keep at 0 width -->
+		<column name="source_id" label="" width="0" />
+		<column name="object_id" label="" width="0" />
+		<column name="owner_id" label="" width="0" />
+	</scroll_list>
+	<flyout_button name="play" label="Play" font="SansSerif"
+	 tool_tip="Play the sound locally (in this viewer only). You may also copy the sound UUID to the clipboard from the drop down button menu."
+	 bottom="4" left="10" width="85" height="20" follows="left|bottom">
+		<flyout_button_item value="copy_id" name="copy_id"
+		 tool_tip="Copy the sound UUID to the clipboard.">
+			Id to clipboard
+		</flyout_button_item>
+	</flyout_button>
+	<flyout_button name="show" label="Show" font="SansSerif"
+	 tool_tip="Focus the camera onto the sound source. You may also inspect the source object (if any) from the drop down button menu."
+	 bottom="4" left_delta="90"  width="85" height="20" follows="left|bottom">
+		<flyout_button_item value="inspect" name="inspect"
+		 tool_tip="Inspect the source object, if any.">
+			Inspect object
+		</flyout_button_item>
+	</flyout_button>
+	<flyout_button name="block" label="Block" font="SansSerif"
+	 tool_tip="Block/allow the sound associated with the selected sound source (this affects all other sources playing this sound as well for the current viewer session)."
+	 bottom="4" left_delta="90"  width="85" height="20" follows="left|bottom">
+		<flyout_button_item value="block_all_same_owner" name="block_all_from_owner"
+		 tool_tip="(Un)block all listed sounds coming from objects pertaining to the same owner.">
+			From same owner
+		</flyout_button_item>
+		<flyout_button_item value="block_all_same_name" name="block_all_same_name"
+		 tool_tip="(Un)block all listed sounds coming from objects or sources with the same name.">
+			From same name
+		</flyout_button_item>
+	</flyout_button>
+	<flyout_button name="mute_object" label="Mute object" font="SansSerif"
+	 tool_tip="Mutes the object by UUID: this is suitable for permanent objects. You may also mute it by name from the drop down button menu."
+	 bottom="4" left_delta="90" width="120" height="20" follows="left|bottom">
+		<flyout_button_item value="mute_by_name" name="mute_by_name"
+		 tool_tip="Mutes the object by name: this is suitable for transient objects rezzed, each time under the same name, by another rezzer object, or for identical devices that are used in several places.">
+			(Un)Mute by name
+		</flyout_button_item>
+	</flyout_button>
+	<button name="mute_owner" label="Mute owner" font="SansSerif"
+	 tool_tip="Add/remove a sound-mute for the owner of the selected sound source."
+	 bottom="4" left_delta="125" width="105" height="20" follows="left|bottom"/>
+	<check_box name="freeze" label="Freeze" font="SansSerifSmall"
+	 tool_tip="Freeze the list, preventing the auto-refreshing."
+	 bottom="5" right="-40" width="40" height="20" follows="right|bottom"/>
+	<string name="none">
+		&lt;none&gt;
+	</string>
+	<string name="unknown">
+		&lt;unknown&gt;
+	</string>
+	<string name="loading">
+		Loading...
+	</string>
+	<string name="sound_source">
+		Sound source
+	</string>
+	<string name="attachment">
+		&lt;avatar attachment&gt;
+	</string>
+	<string name="block_sound_text">
+		Block
+	</string>
+	<string name="allow_sound_text">
+		Allow
+	</string>
+	<string name="mute_object_text">
+		Mute object
+	</string>
+	<string name="unmute_object_text">
+		Un-mute object
+	</string>
+	<string name="mute_owner_text">
+		Mute owner
+	</string>
+	<string name="unmute_owner_text">
+		Un-mute owner
+	</string>
+</floater>

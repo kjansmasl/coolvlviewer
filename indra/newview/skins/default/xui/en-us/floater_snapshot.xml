@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="snapshot" title="Snapshot preview" rect_control="FloaterSnapshotRect"
+ can_close="true" can_drag_on_left="false" can_minimize="false" can_resize="false" 
+ bottom="-300" width="215" height="546" follows="left|top">
+	<text name="type_label"
+	 left="10" bottom_delta="-40" width="195" height="15" follows="top|left">
+		Snapshot destination
+	</text>
+	<radio_group name="snapshot_type_radio" label="Snapshot type"
+	 left="10" bottom_delta="-65" width="195" height="60" follows="left|top">
+		<radio_item bottom="-19" height="16" name="postcard">
+			Send via email
+		</radio_item>
+		<radio_item bottom="-38" height="16" name="texture">
+			Save to your inventory (L$[AMOUNT])
+		</radio_item>
+		<radio_item bottom="-57" height="16" name="local">
+			Save to your hard drive
+		</radio_item>
+		<radio_item bottom="-38" height="16" name="thumbnail" visible="false" enabled="false">
+			Inventory thumbnail
+		</radio_item>
+	</radio_group>
+	<text name="file_size_label"
+	 left="10" bottom="-236" width="195" height="25" follows="left|top">
+		File size: [SIZE] KB
+	</text>
+	<button name="new_snapshot_btn" label="Refresh snapshot"
+	 left="10" bottom="-246" width="195" height="20" follows="left|top" />
+	<button name="send_btn" label="Send"
+	 left="10" bottom_delta="-22" width="105" height="20" follows="left|top" />
+	<button name="upload_btn" label="Save (L$[AMOUNT])"
+	 left="10" bottom_delta="0" width="105" height="20" follows="left|top" />
+	<flyout_button name="save_btn" label="Save" tool_tip="Save image to a file"
+ 	 left="10" bottom_delta="0" width="105" height="20" follows="left|top">
+		<flyout_button_item name="save_item" value="save">
+			Save
+		</flyout_button_item>
+		<flyout_button_item name="saveas_item" value="save as">
+			Save As...
+		</flyout_button_item>
+	</flyout_button>
+	<button name="discard_btn" label="Cancel"
+	 left="120" bottom_delta="0" width="85" height="20" follows="left|top" />
+	<button name="more_btn" label="More &gt;&gt;" font="SansSerifSmall" halign="center"
+	 tool_tip="Show advanced Options"
+	 left="10" bottom="-290" width="80" height="20" follows="left|top" />
+	<button name="less_btn" label="&lt;&lt; Less" font="SansSerifSmall" halign="center"
+	 tool_tip="Hide advanced Options"
+	 left_delta="0" bottom_delta="0" width="80" height="20" follows="left|top" />
+	<text name="type_label2"
+	 left="10" bottom_delta="-20" width="115" height="15" follows="top|left">
+		Size
+	</text>
+	<text name="format_label"
+	 left_delta="145" bottom_delta="0" width="70" height="15" follows="top|left">
+		Format
+	</text>
+	<combo_box name="postcard_size_combo" label="Resolution"
+	 left="10" bottom_delta="-22" height="20" width="195" follows="left|top">
+		<combo_item name="CurrentWindow" value="[i0,i0]">
+			Current window
+		</combo_item>
+		<combo_item name="640x480" value="[i640,i480]">
+			640x480
+		</combo_item>
+		<combo_item name="800x600" value="[i800,i600]">
+			800x600
+		</combo_item>
+		<combo_item name="1024x768" value="[i1024,i768]">
+			1024x768
+		</combo_item>
+		<combo_item name="Custom" value="[i-1,i-1]">
+			Custom
+		</combo_item>
+	</combo_box>
+	<combo_box name="texture_size_combo" label="Resolution"
+	 left_delta="0" bottom_delta="0" width="195" height="20" follows="left|top">
+		<combo_item name="CurrentWindow" value="[i0,i0]">
+			Current window
+		</combo_item>
+		<combo_item name="Small(128x128)" value="[i128,i128]">
+			Small (128x128)
+		</combo_item>
+		<combo_item name="Medium(256x256)" value="[i256,i256]">
+			Medium (256x256)
+		</combo_item>
+		<combo_item name="Large(512x512)" value="[i512,i512]">
+			Large (512x512)
+		</combo_item>
+		<combo_item name="ExtraLarge(1024x1024)" value="[i1024,i1024]">
+			Extra large (1024x1024)
+		</combo_item>
+		<combo_item name="Custom" value="[i-1,i-1]">
+			Custom
+		</combo_item>
+	</combo_box>
+	<combo_box name="local_size_combo" label="Resolution"
+	 left_delta="0" bottom_delta="0" width="140" height="20" follows="left|top">
+		<combo_item name="CurrentWindow" value="[i0,i0]">
+			Current window
+		</combo_item>
+		<combo_item name="320x240" value="[i320,i240]">
+			320x240
+		</combo_item>
+		<combo_item name="640x480" value="[i640,i480]">
+			640x480
+		</combo_item>
+		<combo_item name="800x600" value="[i800,i600]">
+			800x600
+		</combo_item>
+		<combo_item name="1024x768" value="[i1024,i768]">
+			1024x768
+		</combo_item>
+		<combo_item name="1280x1024" value="[i1280,i1024]">
+			1280x1024
+		</combo_item>
+		<combo_item name="1600x1200" value="[i1600,i1200]">
+			1600x1200
+		</combo_item>
+		<combo_item name="Custom" value="[i-1,i-1]">
+			Custom
+		</combo_item>
+	</combo_box>
+	<combo_box name="thumbnail_size_combo" label="Resolution"
+	 left_delta="0" bottom_delta="0" width="140" height="20" follows="left|top">
+		<combo_item name="Large(256x256)" value="[i256,i256]">
+			Large (256x256)
+		</combo_item>
+		<combo_item name="Medium(128x128)" value="[i128,i128]">
+			Medium (128x128)
+		</combo_item>
+		<combo_item name="Small(64x64)" value="[i64,i64]">
+			Small (64x64)
+		</combo_item>
+	</combo_box>
+	<combo_box name="local_format_combo" label="Format"
+	 left_delta="145" bottom_delta="0" height="20" width="50" follows="left|top">
+		<combo_item name="PNG">
+			PNG
+		</combo_item>
+		<combo_item name="JPEG">
+			JPEG
+		</combo_item>
+		<combo_item name="BMP">
+			BMP
+		</combo_item>
+	</combo_box>
+	<spinner name="snapshot_width" label="Width" allow_text_entry="false"
+	 label_width="35" min_val="32" max_val="6016" increment="32" decimal_digits="0"
+	 left="10" bottom_delta="-25" width="95" height="20" follows="left|top" />
+	<spinner name="snapshot_height" label="Height" allow_text_entry="false"
+	 label_width="35" min_val="32" max_val="6016" increment="32" decimal_digits="0"
+	 left="110" bottom_delta="0" width="95" height="20" follows="left|top" />
+	<check_box name="keep_aspect_check" control_name="KeepAspectForSnapshot" label="Constrain proportions"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<slider name="image_quality_slider" label="Image quality"
+	 decimal_digits="0" increment="1" min_val="0" max_val="100" initial_val="75"
+	 left="10" bottom_delta="-20" width="210" height="15" follows="left|top" />
+	<text name="layer_type_label"
+	 left="10" bottom_delta="-28" width="50" height="20" follows="left|top">
+		Capture:
+	</text>
+	<combo_box name="layer_types" label="Image layers" enabled="false"
+	 left="60" bottom_delta="3" width="145" height="20" follows="left|top">
+		<combo_item name="Colors" value="colors">
+			Colors
+		</combo_item>
+		<combo_item name="Depth" value="depth">
+			Depth
+		</combo_item>
+	</combo_box>
+	<check_box name="ui_check" control_name="RenderUIInSnapshot" label="Show interface in snapshot"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<check_box name="hud_check" control_name="RenderHUDInSnapshot" label="Show HUD objects in snapshot"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<check_box name="close_after_check" control_name="CloseSnapshotOnKeep" label="Close floater after saving"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<check_box name="freeze_frame_check" label="Freeze frame (fullscreen preview)"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<check_box name="auto_snapshot_check" control_name="AutoSnapshot" label="Auto-refresh"
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<check_box name="temp_check" label="Temporary image (free)"
+	 tooltip="Sets the texture asset to be temporary, meaning it is free but, in return, only valid/available for as long as the server keeps texture bakes around."
+	 left="10" bottom_delta="-20" follows="left|top" />
+	<string name="unknown">
+		unknown
+	</string>
+</floater>

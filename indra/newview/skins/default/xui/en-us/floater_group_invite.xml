@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="group invite" title="Group invite"
+ can_resize="true" can_close="true" can_drag_on_left="false" can_minimize="true"
+ width="220" min_width="220" height="388" min_height="388">
+	<panel name="invite_panel" label="Invite new members"
+	 left="0" bottom_delta="-394" width="210" height="374" follows="left|top|right|bottom">
+		<text name="group_name_label" font="SansSerifSmall"
+		 left="10" bottom_delta="-22" width="40" height="16" follows="left|top">
+			Group:
+		</text>
+		<text name="group_name_text" font="SansSerifSmall"
+		 left_delta="40" bottom_delta="0" width="155" height="16" follows="left|top|right">
+			Loading...
+		</text>
+		<text name="help_text" font="SansSerifSmall" halign="center"
+		 left="5" bottom_delta="-52" height="50" width="200" follows="left|top|right">
+			You can select multiple avatars to
+invite to your group. Click &apos;Open
+avatar picker&apos; to start.
+		</text>
+		<button name="add_button" label="Open avatar picker"
+		 left_delta="5" bottom_delta="-20" width="200" height="20" follows="top|left|right"/>
+		<name_list name="invitee_list"
+		 multi_select="true" allow_calling_card_drop="true" column_padding="0"
+ 		 left_delta="0" bottom_delta="-178" width="200" height="170" follows="top|bottom|left|right"
+		 tool_tip="Hold the Ctrl key and click avatar names to multi-select" />
+		<button name="remove_button" label="Remove avatar(s) from list"
+		 tool_tip="Removes the avatars selected above from the ban list"
+ 		 left_delta="0" bottom_delta="-26" width="200" height="20" follows="bottom|left|right" />
+		<text name="role_text" font="SansSerifSmall"
+		 left_delta="0" bottom_delta="-18" width="200" height="16" follows="left|bottom|right">
+			Choose what Role to assign them to:
+		</text>
+		<combo_box name="role_name"
+		 tool_tip="Choose from the list of Roles you are allowed to assign members to."
+		 left_delta="0" bottom_delta="-20" width="200" height="18" follows="left|bottom|right" />
+		<button name="invite_button" label="Send invitations"
+		 left_delta="0" bottom_delta="-24" height="20" width="125" follows="left|right|bottom" />
+		<button name="cancel_button" label="Cancel"
+		 left_delta="130" bottom_delta="0" width="70" height="20" follows="right|bottom" />
+		<string name="confirm_invite_owner_str">
+			Are you sure you want to invite new owner(s)? This action is permanent!
+		</string>
+		<string name="invite_selection_too_large">
+			Group Invitations not sent: too many Residents selected. Group Invitations are limited to 100 per request.
+		</string>
+		<string name="loading">
+			Loading...
+		</string>
+	</panel>
+</floater>

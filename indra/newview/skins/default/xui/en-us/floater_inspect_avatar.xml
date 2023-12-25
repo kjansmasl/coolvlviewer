@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inspect avatar" title="Inspect avatar"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ min_height="200" min_width="500" rect_control="FloaterInspectAvatarRect">
+	<scroll_list name="object_list" multi_select="false"
+	 can_resize="false" column_padding="0" draw_heading="true"
+	 tool_tip="Double-click an object from this list to inspect it"
+	 left="10" right="-10" top="-20" bottom="30" follows="top|right|left|bottom">
+		<column name="object_id" label="Attachment Id" dynamicwidth="true" tool_tip="UUID of the attachment object. Double-click to inspect this object." />
+		<column name="attach" label="Attachment point" width="114" tool_tip="Attachment point for that object. Double-click to inspect this object." />
+		<column name="primitives" label="Primitives" width="76" tool_tip="Number of primitives making of that attachment object. Double-click to inspect this object." />
+		<column name="scripts" label="Scripts" width="76" tool_tip="Number of scripts in the object. Double-click to inspect this object." />
+	</scroll_list>
+	<button name="profile" label="See avatar profile..." font="SansSerif"
+	 tool_tip="See the profile of this avatar."
+	 left="10" bottom="5" width="150" height="20" follows="left|bottom" />
+	<button name="close" label="Close" font="SansSerif"
+	 tool_tip="Close this floater."
+	 right="-10" bottom="5" width="80" height="20" follows="right|bottom" />
+	<button name="refresh" label="Refresh" font="SansSerif"
+	 tool_tip="Force-refreshes the objects data."
+	 right="-100" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+	<string name="loading">
+		loading...
+	</string>
+	<string name="total_attachments">
+		Total number of: attachments =
+	</string>
+	<string name="total_primitives">
+		- primitives =
+	</string>
+	<string name="total_scripts">
+		- scripts =
+	</string>
+	<string name="so_far">
+		so far (still loading)
+	</string>
+	<string name="no_avatar">
+		No avatar...
+	</string>
+</floater>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="inspect object" title="Inspect objects"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ min_height="300" min_width="750" rect_control="FloaterInspectRect">
+	<scroll_list name="object_list" multi_select="false"
+	 can_resize="false" column_padding="0" draw_heading="true"
+	 tool_tip="Select an object from this list to highlight it in-world"
+	 left="10" right="-10" top="-20" bottom="30" follows="top|right|left|bottom">
+		<column name="object_name" label="Object name" dynamicwidth="true" tool_tip="Name of the primitive (names in bold are for root primitives)." />
+		<column name="owner_name" label="Owner name" width="120" tool_tip="Name of the current owner of the primitive." />
+		<column name="last_owner_name" label="Last owner name" width="120" tool_tip="Name of the previous owner of the primitive." />
+		<column name="creator_name" label="Creator name" width="120" tool_tip="Name of the avatar who created the primitive." />
+		<column name="creation_date" label="Creation date" width="150" tool_tip="Date at which the primitive was created." />
+		<column name="inventory" label="Scripts/tot" width="85" tool_tip="Number of scripts in the primitive/Total number of inventory items in the primitive." />
+	</scroll_list>
+	<button name="button owner" label="See owner profile..." font="SansSerif"
+	 tool_tip="See profile of the highlighted object&apos;s owner."
+	 left="10" bottom="5" width="150" height="20" follows="left|bottom" />
+	<button name="button creator" label="See creator profile..." font="SansSerif"
+	 tool_tip="See profile of the highlighted object&apos;s original creator."
+	 left_delta="160" bottom="5" width="150" height="20" follows="left|bottom" />
+	<button name="button weights" label="See object weights..." font="SansSerif"
+	 tool_tip="See the weights of the object (number of primitives, land impact, physics and streaming costs)."
+	 left_delta="160" bottom="5" width="150" height="20" follows="left|bottom" />
+	<icon name="nav_mesh_info" image_name="nav_mesh_info.tga"
+	 mouse_opaque="true" visible="false"
+	 tool_tip="This object(s) selection got the following navmesh/pathfinding attribute(s):"
+	 left_delta="152" bottom="7" width="32" height="16" follows="left|bottom" />
+	<button name="close" label="Close" font="SansSerif"
+	 tool_tip="Close this floater."
+	 right="-10" bottom="5" width="80" height="20" follows="right|bottom" />
+	<button name="refresh" label="Refresh" font="SansSerif"
+	 tool_tip="Force-refreshes the objects data."
+	 right="-100" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+	<string name="loading">
+		loading...
+	</string>
+	<string name="total_scripts">
+		Total number of scripts:
+	</string>
+	<string name="so_far">
+		so far (still loading)
+	</string>
+</floater>

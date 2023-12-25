@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- This file contains strings that used to be hardcoded in the source.
+     It is only for those strings which don't belong in a floater.
+     For example, the strings used in avatar chat bubbles, and strings
+     that are returned from one component and may appear in many places-->
+<strings>
+
+	<!-- Login -->
+	<string name="LoginInProgressWait">Logging in. [APP_NAME] may appear frozen. Please wait.</string>
+	<string name="LoginInProgress">Logging in...</string>
+	<string name="LoginAuthenticating">Authenticating</string>
+	<string name="LoginMaintenance">Performing account maintenance...</string>
+	<string name="LoginPrecaching">Loading world...</string>
+	<string name="LoginInitializingBrowser">Initializing embedded web browser...</string>
+	<string name="LoginInitializingMultimedia">Initializing multimedia...</string>
+	<string name="LoginVerifyingCache">Verifying cache files (can take 60-90 seconds)...</string>
+	<string name="LoginProcessingResponse">Processing response...</string>
+	<string name="LoginInitializingWorld">Initializing world...</string>
+	<string name="LoginDecodingImages">Decoding images...</string>
+	<string name="LoginWaitingForRegionHandshake">Waiting for region handshake...</string>
+	<string name="LoginWaitingForSeed">Waiting for seed...</string>
+	<string name="LoginRetrySeedRequest">Retrying seed request...</string>
+	<string name="LoginConnectingToRegion">Connecting to region...</string>
+	<string name="LoginDownloadingClothing">Downloading clothing...</string>
+
+	<!-- XML RPC errors -->
+	<string name="server_is_down">
+Despite our best efforts, something unexpected has gone wrong.
+
+Please check the grid&apos;s web site to see if there is a known problem with the service.
+If you continue to experience problems, please check your network and firewall setup.
+	</string>
+	<string name="dns_not_resolving">
+DNS could not resolve the host name.
+
+Please verify that you can connect to the grid&apos;s web site.
+If you can, but continue to receive this error, please go to the support section and report this problem.
+	</string>
+	<string name="cert_not_verified">
+The login server couldn't verify itself via SSL.
+
+If you continue to receive this error, please go to the Support section of the grid&apos;s web site and report the problem.
+	</string>
+	<string name="connect_error">
+Often this means that your computer&apos;s clock is set incorrectly.
+Please go to Control Panels and make sure the time and date are set correctly.
+
+If you continue to receive this error, please go to the Support section of the grid&apos;s web site and report the problem.
+	</string>
+
+	<!-- Disconnection -->
+	<string name="AgentLostConnection">This region may be experiencing trouble. Please check your connection to the Internet.</string>
+
+	<!-- Tooltip, llhoverview.cpp -->
+	<string name="TooltipPerson">Person</string><!-- Object under mouse pointer is an avatar -->
+	<string name="TooltipNoName">(no name)</string> <!-- No name on an object -->
+	<string name="TooltipOwner">Owner:</string> <!-- Owner name follows -->
+	<string name="TooltipPublic">Public</string> <!-- Public permissions on an object -->
+	<string name="TooltipIsGroup">(Group)</string> <!-- The name before this text is that of a group -->
+	<string name="TooltipFlagScript">Script</string>
+	<string name="TooltipFlagPhysics">Physics</string>
+	<string name="TooltipFlagPermanent">Navmesh permanent</string>
+	<string name="TooltipFlagCharacter">Pathfinding character</string>
+	<string name="TooltipFlagTouch">Touch</string>
+	<string name="TooltipFlagL$">L$</string>
+	<string name="TooltipFlagDropInventory">Drop inventory</string>
+	<string name="TooltipFlagPhantom">Phantom</string>
+	<string name="TooltipFlagTemporary">Temporary</string>
+	<string name="TooltipFlagRightClickMenu">(Right-click for pie menu)</string>
+	<string name="TooltipFreeToCopy">Free to copy</string>
+	<string name="TooltipForSaleL$">For sale: L$[AMOUNT]</string> <!-- L$ version -->
+	<string name="TooltipForSaleMsg">For sale: </string> <!-- + RetrievingData -->
+	<string name="TooltipFlagGroupBuild">Group build</string>
+	<string name="TooltipFlagNoBuild">No build</string>
+	<string name="TooltipFlagNoEdit">Group build</string>
+	<string name="TooltipFlagNotSafe">Not safe</string><!-- damage area -->
+	<string name="TooltipFlagNoFly">No fly</string>
+	<string name="TooltipFlagGroupScripts">Group scripts</string>
+	<string name="TooltipFlagNoScripts">No scripts</string>
+	<string name="TooltipLand">Land:</string>
+	<string name="TooltipMustSingleDrop">Only a single item can be dragged here</string>
+
+	<!-- Toolpie, lltoolpie.cpp -->
+	<string name="sit_here">Sit here</string>
+	<string name="stand_up">Stand up</string>
+
+	<string name="mute">Mute</string>
+	<string name="unmute">Unmute</string>
+	<string name="mute_all">Full mute</string>
+	<string name="unmute_all">Unmute</string>
+	<string name="mute_chat">Mute chat</string>
+	<string name="unmute_chat">Unmute chat</string>
+	<string name="mute_voice">Mute voice</string>
+	<string name="unmute_voice">Unmute vce</string>
+	<string name="mute_sounds">Mute sounds</string>
+	<string name="unmute_sounds">Unmute snds</string>
+	<string name="mute_particles">Mute part.</string>
+	<string name="unmute_particles">Unmute part.</string>
+
+	<!-- World sub-menu, llagent.cpp -->
+	<string name="set_away">Set away</string>
+	<string name="set_not_away">Set not away</string>
+	<string name="set_busy">Set busy</string>
+	<string name="set_not_busy">Set not busy</string>
+	<string name="auto_reply_on">Enable auto-reply</string>
+	<string name="auto_reply_off">Disable auto-reply</string>
+
+	<!-- Indicates that an avatar's name or other similar datum is being retrieved. General usage. -->
+	<string name="RetrievingData">Retrieving...</string>
+
+	<!-- Indicates something is being loaded. Maybe should be merged with RetrievingData -->
+	<string name="LoadingData">Loading...</string>
+
+	<!-- Name cache -->
+	<!-- Avatar name: text shown for LLUUID::null -->
+	<string name="AvatarNameNobody">(nobody)</string>
+
+	<!-- Avatar name: text shown for LLUUID::null -->
+	<string name="AvatarNameMultiple">(multipe)</string>
+
+	<!-- Avatar name: text shown while fetching name -->
+	<string name="AvatarNameWaiting">(waiting)</string>
+
+	<!-- Avatar name: text shown as an alternative to AvatarNameFetching, easter egg. -->
+	<string name="AvatarNameHippos">(hippos)</string>
+
+	<!-- Asset errors. Used in llviewerassetupload.cpp, translation from error code to error message. -->
+	<string name="AssetUploadFailed">Upload failed: </string>
+	<string name="ServerUnreachable">Service unreachable.</string>
+	<string name="ServerDifficulties">The server is experiencing unexpected difficulties.</string>
+	<string name="ServerUnavailable">Service not available or upload timeout was reached.</string>
+	<string name="UploadRequestInvalid">Error in upload request. Please visit the grid support web site for help fixing this problem.</string>
+
+	<!-- LLVOAvatar. Displayed in the avatar's chat bubble -->
+	<string name="AvatarEditingApparance">(Editing Appearance)</string>
+	<string name="AvatarAway">Away</string>
+	<string name="AvatarBusy">Busy</string>
+	<string name="AvatarMuted">Muted</string>
+
+	<!-- Animations -->
+	<string name="anim_express_afraid">Afraid</string>
+	<string name="anim_express_anger">Angry</string>
+	<string name="anim_away">Away</string>
+	<string name="anim_backflip">Backflip</string>
+	<string name="anim_express_laugh">Belly Laugh</string>
+	<string name="anim_express_toothsmile">BigSmile</string>
+	<string name="anim_blowkiss">Blow Kiss</string>
+	<string name="anim_express_bored">Bored</string>
+	<string name="anim_bow">Bow</string>
+	<string name="anim_clap">Clap</string>
+	<string name="anim_courtbow">Court Bow</string>
+	<string name="anim_express_cry">Cry</string>
+	<string name="anim_dance1">Dance 1</string>
+	<string name="anim_dance2">Dance 2</string>
+	<string name="anim_dance3">Dance 3</string>
+	<string name="anim_dance4">Dance 4</string>
+	<string name="anim_dance5">Dance 5</string>
+	<string name="anim_dance6">Dance 6</string>
+	<string name="anim_dance7">Dance 7</string>
+	<string name="anim_dance8">Dance 8</string>
+	<string name="anim_express_disdain">Disdain</string>
+	<string name="anim_drink">Drink</string>
+	<string name="anim_express_embarrased">Embarrassed</string>
+	<string name="anim_angry_fingerwag">Finger Wag</string>
+	<string name="anim_fist_pump">Fist Pump</string>
+	<string name="anim_yoga_float">Floating Yoga</string>
+	<string name="anim_express_frown">Frown</string>
+	<string name="anim_impatient">Impatient</string>
+	<string name="anim_jumpforjoy">Jump For Joy</string>
+	<string name="anim_kissmybutt">Kiss My Butt</string>
+	<string name="anim_express_kiss">Kiss</string>
+	<string name="anim_laugh_short">Laugh</string>
+	<string name="anim_musclebeach">Muscle Beach</string>
+	<string name="anim_no_unhappy">No (Unhappy)</string>
+	<string name="anim_no_head">No</string>
+	<string name="anim_nyanya">Nya-nya-nya</string>
+	<string name="anim_punch_onetwo">One-Two Punch</string>
+	<string name="anim_express_open_mouth">Open Mouth</string>
+	<string name="anim_peace">Peace</string>
+	<string name="anim_point_you">Point at Other</string>
+	<string name="anim_point_me">Point at Self</string>
+	<string name="anim_punch_l">Punch Left</string>
+	<string name="anim_punch_r">Punch Right</string>
+	<string name="anim_rps_countdown">RPS count</string>
+	<string name="anim_rps_paper">RPS paper</string>
+	<string name="anim_rps_rock">RPS rock</string>
+	<string name="anim_rps_scissors">RPS scissors</string>
+	<string name="anim_express_repulsed">Repulsed</string>
+	<string name="anim_kick_roundhouse_r">Roundhouse Kick</string>
+	<string name="anim_express_sad">Sad</string>
+	<string name="anim_salute">Salute</string>
+	<string name="anim_shout">Shout</string>
+	<string name="anim_express_shrug">Shrug</string>
+	<string name="anim_express_smile">Smile</string>
+	<string name="anim_smoke_idle">Smoke Idle</string>
+	<string name="anim_smoke_inhale">Smoke Inhale</string>
+	<string name="anim_smoke_throw_down">Smoke Throw Down</string>
+	<string name="anim_express_surprise">Surprise</string>
+	<string name="anim_sword_strike_r">Sword Strike</string>
+	<string name="anim_angry_tantrum">Tantrum</string>
+	<string name="anim_express_tongue_out">TongueOut</string>
+	<string name="anim_hello">Wave</string>
+	<string name="anim_whisper">Whisper</string>
+	<string name="anim_whistle">Whistle</string>
+	<string name="anim_express_wink">Wink</string>
+	<string name="anim_wink_hollywood">Wink (Hollywood)</string>
+	<string name="anim_express_worry">Worry</string>
+	<string name="anim_yes_happy">Yes (Happy)</string>
+	<string name="anim_yes_head">Yes</string>
+
+	<!-- Joint names -->
+	<string name="Chest">Chest</string>
+	<string name="Skull">Skull</string>
+	<string name="Left Shoulder">Left Shoulder</string>
+	<string name="Right Shoulder">Right Shoulder</string>
+	<string name="Left Hand">Left Hand</string>
+	<string name="Right Hand">Right Hand</string>
+	<string name="Left Foot">Left Foot</string>
+	<string name="Right Foot">Right Foot</string>
+	<string name="Spine">Spine</string>
+	<string name="Pelvis">Pelvis</string>
+	<string name="Mouth">Mouth</string>
+	<string name="Chin">Chin</string>
+	<string name="Left Ear">Left Ear</string>
+	<string name="Right Ear">Right Ear</string>
+	<string name="Left Eyeball">Left Eyeball</string>
+	<string name="Right Eyeball">Right Eyeball</string>
+	<string name="Nose">Nose</string>
+	<string name="R Upper Arm">R Upper Arm</string>
+	<string name="R Forearm">R Forearm</string>
+	<string name="L Upper Arm">L Upper Arm</string>
+	<string name="L Forearm">L Forearm</string>
+	<string name="Right Hip">Right Hip</string>
+	<string name="R Upper Leg">R Upper Leg</string>
+	<string name="R Lower Leg">R Lower Leg</string>
+	<string name="Left Hip">Left Hip</string>
+	<string name="L Upper Leg">L Upper Leg</string>
+	<string name="L Lower Leg">L Lower Leg</string>
+	<string name="Stomach">Stomach</string>
+	<string name="Left Pec">Left Pec</string>
+	<string name="Right Pec">Right Pec</string>
+	<string name="Neck">Neck</string>
+	<string name="Avatar Center">Root</string>
+	<string name="Center">Center</string>
+	<string name="Center 2">Center 2</string>
+	<string name="Top">Top</string>
+	<string name="Top Left">Top Left</string>
+	<string name="Top Right">Top Right</string>
+	<string name="Bottom">Bottom</string>
+	<string name="Bottom Left">Bottom Left</string>
+	<string name="Bottom Right">Bottom Right</string>
+	<string name="Left Ring Finger">L Ring Finger</string>
+	<string name="Right Ring Finger">R Ring Finger</string>
+	<string name="Tail Base">Tail Base</string>
+	<string name="Tail Tip">Tail Tip</string>
+	<string name="Left Wing">Left Wing</string>
+	<string name="Right Wing">Right Wing</string>
+	<string name="Jaw">Jaw</string>
+	<string name="Alt Left Ear">Alt Left Ear</string>
+	<string name="Alt Right Ear">Alt Right Ear</string>
+	<string name="Alt Left Eye">Alt Left Eye</string>
+	<string name="Alt Right Eye">Alt Right Eye</string>
+	<string name="Tongue">Tongue</string>
+	<string name="Groin">Groin</string>
+	<string name="Left Hind Foot">L Hind Foot</string>
+	<string name="Right Hind Foot">R Hind Foot</string>
+
+	<!-- World map -->
+	<string name="texture_loading">Loading...</string>
+	<string name="worldmap_offline">Offline</string>
+
+	<!-- Chat / IM -->
+	<string name="whisper">whispers:</string>
+	<string name="shout">shouts:</string>
+	<string name="Unnamed">Unnamed</string>
+	<string name="im_incoming">Incoming message...</string>
+
+	<!-- Script Permissions -->
+	<string name="ScriptQuestionCautionChatGranted">'[OBJECTNAME]', an object owned by '[OWNERNAME]', located in [REGIONNAME] at [REGIONPOS], has been granted permission to: [PERMISSIONS].</string>
+	<string name="ScriptQuestionCautionChatDenied">'[OBJECTNAME]', an object owned by '[OWNERNAME]', located in [REGIONNAME] at [REGIONPOS], has been denied permission to: [PERMISSIONS].</string>
+	<string name="ScriptTakeMoney">Take Linden dollars (L$) from you</string>
+	<string name="ActOnControlInputs">Act on your control inputs</string>
+	<string name="RemapControlInputs">Remap your control inputs</string>
+	<string name="AnimateYourAvatar">Animate your avatar</string>
+	<string name="AttachToYourAvatar">Attach to your avatar</string>
+	<string name="ReleaseOwnership">Release ownership and become public</string>
+	<string name="LinkAndDelink">Link and delink from other objects</string>
+	<string name="AddAndRemoveJoints">Add and remove joints with other objects</string>
+	<string name="ChangePermissions">Change its permissions</string>
+	<string name="TrackYourCamera">Track your camera</string>
+	<string name="ControlYourCamera">Control your camera</string>
+	<string name="TeleportYourAgent">Teleport you</string>
+	<string name="JoinAnExperience">Join an experience</string>
+	<string name="SilentEstateManagement">Silence notifications about estate access modifications</string>
+	<string name="OverrideAgentAnimations">Override your avatar's animations</string>
+	<string name="ScriptReturnObjects">Return objects on your behalf</string>
+	<string name="ForceSitAvatar">Force your avatar to sit</string>
+	<string name="ChangeEnvSettings">Change Extended Environment settings</string>
+
+	<!-- Sim Access labels -->
+	<string name="SIM_ACCESS_PG">PG</string>
+	<string name="SIM_ACCESS_MATURE">Mature</string>
+	<string name="SIM_ACCESS_ADULT">Adult</string>
+	<string name="SIM_ACCESS_DOWN">Offline</string>
+
+	<!-- Used for unknown stuff (SIM_ACCESS_MIN and other) -->
+	<string name="unknown">Unknown</string>
+
+	<!-- Used in error messages for environment settings -->
+	<string name="no_permission">You do not have the proper permission to perform this action</string>
+	<string name="asset_id">Asset Id</string>
+	<string name="experience_id">Experience Id</string>
+
+	<!-- Covenant info -->
+	<string name="covenant_never_modified">Last Modified: (never)</string>
+	<string name="covenant_modified">Last Modified: </string>
+
+	<!-- Bump texture materials -->
+	<string name="Stone">Stone</string>
+	<string name="Metal">Metal</string>
+	<string name="Glass">Glass</string>
+	<string name="Wood">Wood</string>
+	<string name="Flesh">Flesh</string>
+	<string name="Plastic">Plastic</string>
+	<string name="Rubber">Rubber</string>
+	<string name="Light">Light</string>
+
+	<!-- Pathfinding -->
+	<string name="Pathfinding_Object_Attr_None">No pathfinding attribute</string>
+	<string name="Pathfinding_Object_Attr_Permanent">Affects navmesh</string>
+	<string name="Pathfinding_Object_Attr_Character">Character</string>
+	<string name="Pathfinding_Object_Attr_MultiSelect">Multiple pathfinding attributes</string>
+
+	<!-- Legacy strings, almost never used -->
+	<string name="Fullbright">Fullbright (Legacy)</string>	<!-- used in the Build > materials dropdown-->
+
+	<!-- Inventory items suffixes -->
+	<string name="link">link</string>
+	<string name="brokenlink">broken link</string>
+	<string name="nocopy">no copy</string>
+	<string name="nomod">no modify</string>
+	<string name="noxfr">no transfer</string>
+	<string name="worn">worn</string>
+	<string name="online">online</string>
+	<string name="active">active</string>
+	<string name="wornon">worn on</string>
+
+	<!-- Asset Type human readable names -->
+	<string name="texture">texture</string>
+	<string name="Texture">Texture</string>
+	<string name="sound">sound</string>
+	<string name="Sound">Sound</string>
+	<string name="calling card">calling card</string>
+	<string name="Calling card">Calling card</string>
+	<string name="Landmark">Landmark</string>
+	<string name="landmark">landmark</string>
+	<string name="legacy script">legacy script</string>
+	<string name="clothing">clothing</string>
+	<string name="object">object</string>
+	<string name="Object">Object</string>
+	<string name="note card">notecard</string>
+	<string name="Note">Note</string>
+	<string name="folder">folder</string>
+	<string name="root">root</string>
+	<string name="lsl2 script">LSL2 script</string>
+	<string name="lsl bytecode">LSL bytecode</string>
+	<string name="script">script</string>
+	<string name="Script">Script</string>
+	<string name="tga texture">tga texture</string>
+	<string name="body part">body part</string>
+	<string name="targa image">targa image</string>
+	<string name="jpeg image">jpeg image</string>
+	<string name="animation">animation</string>
+	<string name="Animation">Animation</string>
+	<string name="gesture">gesture</string>
+	<string name="Gesture">Gesture</string>
+	<string name="simstate">simstate</string>
+	<string name="Link">Link</string>
+	<string name="mesh">mesh</string>
+	<string name="Mesh">Mesh</string>
+	<string name="settings">settings</string>
+	<string name="Settings">Settings</string>
+	<string name="material">render material</string>
+	<string name="Material">Render material</string>
+	<string name="render material">render material</string>
+
+	<!-- Wearable Types -->
+	<string name="shape">Shape</string>
+	<string name="skin">Skin</string>
+	<string name="hair">Hair</string>
+	<string name="eyes">Eyes</string>
+	<string name="shirt">Shirt</string>
+	<string name="pants">Pants</string>
+	<string name="shoes">Shoes</string>
+	<string name="socks">Socks</string>
+	<string name="jacket">Jacket</string>
+	<string name="gloves">Gloves</string>
+	<string name="undershirt">Undershirt</string>
+	<string name="underpants">Underpants</string>
+	<string name="skirt">Skirt</string>
+	<string name="alpha">Alpha</string>
+	<string name="tattoo">Tattoo</string>
+	<string name="universal">Universal</string>
+	<string name="physics">Physics</string>
+	<string name="invalid">invalid</string>
+	<string name="none">none</string>
+
+	<!-- Financial operations strings -->
+	<string name="paid_you_ldollars">[NAME] paid you L$[AMOUNT] [REASON].</string>
+	<string name="paid_you_ldollars_gift">[NAME] paid you L$[AMOUNT]: [REASON]</string>
+	<string name="paid_you_ldollars_no_reason">[NAME] paid you L$[AMOUNT].</string>
+	<string name="you_paid_ldollars">You paid [NAME] L$[AMOUNT] [REASON].</string>
+	<string name="you_paid_ldollars_gift">You paid [NAME] L$[AMOUNT]: [REASON]</string>
+	<string name="you_paid_ldollars_no_info">You paid L$[AMOUNT].</string>
+	<string name="you_paid_ldollars_no_reason">You paid [NAME] L$[AMOUNT].</string>
+	<string name="you_paid_ldollars_no_name">You paid L$[AMOUNT] [REASON].</string>
+	<string name="you_paid_failure_ldollars">You failed to pay [NAME] L$[AMOUNT] [REASON].</string>
+	<string name="you_paid_failure_ldollars_gift">You failed to pay [NAME] L$[AMOUNT]: [REASON]</string>
+	<string name="you_paid_failure_ldollars_no_info">You failed to pay L$[AMOUNT].</string>
+	<string name="you_paid_failure_ldollars_no_reason">You failed to pay [NAME] L$[AMOUNT].</string>
+	<string name="you_paid_failure_ldollars_no_name">You failed to pay L$[AMOUNT] [REASON].</string>
+	<string name="for item">for [ITEM]</string>
+	<string name="for a parcel of land">for a parcel of land</string>
+	<string name="for a land access pass">for a land access pass</string>
+	<string name="for deeding land">for deeding land</string>
+	<string name="to create a group">to create a group</string>
+	<string name="to join a group">to join a group</string>
+	<string name="to upload">to upload</string>
+	<string name="to publish a classified ad">to publish a classified ad</string>
+	<string name="money_balance_increased">Your money balance has increased by L$[AMOUNT]</string>
+	<string name="money_balance_decreased">Your money balance has decreased by L$[AMOUNT]</string>
+
+	<!-- Estate/covenant: used in llviewermessage.cpp -->
+	<string name="no_covenant_for_mainland">There is no covenant provided for this estate.</string>
+	<string name="no_covenant_for_estate">There is no covenant provided for this estate. The land on this estate is being sold by the estate owner, not by the grid operator. Please contact the estate owner for sales details.</string>
+
+	<!-- Names for new inventory items sub-types -->
+	<string name="New Shape">New Shape</string>
+	<string name="New Skin">New Skin</string>
+	<string name="New Hair">New Hair</string>
+	<string name="New Eyes">New Eyes</string>
+	<string name="New Shirt">New Shirt</string>
+	<string name="New Pants">New Pants</string>
+	<string name="New Shoes">New Shoes</string>
+	<string name="New Socks">New Socks</string>
+	<string name="New Jacket">New Jacket</string>
+	<string name="New Gloves">New Gloves</string>
+	<string name="New Undershirt">New Undershirt</string>
+	<string name="New Underpants">New Underpants</string>
+	<string name="New Skirt">New Skirt</string>
+	<string name="New Alpha">New Alpha</string>
+	<string name="New Tattoo">New Tattoo</string>
+	<string name="New Universal">New Universal</string>
+	<string name="New Physics">New Physics</string>
+	<string name="Invalid Wearable">Invalid wearable</string>
+	<string name="New Daycycle">New Daycycle</string>
+	<string name="New Water">New Water</string>
+	<string name="New Sky">New Sky</string>
+	<string name="New Material">New Material</string>
+
+	<!-- Experience Tools strings -->
+	<string name="experience_tools_experience">Experience</string>
+	<string name="ExperienceNameNull">(no experience)</string>
+	<string name="ExperienceNameUntitled">(untitled experience)</string>
+	<string name="Land-Scope">Land-Scope</string>
+	<string name="Grid-Scope">Grid-Scope</string>
+	<string name="Allowed_Experiences_Tab">Allowed</string>
+	<string name="Blocked_Experiences_Tab">Blocked</string>
+	<string name="Contrib_Experiences_Tab">Contributor</string>
+	<string name="Admin_Experiences_Tab">Admin</string>
+	<string name="Owned_Experiences_Tab">Owned</string>
+	<string name="ExperiencesCounter">([EXPERIENCES], max [MAXEXPERIENCES])</string>
+	<string name="ExperiencePermission1">take over your controls</string>
+	<string name="ExperiencePermission3">trigger animations on your avatar</string>
+	<string name="ExperiencePermission4">attach to your avatar</string>
+	<string name="ExperiencePermission9">track your camera</string>
+	<string name="ExperiencePermission10">control your camera</string>
+	<string name="ExperiencePermission11">teleport you</string>
+	<string name="ExperiencePermission12">automatically accept experience permissions</string>
+	<string name="ExperiencePermission16">force your avatar to sit</string>
+	<string name="ExperiencePermission17">change your environment settings</string>
+	<string name="ExperiencePermissionShortUnknown">perform an unknown operation: [Permission]</string>
+	<string name="ExperiencePermissionShort1">Take controls</string>
+	<string name="ExperiencePermissionShort3">Trigger animations</string>
+	<string name="ExperiencePermissionShort4">Attach</string>
+	<string name="ExperiencePermissionShort9">Track camera</string>
+	<string name="ExperiencePermissionShort10">Control camera</string>
+	<string name="ExperiencePermissionShort11">Teleport</string>
+	<string name="ExperiencePermissionShort12">Permission</string>
+	<string name="ExperiencePermissionShort16">Sit</string>
+	<string name="ExperiencePermissionShort17">Environment</string>
+	<string name="ExperiencePermissionShortUnknown">Unknown: [Permission]</string>
+	<string name="LSLTipSleepTime">Sleeps script for [SLEEP_TIME] seconds.</string>
+
+	<!-- Mesh upload errors -->
+	<string name="Mav_Details_MAV_FOUND_DEGENERATE_TRIANGLES">The physics shape contains triangles which are too small. Try simplifying the physics model.</string>
+	<string name="Mav_Details_MAV_CONFIRMATION_DATA_MISMATCH">The physics shape contains bad confirmation data. Try to correct the physics model.</string>
+	<string name="Mav_Details_MAV_UNKNOWN_VERSION">The physics shape does not have correct version. Set the correct version for the physics model.</string>
+
+	<!-- Marketplace -->
+	<string name="TooltipOutboxDragToWorld">You can't rez items from the Marketplace Listings folder.</string>
+	<string name="TooltipOutboxWorn">You can't put items you are wearing in the Marketplace Listings folder.</string>
+	<string name="TooltipOutboxFolderLevels">Depth of nested folders exceeds [AMOUNT]. Decrease the depth of folders-within-folders; box items if necessary.</string>
+	<string name="TooltipOutboxTooManyFolders">Subfolder count exceeds [AMOUNT]. Decrease the number of folders in your listing; box items if necessary.</string>
+	<string name="TooltipOutboxTooManyObjects">Item count exceeds [AMOUNT]. In order to sell more than [AMOUNT] items in one listing, you must box some of them.</string>
+	<string name="TooltipOutboxTooManyStockItems">Stock items count exceeds [AMOUNT].</string>
+	<string name="TooltipOutboxCannotDropOnRoot">You can only drop items or folders in the ALL tab. Please select that tab and move your item(s) or folder(s) again.</string>
+	<string name="TooltipOutboxNoTransfer">One or more of these objects cannot be sold or transferred.</string>
+	<string name="TooltipOutboxNotInInventory">You can only put items from your inventory on the marketplace.</string>
+	<string name="TooltipOutboxLinked">You can't put linked items or folders on the marketplace.</string>
+	<string name="TooltipOutboxCallingCard">You can't put calling cards on the marketplace.</string>
+	<string name="TooltipOutboxDragActive">You cannot move a listed listing.</string>
+	<string name="TooltipOutboxCannotMoveRoot">You can't move the marketplace listings root folder.</string>
+	<string name="TooltipOutboxMixedStock">All items in a stock folder must have the same type and permissions.</string>
+	<string name="TipMerchantActiveChange">This action would change the active contents of this listing.</string>
+	<string name="TipMerchantMoveInventory">Items dragged into the Marketplace Listings folder are moved from their original locations, not copied.</string>
+	<string name="TipMerchantUnlist">WARNING: this action would unlist this listing.</string>
+	<string name="TipMerchantClearVersion">WARNING: this action would deactivate the version folder of the current listing.</string>
+	<string name="TipListingDelete">WARNING: this action would delete this listing from the market place.</string>
+	<string name="Marketplace Validation Log"></string>
+	<string name="Marketplace Validation Warning Stock">stock folder must be contained by a version folder</string>
+	<string name="Marketplace Validation Error Mixed Stock">: Error: all items in a stock folder must be no-copy and of the same type</string>
+	<string name="Marketplace Validation Error Subfolder In Stock">: Error: stock folder cannot contain subfolders</string>
+	<string name="Marketplace Validation Warning Empty">: Warning: folder doesn't contain any items</string>
+	<string name="Marketplace Validation Warning Create Stock">: Warning: creating stock folder</string>
+	<string name="Marketplace Validation Warning Create Version">: Warning: creating version folder</string>
+	<string name="Marketplace Validation Warning Move">: Warning: moving items</string>
+	<string name="Marketplace Validation Warning Delete">: Warning: folder content transfered to stock folder, removing empty folder</string>
+	<string name="Marketplace Validation Error Stock Item">: Error: no-copy items must be contained by a stock folder</string>
+	<string name="Marketplace Validation Warning Unwrapped Item">: Warning: items must be contained by a version folder</string>
+	<string name="Marketplace Validation Error">: Error: </string>
+	<string name="Marketplace Validation Warning">: Warning: </string>
+	<string name="Marketplace Validation Error Empty Version">: Warning: version folder must contain at least 1 item</string>
+	<string name="Marketplace Validation Error Empty Stock">: Warning: stock folder must contain at least 1 item</string>
+	<string name="Marketplace Failed Descendents">: Failed to get descendents</string>
+	<string name="Marketplace Error None">No errors</string>
+	<string name="Marketplace Error Prefix">Error: </string>
+	<string name="Marketplace Error Not Merchant">Before sending items to the Marketplace you will need to set yourself up as a merchant (free of charge).</string>
+	<string name="Marketplace Error Not Accepted">Cannot move item in that folder.</string>
+	<string name="Marketplace Error Unsellable Item">This item cannot be sold on the Marketplace.</string>
+	<string name="MarketplaceNoID">no market ID</string>
+	<string name="MarketplaceLive">listed</string>
+	<string name="MarketplaceActive">active</string>
+	<string name="MarketplaceMax">max</string>
+	<string name="MarketplaceStock">stock</string>
+	<string name="MarketplaceNoStock">out of stock</string>
+	<string name="MarketplaceUpdating">updating...</string>
+	<string name="MarketplaceInitializing">initializing</string>
+	<string name="MarketplaceFailure">connection failed</string>
+	<string name="MarketplaceFetching">fetching</string>
+	<string name="MarketplaceFetchFailed">fetch failed</string>
+	<string name="MarketplaceMerchant">active</string>
+	<string name="MarketplaceNotMerchant">not a merchant</string>
+	<string name="MarketplaceNotMigrated">not migrated</string>
+
+	<!-- Environment settings errors -->
+	<string name="SettingValidationError">Validation failed importing settings [NAME]</string>
+	<string name="SettingImportFileError">Could not open file [FILE]</string>
+	<string name="SettingParseFileError">Could not parse file [FILE]</string>
+	<string name="SettingTranslateError">Could not convert legacy Windlight [NAME]</string>
+
+	<!-- External editor feature -->
+	<string name="file_not_found">File not found:</string>
+	<string name="no_valid_command">"Could not find any valid external editor command."</string>
+	<string name="bad_quoting">Invalid external editor command: bad quoting of program filename.</string>
+	<string name="program_not_found">External editor program not found:</string>
+	<string name="command_failed">Failed to launch command:</string>
+
+	<!-- RestrainedLove -->
+	<string name="position_hidden">(Position hidden)</string>
+	<string name="region_hidden">(Region hidden)</string>
+	<string name="hidden">(Hidden)</string>
+
+	<!-- Time units -->
+	<string name="second">second</string>
+	<string name="seconds">seconds</string>
+	<string name="minute">minute</string>
+	<string name="minutes">minutes</string>
+	<string name="hour">hour</string>
+	<string name="hours">hours</string>
+
+	<!-- Time formats: defined in language_settings.xml for LL's viewer -->
+	<string name="LTimeMthNum">mthnum,datetime,local</string>
+	<string name="LTimeWeek">wkday,datetime,local</string>
+	<string name="LTimeMonth">mth,datetime,local</string>
+	<string name="LTimeDay">day,datetime,local</string>
+	<string name="LTimeSec">second,datetime,local</string>
+	<string name="LTimeHour">hour,datetime,local</string>
+	<string name="LTimeMin">min,datetime,local</string>
+	<string name="LTimeYear">year,datetime,local</string>
+
+	<!-- Statistics -->
+	<string name="na">n/a</string>
+
+	<!-- Inventory loading -->
+	<string name="inv_loading">Loading contents...</string>
+	<string name="inv_empty">No contents</string>
+
+	<!-- Texture preview -->
+	<string name="receiving">Receiving:</string>
+	<string name="file_saved">File saved</string>
+
+	<!-- Viewer window HUD-drawn instruction -->
+	<string name="mouselook">Press SHIFT ESC to leave Mouselook.</string>
+
+	<!-- Misc -->
+	<string name="this_resident">this resident</string>
+</strings>

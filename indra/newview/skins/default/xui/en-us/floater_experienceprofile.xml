@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<floater name="experience profile" title="Experience profile" rect_control="FloaterExperienceProfileRect"
+ can_close="true" can_resize="true" can_drag_on_left="false" can_minimize="true"
+ min_width="325" min_height="520" width="325" height="520">
+	<string name="empty_slurl">
+		(none)
+	</string>
+	<tab_container name="tab_container" tab_position="top" hide_tabs="true" border="false"
+	 left="10" top="-2" bottom="2" right="-10" follows="top|left|right|bottom">
+		<panel name="panel_experience_info"
+	     left="1" right="-1" top="-1" bottom="1" follows="top|left|right|bottom">
+<!--		Not working, for some reason... but not really needed either !
+			<scroll_container name="xp_scroll"
+			 left="4" top="-4" right="-4" bottom="4" follows="top|left|right|bottom">
+-->
+				<panel name="scrolling_panel"
+				 left="1" right="-1" top="-1" bottom="1" follows="top|left|right|bottom">
+					<layout_stack orientation="vertical" animate="false"
+					 left="1" right="-1" top="-1" bottom="1" follows="top|left|right|bottom">
+						<layout_panel name="top panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="20" min_height="20" follows="top|left|right|bottom">
+							<text name="grid_wide" font="SansSerif"
+							 bottom_delta="-20" left="2" right="-110" height="20" follows="left|top|right"/>
+							<button name="edit_btn" label="Edit" visible="false"
+							 bottom_delta="0" right="-2" width="100" height="20" follows="top|right"/>
+						</layout_panel>
+						<layout_panel name="image_panel" auto_resize="false" user_resize="true"
+						 left="0" right="0" height="200" min_height="200" follows="top|left|right|bottom">
+							<texture_picker name="logo" enabled="false"
+							 left="2" right="-2" height="200" follows="left|top|right|bottom"/>
+						</layout_panel>
+						<layout_panel auto_resize="false" user_resize="false"
+						  left="0" right="0" height="18" min_height="18" follows="top|left|right|bottom">
+							<text name="experience_title" font="SansSerif" text_color="white" mouse_opaque="true"
+							 tool_tip="Click to copy the experience SLURL to the clipboard."
+							 bottom_delta="-18" left="2" right="-2" height="18" follows="left|top|right"/>
+						</layout_panel>
+						<layout_panel name="description panel" user_resize="true"
+						 left="0" right="0" min_height="32" follows="left|top|right|bottom">
+							<text_editor name="experience_description" enabled="false"
+							 max_length="2048" font="SansSerifSmall" word_wrap="true"
+							 top="-1" bottom="1" left="2" right="-2" follows="left|top|right|bottom"/>
+						</layout_panel>
+						<layout_panel name="maturity panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="16" min_height="16" follows="left|top|right|bottom">
+							<text name="ContentRating"
+							 bottom_delta="-16" left="2" width="70" height="16" follows="left|top">
+								Rating:
+							</text>
+							<text name="ContentRatingText"
+							 bottom_delta="0" left_delta="75" right="-2" height="16" follows="left|top|right"/>
+						</layout_panel>
+						<layout_panel name="location panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="16" min_height="16" follows="top|left|right|bottom">
+							<text name="Location"
+							 bottom_delta="-16" left="2" width="70" height="16" follows="left|top">
+								Location:
+							</text>
+							<text name="LocationTextText" mouse_opaque="true"
+							 tool_tip="Click show the experience location info."
+							 bottom_delta="0" left_delta="75" right="-2" height="16" follows="left|top|right"/>
+						</layout_panel>
+						<layout_panel name="marketplace panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="16" min_height="16" follows="top|left|right|bottom">
+							<text name="marketplace_text"
+							 bottom_delta="-16" left="2" width="70" height="16" follows="left|top">
+								Marketplace:
+							</text>
+							<text name="marketplace" mouse_opaque="true"
+							 tool_tip="Click to open this Marketplace URL in a web browser."
+							 bottom_delta="0" left_delta="75" right="-2" height="16" follows="left|top|right"/>
+						</layout_panel>
+						<layout_panel name="owner panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="16" min_height="16" follows="left|top|right|bottom">
+							<text name="Owner"
+							bottom_delta="-16" left="2" width="70" height="16" follows="left|top">
+								Owner:
+							</text>
+							<text name="OwnerText" mouse_opaque="true"
+							 tool_tip="Click to show the experience owner's profile."
+							 bottom_delta="0" left_delta="75" right="-2" height="16" follows="left|top|right"/>
+						</layout_panel>
+						<layout_panel name="group_panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="16" min_height="16" follows="left|top|right|bottom">
+							<text name="Group"
+							bottom_delta="-16" left="2" width="70" height="16" follows="left|top">
+								Group
+							</text>
+							<text name="GroupText" mouse_opaque="true"
+							 tool_tip="Click to show the experience group info."
+							 bottom_delta="0" left_delta="75" right="-2" height="16" follows="left|top|right"/>
+			            </layout_panel>
+						<layout_panel name="perm panel" auto_resize="false" user_resize="false"
+						 left="0" right="0" height="40" min_height="40" follows="left|top|right|bottom">
+							<button name="allow_btn" label="Allow" enabled="false"
+							 tool_tip="Click to allow this experience for yourself."
+							 bottom_delta="-20" left="2" width="60" height="20" follows="top|left"/>
+							<button name="forget_btn" label="Forget" enabled="false"
+							 tool_tip="Click to forget the allow/block status of this experience for yourself."
+							 bottom_delta="0" left_delta="64" width="60" height="20" follows="top|left"/>
+							<button name="block_btn" label="Block" enabled="false"
+							 tool_tip="Click to block this experience for yourself."
+							 bottom_delta="0" left_delta="64" width="60" height="20" follows="top|left"/>
+							<button name="report_btn" label="Report abuse"
+							 tool_tip="Click to report an abuse caused by this experience."
+							 bottom_delta="0" left="196" right="-2" height="20" follows="top|left|right"/>
+							<text name="privileged" visible="false"
+							 bottom_delta="-18" left="2" right="-2" height="16" follows="left|top|right">
+								This experience is enabled for all residents.
+							</text>
+						</layout_panel>
+					</layout_stack>
+				</panel>
+<!--
+			</scroll_container>
+-->
+		</panel>
+		<panel name="edit_panel_experience_info"
+	     left="1" right="-1" top="-1" bottom="1" follows="top|left|right|bottom">
+<!--		Not working, for some reason... but not really needed either !
+			<scroll_container name="edit_xp_scroll" opaque="true"
+			 left="4" top="-4" right="-4" bottom="4" follows="top|left|right|bottom">
+-->
+	 			<panel name="edit_scrolling_panel"
+				 left="1" right="-1" top="-1" bottom="1" follows="top|left|right|bottom">
+					<texture_picker name="edit_logo"
+					 bottom_delta="-206" left="2" right="-2" height="200" follows="left|top|right"/>
+					<text name="edit_experience_title_label"
+					 bottom_delta="-20" left="2" with="45" height="20" follows="left|top">
+						Name:
+					</text>
+					<line_editor name="edit_experience_title" max_length="63"
+					 bottom_delta="4" left="50" right="-2" height="20" follows="left|top|right"/>
+					<text name="edit_experience_desc_label"
+					 bottom_delta="-22" left="2" with="80" height="16" follows="left|top">
+						Description:
+					</text>
+					<text_editor name="edit_experience_description" max_length="2048" word_wrap="true"
+					 top="-248" left="2" right="-2" bottom="192" follows="top|left|bottom|right"/>
+					<button name="group_btn" label="Group"
+					 tool_tip="Click to change the group associated with this experience."
+					 bottom_delta="-26" left="2" width="60" height="20" follows="left|bottom"/>
+					<text name="edit_GroupText" mouse_opaque="true"
+					 tool_tip="Click show the experience group info."
+					 bottom_delta="0" left_delta="70" right="-2" height="17" follows="left|bottom"/>
+					<text name="edit_ContentRating"
+					 bottom_delta="-22" left="2" with="60" height="16" follows="left|bottom">
+						Rating:
+					</text>
+					<combo_box name="edit_ContentRatingText"
+					 tool_tip="Increasing the maturity rating on an experience will reset permission for all residents which have allowed the experience."
+					 bottom_delta="0" left="80" right="-2" height="20" follows="left|bottom|right">
+						<combo_item name="Adult" value="42">
+							Adult
+						</combo_item>
+						<combo_item name="Mature" value="20">
+							Mature
+						</combo_item>
+						<combo_item name="PG" value="13">
+							PG
+						</combo_item>
+					</combo_box>
+ 					<text name="edit_Location"
+					 bottom_delta="-22" left="2" with="65" height="16" follows="left|bottom">
+						Location:
+					</text>
+					<text name="edit_LocationTextText" mouse_opaque="true"
+					 tool_tip="Click show the experience location info."
+					 bottom_delta="0" left_delta="70" right="-2" height="16" follows="left|bottom"/>
+					<button name="location_btn" label="Set to current location"
+					 bottom_delta="-22" left="2" width="146" height="20" follows="left|bottom"/>
+					<button name="clear_btn" label="Clear location"
+					 bottom_delta="0" right="-2" width="146" height="20" follows="right|bottom"/>
+ 					<text name="marketplace"
+					 bottom_delta="-24" left="2" with="75" height="16" follows="left|bottom">
+						Marketplace:
+					</text>
+					<line_editor name="edit_marketplace" max_length="255"
+					 bottom_delta="0" left="80" right="-2" height="20" follows="left|bottom|right"/>
+					<check_box name="edit_enable_btn" label="Enable experience"
+					 bottom_delta="-22" left="2" width="140" height="16" follows="left|bottom"/>
+					<check_box name="edit_private_btn" label="Hide in search"
+					 bottom_delta="0" left_delta="150" width="140" height="16" follows="left|bottom"/>
+					<button name="cancel_btn" label="Cancel"
+					 bottom_delta="-22" left="2" width="146" height="20" follows="left|bottom"/>
+					<button name="save_btn" label="Save"
+					 bottom_delta="0" right="-2" width="146" height="20" follows="right|bottom"/>
+ 					<text name="changes"
+					 bottom_delta="-30" left="2" right="-2" height="28" follows="left|bottom">
+						Note: experience changes may take several minutes to
+be seen in all regions.
+					</text>
+				</panel>
+<!--
+			</scroll_container>
+-->
+		</panel>
+	</tab_container>
+</floater>

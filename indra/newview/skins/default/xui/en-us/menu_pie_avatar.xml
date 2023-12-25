@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<pie_menu name="Avatar Pie">
+	<menu_item_call name="Profile..." label="Profile..." enabled="false">
+		<on_click function="ShowAgentProfile" userdata="hit object" />
+	</menu_item_call>
+	<pie_menu name="Mutes" label="Mutes &gt;">
+		<menu_item_call name="Avatar Mute" label="Full mute" enabled="false">
+			<on_click function="Avatar.Mute" userdata="" />
+			<on_enable function="Avatar.EnableMute" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Mute chat" label="Mute chat" enabled="false">
+			<on_click function="Avatar.Mute" userdata="chat" />
+			<on_enable function="Avatar.EnableMute" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Mute voice" label="Mute voice" enabled="false">
+			<on_click function="Avatar.Mute" userdata="voice" />
+			<on_enable function="Avatar.EnableMute" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Mute sounds" label="Mute sounds" enabled="false">
+			<on_click function="Avatar.Mute" userdata="sounds" />
+			<on_enable function="Avatar.EnableMute" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Mute particles" label="Mute part." enabled="false">
+			<on_click function="Avatar.Mute" userdata="particles" />
+			<on_enable function="Avatar.EnableMute" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Always Render" label="Always show" enabled="false">
+			<on_click function="Avatar.Render" userdata="always" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Normal Render" label="Auto show" enabled="false">
+			<on_click function="Avatar.Render" userdata="normal" />
+		</menu_item_call>
+		<menu_item_call name="Avatar Never Render" label="Never show" enabled="false">
+			<on_click function="Avatar.Render" userdata="never" />
+		</menu_item_call>
+	</pie_menu>
+	<menu_item_call name="Go To" label="Go to" enabled="false">
+		<on_click function="GoToObject" />
+	</menu_item_call>
+	<menu_item_call name="abuse" label="Report...">
+		<on_click function="Avatar.ReportAbuse" />
+	</menu_item_call>
+	<menu_item_call name="Add Friend" label="Add friend..." enabled="false">
+		<on_click function="Avatar.AddFriend" />
+		<on_enable function="Avatar.EnableAddFriend" />
+	</menu_item_call>
+	<menu_item_call name="Pay..." label="Pay..." enabled="false">
+		<on_click function="PayObject" />
+		<on_enable function="EnablePayObject" />
+	</menu_item_call>
+	<pie_menu name="More &gt;" label="More &gt;">
+		<menu_item_call name="Freeze..." label="(Un)Freeze" enabled="false">
+			<on_click function="Avatar.Freeze" />
+			<on_enable function="Avatar.EnableFreezeEject" />
+		</menu_item_call>
+		<menu_item_call name="Give Card" label="Give card" enabled="false">
+			<on_click function="Avatar.GiveCard" />
+		</menu_item_call>
+		<menu_item_call name="Invite..." label="Group invite...">
+			<on_click function="Avatar.InviteToGroup" />
+		</menu_item_call>
+		<menu_item_separator />
+		<menu_item_call name="Eject..." label="Eject..." enabled="false">
+			<on_click function="Avatar.Eject" />
+			<on_enable function="Avatar.EnableFreezeEject" />
+		</menu_item_call>
+		<pie_menu name="Avatar Rendering Menu" label="Rendering &gt;">
+			<menu_item_call name="Object Derender" label="Derender">
+				<on_click function="Object.Derender" />
+				<on_enable function="Object.EnableDerender" />
+			</menu_item_call>
+			<menu_item_separator />
+			<menu_item_separator />
+			<menu_item_separator />
+			<menu_item_separator />
+			<menu_item_separator />
+			<menu_item_call name="Avatar Max LOD" label="Max LOD">
+				<on_click function="Avatar.ToggleMaxLOD" />
+				<on_enable function="Avatar.EnableMaxLOD" />
+			</menu_item_call>
+			<menu_item_call name="Avatar Normal LOD" label="Normal LOD">
+				<on_click function="Avatar.ToggleMaxLOD" />
+				<on_enable function="Avatar.EnableNormalLOD" />
+			</menu_item_call>
+		</pie_menu>
+		<menu_item_call name="Object Inspect" label="Inspect...">
+			<on_click function="Object.Inspect" />
+			<on_enable function="Object.EnableInspect" />
+		</menu_item_call>
+		<menu_item_call name="Debug" label="Debug..." enabled="false">
+			<on_click function="Avatar.Debug" />
+			<on_enable function="Avatar.EnableDebug" />
+		</menu_item_call>
+	</pie_menu>
+	<menu_item_call name="Send IM..." label="Send IM..." enabled="false">
+		<on_click function="Avatar.SendIM" />
+	</menu_item_call>
+</pie_menu>

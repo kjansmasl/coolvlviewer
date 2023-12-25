@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="search" title="Search" rect_control="FloaterFindRect2"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ width="780" height="570" min_width="780" min_height="570">
+	<tab_container name="Directory Tabs" tab_position="top" mouse_opaque="false"
+	 left="0" bottom="-570" width="780" height="550" follows="left|top|right|bottom">
+		<panel name="find_all_panel" label="All" border="true" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<text name="find" font="SansSerif"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 bevel_style="in" border_style="line" border_thickness="1"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left_delta="220" bottom_delta="-2" width="70" height="20" follows="right|top" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGSearchAll"
+			 left_delta="80" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureSearchAll"
+			 left_delta="120" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultSearchAll"
+			 left_delta="120" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="1"
+			 draw_heading="true" draw_border="true"
+			 background_visible="true" fg_disable_color="1, 1, 1, 1" column_padding="0"
+			 left="4" bottom="-512" width="339" height="480" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="Name" name="name" width="235" />
+				<column label="Price" name="price" width="90" />
+				<column label="Time (PT)" name="date" width="90" />
+				<column label="Time" name="time" width="-1" />
+				<column label="Traffic" name="dwell" width="90" />
+				<column label="Area" name="area" width="90" />
+				<column label="L$/sq.m" name="per_meter" width="90" />
+				<column label="Online" name="online" width="90" />
+				<column label="Members" name="members" width="90" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="classified_panel" label="Classifieds" border="true" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<combo_box name="Category" allow_text_entry="false" max_chars="20"
+			 left_delta="220" bottom_delta="0" width="158" height="18" follows="right|top">
+				<combo_item name="AnyCategory" value="0">
+					Any category
+				</combo_item>
+				<combo_item name="Shopping" value="1">
+					Shopping
+				</combo_item>
+				<combo_item name="LandRental" value="2">
+					Land rental
+				</combo_item>
+				<combo_item name="PropertyRental" value="3">
+					Property rental
+				</combo_item>
+				<combo_item name="SpecialAttraction" value="4">
+					Special attraction
+				</combo_item>
+				<combo_item name="NewProducts" value="5">
+					New products
+				</combo_item>
+				<combo_item name="Employment" value="6">
+					Employment
+				</combo_item>
+				<combo_item name="Wanted" value="7">
+					Wanted
+				</combo_item>
+				<combo_item name="Service" value="8">
+					Service
+				</combo_item>
+				<combo_item name="Personal" value="9">
+					Personal
+				</combo_item>
+			</combo_box>
+			<button name="browse_btn" label="Browse" font="SansSerif"
+			 left="48" bottom_delta="-24" width="95" height="20" follows="top|left" />
+			<button name="search_btn" label="Search" font="SansSerif" visible="false"
+			 left_delta="0" bottom_delta="0" width="95" height="20" follows="top|left" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGClassifieds"
+			 left="440" bottom="-20" width="120" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureClassifieds"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultClassifieds"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<button name="Place an Ad..." label="Place an ad..." font="SansSerif"
+			 left="580" bottom="-36" width="130" height="20" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="2"
+			 draw_heading="true" draw_border="true" background_visible="true" column_padding="0"
+			 left="4" bottom="-512" width="339" height="460" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="" name="type" width="-1" />
+				<column label="Name" name="name" width="225" />
+				<column label="Price" name="price" width="75" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Delete" label="Delete" font="SansSerif"
+			 left="92" bottom="-532" width="80" height="20" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="events_panel" label="Events" border="true" default_tab_group="1" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<combo_box name="category combo" allow_text_entry="false" max_chars="20"
+			 left_delta="220" bottom_delta="0" width="158" height="18" follows="right|top">
+				<combo_item name="All" value="0">
+					Any category
+				</combo_item>
+				<combo_item name="Discussion" value="18">
+					Discussion
+				</combo_item>
+				<combo_item name="Sports" value="19">
+					Sports
+				</combo_item>
+				<combo_item name="LiveMusic" value="20">
+					Live music
+				</combo_item>
+				<combo_item name="dj" value="30">
+					Live DJ
+				</combo_item>
+				<combo_item name="Commercial" value="22">
+					Commercial
+				</combo_item>
+				<combo_item name="Nightlife/Entertainment" value="23">
+					Nightlife/entertainment
+				</combo_item>
+				<combo_item name="Games/Contests" value="24">
+					Games/contests
+				</combo_item>
+				<combo_item name="Pageants" value="25">
+					Pageants
+				</combo_item>
+				<combo_item name="Education" value="26">
+					Education
+				</combo_item>
+				<combo_item name="ArtsandCulture" value="27">
+					Arts and culture
+				</combo_item>
+				<combo_item name="Charity/SupportGroups" value="28">
+					Charity/support groups
+				</combo_item>
+				<combo_item name="Miscellaneous" value="29">
+					Miscellaneous
+				</combo_item>
+			</combo_box>
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left="48" bottom_delta="-24" width="95" height="20" follows="top|left" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGEvents"
+			 left="440" bottom="-20" width="120" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureEvents"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultEvents"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<radio_group name="date_mode" draw_border="false"
+			 left="560" bottom="-40" width="300" height="40" follows="right|top">
+				<radio_item bottom="-20" follows="left|top" height="20" left="0"
+					 name="current" width="174">
+					In-progress and upcoming
+				</radio_item>
+				<radio_item bottom_delta="-10" follows="left|top" height="20" left="0"
+					 name="date" width="56">
+					Date
+				</radio_item>
+			</radio_group>
+			<button name="&lt;&lt;" label="&lt;&lt;" font="SansSerif"
+			 tool_tip="Go back a day"
+			 left_delta="54" bottom="-40" width="24" height="20" follows="right|top" />
+			<text name="date_text" font="SansSerif"
+			 left_delta="22" bottom="-36" width="48" height="14" follows="right|top">
+				6/6
+			</text>
+			<button name="&gt;&gt;" label="&gt;&gt;" font="SansSerif"
+			 tool_tip="Go forward a day"
+			 left_delta="50" bottom="-40" width="24" height="20" follows="right|top" />
+			<button name="Today" label="Today" font="SansSerif"
+			 tool_tip="Show today&apos;s events"
+			 left_delta="28" bottom="-40" width="60" height="20" follows="right|top" />
+			<text name="text" font="SansSerifSmall" visible="false"
+			 left="289" bottom="-24" width="90" height="20" follows="left|top">
+				Category:
+			</text>
+			<button name="Delete" label="Delete" font="SansSerif"
+			 left="92" bottom="-532" width="80" height="20" follows="left|bottom" />
+			<scroll_list name="results" multi_select="false" search_column="2"
+			 background_visible="true" column_padding="0" draw_border="true" draw_heading="true"
+			 left="4" bottom="-512" width="339" height="460" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="" name="type" width="-1" />
+				<column dynamicwidth="true" label="Name" name="name" />
+				<column label="Time (PT)" name="date" sort="time" width="106" />
+				<column label="" name="event_id" width="-1" />
+				<column label="Time" name="time" width="-1" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="land_sales_panel" label="Land sales" border="true"
+		 default_tab_group="1" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<string name="land_help_text">
+				Land can be bought direct for Linden Dollars (L$) or at auction for either L$ or US$.
+To buy direct, visit the land and click on the place name in the title bar.
+			</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<check_box name="pricecheck" label="Price &#8804;" font="SansSerifSmall"
+			 control_name="FindLandPrice"
+			 left_delta="44" bottom_delta="0" width="80" height="16" follows="left|top" />
+			<line_editor name="priceedit" max_length="10" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="70" width="50" height="16" follows="left|top" />
+			<text name="L$" font="SansSerif"
+				 left_delta="55" bottom_delta="0" width="20" height="16" follows="left|top">
+				L$
+			</text>
+			<check_box name="areacheck" label="Area &#8805;" font="SansSerifSmall"
+			 control_name="FindLandArea"
+			 left_delta="42" bottom_delta="0" width="80" height="16" follows="left|top" />
+			<line_editor name="areaedit" max_length="10" font="SansSerifSmall"
+			 bottom_delta="0" left_delta="70" width="50"  height="16" follows="left|top" />
+			<text name="areacheck_symbol" font="SansSerif"
+			 left_delta="55" bottom_delta="0" width="20" height="16" follows="left|top">
+				m²
+			</text>
+			<combo_box name="type" allow_text_entry="false" max_chars="20"
+			 left="50" bottom_delta="-24" height="20" width="160" follows="left|top">
+				<combo_item name="AllTypes" value="All Types">
+					All Types
+				</combo_item>
+				<combo_item name="Auction" value="Auction">
+					Auction
+				</combo_item>
+				<combo_item name="MainlandSales" value="Mainland Sales">
+					For Sale - Mainland
+				</combo_item>
+				<combo_item name="EstateSales" value="Estate Sales">
+					For Sale - Estate
+				</combo_item>
+			</combo_box>
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left_delta="170" bottom_delta="0" width="70" height="20" follows="left|top" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGLand"
+			 left="440" bottom="-20" width="120" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureLand"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultLand"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="2" tab_group="10"
+			 column_padding="0" draw_border="true" draw_heading="true" background_visible="true"
+			 left="4" bottom="-512" width="387" height="460" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="" name="type" width="-1" />
+				<column dynamicwidth="true" label="Name" name="name" />
+				<column label="Type" name="landtype" width="50" />
+				<column label="L$ price" name="price" width="65" />
+				<column label="Area" name="area" width="50" />
+				<column label="L$/m²" name="per_meter" width="65" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="390" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="304" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="places_panel" label="Places" border="true" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<combo_box name="Category" allow_text_entry="false" max_chars="20"
+			 left_delta="220" bottom_delta="0" width="158" height="18" follows="right|top">
+				<combo_item name="AnyCategory" value="any">
+					Any Category
+				</combo_item>
+				<combo_item name="LindenLocation" value="linden">
+					Linden Location
+				</combo_item>
+				<combo_item name="Arts&amp;Culture" value="arts">
+					Arts &amp; Culture
+				</combo_item>
+				<combo_item name="Business" value="store">
+					Business
+				</combo_item>
+				<combo_item name="Educational" value="educational">
+					Educational
+				</combo_item>
+				<combo_item name="Gaming" value="game">
+					Gaming
+				</combo_item>
+				<combo_item name="Hangout" value="gather">
+					Hangout
+				</combo_item>
+				<combo_item name="NewcomerFriendly" value="newcomer">
+					Newcomer Friendly
+				</combo_item>
+				<combo_item name="Parks&amp;Nature" value="park">
+					Parks &amp; Nature
+				</combo_item>
+				<combo_item name="Residential" value="home">
+					Residential
+				</combo_item>
+				<combo_item name="Shopping" value="shopping">
+					Shopping
+				</combo_item>
+				<combo_item name="Other" value="other">
+					Other
+				</combo_item>
+				<combo_item name="Rental" value="rental">
+					Rental
+				</combo_item>
+			</combo_box>
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left="48" bottom_delta="-24" width="95" height="20" follows="top|left" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGSims"
+			 left="440" bottom="-20" width="120" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureSims"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultSims"
+			 left_delta="0" bottom_delta="-16" width="120" height="16" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="2"
+			 draw_heading="true" column_padding="0" draw_border="true" background_visible="true"
+			 left="4" bottom="-512" width="339" height="460" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="" name="type" width="-1" />
+				<column dynamicwidth="true" label="Name" name="name" />
+				<column label="Traffic" name="dwell" width="75" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="people_panel" label="People" border="true" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left_delta="220" bottom_delta="-2" width="70" height="20" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="2"
+			 background_visible="true" column_padding="0" draw_border="true" draw_heading="true"
+			 left="4" bottom="-512" width="339" height="480" follows="left|top|right|bottom">
+				<column label="" name="icon" width="24" />
+				<column label="" name="type" width="-1" />
+				<column label="Name" name="name" width="274" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel border="true" bottom="-549" follows="left|top|right|bottom" height="533"
+			 label="Groups" left="1" mouse_opaque="false" name="groups_panel"
+			 width="778">
+			<string name="searching_text">
+				Searching...
+			</string>
+			<string name="not_found_text">
+				None found.
+			</string>
+			<text name="find" font="SansSerif" halign="left"
+			 left="6" bottom="-24" width="40" height="16" follows="left|top">
+				Find:
+			</text>
+			<search_editor name="search_text" label="Search" font="SansSerif" max_length="63"
+			 handle_edit_keys_directly="false" commit_on_focus_lost="false"
+			 select_all_on_focus_received="false" select_on_focus="false" spell_check="true"
+			 left_delta="44" bottom_delta="0" width="210" height="18" follows="top|left|right" />
+			<button name="search_btn" label="Search" font="SansSerif"
+			 left_delta="220" bottom_delta="-2" width="70" height="20" follows="right|top" />
+			<check_box name="incpg" label="PG content" font="SansSerifSmall"
+			 control_name="ShowPGGroups"
+			 left_delta="80" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<check_box name="incmature" label="Mature content" font="SansSerifSmall"
+			 control_name="ShowMatureGroups"
+			 left_delta="120" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<check_box name="incadult" label="Adult content" font="SansSerifSmall"
+			 control_name="ShowAdultGroups"
+			 left_delta="120" bottom_delta="0" width="110" height="16" follows="right|top" />
+			<scroll_list name="results" multi_select="false" search_column="2"
+			 background_visible="true" column_padding="0" draw_border="true" draw_heading="true"
+			 left="4" bottom="-512" width="339" height="480" follows="left|top|right|bottom">
+				<column label="" name="icon" sort="score" sort_ascending="false" width="24" />
+				<column label="" name="type" width="-1" />
+				<column dynamicwidth="true" label="Name" name="name" />
+				<column halign="left" label="Members" name="members" sort_ascending="false" width="100" />
+				<column label="" name="score" width="-1" />
+			</scroll_list>
+			<text name="result_text" font="SansSerifSmall" halign="left"
+			 left="10" bottom_delta="-18" width="328" height="16" follows="left|bottom" />
+			<button name="Next &gt;" label="Next &gt;" font="SansSerif"
+			 right="344" bottom="-532" width="80" height="20" follows="right|bottom" />
+			<button name="&lt; Prev" label="&lt; Prev" font="SansSerif"
+			 right="258" bottom_delta="0" width="80" height="20" follows="right|bottom" />
+		</panel>
+		<panel name="web_search_panel" label="Web search" border="true" mouse_opaque="false"
+		 left="1" bottom="-549" width="778" height="533" follows="left|top|right|bottom">
+			<string name="searching_text">Searching...</string>
+			<string name="not_found_text">None found.</string>
+			<string name="loading_text">Loading...</string>
+			<string name="done_text">Done</string>
+			<string name="redirect_404_url">http://common-flash-secondlife-com.s3.amazonaws.com/viewer/v2.6/agni/404.html</string>
+			<string name="showcase_url">http://lecs-viewer-web-components.s3.amazonaws.com/v3.0/agni/guide.html</string>
+			<string name="marketplace_url">https://marketplace.secondlife.com/</string>
+			<button name="back_btn" label="Back" font="SansSerifSmall"
+			 left="6" bottom_delta="-24" width="68" height="20" follows="top|left" />
+			<button name="forward_btn" label="Forward" font="SansSerifSmall"
+			 left_delta="72" bottom_delta="0" width="68" height="20" follows="top|left" />
+			<button name="reload_btn" label="Reload" font="SansSerifSmall"
+			 left_delta="72" bottom_delta="0" width="68" height="20" follows="top|left" />
+			<radio_group name="web_site" draw_border="false"
+			 left="380" bottom_delta="0" height="20" width="300" follows="left|top">
+				<radio_item name="search" bottom="-20" left="0" height="20" width="80">
+					Web search
+				</radio_item>
+				<radio_item name="showcase" bottom="-20" left="100" height="20" width="80">
+					Showcase
+				</radio_item>
+				<radio_item name="marketplace" bottom="-20" left="200" height="20" width="80">
+					Marketplace
+				</radio_item>
+			</radio_group>
+			<web_browser name="find_browser"
+			  left="6" bottom_delta="-486" width="766" height="480" follows="top|left|bottom|right" />
+			<text name="status_text" halign="left" font="SansSerifSmall"
+			 left="10" bottom_delta="-20" width="150" height="16" follows="top|left" />
+		</panel>
+	</tab_container>
+	<panel name="classified_details_panel" mouse_opaque="false"
+	 left="340" bottom="-544" width="440" height="470" follows="right|top" />
+	<panel name="Panel Avatar" mouse_opaque="false"
+	 left="350" bottom="-550" width="426" height="486" follows="right|top" />
+	<panel name="event_details_panel" mouse_opaque="false"
+	 left="340" bottom="-560" width="440" height="470" follows="right|top" />
+	<panel name="group_details_panel_holder" mouse_opaque="false"
+	 left="350" bottom="-580" width="430" height="515" follows="right|top">
+		<panel name="group_details_panel" mouse_opaque="false"
+		 left="0" bottom="0" width="430" height="470" follows="right|top" />
+	</panel>
+	<panel name="place_details_panel" mouse_opaque="false"
+	 left="340" bottom="-554" width="440" height="470" follows="right|top" />
+	<panel name="place_details_small_panel" mouse_opaque="false"
+	 left="385" bottom="-554" width="395" height="470" follows="right|top" />
+</floater>

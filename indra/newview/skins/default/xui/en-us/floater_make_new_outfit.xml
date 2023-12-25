@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="new outfit" title="Make new outfit" rect_control="FloaterNewOutfitRect"
+ can_close="true" can_minimize="true" can_resize="false" can_drag_on_left="false"
+ width="515" min_width="515" height="510" min_height="510">
+	<text name="description" font="SansSerifSmall" halign="left"
+	 left="13" bottom="-92" width="489" height="64" follows="left|top">
+		Outfits are folders that contain body parts and/or clothing (wearables) and/or attachments.
+You can, for example, drag an outfit folder onto your avatar to put it on.
+ 
+This tool allows to make a new folder and save copies of the items you are now wearing into it.
+	</text>
+	<text name="folder_name" font="SansSerif" halign="left"
+	 left="13" bottom_delta="-24" width="80" height="16" follows="left|top">
+		Folder name:
+	</text>
+	<line_editor name="name_lineeditor" max_length="63" font="SansSerif"
+	 left="95" bottom_delta="0" width="402" height="20" follows="left|top">
+		New outfit
+	</line_editor>
+	<text name="options" font="SansSerif" halign="left"
+	 left="13" bottom_delta="-28" width="80" height="16" follows="left|top">
+		Options:
+	</text>
+	<check_box name="checkbox_rename" label="Rename wearables to folder name" font="SansSerifSmall"
+	 tool_tip="When this option is checked, any modify-ok clothing/wearable item gets renamed to the same name as the name of the new outfit folder name when copied/moved into this folder (this does not apply to attachments neither to links)."
+	 left="92" bottom_delta="0" width="195" height="16" follows="left|top" />
+	<check_box name="checkbox_nocopy_links" control_name="UseInventoryLinks"
+	 label="Make links for no-copy items" font="SansSerifSmall"
+	 tool_tip="When this option is checked, any no-copy item (wearable or attachment) gets a link created in the new outfit folder instead of being moved from its original location into the new folder."
+	 left="313" bottom_delta="0" width="300" height="16" follows="left|top" />
+	<check_box name="checkbox_clothes_links" control_name="UseInventoryLinksForClothes"
+	 label="Make links for all clothes" font="SansSerifSmall"
+	 tool_tip="When this option is checked, all clothing items get a link created in the new outfit folder instead of being copied or moved from their original location into the new folder. The layer of the clothing item can then be stored in the link description, thus allowing the viewer to automatically stack items of the same type in the proper order when wearing the outfit."
+	 left="92" bottom_delta="-18" width="300" height="16" follows="left|top" />
+	<check_box name="checkbox_all_links" control_name="UseInventoryLinksAlways"
+	 label="Make links for all items" font="SansSerifSmall"
+	 tool_tip="When this option is checked, all items (wearables and attachments) get a link created in the new outfit folder instead of being copied or moved from their original location into the new folder."
+	 left="313" bottom_delta="0" width="300" height="16" follows="left|top" />
+	<text name="outfit_items" font="SansSerif" halign="left"
+	 left="13" bottom_delta="-18" width="400" height="16" follows="left|top">
+		Items to include in the new outfit:
+	</text>
+	<view_border name="body_parts_border" bevel_style="none" border_thickness="1"
+	 left="8" bottom_delta="-50" width="246" height="43" follows="left|top"/>
+	<text name="body_parts" font="SansSerifSmall" halign="left"
+	 left="13" bottom_delta="22" width="80" height="16" follows="left|top">
+		Body parts:
+	</text>
+	<check_box name="checkbox_shape" label="Shape" font="SansSerifSmall"
+	 left="90" bottom_delta="0" width="80" height="16" follows="left|top" />
+	<check_box name="checkbox_skin" label="Skin" font="SansSerifSmall"
+	 left_delta="80" bottom_delta="0" width="80" height="16" follows="left|top" />
+	<check_box name="checkbox_hair" label="Hair" font="SansSerifSmall"
+	 left="90" bottom_delta="-20" width="80" height="16" follows="left|top" />
+	<check_box name="checkbox_eyes" label="Eyes" font="SansSerifSmall"
+	 left_delta="80" bottom_delta="0" width="80" height="16" follows="left|top" />
+	<scroll_list name="wearables_list" multi_select="false"
+	 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+	 left="8" bottom="-477" width="246" height="240" follows="left|top">
+		<column name="selection" label="" width="20" />
+		<column name="wearable" label="Wearable name" dynamicwidth="true" />
+		<column name="type" label="Type" width="80" />
+	</scroll_list>
+	<scroll_list name="attachments_list" multi_select="false"
+	 background_visible="true" draw_border="true" draw_stripes="true" draw_heading="true"
+	 left="262" bottom="-477" width="246" height="290" follows="left|top">
+		<column name="selection" label="" width="20" />
+		<column name="attachment" label="Attachment name" dynamicwidth="true" />
+		<column name="joint" label="Joint name" width="80" />
+	</scroll_list>
+	<button name="save_btn" label="Save" font="SansSerif" halign="center"
+	 left="171" bottom="-502" width="82" height="20" follows="bottom|left" />
+	<button name="cancel_btn" label="Cancel" font="SansSerif" halign="center"
+	 left="261" bottom="-502" width="82" height="20" follows="bottom|left" />
+</floater>

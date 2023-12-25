@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="object script" title="Script: new script" rect_control="FloaterOpenObjectRect"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true"
+ bevel_style="none" border_style="line" border_thickness="0"
+ width="500" height="550" min_height="280" min_width="450" follows="left|top">
+	<button name="Reset" label="Reset" font="SansSerif"
+	 right="-26" bottom="-545" width="100" height="20" follows="right|bottom"/>
+	<check_box name="running" label="Running" font="SansSerif" enabled="false" initial_value="true"
+	 left="12" bottom="-545" width="110" height="18" follows="left|bottom"/>
+	<check_box name="enable_xp" label="Use experience:" font="SansSerif"
+	 left="12" bottom="-521" width="110" height="18" follows="left|bottom"/>
+	<combo_box name="Experiences..." label=""
+	 left="130" right="-138" bottom_delta="2" height="18" follows="left|right|bottom"/>
+	<button name="view_profile" label="Profile..." font="SansSerif"
+	 right="-26" bottom_delta="-2" width="100" height="20" follows="right|bottom"/>
+	<panel name="script ed panel"
+	 bevel_style="none" border_style="line" border_thickness="0"
+	 left="1" bottom="-506" width="497" height="490" follows="left|top|right|bottom"/>
+	<string name="not_allowed">
+		You are not allowed to view this script.
+	</string>
+	<string name="script_running">
+		Running
+	</string>
+	<string name="out_of_range">
+		Script (object out of range)
+	</string>
+	<string name="compile_success">
+		Compile successful !
+	</string>
+	<string name="save_complete">
+		Save complete.
+	</string>
+	<string name="success_saving">
+		Compile successful, saving...
+	</string>
+	<string name="public_objects_can_not_run">
+		Public objects cannot run scripts
+	</string>
+	<string name="experience_enabled">
+		Uncheck to remove the current experience
+	</string>
+	<string name="add_experiences">
+		Select to add an experience
+	</string>
+	<string name="no_experiences">
+		You are not authorized for any experiences
+	</string>
+	<string name="loading">
+		Loading...
+	</string>
+</floater>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="bulk permissions" title="Bulk change content permissions"
+ can_close="true" can_minimize="true" can_resize="false"
+ can_tear_off="false"  can_drag_on_left="false"   
+ width="480" height="350" min_width="480" min_height="350">
+	<text name="applyto" font="SansSerif"
+	 left="10" bottom="-36" width="206"  height="10" follows="left|top">
+		Content types:
+	</text>
+	<icon name="icon_animation" image_name="inv_item_animation.tga"
+	 left="12" bottom_delta="-32" width="16" height="16" follows="left|top" />
+	<check_box name="check_animation" control_name="BulkChangeIncludeAnimations"
+	 label="Animation" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_bodypart" image_name="inv_folder_bodypart.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_bodypart" control_name="BulkChangeIncludeBodyParts"
+	 label="Body parts" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_clothing" image_name="inv_item_shirt.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_clothing" control_name="BulkChangeIncludeClothing"
+	 label="Clothing" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_gesture" image_name="inv_item_gesture.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_gesture" control_name="BulkChangeIncludeGestures"
+	 label="Gestures" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_landmark" image_name="inv_item_landmark_visited.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_landmark" control_name="BulkChangeIncludeLandmarks"
+	 label="Landmarks" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_notecard" image_name="inv_item_notecard.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_notecard" control_name="BulkChangeIncludeNotecards"
+	 label="Notecards" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_object" image_name="inv_item_object.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_object" control_name="BulkChangeIncludeObjects"
+	 label="Objects" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_script" image_name="inv_item_script.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_script" control_name="BulkChangeIncludeScripts"
+	 label="Scripts" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_sound" image_name="inv_item_sound.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_sound" control_name="BulkChangeIncludeSounds"
+	 label="Sounds" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_texture" image_name="inv_item_texture.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_texture" control_name="BulkChangeIncludeTextures"
+	 label="Textures" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_settings" image_name="inv_item_settings.tga"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_settings" control_name="BulkChangeIncludeSettings"
+	 label="Settings" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<icon name="icon_material" image_name="inv_item_material.tga" mouse_opaque="true"
+	 left="12" bottom_delta="-20" width="16" height="16" follows="left|top" />
+	<check_box name="check_material" control_name="BulkChangeIncludeMaterials"
+	 label="Materials" font="SansSerifSmall"
+	 left_delta="18" bottom_delta="0" width="126" height="16" follows="left|top" />
+	<button name="check_all" label="Check all" font="SansSerif"
+	 left="8" bottom_delta="-28" width="100" height="20" follows="left|top" />
+	<button name="check_none" label="Uncheck all" font="SansSerif"
+	 left="8" bottom_delta="-24" width="100" height="20" follows="left|top" />
+	<text name="newperms" font="SansSerif"
+	 left="136" bottom="-36" width="206" height="10" follows="left|top">
+		New permissions:
+	</text>
+	<check_box name="share_with_group" control_name="BulkChangeShareWithGroup"
+	 label="Share with group" font="SansSerifSmall"
+	 left="180" bottom_delta="-32" width="120" height="16" follows="left|top" />
+	<check_box name="everyone_copy" control_name="BulkChangeEveryoneCopy"
+	 label="Allow anyone to copy" font="SansSerifSmall"
+	 left_delta="0" bottom_delta="-20" width="120" height="16" follows="left|top" />
+	<text name="NextOwnerLabel" font="SansSerifSmall"
+	 left="160" bottom_delta="-14" width="206" height="10" follows="left|top">
+		Next owner can:
+	</text>
+	<check_box name="next_owner_modify" control_name="BulkChangeNextOwnerModify"
+	 label="Modify" font="SansSerifSmall"
+	 left="180" bottom_delta="-26" width="78" height="16" follows="left|top" />
+	<check_box name="next_owner_copy" control_name="BulkChangeNextOwnerCopy"
+	 label="Copy" font="SansSerifSmall"
+	 left_delta="80" bottom_delta="0" width="78" height="16" follows="left|top" />
+	<check_box name="next_owner_transfer" control_name="BulkChangeNextOwnerTransfer"
+	 label="Transfer" font="SansSerifSmall"
+	 left_delta="80" bottom_delta="0" width="78" height="16" follows="left|top" />
+	<scroll_list name="queue output" multi_select="false"
+	 draw_heading="false" draw_stripes="true" enabled="false" column_padding="5"
+	 left="132" bottom_delta="-184" width="334" height="174" follows="left|top|right|bottom" />
+	<button name="help" label="Help" font="SansSerif"
+	 bottom_delta="-28" left_delta="0" width="90" height="20" follows="left|top" />
+	<button name="apply" label="Apply" font="SansSerif"
+	 bottom_delta="0" left_delta="146" width="90" height="20" follows="left|top" />
+	<button name="close" label="Close" font="SansSerif"
+	 bottom_delta="0" left_delta="100" width="90" height="20" follows="left|top" />
+	<string name="nothing_to_modify_text">Selection contains no editable contents.</string>
+	<string name="status_text">Setting permissions on [NAME]</string>
+	<string name="start_text">Starting permission change requests...</string>
+	<string name="done_text">Finished permission change requests.</string>
+	<string name="no_material_cap">The current agent region does not support material assets in objects inventory.</string>
+</floater>

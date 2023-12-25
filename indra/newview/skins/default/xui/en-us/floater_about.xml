@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="about viewer" title="About this viewer"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="470" height="440" min_width="470" min_height="440">
+	<tab_container name="Info" tab_min_width="90" tab_position="top"
+	 left="0" bottom="0" width="470" height="420">
+		<panel name="version_info" label="Version info" border="true" mouse_opaque="true"
+		 left="1" bottom="-416" width="468" height="418" follows="left|top|right|bottom">
+			<text_editor name="support" embedded_items="false" word_wrap="true"
+			 max_length="65536" font="SansSerif" mouse_opaque="true"
+			 left="5" bottom="-394" width="460" height="390" follows="left|top|right|bottom"/>
+			<button name="copy_button" label="Copy this version information to the clipboard"
+			 font="SansSerif" mouse_opaque="true"
+			 left="10" bottom="-416" width="328" height="20" follows="left|right|bottom"/>
+			<button name="close_button" label="Close" font="SansSerif" mouse_opaque="true"
+			 left_delta="338" bottom_delta="0" width="110" height="20" follows="left|right|bottom"/>
+		</panel>
+
+		<panel name="authors_credits" label="Authors &amp; credits" border="true" mouse_opaque="true"
+		 left="1" bottom="-416" width="468" height="418" follows="left|top|right|bottom">
+			<text_editor name="credits" word_wrap="true" embedded_items="false"
+			 max_length="65536" font="SansSerifSmall" mouse_opaque="true"
+			 left="5" bottom="-414" width="460" height="410" follows="left|top|right|bottom">
+The Cool VL Viewer is brought to you and maintained by Henri Beauchamp.
+
+Special credits:
+
+The Cool VL Viewer macOS builds are courtesy of Hyang Zhao (v1.25 and former), Guru Coyote (v1.26.0 to v1.26.4), Kathrine Jansma (v1.26.4 to v1.26.10) and Catten Carter (v1.26.12 and newer).
+The Cool VL Viewer logo (Burning Ice) is courtesy of Amari Kanto.
+
+Code lineage:
+
+The Cool VL Viewer code was (from v1.24 onwards) based off the Snowglobe v1 viewer code and very large parts of the SL v2/3 viewer (Snowglobe v2 then Snowstorm v2/3) code were then backported and adapted to it by Henri Beauchamp.
+
+Coders:
+
+95% of the code in this viewer was written by Lindens: Philip, Tessa, Andrew, Cory, James, Ben, Char, Charlie, Colin, Dan, Daniel, Doug, Eric, Hamlet, Haney, Eve, Hunter, Ian, Jeff, Jennifer, Jim, John, Lee, Mark, Peter, Phoenix, Richard, Robin, Xenon, Steve, Tanya, Eddie, Avi, Frank, Bruce, Aaron, Alice, Bob, Debra, Eileen, Helen, Janet, Louie, Leviathan, Leviathania, Stefan, Ray, Kevin, Tom, Mikeb, MikeT, Burgess, Elena, Tracy, Bill, Todd, Ryan, Zach, Sarah, Nova, Tim, Stephanie, Michael, Evan, Nicolas, Catherine, Rachelle, Dave, Holly, Bub, Kelly, Magellan, Ramzi, Don, Sabin, Jill, Rheya, Jeska, Torley, Kona, Callum, Charity, Ventrella, Jack, Vektor, Iris, Chris, Nicole, Mick, Reuben, Blue, Babbage, Yedwab, Deana, Lauren, Brent, Pathfinder, Chadrick, Altruima, Jesse, Teeny, Monroe, Icculus, David, Tess, Lizzie, Patsy, Isaac, Lawrence, Cyn, Bo, Gia, Annette, Marius, Tbone, Jonathan, Karen, Ginsu, Satoko, Yuko, Makiko, Thomas, Harry, Seth, Alexei, Brian, Guy, Runitai (AKA DaveP), Ethan, Data, Cornelius, Kenny, Swiss, Zero, Natria, Wendy, Stephen, Teeple, Thumper, Lucy, Dee, Mia, Liana, Warren, Branka, Aura, beez, Milo, Hermia, Red, Thrax, Joe, Sally, Magenta, Mogura, Paul, Jose, Rejean, Henrik, Lexie, Amber, Logan, Xan, Nora, Morpheus, Donovan, Leyla, MichaelFrancis, Beast, Cube, Bucky, Joshua, Stryfe, Harmony, Teresa, Claudia, Walker, Glenn, Fritz, Fordak, June, Cleopetra, Jean, Ivy, Betsy, Roosevelt, Spike, Ken, Which, Tofu, Chiyo, Rob, Zee, dustin, George, Del, Matthew, Cat, Jacqui, Lightfoot, Adrian, Viola, Alfred, Noel, Irfan, Sunil, Yool, Rika, Jane, Xtreme, Frontier, a2, Neo, Siobhan, Yoz, Justin, Elle, Qarl, Benjamin, Isabel, Gulliver, Everett, Christopher, Izzy, Stephany, Garry, Sejong, Sean, Tobin, Iridium, Meta, Anthony, Jeremy, JP, Jake, Maurice, Madhavi, Leopard, Kyle, Joon, Kari, Bert, Belinda, Jon, Kristi, Bridie, Pramod, KJ, Socrates, Maria, Ivan, Aric, Yamasaki, Adreanne, Jay, MitchK, Ceren, Coco, Durl, Jenny, Periapse, Kartic, Storrs, Lotte, Sandy, Rohn, Colossus, Zen, BigPapi, Brad, Pastrami, Kurz, Mani, Neuro, Jaime, MJ, Rowan, Sgt, Elvis, Gecko, Samuel, Sardonyx, Leo, Bryan, Niko, Soft, Poppy, Rachel, Aki, Angelo, Banzai, Alexa, Sue, CeeLo, Bender, CG, Gillian, Pelle, Nick, Echo, Zara, Christine, Shamiran, Emma, Blake, Keiko, Plexus, Joppa, Sidewinder, Erica, Ashlei, Twilight, Kristen, Brett, Q, Enus, Simon, Bevis, Kraft, Kip, Chandler, Ron, LauraP, Ram, KyleJM, Scouse, Prospero, Melissa, Marty, Nat, Hamilton, Kend, Lordan, Jimmy, Kosmo, Seraph, Green, Ekim, Wiggo, JT, Rome, Doris, Miz, Benoc, Whump, Trinity, Patch, Kate, TJ, Bao, Joohwan, Christy, Sofia, Matias, Cogsworth, Johan, Oreh, Cheah, Angela, Brandy, Mango, Lan, Aleks, Gloria, Heidy, Mitchell, Space, Colton, Bambers, Einstein, Maggie, Malbers, Rose, Winnie, Stella, Milton, Rothman, Niall, Marin, Allison, Katie, Dawn, Katt, Dusty, Kalpana, Judy, Andrea, Ambroff, Infinity, Gail, Rico, Raymond, Yi, William, Christa, M, Teagan, Scout, Molly, Dante, Corr, Dynamike, Usi, Kaylee, Vidtuts, Lil, Danica, Sascha, Kelv, Jacob, Nya, Rodney, Brandon, Elsie, Blondin, Grant, Katrin, Nyx, Gabriel, Locklainn, Claire, Devin, Minerva, Monty, Austin, Bradford, Si, Keira, H, Caitlin, Dita, Makai, Jenn, Ann, Meredith, Clare, Joy, Praveen, Cody, Edmund, Ruthe, Sirena, Gayathri, Spider, FJ, Davidoff, Tian, Jennie, Louise, Oskar, Landon, Noelle, Jarv, Ingrid, Al, Sommer, Doc, Aria, Huin, Gray, Lili, Vir, DJ, Yang, T, Simone, Maestro, Scott, Charlene, Quixote, Amanda, Susan, Zed, Anne, Enkidu, Esbee, Joroan, Katelin, Roxie, Tay, Scarlet, Kevin, Johnny, Wolfgang, Andren, Bob, Howard, Merov, Rand, Ray, Michon, Newell, Galen, Dessie, Les, Michon, Jenelle, Geo, Siz, Shapiro, Pete, Calyle, Selene, Allen, Phoebe, Goldin, Kimmora, Dakota, Slaton, Lindquist, Zoey, Hari, Othello, Rohit, Sheldon, Petra, Viale, Gordon, Kaye, Pink, Ferny, Emerson, Davy, Bri, Chan, Juan, Robert, Terrence, Nathan, Carl, adreanne, AG, Aimee, Alain, Alec, alexa, Alfonso, angelo, Arch, Ariane, ashley, babbage, Bacon, Bagman, Baker, Baron, Beez, benoc, Bernard, Berry, bert, Beth, Bewest, BK, Brenda, Brodesky, Brooke, Caleb, Callen, Campbell, Carla, Carlo, Carmilla, Casssandra, CB, Charlar, charlene, Charrell, Chase, Courtney, Coyot, Crimp, Cru, dana, Darv, del, delby, Dez, Dore, Doten, Dough, dragon, Drofnas, Ducot, Durian, Dustin, Eli, Elikak, Elise, elsie, emma, Epic, Esther, Falcon, Fisher, Fredrik, Gabrielle, Gez, Ghengis, Gibson, Gino, gisele, Grapes, Greger, Hele, Hiromi, House, Huseby, Inoshiro, Itiaes, jacob, jane, Jason, jay, jenelle, Jerm, jessieann, Jillian, JoRoan, Jt, kari, Karina, kaylee, Kazu, kend, Kim, kj, Kotler, kraft, kristen, kurt, kurz, kyle, Ladan, laurap, Leonidas, Leslie, Lex, Lis, Lisa, Log, Lori, Madeline, madhavi, Madison, Mae, maria, maurice, Max, melissa, Mercille, Michele, miz, mm, Nelly, Nelson, Oz, Peggy, Perry, Pixie, Prep, Pup, Rakesh, Rhett, Ringo, Rodvik, rountree, roxie, Rue, sandy, Scobu, Sea, sean, sejong, Shannon, Shawn, simon, siobhan, spider, Squid, Squire, Steffan, Steph, stephany, Stone, t, Taka, Taras, Tatem, Teddy, tessa, Theeba, Thor, Tia, Tiggs, Tj, Tony, Torres, Tyler, Vicky, Vogt, Wallace, Webb, Wen, Wolf, xandix, yang, Zeeshan, Cosmic, Rider.
+
+The Snowglobe branch of the SL viewer v1 includes source code contributions of the following residents: Able Whitman, Adam Marker, Admiral Admiral, Agathos Frascati, Aimee Trescothick, Alejandro Rosenthal, Aleric Inglewood, Alissa Sabre, Angus Boyd, Ann Congrejo, Archimedes Plutonian, Ardy Lay, Argent Stonecutter, Armin Weatherwax, Asuka Neely, Balp Allen, Be Holder, Benja Kepler, Biancaluce Robbiani, Blakar Ogre, blino Nakamura, Boroondas Gupte, Bulli Schumann, bushing Spatula, Carjay McGinnis, Catherine Pfeffer, Celierra Darling, Cron Stardust, Cypren Christenson, Dale Glass, Drewan Keats, Dylan Haskell, Dzonatas Sol, Eddy Stryker, EponymousDylan Ra, Eva Nowicka, Farallon Greyskin, Feep Larsson, Flemming Congrejo, Fluf Fredriksson, Fremont Cunningham, Geneko Nemeth, Gigs Taggart, Ginko Bayliss, Grazer Kline, Gudmund Shepherd, Hamncheese Omlet, HappySmurf Papp, Henri Beauchamp, Hikkoshi Sakai, Hiro Sommambulist, Hoze Menges, Ian Kas, Irene Muni, Iskar Ariantho, Jacek Antonelli, JB Kraft, Joghert LeSabre, Kage Pixel, Ken March, Kerutsen Sellery, Khyota Wulluf, Kitty Barnett, Kunnis Basiat, Latif Khalifa, Lisa Lowe, Lockhart Cordoso, maciek marksman, Magnus Balczo, Malwina Dollinger, march Korda, Matthew Dowd, McCabe Maxsted, Michelle2 Zenovka, Mm Alder, Mr Greggan, Nicholaz Beresford, Nounouch Hapmouche, Patric Mills, Paul Churchill, Paula Innis, Pixel Gausman, Peekay Semyorka, Peter Lameth, Pf Shan, princess niven, Renault Clio, resu Ampan, Ringo Tuxing, Robin Cornelius, Ryozu Kojima, Salahzar Stenvaag, Sammy Frederix, Scrippy Scofield, Seg Baphomet, Sergen Davies, Shawn Kaufmat, SignpostMarv Martin, Simon Nolan, SpacedOut Frye, Sporked Friis, Stevex Janus, Still Defiant, Strife Onizuka, Tayra Dagostino, TBBle Kurosawa, Teardrops Fall, Techwolf Lupindo, tenebrous pau, Tharax Ferraris, Thickbrick Sleaford, Thraxis Epsilon, tiamat bingyi, TraductoresAnonimos Alter, Tue Torok, Twisted Laws, Vadim Bigbear, Vector Hastings, Vex Streeter, Vixen Heron, Whoops Babii, Wilton Lundquist, Zarkonnen Decosta, Zi Ree, Zipherius Turas.
+
+The Snowstorm branch of the SL viewer v2/3, which got large parts of its code backported to the Cool VL Viewer by Henri Beauchamp, includes source code contributions of the following residents: 45ms Zhong, Adeon Writer, Aeonix Aeon, Ai Austin, Aiko Ying, Ales Beaumont, Alexandrea Fride, Alliez Mysterio, Andrey Kleshchev, Annie Milestone, Annika Genezzia, Ansariel Hiller, Aralara Rajal, ArminasX Saiman, ArminWeatherHax, Arya Braveheart, Asaeda Meltingdots, Asturkon Jua, Aura Dirval, Avallyn Oakleaf, Avatar Quinzet, BabyA Littlething, Bacchus Ireto, Bazaar, Beansy Twine, Benjamin Bigdipper, Beth Walcher, Bezilon Kasei, Bill Walach, blakopal Galicia, Blitzckreed Levenque, Borg Capalini, Bradley Payne, Bryn Oh, Buckaroo Mu, Callipygian Christensen, Cap Carver, Carla Broek, Carr Arbenlow, Cayu Cluny, Chantal Harvey, Charles Courtois, Charlie Sazaland, Cherry Cheevers, ChickyBabes Zuzu, Christopher  Organiser, Ciaran Laval, Cinder Roxley, Clara Young, Coaldust Numbers, Colpo Wexler, Corinne Helendale, Corro Moseley, Coughdrop Littlething, Dante Tucker, Darien Caldwell, Dartagan Shepherd, Debs Regent, Decro Schmooz, Denim Kamachi, DiJodi Dubratt, Dil Spitz, Dimitrio Lewis, Dirk, Draconis Neurocam, Drew Dri, Drew Dwi, Dusan Writer, Eddi Decosta, Edgware Marker, Egehan Dryke, Ellla McMahon, Elric Anatine, Emma Portilo, Emmie Fairymeadow, Evangelista Emerald, Eva Rau, Faelon Swordthain, Fiachra Lach, Flower Ducatillon, FreeSL Aeon, Frenchimmo Sabra, Frontera Thor, Fury Rosewood, Gaberoonie Zanzibar, Ganymedes Costagravas, Geenz Spad, Gene Frostbite, GeneJ Composer, Gentle Heron, Gentle Welinder, Giggles Littlebird, Grady Echegaray, Graham Madarasz, Guni Greenstein, gwampa Lomu, Gwyneth Llewelyn, Gypsy Tripsa, Hackshaven Harford, Ham Rambler, Hanglow Short, Han Shuffle, Harleen Gretzky, Hatzfeld Runo, herina Bode, Hitomi Tiponi, Holger Gilruth, Horatio Freund, Hydra Shaftoe, Hypatia Callisto, Hypatia Pickens, Identity Euler, Ima Mechanique, Imnotgoing Sideways, Inma Rau, Innula Zenovka, Iyoba Tarantal, Jack Abraham, Jagga Meredith, Jennifer Boyle, Jeremy Marquez, Jessica Qin, Jinx Nordberg, Jo Bernandes, Jocial Sonnenkern, Joel Savard, Jondan Lundquist, Josef Munster, Josette Windlow, Juilan Tripsa, Juro Kothari, Justin RiversRunRed, Kagehi Kohn, Kaimen Takahe, Katharine Berry, Keklily Longfall, Ken Lavender, Kestral Karas, Khisme Nitely, Kimar Coba, Kithrak Kirkorian, Kolor Fall, Komiko Okamoto, Korvel Noh, Lamorna Proctor, Lares Carter, Larry Pixel, Laurent Bechir, Leal Choche, leliel Mirihi, Lenae Munz, len Starship, Lexi Frua, Lillie Cordeaux, Lilly Zenovka, Lizzy Macarthur, LSL Scientist, Luban Yiyuan, Luc Starsider, Luminous Luminos, Lunita Savira, Maccus McCullough, Madison Blanc, Maggie Darwin, Malarthi Behemoth, Mallory Destiny, Manx Wharton, Marc2 Sands, Marc Claridge, Marianne McCann, MartinRJ Fayray, Matthew Anthony, Matto Destiny, Maxim RiversRunRed, Medhue Simoni, Melinda Latynina, Mel Vanbeeck, Mencius Watts, Michi Lumin, Midian Farspire, Miles Glaz, Mindy Mathy, Minerva Memel, Mitch Wagner, Mo Hax, Mourna Biziou, naofan Teardrop, Naomah Beaumont, Nao Noe, Nathiel Siamendes, Nber Medici, Neko Link, Netpat Igaly, Neutron Chesnokov, Newfie Pendragon, Nicholai Laviscu, Nick Rhodes, NickyD, Nicky Perian, Nicoladie Gymnast, Ollie Kubrick, Orenj Marat, Orion Delphis, Oryx Tempel, Parvati Silverweb, PeterPunk Mooney, Pixel Scientist, Polo Gufler, Pounce Teazle, Professor Noarlunga, Psi Merlin, Quantum Destiny, Questar Utu, Quicksilver Hermes, Radio Signals, Ralf Setsuko, RAT Quan, RedMokum Bravin, Revolution Perenti, Rezit Sideways, Rich Grainger, Riva, Rosco Teardrop, Rose Evans, Rudee Voom, RufusTT Horsefly, Sachi Vixen, Sahkolihaa Contepomi, Saii Hallard, SaintLEOlions Zimer, Samm Larkham, Sasy Scarborough, Satanello Miami, Scrim Pinion, SexySteven Morrisey, Sheet Spotter, Shnurui Troughton, sicarius Thorne, Sicarius Toxx, Sini Nubalo, Sitearm Madonna, SLB Wirefly, Slee Mayo, snowy Sidran, Soupa Segura, Sovereign Engineer, Squirrel Wood, Starshine Halasy, Stickman Ingmann, ST Mensing, Sudane Erato, Synystyr Texan, Takeda Terrawyng, Talamasca, Tali Rosca, TankMaster Finesmith, Templar Merlin, Tezcatlipoca Bisiani, Tiel Stonecutter, Tofu Buzzard, Tony Kembia, Torben Trautman, TouchaHoney Perhaps, Trey Reanimator, TriloByte Zanzibar, Trinity Dechou, Trinity Dejavu, Unlikely Quintessa, UsikuFarasi Kanarik, Vaalith Jinn, Veritas Raymaker, Viaticus Speculaas, Vick Forcella, Villain Baroque, Vixie Durant, Void Singer, Watty Berkson, Westley Schridde, Westley Streeter, Whimsy Winx, Whirly Fizzle, Winter Ventura, Wolf Loonie, WolfPup Lowenhar, Wundur Primbee, Xellessanova Zenith, Xiki Luik, xstorm Radek, YongYong Francois, Zai Lynch, Zak Westminster, Zana Kohime, Zaren Alexander, Zeja Pyle, ZenMondo Wormser, Zipherius Turas, Zoex Flanagan.
+
+The SL v4+ viewer also got code backported to the Cool VL Viewer by Henri Beauchamp. Among the original authors for these pieces of code, are Linden Lab contractors: Andrey Kleshchev, Howard Stearns, Maxim Nikolenko, Michael Pohoreski.
+
+The remaining 5% of the code is what makes this viewer so much better and unique. This viewer includes code contributed by (in alphabetical order): Able Whitman, Aimee Trescothick, Aleric Inglewood, Alissa Sabre, Ardy Lay, Armin Weatherwax, Beq Janus, bjbdragon, Boroondas Gupte, Carjay McGinnis, Catten Carter, Chalice Yao, Charles Clary, Chorazin Allen, Coaldust Numbers, Dale Glass, Drake Arconis, Elektra Hesse, Gibson Firehawk, Gigs Taggart, Guru Coyote, Hazim Gazov, Henri Beauchamp, Inusaito Sayori, Jacek Antonelli, JB Kraft, jcool410, Jonathan Yap, Kadah Coba, Kathrine Jansma, Khyota Wulluf, Kitty Barnett, Lance Corrimal, Latif Khalifa, Marine Kelley, McCabe Maxsted, Michelle2 Zenovka, Mm Alder, Moon Metty, Nicholaz Beresford, Nicky Dasmijn, NiranV Dean, Robin Cornelius, Rye Mutt (AKA Sovereign Engineer), Satomi Ahn, Siana Gearz, Shyotl Kuhr, Sione Lomu, Techwolf Lupindo, Thickbrick Sleaford, Tom Meta, Vadim Bigbear, WhiteStar Magic, Zi Ree, Zwagoth Klaar and other, unknown authors.
+			</text_editor>
+		</panel>
+
+		<panel name="licenses_copyrights" label="Licences &amp; copyrights" border="true" mouse_opaque="true"
+		 left="1" bottom="-416" width="468" height="418" follows="left|top|right|bottom">
+			<text_editor name="licenses" word_wrap="true" embedded_items="false"
+			 max_length="65536" font="SansSerifSmall" mouse_opaque="true"
+			 left="5" bottom="-414" width="460" height="410" follows="left|top|right|bottom">
+Copyrights for the various components used by this viewer:
+
+APR (c)2000-2004 The Apache Software Foundation.
+Boost C++ libraries (c)1998-2005 Beman Dawes &amp; David Abrahams, (c)2006-2007 Rene Rivera.
+CEF3 (c)2008-2023 Marshall A. Greenblatt. Portions (c)2006-2009 Google Inc.
+Collada DOM (c)2005 Sony Computer Entertainment Inc.
+cURL (c)1996-2002, Daniel Stenberg.
+elfio
+expat (c)1998-2000 Thai Open Source Software Center Ltd.
+fmod
+fontconfig
+FreeType (c)1996-2002, The FreeType Project (www.freetype.org).
+libglib
+GLOD (c)2003-2004 Jonathan Cohen, Nat Duca, Chris Niski (Johns Hopkins University) &amp; David Luebke, Brenden Schubert (University of Virginia).
+gstreamer
+HACD (c)2011 Khaled Mamou.
+Hunspell (c)2002-2005  Németh László.
+jemalloc
+jpeg2000 (c)2001, David Taubman, The University of New South Wales.
+jpeglib (c)1991-1998, Thomas G. Lane.
+json-cpp Public domain. Author: Baptiste Lepilleur.
+libepoxy MIT license with material (c)2013-2014 Intel Corporation and (c)2013 The Khronos Group Inc.
+libndofdev (c)2008 Jan Ciger.
+libpng (c)2004, 2006-2011 Glenn Randers-Pehrson.
+libxml2 (c)1998-2012 Daniel Veillard.
+Lua (c)1994-2023 Lua.org, PUC-Rio.
+meshoptimizer (c)2016-2023 Arseny Kapoulkine.
+MikkTSpace (c)2011 Morten S. Mikkelsen.
+mimalloc
+Minizip (c)1998-2005 Gilles Vollant.
+Myspell (c)2002 Kevin B. Hendricks.
+nghttp2
+ogg/vorbis (c)2001, Xiphophorus.
+openal
+OpenJPEG (c)2001-2003 David Janssens, (c)2002-2003 Yannick Verschueren, (c)2002-2007 Pr. Benoit Macq &amp; UCL, (c)2003-2007 Francois-Olivier Devaux &amp; Antonin Descampe, (c)2005 Herve Drolon (FreeImage Team).
+OpenSSL (c)1998-2002 The OpenSSL Project.
+OSSP uuid (c)2004-2008 Ralf S. Engelschall &amp; the OSSP Project.
+phmap
+PCRE (c)1997-2008 University of Cambridge.
+libsdl
+SMAA shader (c)2013 Jorge Jimenez, Jose I. Echevarria, Belen Masia, Fernando Navarro, Diego Gutierrez.
+sse2neon
+tinygltf (c)2017 Syoyo Fujita, Aurelien Chatelain and many contributors.
+tracy
+Vulkan GLTF (c)2018 Sascha Willems.
+xmlrpc-epi (c)2000 Epinions Inc.
+xxHash (c)2012-2020 Yann Collet.
+zlib (c)1995-2010 Jean-loup Gailly &amp; Mark Adler, forked as zlib-ng maintained by Hans Kristian.
+
+Voice chat audio coding: Polycom(R) Siren14(TM) (ITU-T Rec. G.722.1 Annex C).
+
+All rights reserved. See licenses.txt for full details and possible additional copyrights.
+			</text_editor>
+		</panel>
+		<panel name="policy" label="Usage policy" border="true" mouse_opaque="true"
+		 left="1" bottom="-416" width="468" height="418" follows="left|top|right|bottom">
+			<web_browser name="tos" start_url="" border_visible="false"
+			 left="5" bottom="-399" width="460" height="394" follows="top|left|right" />
+		</panel>
+	</tab_container>
+	<string name="ReleaseNotes">Release notes</string>
+	<string name="ErrorFetchingServerReleaseNotesURL">
+		Error fetching server release notes URL.
+	</string>
+	<string name="channel">Channel name: [CHANNEL]</string>
+	<string name="you_are_at">You are at [POSITION] in [REGION] located at</string>
+	<string name="server_info_hiddden">(Server info hidden)</string>
+	<string name="memory">Memory: [AMOUNT]MB</string>
+	<string name="os_version">OS version: [VERSION]</string>
+	<string name="memory_manager">Memory manager: [VERSION]</string>
+	<string name="native_manager">OS native</string>
+	<string name="graphics_card">Graphics: [MODEL]</string>
+	<string name="windows_graphics">Windows graphics driver version: [VERSION]</string>
+	<string name="opengl_version">OpenGL version: [VERSION]</string>
+	<string name="vram">Detected VRAM: [AMOUNT]MB</string>
+	<string name="j2c_decoder">J2C decoder: [VERSION]</string>
+	<string name="audio_driver">Audio driver: [VERSION]</string>
+	<string name="none">(none)</string>
+	<string name="networking">Networking backend: [VERSION]</string>
+	<string name="browser">Browser plugin: [VERSION]</string>
+	<string name="packets_loss">Packets lost: [STATS]</string>
+	<string name="compiler">Built with: [COMPILER]</string>
+	<string name="compile_flags">Compile flags used for this build:</string>
+	<string name="maths">
+		Compiler-generated maths: [MATHS].
+	</string>
+	<string name="xlib-not-threaded">
+		WARNING: Xlib is not in thread-safe mode.
+	</string>
+	<string name="xwayland">
+		WARNING: XWayland compatibility mode detected.
+	</string>
+	<string name="elfio">
+		ELFIO (c)2001-2023 Serge Lamikhov-Center.
+	</string>
+	<string name="fmodstudio">
+		FMOD Studio (c)2005-2023 Firelight Technologies Pty Ltd.
+	</string>
+	<string name="fontconfig">
+		fontconfig (c)2001,2003 Keith Packard.
+	</string>
+	<string name="gstreamer">
+		gstreamer (c)2007 Free Software Foundation Inc.
+	</string>
+	<string name="jemalloc">
+		jemalloc (c)2002-2023 Jason Evans, (c)2007-2012 Mozilla Foundation, (c)2009-2023 Facebook Inc.
+	</string>
+	<string name="libglib">
+		glib (c)1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald.
+	</string>
+	<string name="libsdl">
+		SDL (c)1997-2023 Sam Lantinga.
+	</string>
+	<string name="mimalloc">
+		mimalloc (c)2018-2022 Microsoft.
+	</string>
+	<string name="nghttp2">
+		nghttp2 (c)2012, 2014-2016 Tatsuhiro Tsujikawa and contributors.
+	</string>
+	<string name="openal">
+		OpenAL GPL-licensed (unspecified authors).
+	</string>
+	<string name="phmap">
+		parallel-hashmap (c)2019-2023 Gregory Popovitch.
+	</string>
+	<string name="sse2neon">
+		sse2neon (c) Distributed Ledger Technology Collaboration and contributors.
+	</string>
+	<string name="tracy">
+		Tracy Profiler (c)2017-2023 Bartosz Taudul.
+	</string>
+	<string name="rel_notes">
+		http://sldev.free.fr/release_notes.php
+	</string>
+</floater>

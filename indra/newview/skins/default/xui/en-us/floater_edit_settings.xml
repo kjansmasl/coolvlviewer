@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="environment settings" title="Environment settings editor"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="false"
+ width="608" min_width="608" height="490" min_height="500">
+	<!-- This "string" is actually a number representing the difference of
+		 height between the Day cycle editor floater and the Water/Sky editors.
+		 It is stored here so that it can be changed without having to recompile
+		 the editor floater code.
+	-->
+	<string name="DELTA_HEIGHT">126</string>
+	<!-- Strings used for the actual title of this floater -->
+	<string name="edit_daycycle">Edit day cycle</string>
+	<string name="edit_sky">Edit sky</string>
+	<string name="edit_water">Edit water</string>
+	<!-- Settings name displayed for parcela dn region edit contexts -->
+	<string name="parcel_settings">Parcel custom settings</string>
+	<string name="region_settings">Region custom settings</string>
+	<text name="settings_name_text" font="SansSerif"
+	 left="10" bottom_delta="-40" width="48" height="16" follows="top|left">
+		Name:
+	</text>
+	<line_editor name="settings_name"  max_length="63"
+	left_delta="50" bottom_delta="-2" width="300" height="20" follows="top|left" />
+	<button name="btn_load" label="Load..."
+	 tool_tip="Load a settings item from inventory."
+	 left_delta="308" bottom_delta="0" width="80" height="20" follows="top|left" />
+	<button name="btn_import" label="Import" tool_tip="Import legacy settings from disk."
+	 right="-10" bottom_delta="0" width="80" height="20" follows="top|right" />
+	<panel name="settings_panel" label="" border="false"
+	 bottom_delta="-408" left="4" height="400" width="600" follows="left|top" />
+	<flyout_button name="btn_apply" label="Apply" font="SansSerif"
+	 tool_tip="Apply these settings to yourself in this viewer session. More actions are available from the drop down button."
+	 right="-292" bottom="8" width="90" height="20" follows="bottom|right">
+		<flyout_button_item value="apply_local" name="apply_local"
+		 tool_tip="Apply privately to this viewer session.">
+			Apply privately
+		</flyout_button_item>
+		<flyout_button_item value="apply_parcel" name="apply_parcel"
+		 tool_tip="Apply to the current parcel.">
+			Apply to parcel
+		</flyout_button_item>
+		<flyout_button_item value="apply_region" name="apply_region"
+		 tool_tip="Apply to the current region.">
+			Apply to region
+		</flyout_button_item>
+	</flyout_button>
+	<!-- Tool tips to for the Save button when editing in the different contexts -->
+	<string name="tip_save_inventory">Save the data to the currently edited settings inventory item.</string>
+	<string name="tip_save_parcel">Save the data as the parcel settings.</string>
+	<string name="tip_save_region">Save the data as the region settings.</string>
+	<button name="btn_save" label="Save" font="SansSerif"
+	 left_delta="94" bottom_delta="0" width="90" height="20" follows="bottom|right" />
+	<button name="btn_save_as_new" label="Save as new"
+	 tool_tip="Save the data as a new settings inventory item."
+	 left_delta="94" bottom_delta="0" width="90" height="20" follows="bottom|right" />
+	<button name="btn_cancel" label="Cancel"
+	 tool_tip="Revert to last saved version."
+	 left_delta="94" bottom_delta="0" width="90" height="20" follows="bottom|right" />
+	<string name="no_mod_settings">You cannot modify the inventory item bearing these settings</string>
+	<string name="no_copy_settings">You cannot copy the settings from the inventory item bearing them</string>
+	<string name="inventory_gone">The corresponding inventory item is gone !</string>
+</floater>

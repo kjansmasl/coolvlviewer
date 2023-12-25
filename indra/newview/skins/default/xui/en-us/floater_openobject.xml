@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<floater name="object contents" title="Object contents"
+ rect_control="FloaterOpenObjectRect"
+ width="300" height="350" left="385" min_height="160" min_width="270"
+ default_tab_group="1" can_tear_off="true"
+ can_close="true" can_drag_on_left="false" can_minimize="true" can_resize="true">
+	<panel name="object_contents"
+	 left="8" bottom="-320" width="284" height="276" follows="left|top|right|bottom" />
+	<text name="object_name" font="SansSerif" halign="left"
+	 left="8" bottom="-40" width="260" height="16" follows="left|top|right">
+		Object (loading...):
+	</text>
+	<button name="copy_to_inventory_button" label="Copy to inventory" font="SansSerifSmall"
+	 left="10" bottom="-345" width="120" height="20" follows="bottom|left" />
+	<button name="copy_and_wear_button" label="Copy and wear" font="SansSerifSmall"
+	 left="140" bottom="-345" width="120" height="20" follows="bottom|left" />
+	<string name="item">item</string>
+	<string name="items">items</string>
+</floater>

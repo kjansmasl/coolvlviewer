@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<panel border="true" bottom="-409" enabled="true" follows="left|top|right|bottom"
+     height="408" label="Input &amp; camera" left="102" mouse_opaque="true"
+     name="Input and camera preferences" width="517">
+	<tab_container name="Input and Camera" label="" tab_min_width="90" tab_position="top"
+	 left="0" bottom="0" width="500" height="440">
+		<panel name="Input Controls" label="Input controls" border="true" mouse_opaque="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<text name="keyboard_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left="10" height="16" width="110" follows="left|top">
+				Keyboard options:
+			</text>
+			<view_border name="keyboard_border" bevel_style="none" border_thickness="1"
+			 bottom_delta="-70" left="10" height="68" width="477" follows="left|top"/>
+			<check_box name="automatic_fly" label="Auto fly/land on holding PgUp/PgDown (or up/down controls)" control_name="AutomaticFly"
+			 font="SansSerifSmall"
+			 bottom_delta="44" left="16" height="16" width="370" follows="left|top" />
+			<check_box name="arrow_keys_move_avatar_check" control_name="ArrowKeysMoveAvatar"
+			 label="Arrow keys always move avatar, even when typing in chat bar" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, the arrow keys always move the avatar around even when some text is already typed in the chat bar, but then you cannot move the cursor in the text of the chat bar with the left and right keys, which can be a nuisance when correcting typos (you yet still can position the cursor with the mouse)"
+			 bottom_delta="-20" left_delta="0" height="16" width="400" follows="left|top" />
+			<slider name="camera_to_pelvis_max_rot" label="Head/pelvis max rotation deviation" control_name="CameraToPelvisRotDeviation" 
+			 tool_tip="While your avatar is standing, using the right and left controls first changes the camera rotation (as well as the avatar head so that it faces the new focus point) and once the 'Head/pelvis max rotation' threshold is reached, the controls then move the avatar, rotating its pelvis to stay below that threshold value. Reducing this threshold allows more accurate rotation movements of your avatar but makes its head movements a tad less 'natural' while rotating in a standing position."
+			 enabled="true" mouse_opaque="true" min_val="2" max_val="90" increment=".025" show_text="false"
+			 bottom_delta="-20" left="20" height="16" width="340" label_width="195" follows="left|top" />
+			<button name="max_rot_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<text name="mouse_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-26" left="10" height="17" width="110" follows="left|top">
+				Mouse options:
+			</text>
+			<view_border name="mouse_border" bevel_style="none" border_thickness="1"
+			 bottom_delta="-274" left="10" height="272" width="477" follows="left|top"/>
+			<check_box name="use_max_rot_in_mouselook" label="Use the above 'Head/pelvis max rotation deviation' in mouse-look" control_name="MouseLookUseRotDeviation"
+			 tool_tip="When this this setting is enabled, the 'Head/pelvis max rotation deviation' threshold set by the slider above is also taken into account in mouse-look mode instead of using the default (and large) threshold value: this makes your avatar rotate sooner when moving the mouse pointer (and therefore the mouse-look camera) left and right."
+			 font="SansSerifSmall"
+			 left="16" bottom_delta="248" width="370" height="16" follows="left|top" />
+			<check_box name="avatar_head_follows_mouse" label="Let the mouse pointer drive the avatar's eyes (and head) movements" control_name="EyesFollowMousePointer"
+			 tool_tip="When this this setting is enabled, the head of the avatar follows the movements of the mouse pointer on the screen (the avatar looks at the 3D world point intersected by the mouse pointer, even when it doesn't correspond to an object). Note that this setting does not affect the mouse-look mode, in which the camera is at the avatar's eyes level and always follows the mouse pointer. This setting doesn't either affect the way the avatar looks at objects the mouse pointer is hovering on (use the setting below for this purpose)."
+			 font="SansSerifSmall"
+			 left_delta="0" bottom_delta="-20" height="16" width="470" follows="left|top" />
+			<check_box name="private_look_at_check" control_name="PrivateLookAt"
+			 label="Do not look at objects the mouse pointer hovers on when beyond:"
+			 tool_tip="When this setting is enabled, hovering the mouse pointer on an object that is beyond the configured distance does not make your avatar 'looking' at it, thus not broadcasting this info to surrounding avatars' viewers. This defeats the 'ShowLookAt' feature/hack that others could use to find out (or make wrong assumptions about) what you are 'looking at' (when it's most often just your mouse pointer hovering on some random object)."
+			 font="SansSerifSmall" enabled="true" mouse_opaque="true"
+			 left_delta="0" bottom_delta="-20" width="370" height="16" follows="left|top" />
+			<spinner name="private_look_at_limit" control_name="PrivateLookAtLimit"
+			 font="SansSerifSmall" label="" label_width="0" enabled="true" mouse_opaque="true"
+			 decimal_digits="0" min_val="0" max_val="500" initial_val="20" increment="5"
+			 left_delta="380" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<text name="private_look_at_limit_meters"
+			 left_delta="55" bottom_delta="0" width="30" height="16" follows="left|top">
+				m
+			</text>
+			<check_box name="private_point_at_check" control_name="PrivatePointAt"
+			 label="Do not point to touched/selected objects when they are beyond:"
+			 tool_tip="When this setting is enabled, touching or editing an object that is beyond the configured distance does not make your avatar 'pointing' at it (no selection beam drawn either), thus not broadcasting this info to surrounding avatars' viewers."
+			 font="SansSerifSmall" enabled="true" mouse_opaque="true"
+			 left="16" bottom_delta="-20" width="370" height="16" follows="left|top" />
+			<spinner name="private_point_at_limit" control_name="PrivatePointAtLimit"
+			 font="SansSerifSmall" label="" label_width="0" enabled="true" mouse_opaque="true"
+			 decimal_digits="0" min_val="0" max_val="500" initial_val="20" increment="5"
+			 left_delta="380" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<text name="private_point_at_limit_meters"
+			 left_delta="55" bottom_delta="0" width="30" height="16" follows="left|top">
+				m
+			</text>
+			<check_box name="limit_select_distance" label="Limit the maximum selection distance to:" control_name="LimitSelectDistance"
+			 tool_tip="When checked, disallow the selection of objects beyond the maximum select distance."
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left="16" height="16" width="370" follows="left|top" />
+			<spinner name="max_select_distance" control_name="MaxSelectDistance"
+			 font="SansSerifSmall" label="" label_width="0" enabled="true" mouse_opaque="true"
+			 decimal_digits="0" min_val="32" max_val="512" increment="32"
+			 left_delta="380" bottom_delta="0" width="50" height="16" follows="left|top" />
+			<text name="select_distance_meters" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="0" left_delta="55" height="16" width="16" follows="left|top">
+				m
+			</text>
+			<slider name="mouse_sensitivity" label="Mouse-look sensitivity" control_name="MouseSensitivity"
+			 enabled="true" mouse_opaque="true" min_val="0.25" max_val="15" increment="0.25" show_text="false"
+			 tool_tip="Factor applied to the default mouse sensitivity, used to control the responsiveness of the mouse when in mouse-look mode."
+			 bottom_delta="-20" left="20" height="16" width="340" label_width="195" follows="left|top" />
+			<button name="mouse_sensitivity_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<check_box name="mouse_smooth" label="Smooth out mouse motions" control_name="MouseSmooth"
+			 font="SansSerifSmall"
+			 bottom_delta="-18" left="16" height="16" width="370" follows="left|top" />
+			<text name="double_click_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-24" left="20" height="17" width="110" follows="left|top">
+				Left-click to:
+			</text>
+			<check_box name="left_click_steers_check" control_name="LeftClickSteersAvatar"
+			 label="Steer avatar" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on your avatar resets the camera to the third person mode and allows to steer the head of the avatar (and also the avatar itself, due to the 'Head/Pelvis Max Rotation Deviation' threshold defined above)."
+			 bottom_delta="0" left="120" height="16" width="400" follows="left|top" />
+			<check_box name="left_click_to_open_check" control_name="LeftClickToOpen"
+			 label="Open object" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on a container object triggers an open event and shows the objects contents floater."
+			 bottom_delta="0" left_delta="120" height="16" width="400" follows="left|top" />
+			<check_box name="left_click_to_zoom_check" control_name="LeftClickToZoom"
+			 label="Zoom on object" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on an object with 'zoom' attribute causes your camera to get zoomed on it."
+			 bottom_delta="0" left_delta="120" height="16" width="400" follows="left|top" />
+			<check_box name="left_click_to_pay_check" control_name="LeftClickToPay"
+			 label="Pay/buy object" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on an object setup for payment of for sale triggers a pay/buy event and shows the corresponding confirmation floater."
+			 bottom_delta="-20" left="120" height="16" width="400" follows="left|top" />
+			<check_box name="left_click_to_play_check" control_name="LeftClickToPlay"
+			 label="Play media" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on an object with media triggers a play/open media event."
+			 bottom_delta="0" left_delta="120" height="16" width="400" follows="left|top" />
+			<check_box name="left_click_to_sit_check" control_name="LeftClickToSit"
+			 label="Sit on object" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, clicking on an object configured as a seat triggers a sit event and sits down your avatar on it."
+			 bottom_delta="0" left_delta="120" height="16" width="400" follows="left|top" />
+			<text name="double_click_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-24" left="20" height="17" width="110" follows="left|top">
+				Double-click:
+			</text>
+			<radio_group name="double_click_action" control_name="DoubleClickAction" draw_border="false"
+			 bottom_delta="-36" left="120" height="54" width="480" follows="top|left">
+				<radio_item bottom="-18" height="18" left="0" name="dc_no_operation" width="370" 
+				 tool_tip="With this option selected, in-world double-clicks will have no effect (unless you click on a touch-script object, of course).">
+					Do nothing on in-world double-click
+				</radio_item>
+				<radio_item bottom="-36" height="18" left="0" name="dc_auto_pilot" width="370" 
+				 tool_tip="If this option is selected, each time you double-click in-world on the floor, the viewer will attempt to auto-pilot your avatar to the clicked location.">
+					Auto-pilot to double-clicked in-world location
+				</radio_item>
+				<radio_item bottom="-54" height="18" left="0" name="dc_teleport" width="370" 
+				 tool_tip="If this option is selected, each time you double-click in-world, the viewer will attempt to teleport your avatar to the clicked location.">
+					Teleport to double-clicked in-world location
+				</radio_item>
+			</radio_group>
+			<check_box name="scripted_object_check" control_name="DoubleClickScriptedObject"
+			 label="Auto-pilot or teleport to double-clicked script-touch objects" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, double-clicks on script-touch objects (scripted objects with a touch event) also trigger an auto-pilot or teleport action (as set above). This can be an annoyance since some scripted objects might use double-clicks for their own benefit (and you won't want to go/TP to the object each time you use their double-click feature), and even for simple touch scripted object it will trigger their touch action twice on auto-pilot/TP double-click requests."
+			 bottom_delta="-20" left_delta="0" height="16" width="400" follows="left|top" />
+			<text name="joystick_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-32" left="10" height="17" width="110" follows="left|top">
+				Joystick options:
+			</text>
+			<button name="joystick_setup_button" label="Joystick setup" font="SansSerif" mouse_opaque="true"
+			 bottom_delta="0" left="120" height="20" width="120" follows="left|top" />
+			<check_box name="no_joystick_check" control_name="JoystickNeverEnable"
+			 label="Never try to initialize (after restart)" font="SansSerifSmall"
+			 tool_tip="When this setting is checked, the viewer will skip the joystick initialization attempt on startup; this may be useful if your joystick driver is incompatible and makes the viewer pause for a minute when starting while it tries to configure the joystick. Obviously, changes to this setting can only take effect after a viewer restart."
+			 bottom_delta="0" left_delta="135" height="16" width="145" follows="left|top" />
+		</panel>
+		<panel name="Camera Controls" label="Camera controls" border="true" mouse_opaque="true"
+		 left="1" bottom="-440" width="500" height="440" follows="left|top|right|bottom">
+			<text name="camera_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-24" left="10" height="17" width="110" follows="left|top">
+				Camera options:
+			</text>
+			<view_border name="camera_border" bevel_style="none" border_thickness="1"
+			 bottom_delta="-216" left="10" height="212" width="477" follows="left|top"/>
+			<slider name="camera_angle" label="View angle" control_name="CameraAngle"
+			 enabled="true" mouse_opaque="true" min_val=".17" max_val="2.97" increment=".025" show_text="false"
+			 bottom_delta="188" left="20" height="16" width="340" label_width="195" follows="left|top" />
+			<button name="camera_angle_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<slider name="camera_offset_scale" label="Camera offsets scale" control_name="CameraOffsetScale"
+			 tool_tip="This slider drives a factor which is applied to camera view offsets (rear offset, front view offset, build view offset, etc...). The larger, the farther the camera is positioned from the focus point while keeping the corresponding offset angle."
+			 enabled="true" mouse_opaque="true" min_val=".5" max_val="3" increment=".025" show_text="false"
+			 bottom_delta="-18" left="20" height="16" width="340" label_width="195" follows="left|top" />
+			<button name="offset_scale_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<text name="rear_camera_offset" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-18" left="20" height="16" width="110" follows="left|top">
+				Rear camera offset:
+			</text>
+			<spinner name="rear_offset_x"
+			 font="SansSerifSmall" label="X:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="114" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<spinner name="rear_offset_y"
+			 font="SansSerifSmall" label="Y:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="80" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<spinner name="rear_offset_z"
+			 font="SansSerifSmall" label="Z:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="80" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<button name="rear_offset_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<text name="front_camera_offset" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 bottom_delta="-18" left="20" height="16" width="110" follows="left|top">
+				Front camera offset:
+			</text>
+			<spinner name="front_offset_x"
+			 font="SansSerifSmall" label="X:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="114" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<spinner name="front_offset_y"
+			 font="SansSerifSmall" label="Y:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="80" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<spinner name="front_offset_z"
+			 font="SansSerifSmall" label="Z:" label_width="16" enabled="true" mouse_opaque="true"
+			 decimal_digits="2" increment="0.1" min_val="-9.9" max_val="9.9"
+			 left_delta="80" bottom_delta="0" width="68" height="16" follows="left|top" />
+			<button name="front_offset_reset_button" label="Reset to default" font="SansSerifSmall" mouse_opaque="true"
+			 bottom_delta="-2" left="368" height="20" width="110" follows="left|top" />
+			<text name="camera_options" enabled="true" mouse_opaque="true"
+			 font="SansSerifSmall"
+			 tool_tip="When using the object build/edit or avatar appearance customizing modes, the camera may be configured to auto-focus on the edited parts."
+			 bottom_delta="-22" left="20" height="16" width="185" follows="left|top">
+				Automatically focus camera when:
+			</text>
+			<check_box name="edit_camera_movement" label="Building" control_name="EditCameraMovement"
+			 font="SansSerifSmall"
+			 tool_tip="Use automatic camera positioning when entering and exiting build/edit mode"
+			 bottom_delta="0" left_delta="190" height="16" width="120" follows="left|top" />
+			<check_box name="appearance_camera_movement" label="Customizing appearance" control_name="AppearanceCameraMovement"
+			 font="SansSerifSmall"
+			 tool_tip="Use automatic camera positioning while in avatar appearance customizing mode"
+			 bottom_delta="0" left_delta="100" height="16" width="160" follows="left|top" />
+			<check_box name="front_camera_thumbnail" label="Automatically switch to front camera view when taking inventory thumbnail snapshot" control_name="ThumbnailSnapshotFrontView"
+			 font="SansSerifSmall"
+			 tool_tip="Automatically switch the camera to the front view when you take a snapshot for an inventory object, and automatically disable the front view once the snapshot taken or cancelled."
+			 bottom_delta="-20" left="16" height="16" width="370" follows="left|top" />
+			<check_box name="front_camera_on_sit" label="Automatically switch to front camera view on sitting" control_name="SitCameraFrontView"
+			 font="SansSerifSmall"
+			 tool_tip="Automatically switch the camera to the front view when your avatar sits down on an object, and automatically disable the front view on standing up."
+			 bottom_delta="-20" left="16" height="16" width="370" follows="left|top" />
+			<check_box name="camera_ignore_collisions" label="Do not move the camera out of objects on collision" control_name="CameraIgnoreCollisions"
+			 tool_tip="When the following-up position of the camera would cause the latter to collide with or enter an object, the camera is normally automatically 'pushed' towards the avatar till the surface of the colliding object is behind it. This may cause spurious zoom-in/zoom-out camera movements when colliding with transparent objects or with objects which bounding box is much larger than their actual, visible size (this is the case with many sculpties, for example). Checking this setting prevents the automatic move to happen, letting you the responsibility to zoom-in yourself (with the mouse scroll wheel, for example) and as you deem appropriate."
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+			<check_box name="disable_camera_constraints" label="Disable camera zooming constraints" control_name="DisableCameraConstraints"
+			 tool_tip="Do not constrain the zoom level of the camera (note: the maximum zoom out level is still kept proportional to the draw distance)."
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+			<check_box name="reset_camera_rotates_avatar" label="Resetting the camera view rotates the avatar" control_name="ResetViewRotatesAvatar"
+			 tool_tip="When resetting the camera view, v2/3 viewers reset the camera without rotating the avatar, meaning the camera axis is reset to the avatar's axis. In v1 viewers, the avatar was rotated to face the current axis of the camera, not changing the latter; checking this setting reinstates the v1-viewers' way."
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+			<text name="mouselook_options" font="SansSerifSmall"
+			 bottom_delta="-36" left="10" height="17" width="110" follows="left|top">
+				Mouse-look options:
+			</text>
+			<view_border name="camera_border" bevel_style="none" border_thickness="1"
+			 bottom_delta="-92" left="10" height="88" width="477" follows="left|top"/>
+			<check_box name="invert_mouse" label="Opposite camera and mouse vertical movements" control_name="InvertMouse"
+			 tool_tip="When in mouse-look mode and this setting is checked, moving the mouse up moves the camera focus point down and vice versa."
+			 font="SansSerifSmall"
+			 bottom_delta="64" left="16" height="16" width="370" follows="left|top" />
+			<check_box name="show_crosshairs" label="Show the mouse-look camera center crosshairs" control_name="ShowCrosshairs"
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+			<check_box name="avatar_in_mouselook" label="Show the avatar in mouse-look" control_name="FirstPersonAvatarVisible"
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+			<check_box name="show_rigged_in_mouselook" label="Show the avatar rigged attachments in mouse-look" control_name="MouselookRenderRigged"
+			 font="SansSerifSmall"
+			 bottom_delta="-20" left_delta="0" height="16" width="370" follows="left|top" />
+		</panel>
+	</tab_container>
+</panel>
