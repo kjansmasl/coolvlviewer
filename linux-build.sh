@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # build-linux.sh v2.21 (c)2013-2023 Henri Beauchamp.
 # Released under the GPL license. https://www.gnu.org/licenses/gpl-3.0.txt
@@ -90,6 +90,7 @@ fi
 if ! [ -x scripts/develop.py ] ; then
 	echo
 	echo "This script must be ran from the linden/ Cool VL Viewer sources directory !".
+	echo `pwd`
 	exit 1
 fi
 
