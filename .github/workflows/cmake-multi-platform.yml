@@ -45,9 +45,10 @@ jobs:
       id: strings
       shell: bash
       run: |
-        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+        echo "build-output-dir=${{ github.workspace }}/viewer-linux-x86_64-release/"" >> "$GITHUB_OUTPUT"
 
     - name: Configure Build
       shell: bash
       run: >
+        cd "${{ github.workspace }}"
         bash linux-build.sh
