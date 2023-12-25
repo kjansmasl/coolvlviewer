@@ -50,4 +50,4 @@ jobs:
     - name: Configure Build
       shell: bash
       run: >
-        ./linux-build.sh
+        bash linux-build.sh
