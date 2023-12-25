@@ -52,4 +52,5 @@ jobs:
       run: |
         cd "${{ github.workspace }}"
         chmod a+x linux-build.sh
+        chmod a+x scripts/develop.py
         ./linux-build.sh
