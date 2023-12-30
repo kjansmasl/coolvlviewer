@@ -615,7 +615,7 @@ void LLLocalBitmap::updateGLTFMaterials(const LLUUID& old_id,
 		 ++i)
 	{
 		LLFetchedGLTFMaterial* matp =
-			mGLTFMaterialWithLocalTextures[i]->asFecthed();
+			mGLTFMaterialWithLocalTextures[i]->asFetched();
 		if (!matp)
 		{
 			continue;
@@ -645,7 +645,7 @@ void LLLocalBitmap::updateGLTFMaterials(const LLUUID& old_id,
 			// Do not create a new material, reuse existing pointer.
 			
 			LLFetchedGLTFMaterial* rmatp =
-				tep->getGLTFRenderMaterial()->asFecthed();
+				tep->getGLTFRenderMaterial()->asFetched();
 			if (rmatp)
 			{
 				*rmatp = *matp;

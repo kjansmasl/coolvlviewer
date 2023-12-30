@@ -1275,7 +1275,7 @@ void handle_dump_region_object_cache(void*)
 #if LL_ENABLE_CRASH_TEST
 void handle_llerrs_test(void*)
 {
-	llerrs << "This is a volontary crash test..." << llendl;
+	llerrs << "This is a voluntary crash test..." << llendl;
 }
 #endif
 
@@ -2076,14 +2076,14 @@ void init_debug_ui_menu(LLMenuGL* menu)
 	menu->createJumpKeys();
 }
 
+bool not_in_pbr_mode(void*)
+{
+	return !gUsePBRShaders;
+}
+
 bool deferred_rendering_enabled(void*)
 {
 	return LLPipeline::sRenderDeferred;
-}
-
-bool can_toggle_deferred(void*)
-{
-	return !gUsePBRShaders;
 }
 
 bool deferred_check_control(void*)
@@ -2400,6 +2400,12 @@ void handle_selected_pbr_info(void*)
 		return;
 	}
 	emit_chat_text("List of PBR materials:");
+	static const char base_str[] =
+		" base color map with color <%.2f, %.2f, %.2f> and alpha %.2f ";
+	static const char mrough_str[] =
+		" metallic/roughness map with m/r factors %.2f/%.2f and ";
+	static const char emisive_str[] =
+		" emissive map with color <%.2f, %.2f, %.2f>.";
 	for (mat_map_t::iterator it = materials.begin(), end = materials.end();
 		 it != end; ++it)
 	{
@@ -2409,15 +2415,27 @@ void handle_selected_pbr_info(void*)
 		const LLUUID& normal = textures[NORMALIDX];
 		const LLUUID& mrough = textures[MROUGHIDX];
 		const LLUUID& emissive = textures[EMISSIVEIDX];
+		const LLColor4& bcolor = matp->mBaseColor;
+		const LLColor3& ecolor = matp->mEmissiveColor;
 		msg = "Material " + it->first.asString() + " got ";
 		msg += basecol.notNull() ? basecol.asString() + " as" : "no";
-		msg += " base color map, ";
+		msg += llformat(base_str, bcolor.mV[VX], bcolor.mV[VY], bcolor.mV[VZ],
+						bcolor.mV[VW]);
+		switch (matp->mAlphaMode)
+		{
+			case 0: msg += "(opaque), "; break;
+			case 1: msg += "(blend), "; break;
+			case 2: msg += "(mask), "; break;
+			default: msg += "(INVALID), ";
+		}
 		msg += normal.notNull() ? normal.asString() + " as" : "no";
 		msg += " normal map, ";
 		msg += mrough.notNull() ? mrough.asString() + " as" : "no";
-		msg += " metallic/roughness map and ";
+		msg += llformat(mrough_str, matp->mMetallicFactor,
+						matp->mRoughnessFactor);
 		msg += emissive.notNull() ? emissive.asString() + " as" : "no";
-		msg += " emissive map.";
+		msg += llformat(emisive_str, ecolor.mV[VX], ecolor.mV[VY],
+						ecolor.mV[VZ]);
 		emit_chat_text(msg);
 	}
 	emit_chat_text("End of PBR materials list.");
@@ -2665,6 +2683,19 @@ void frame_render_profile(void*)
 	gShaderProfileFrame = true;
 }
 
+void use_basecolor_toggle(void* userdata)
+{
+	gSavedSettings.setU32("RenderUseBasecolorAsDiffuse",
+						  (U32)(intptr_t)userdata);
+}
+
+bool use_basecolor_check_control(void* userdata)
+{
+	static LLCachedControl<U32> basecol(gSavedSettings,
+										"RenderUseBasecolorAsDiffuse");
+	return !gUsePBRShaders && (U32)basecol == (U32)(intptr_t)userdata;
+}
+
 void shadows_toggle(void* userdata)
 {
 	gSavedSettings.setU32("RenderShadowDetail", (U32)(intptr_t)userdata);
@@ -2672,6 +2703,10 @@ void shadows_toggle(void* userdata)
 
 bool shadows_check_control(void* userdata)
 {
+	if (!LLPipeline::sRenderDeferred)
+	{
+		return !userdata;
+	}
 	static LLCachedControl<U32> shadows(gSavedSettings, "RenderShadowDetail");
 	return (U32)shadows == (U32)(intptr_t)userdata;
 }
@@ -2683,6 +2718,10 @@ void ssao_toggle(void* userdata)
 
 bool ssao_check_control(void* userdata)
 {
+	if (!LLPipeline::sRenderDeferred)
+	{
+		return !userdata;
+	}
 	static LLCachedControl<U32> ssao(gSavedSettings, "RenderDeferredSSAO");
 	return (U32)ssao == (U32)(intptr_t)userdata;
 }
@@ -2995,11 +3034,39 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 
 	sub = new LLMenuGL("Deferred rendering");
 
+	sub->append(new LLMenuItemCheckGL("PBR enabled",
+									  menu_toggle_control, NULL,
+									  menu_check_control,
+									  (void*)"RenderUsePBR",
+									  'P', MASK_CONTROL|MASK_ALT));
+
+	sub->append(new LLMenuItemCheckGL("Always use diffuse texture",
+									  use_basecolor_toggle, not_in_pbr_mode,
+									  use_basecolor_check_control, NULL));
+
+	sub->append(new LLMenuItemCheckGL("Use base color for missing diffuse",
+									  use_basecolor_toggle, not_in_pbr_mode,
+									  use_basecolor_check_control, (void*)1));
+
+	sub->append(new LLMenuItemCheckGL("Always use base color",
+									  use_basecolor_toggle, not_in_pbr_mode,
+									  use_basecolor_check_control, (void*)2));
+
+	sub->appendSeparator();
+
 	sub->append(new LLMenuItemCheckGL("Deferred rendering",
-									  menu_toggle_control, can_toggle_deferred,
+									  menu_toggle_control, not_in_pbr_mode,
 									  deferred_check_control,
 									  (void*)"RenderDeferred",
 									  'D', MASK_CONTROL|MASK_ALT));
+
+	sub->append(new LLMenuItemCheckGL("Render invisiprims",
+									  menu_toggle_control,
+									  invisprim_enabled,
+									  invisprim_check_control,
+									  (void*)"RenderDeferredInvisible"));
+
+	sub->appendSeparator();
 
 	sub->append(new LLMenuItemCheckGL("No shadow", shadows_toggle,
 									  deferred_rendering_enabled,
@@ -3014,6 +3081,8 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 									  deferred_rendering_enabled,
 									  shadows_check_control, (void*)2));
 
+	sub->appendSeparator();
+
 	sub->append(new LLMenuItemCheckGL("Never use SSAO", ssao_toggle,
 									  deferred_rendering_enabled,
 									  ssao_check_control, NULL));
@@ -3026,11 +3095,7 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 									  deferred_rendering_enabled,
 									  ssao_check_control, (void*)2));
 
-	sub->append(new LLMenuItemCheckGL("Render invisiprims",
-									  menu_toggle_control,
-									  invisprim_enabled,
-									  invisprim_check_control,
-									  (void*)"RenderDeferredInvisible"));
+	sub->appendSeparator();
 
 	sub->append(new LLMenuItemCheckGL("Depth of field", menu_toggle_control,
 									  deferred_rendering_enabled,
@@ -3122,8 +3187,7 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 									  reset_vertex_buffers, NULL, NULL));
 
 	menu->append(new LLMenuItemCheckGL("Cache vertex buffers",
-									   menu_toggle_control,
-									   can_toggle_deferred,
+									   menu_toggle_control, not_in_pbr_mode,
 									   vb_cache_check_control,
 									   (void*)"RenderGLUseVBCache"));
 

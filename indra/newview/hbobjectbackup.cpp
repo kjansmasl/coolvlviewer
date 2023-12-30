@@ -65,8 +65,8 @@
 // Note: these default textures are initialized with hard coded values to
 // prevent cheating. When not in SL, the user-configurable values are used
 // instead (see setDefaultTextures() below).
-LLUUID gTexturePlywood	   = LLUUID("89556747-24cb-43ed-920b-47caed15465f");
-LLUUID gTextureBlank	   = LLUUID("5748decc-f629-461c-9a36-a35a221fe21f");
+LLUUID gTexturePlywood	   = IMG_PLYWOOD;
+LLUUID gTextureBlank	   = IMG_BLANK;
 LLUUID gTextureInvisible   = LLUUID("38b86f85-2575-52a9-a531-23108d8da837");
 LLUUID gTextureTransparent = LLUUID("8dcd4a48-2d37-4909-9f78-f7a9eb4ef903");
 LLUUID gTextureMedia	   = LLUUID("8b5fec65-8d8d-9dc5-cda8-8fdf2716e361");

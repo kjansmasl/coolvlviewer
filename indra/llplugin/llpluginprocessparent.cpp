@@ -120,10 +120,8 @@ void LLPluginProcessParent::shutdown()
 		{
 			if (it->second->mState < STATE_GOODBYE)
 			{
-				it->second->setState(STATE_GOODBYE);
-				it->second->mOwner = NULL;
+				it->second->requestShutdown();
 			}
-			it->second->idle();
 		}
 		sInstances.clear();
 	}
@@ -196,9 +194,14 @@ void LLPluginProcessParent::requestShutdown()
 	setState(STATE_GOODBYE);
 	mOwner = NULL;
 
-	if (LLApp::isQuitting())
+	if (LLApp::isError())
 	{
-		// If we are quitting, run the idle once more.
+		if (mPolling.connected())
+		{
+			mPolling.disconnect();
+		}
+		// If we are crashing, run the idle once more since there will be no
+		// polling.
 		idle();
 		removeFromProcessing();
 		return;

@@ -458,7 +458,7 @@ bool LLGLTFMaterial::isClearedForBaseMaterial() const
 	return *this == cleared_override;
 }
 
-// static
+//static
 void LLGLTFMaterial::hackOverrideUUID(LLUUID& id)
 {
 	if (id.isNull())
@@ -732,8 +732,7 @@ void LLGLTFMaterial::applyOverrideLLSD(const LLSD& data)
 	}
 }
 
-// static
-void LLGLTFMaterial::applyOverrideUUID(LLUUID& dst_id, const LLUUID& over_id)
+static void apply_override_id(LLUUID& dst_id, const LLUUID& over_id)
 {
 	if (over_id == GLTF_OVERRIDE_NULL_UUID)
 	{
@@ -751,7 +750,7 @@ void LLGLTFMaterial::applyOverride(const LLGLTFMaterial& override_mat)
 	{
 		LLUUID& texture_id = mTextureId[i];
 		const LLUUID& override_texture_id = override_mat.mTextureId[i];
-		applyOverrideUUID(texture_id, override_texture_id);
+		apply_override_id(texture_id, override_texture_id);
 	}
 
 	if (override_mat.mBaseColor != getDefaultBaseColor())

@@ -100,7 +100,7 @@ public:
 			   mOverrideDoubleSided != rhs.mOverrideDoubleSided;
 	}
 
-	virtual LLFetchedGLTFMaterial* asFecthed()					{ return NULL; }
+	virtual LLFetchedGLTFMaterial* asFetched()					{ return NULL; }
 
 	class TextureTransform
 	{
@@ -240,15 +240,30 @@ public:
 		mTextureTransform[tex_info].mOffset = offset;
 	}
 
+	LL_INLINE const LLVector2& getBaseColorOffset() const
+	{
+		return mTextureTransform[GLTF_TEXTURE_INFO_BASE_COLOR].mOffset;
+	}
+
 	LL_INLINE void setTextureScale(TextureInfo tex_info,
 								   const LLVector2& scale)
 	{
 		mTextureTransform[tex_info].mScale = scale;
 	}
 
-	LL_INLINE void setTextureRotation(TextureInfo tex_info, float rotation)
+	LL_INLINE const LLVector2& getBaseColorScale() const
+	{
+		return mTextureTransform[GLTF_TEXTURE_INFO_BASE_COLOR].mScale;
+	}
+
+	LL_INLINE void setTextureRotation(TextureInfo tex_info, F32 rotation)
 	{
 		mTextureTransform[tex_info].mRotation = rotation;
+	}
+
+	LL_INLINE F32 getBaseColorRotation() const
+	{
+		return mTextureTransform[GLTF_TEXTURE_INFO_BASE_COLOR].mRotation;
 	}
 
 	// Default value accessors these MUST match the GLTF specification)
@@ -302,9 +317,6 @@ public:
 	{
 		return sDefault.mTextureTransform[0].mRotation;
 	}
-
-	static void hackOverrideUUID(LLUUID& id);
-	static void applyOverrideUUID(LLUUID& dst_id, const LLUUID& override_id);
 
 	// Sets mAlphaMode from string. Anything otherthan "MASK" or "BLEND" sets
 	// mAlphaMode to ALPHA_MODE_OPAQUE.
@@ -379,6 +391,8 @@ public:
 	LL_INLINE virtual void updateTextureTracking()					{}
 
 private:
+	static void hackOverrideUUID(LLUUID& id);
+
 	template<typename T>
 	void setFromTexture(const tinygltf::Model& model, const T& tex_info,
 						TextureInfo tex_info_id);
@@ -423,8 +437,6 @@ public:
 	F32							mMetallicFactor;
 	F32							mRoughnessFactor;
 	F32							mAlphaCutoff;
-
-	// Use a 4 bytes variable as the first member, since sizeof(LLRefCount)==4
 	U32							mAlphaMode;
 
 	bool						mDoubleSided;

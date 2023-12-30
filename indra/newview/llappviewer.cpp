@@ -1796,26 +1796,29 @@ bool LLAppViewer::cleanup()
 	disconnectViewer();
 	llinfos << "Viewer disconnected" << llendl;
 
-	// Give any remaining SLPlugin instances a chance to exit cleanly.
+	// Shut down any still running SLPlugin instance; we make use of the
+	// mainloop pumping below, to give plugins a chance to exit cleanly. HB
+	llinfos << "Asking any remaining plugins to shutdown..." << llendl;
 	LLPluginProcessParent::shutdown();
 
 	// Cleanup the environment class now, since it uses a pump on experiences
 	gEnvironment.cleanupClass();
 
-	// Let some time to coroutines to notice and exit
-	llinfos << "Pumping 'mainloop' to let coroutines shut down..." << llendl;
+	// Let some time for coroutines and plugins to notice and exit
+	llinfos << "Pumping 'mainloop' to let coroutines and plugins shut down..."
+			<< llendl;
 	LLEventPump& mainloop = gEventPumps.obtain("mainloop");
 	LLSD frame_llsd;
 	gLogoutTimer.reset();	// Let's reuse an existing timer...
 	bool first_try = true;
-	while (gCoros.hasActiveCoroutines())
+	while (first_try || gCoros.hasActiveCoroutines())
 	{
 		mainloop.post(frame_llsd);
 
 		// Give listeners a chance to run
 		llcoro::suspend();
 
-		if (gLogoutTimer.getElapsedTimeF64() > 1.0)
+		if (gLogoutTimer.getElapsedTimeF64() > 0.5)
 		{
 			if (first_try)
 			{
@@ -1830,6 +1833,9 @@ bool LLAppViewer::cleanup()
 		}
 	}
 	gCoros.printActiveCoroutines();
+
+	// Stop the plugin read thread if it is running.
+	LLPluginProcessParent::setUseReadThread(false);
 
 #if 1	// This should not be necessary any more (reset() is now called in
 		// ~LLEventPumps()), but it does not hurt, so just in case... HB
@@ -2053,9 +2059,6 @@ bool LLAppViewer::cleanup()
 	writeDebugInfo();
 
 	llinfos << "Shutting down Threads..." << llendl;
-
-	// Stop the plugin read thread if it is running.
-	LLPluginProcessParent::setUseReadThread(false);
 
 	// Let threads finish
 	gLogoutTimer.reset();	// Let's reuse an existing timer...

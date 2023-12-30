@@ -114,8 +114,8 @@ protected:
 class LLMutexLock
 {
 public:
-	LL_INLINE LLMutexLock(LLMutex* mutex)
-	:	mMutex(mutex)
+	LL_INLINE LLMutexLock(LLMutex* mutexp)
+	:	mMutex(mutexp)
 	{
 		if (mMutex)
 		{

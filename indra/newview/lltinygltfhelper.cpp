@@ -187,6 +187,7 @@ LLImageRaw* LLTinyGLTFHelper::getTexture(const std::string& folder,
 		rawp = new LLImageRaw(&imgp->image[0], imgp->width, imgp->height,
 							  imgp->component);
 		rawp->verticalFlip();
+		rawp->optimizeAwayAlpha();
 	}
 	return rawp;
 }

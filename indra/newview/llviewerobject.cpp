@@ -200,13 +200,10 @@ LLViewerObject* LLViewerObject::createObject(const LLUUID& id, LLPCode pcode,
 {
 	LL_FAST_TIMER(FTM_CREATE_OBJECT);
 
-	LLViewerObject* res = NULL;
-
 	switch (pcode)
 	{
 		case LL_PCODE_VOLUME:
-			res = new LLVOVolume(id, regionp);
-			break;
+			return (LLViewerObject*)new LLVOVolume(id, regionp);
 
 		case LL_PCODE_LEGACY_AVATAR:
 		{
@@ -221,75 +218,61 @@ LLViewerObject* LLViewerObject::createObject(const LLUUID& id, LLPCode pcode,
 				{
 					gAgentAvatarp->updateRegion(regionp);
 				}
-				res = gAgentAvatarp;
+				return gAgentAvatarp;
 			}
-			else if (flags & CO_FLAG_UI_AVATAR)
+			if (flags & CO_FLAG_UI_AVATAR)
 			{
-				LLVOAvatarUI* avatar = new LLVOAvatarUI(id, regionp);
-				avatar->initInstance();
-				res = avatar;
+				LLVOAvatarUI* avatarp = new LLVOAvatarUI(id, regionp);
+				avatarp->initInstance();
+				return avatarp;
 			}
-			else if (flags & CO_FLAG_PUPPET_AVATAR)
+			if (flags & CO_FLAG_PUPPET_AVATAR)
 			{
-				LLVOAvatarPuppet* avatar = new LLVOAvatarPuppet(id, regionp);
-				avatar->initInstance();
-				res = avatar;
+				LLVOAvatarPuppet* avatarp = new LLVOAvatarPuppet(id, regionp);
+				avatarp->initInstance();
+				return avatarp;
 			}
-			else
-			{
-				LLVOAvatar* avatar = new LLVOAvatar(id, regionp);
-				avatar->initInstance();
-				res = avatar;
-			}
-			break;
+			LLVOAvatar* avatarp = new LLVOAvatar(id, regionp);
+			avatarp->initInstance();
+			return avatarp;
 		}
 
 		case LL_PCODE_LEGACY_GRASS:
-			res = new LLVOGrass(id, regionp);
-			break;
+			return new LLVOGrass(id, regionp);
 
 		case LL_PCODE_LEGACY_TREE:
-			res = new LLVOTree(id, regionp);
-			break;
+			return new LLVOTree(id, regionp);
 
 		case LL_VO_CLOUDS:
-			res = new LLVOClouds(id, regionp);
-			break;
+			return new LLVOClouds(id, regionp);
 
 		case LL_VO_SURFACE_PATCH:
-			res = new LLVOSurfacePatch(id, regionp);
-			break;
+			return new LLVOSurfacePatch(id, regionp);
 
 		case LL_VO_SKY:
-			res = new LLVOSky(id, regionp);
-			break;
+			return new LLVOSky(id, regionp);
 
 		case LL_VO_VOID_WATER:
-			res = new LLVOVoidWater(id, regionp);
-			break;
+			return new LLVOVoidWater(id, regionp);
 
 		case LL_VO_WATER:
-			res = new LLVOWater(id, regionp);
-			break;
+			return new LLVOWater(id, regionp);
 
 		case LL_VO_PART_GROUP:
-			res = new LLVOPartGroup(id, regionp);
-			break;
+			return new LLVOPartGroup(id, regionp);
 
 		case LL_VO_HUD_PART_GROUP:
-			res = new LLVOHUDPartGroup(id, regionp);
-			break;
+			return new LLVOHUDPartGroup(id, regionp);
 
 		case LL_VO_WL_SKY:
-			res = new LLVOWLSky(id, regionp);
-			break;
+			return new LLVOWLSky(id, regionp);
 
 		default:
 			llwarns_once << "Unknown or deperecated object pcode: "
 						 << (S32)pcode << llendl;
 	}
 
-	return res;
+	return NULL;
 }
 
 LLViewerObject::LLViewerObject(const LLUUID& id, LLPCode pcode,
@@ -5281,7 +5264,9 @@ void LLViewerObject::setRenderMaterialID(S32 te_in, const LLUUID& id,
 
 	// Signal to render pipeline that render batches must be rebuilt for this
 	// object
-	if (gUsePBRShaders)
+	static LLCachedControl<U32> use_basecolor(gSavedSettings,
+											  "RenderUseBasecolorAsDiffuse");
+	if (gUsePBRShaders || use_basecolor)
 	{
 		if (matp)
 		{

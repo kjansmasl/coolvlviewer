@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Registers a protocol handler for URLs of the form secondlife:// and hop://
 

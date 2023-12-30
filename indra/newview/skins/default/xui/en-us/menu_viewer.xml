@@ -630,6 +630,10 @@
 			<on_click function="ToggleControl" userdata="AllowPickTransparent" />
 			<on_check control="AllowPickTransparent" />
 		</menu_item_check>
+		<menu_item_check name="Pick Unselectable" label="Pick unselectable in edit mode">
+			<on_click function="ToggleControl" userdata="PickUnselectableInEdit" />
+			<on_check control="PickUnselectableInEdit" />
+		</menu_item_check>
 		<menu_item_separator name="separator2" label="-----------" />
 		<menu_item_check enabled="false" label="Limit drag distance" name="Limit Drag Distance">
 			<on_click function="ToggleControl" userdata="LimitDragDistance" />

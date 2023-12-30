@@ -3910,28 +3910,27 @@ void LLViewerMediaTexture::switchTexture(U32 ch, LLFace* facep)
 	{
 		// Old textures switch to the media texture
 		facep->switchTexture(ch, this);
+		return;
 	}
-	else
+
+	// Switch to old textures.
+	const LLTextureEntry* tep = facep->getTextureEntry();
+	if (tep)
 	{
-		// Switch to old textures.
-		const LLTextureEntry* te = facep->getTextureEntry();
-		if (te)
+		LLViewerTexture* texp = NULL;
+		if (tep->getID().notNull())
 		{
-			LLViewerTexture* tex = NULL;
-			if (te->getID().notNull())
-			{
-				tex = gTextureList.findImage(te->getID());
-			}
-			if (!tex && te->getID() != mID) // try parcel media.
-			{
-				tex = gTextureList.findImage(mID);
-			}
-			if (!tex)
-			{
-				tex = LLViewerFetchedTexture::sDefaultImagep;
-			}
-			facep->switchTexture(ch, tex);
+			texp = gTextureList.findImage(tep->getID());
 		}
+		if (!texp && tep->getID() != mID) // Try parcel media.
+		{
+			texp = gTextureList.findImage(mID);
+		}
+		if (!texp)
+		{
+			texp = LLViewerFetchedTexture::sDefaultImagep;
+		}
+		facep->switchTexture(ch, texp);
 	}
 }
 

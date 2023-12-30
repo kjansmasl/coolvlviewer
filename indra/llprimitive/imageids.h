@@ -39,6 +39,10 @@ extern const LLUUID IMG_SMOKE;
 
 extern const LLUUID IMG_DEFAULT;
 
+// Default plywood and blank textures, as applied by the texture picker.
+extern const LLUUID IMG_PLYWOOD;
+extern const LLUUID IMG_BLANK;
+
 extern const LLUUID IMG_SUN;
 extern const LLUUID IMG_MOON;
 extern const LLUUID IMG_SHOT;

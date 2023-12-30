@@ -581,18 +581,21 @@ void LLDrawPoolWLSky::renderHeavenlyBodies()
 #if 0
 		sMoonShader->uniform1f(LLShaderMgr::BLEND_FACTOR, blend_factor);
 #endif
-		static LLCachedControl<F32> moonfactor(gSavedSettings,
-											   "RenderMoonBrightnessFactor");
-		F32 factor = llclamp((F32)moonfactor, 1.f, 6.f);
-		sMoonShader->uniform1f(LLShaderMgr::MOON_BRIGHTNESS,
-							   factor * mCurrentSky->getMoonBrightness());
 		if (gUsePBRShaders)
 		{
+			sMoonShader->uniform1f(LLShaderMgr::MOON_BRIGHTNESS,
+								   mCurrentSky->getMoonBrightness());
 			const LLColor3& color = gSky.mVOSkyp->getMoon().getColor();
 			sMoonShader->uniform3fv(LLShaderMgr::MOONLIGHT_COLOR, 1, color.mV);
 		}
 		else
 		{
+			// Fix the insufficient Moon brightness in EE mode. HB
+			static LLCachedControl<F32> moonb(gSavedSettings,
+											  "RenderMoonBrightnessFactor");
+			F32 factor = llclamp((F32)moonb, 1.f, 6.f);
+			sMoonShader->uniform1f(LLShaderMgr::MOON_BRIGHTNESS,
+							   factor * mCurrentSky->getMoonBrightness());
 			LLColor4 color(gSky.mVOSkyp->getMoon().getColor());
 			sMoonShader->uniform4fv(LLShaderMgr::MOONLIGHT_COLOR, 1, color.mV);
 		}

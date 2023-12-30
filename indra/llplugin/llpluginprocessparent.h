@@ -148,7 +148,8 @@ public:
 
 	void requestShutdown();
 
-	static ptr_t create(LLPluginProcessParentOwner* owner);
+	static ptr_t create(LLPluginProcessParentOwner* ownerp);
+	static void requestExit();
 	static void shutdown();
 
 	static bool poll(F64 timeout);

@@ -353,13 +353,46 @@ void LLFace::switchTexture(U32 ch, LLViewerTexture* texp)
 
 	if (ch == LLRender::DIFFUSE_MAP)
 	{
-		LLViewerObject* vobj = getViewerObject();
-		if (vobj)
+		LLViewerObject* objp = getViewerObject();
+		if (objp)
 		{
-			vobj->changeTEImage(mTEOffset, texp);
+			objp->changeTEImage(mTEOffset, texp);
 		}
 	}
+
 	setTexture(ch, texp);
+	dirtyTexture();
+}
+
+void LLFace::switchDiffuseTex(const LLUUID& tex_id)
+{
+	LLPointer<LLViewerTexture>& diff_texp = mTexture[LLRender::DIFFUSE_MAP];
+	if (diff_texp.notNull() && diff_texp->getID() == tex_id)
+	{
+		return;
+	}
+
+	// Make sure the texture will be fetched if not yet in memory.
+	LLPointer<LLViewerFetchedTexture> texp =
+		LLViewerTextureManager::getFetchedTexture(tex_id, FTT_DEFAULT, true,
+												  LLGLTexture::BOOST_NONE,
+												  LLViewerTexture::LOD_TEXTURE);
+	if (diff_texp.notNull())
+	{
+		texp->addTextureStats(diff_texp->getMaxVirtualSize());
+	}
+	else
+	{
+		texp->addTextureStats(256.f * 256.f);
+	}
+
+	LLViewerObject* objp = getViewerObject();
+	if (objp)
+	{
+		objp->changeTEImage(mTEOffset, texp);
+	}
+
+	setTexture(LLRender::DIFFUSE_MAP, texp);
 	dirtyTexture();
 }
 
@@ -781,15 +814,12 @@ bool LLFace::genVolumeBBoxes(const LLVolume& volume, S32 f,
 }
 
 // Converts surface coordinates to texture coordinates, based on the values in
-// the texture entry; probably should be integrated with getGeometryVolume()
-// for its texture coordinate generation but I'll leave that to someone more
-// familiar with the implications.
+// the texture entry.
+// *TODO: VECTORIZE THIS
 LLVector2 LLFace::surfaceToTexture(LLVector2 surface_coord,
 								   const LLVector4a& position,
 								   const LLVector4a& normal)
 {
-	LLVector2 tc = surface_coord;
-
 	const LLTextureEntry* tep = getTextureEntry();
 	if (!tep)
 	{
@@ -797,53 +827,46 @@ LLVector2 LLFace::surfaceToTexture(LLVector2 surface_coord,
 		return surface_coord;
 	}
 
-	// VECTORIZE THIS
-	// see if we have a non-default mapping
-    U8 texgen = tep->getTexGen();
-	if (texgen != LLTextureEntry::TEX_GEN_DEFAULT)
+	LLVector2 tc = surface_coord;
+
+	// See if we have a non-default mapping
+	if (tep->getTexGen() == LLTextureEntry::TEX_GEN_PLANAR)
 	{
-		LLVOVolume* volume = mDrawablep->getVOVolume();
-		if (!volume)	// Paranoia
+		LLVOVolume* volp = mDrawablep->getVOVolume();
+		if (!volp)	// Paranoia
 		{
 			return surface_coord;
 		}
 
-		LLVector4a& center =
-			*(volume->getVolume()->getVolumeFace(mTEOffset).mCenter);
-
 		LLVector4a volume_position;
 		LLVector3 v_position(position.getF32ptr());
-		volume_position.load3(volume->agentPositionToVolume(v_position).mV);
-
-		if (!volume->isVolumeGlobal())
+		volume_position.load3(volp->agentPositionToVolume(v_position).mV);
+		if (!volp->isVolumeGlobal())
 		{
 			LLVector4a scale;
 			scale.load3(mVObjp->getScale().mV);
 			volume_position.mul(scale);
 		}
 
+		LLVector4a& c = *(volp->getVolume()->getVolumeFace(mTEOffset).mCenter);
+
 		LLVector4a volume_normal;
 		LLVector3 v_normal(normal.getF32ptr());
-		volume_normal.load3(volume->agentDirectionToVolume(v_normal).mV);
+		volume_normal.load3(volp->agentDirectionToVolume(v_normal).mV);
 		volume_normal.normalize3fast();
 
-		if (texgen == LLTextureEntry::TEX_GEN_PLANAR)
-		{
-			planarProjection(tc, volume_normal, center, volume_position);
-		}
+		planarProjection(tc, volume_normal, c, volume_position);
 	}
 
 	if (mTextureMatrix)	// If we have a texture matrix, use it
 	{
-		LLVector3 tc3(tc);
-		tc3 = tc3 * *mTextureMatrix;
-		tc = LLVector2(tc3);
+		return LLVector2(LLVector3(tc) * *mTextureMatrix);
 	}
-	else				// Otherwise use the texture entry parameters
-	{
-		xform(tc, cosf(tep->getRotation()), sinf(tep->getRotation()),
-			  tep->mOffsetS, tep->mOffsetT, tep->mScaleS, tep->mScaleT);
-	}
+
+	// Otherwise use the texture entry parameters
+	xform(tc, cosf(tep->getRotation()), sinf(tep->getRotation()),
+		  tep->getOffsetS(), tep->getOffsetT(), tep->getScaleS(),
+		  tep->getScaleT());
 
 	return tc;
 }
@@ -853,10 +876,10 @@ LLVector2 LLFace::surfaceToTexture(LLVector2 surface_coord,
 void LLFace::getPlanarProjectedParams(LLQuaternion* face_rot,
 									  LLVector3* face_pos, F32* scale) const
 {
-	LLViewerObject* vobj = getViewerObject();
-	if (!vobj) return;
+	LLViewerObject* objp = getViewerObject();
+	if (!objp) return;
 
-	const LLVolumeFace& vf = vobj->getVolume()->getVolumeFace(mTEOffset);
+	const LLVolumeFace& vf = objp->getVolume()->getVolumeFace(mTEOffset);
 	if (!vf.mNormals || !vf.mTangents) return;
 
 	const LLVector4a& normal4a = vf.mNormals[0];
@@ -910,8 +933,8 @@ bool LLFace::calcAlignedPlanarTE(const LLFace* align_to,  LLVector2* res_st_offs
 		return false;
 	}
 
-	LLMaterial* mat = orig_tep->getMaterialParams();
-	if (!mat && map != LLRender::DIFFUSE_MAP)
+	LLMaterial* matp = orig_tep->getMaterialParams();
+	if (!matp && map != LLRender::DIFFUSE_MAP)
 	{
 		llwarns_once << "Face " << std::hex << (intptr_t)this << std::dec
 					 << " is set to use specular or normal map but has no material, defaulting to diffuse"
@@ -928,34 +951,34 @@ bool LLFace::calcAlignedPlanarTE(const LLFace* align_to,  LLVector2* res_st_offs
 	{
 		case LLRender::DIFFUSE_MAP:
 			map_rot = orig_tep->getRotation();
-			map_scl_s = orig_tep->mScaleS;
-			map_scl_t = orig_tep->mScaleT;
-			map_off_s = orig_tep->mOffsetS;
-			map_off_t = orig_tep->mOffsetT;
+			map_scl_s = orig_tep->getScaleS();
+			map_scl_t = orig_tep->getScaleT();
+			map_off_s = orig_tep->getOffsetS();
+			map_off_t = orig_tep->getOffsetT();
 			break;
 
 		case LLRender::NORMAL_MAP:
-			if (mat->getNormalID().isNull())
+			if (matp->getNormalID().isNull())
 			{
 				return false;
 			}
-			map_rot = mat->getNormalRotation();
-			map_scl_s = mat->getNormalRepeatX();
-			map_scl_t = mat->getNormalRepeatY();
-			map_off_s = mat->getNormalOffsetX();
-			map_off_t = mat->getNormalOffsetY();
+			map_rot = matp->getNormalRotation();
+			map_scl_s = matp->getNormalRepeatX();
+			map_scl_t = matp->getNormalRepeatY();
+			map_off_s = matp->getNormalOffsetX();
+			map_off_t = matp->getNormalOffsetY();
 			break;
 
 		case LLRender::SPECULAR_MAP:
-			if (mat->getSpecularID().isNull())
+			if (matp->getSpecularID().isNull())
 			{
 				return false;
 			}
-			map_rot = mat->getSpecularRotation();
-			map_scl_s = mat->getSpecularRepeatX();
-			map_scl_t = mat->getSpecularRepeatY();
-			map_off_s = mat->getSpecularOffsetX();
-			map_off_t = mat->getSpecularOffsetY();
+			map_rot = matp->getSpecularRotation();
+			map_scl_s = matp->getSpecularRepeatX();
+			map_scl_t = matp->getSpecularRepeatY();
+			map_off_s = matp->getSpecularOffsetX();
+			map_off_t = matp->getSpecularOffsetY();
 			break;
 
 		default:
@@ -1190,20 +1213,49 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 	const LLTextureEntry* tep = mVObjp->getTE(f);
 	U8 bump_code = 0;
 	LLMaterial* matp = NULL;
-	LLGLTFMaterial* gltfp = NULL;
+	LLFetchedGLTFMaterial* gltfp = NULL;
 	LLColor4U color;
+	F32 r = 0.f, os = 0.f, ot = 0.f, ms = 0.f, mt = 0.f;
 	if (tep)
 	{
 		bump_code = tep->getBumpmap();
 		matp = tep->getMaterialParams().get();
-		gltfp = tep->getGLTFRenderMaterial();
+		LLGLTFMaterial* rmatp = tep->getGLTFRenderMaterial();
+		gltfp = rmatp ? rmatp->asFetched() : NULL;
+		if (rebuild_tcoord)
+		{
+			if (gltfp && !gUsePBRShaders && isState(USE_FACE_COLOR))
+			{
+				// We are overriding the diffuse texture with the GLTF base
+				// color map, so let's use its own transforms. HB
+				r = gltfp->getBaseColorRotation();
+				const LLVector2& offset = gltfp->getBaseColorOffset();
+				os = offset.mV[0];
+				ot = offset.mV[1];
+				const LLVector2& scale = gltfp->getBaseColorScale();
+				ms = scale.mV[0];
+				mt = scale.mV[1];
+			}
+			else
+			{
+				r = tep->getRotation();
+				os = tep->getOffsetS();
+				ot = tep->getOffsetT();
+				ms = tep->getScaleS();
+				mt = tep->getScaleT();
+			}
+		}
+		if (!gUsePBRShaders)
+		{
+			gltfp = NULL;	// Do not use the GLTF material in non-PBR mode.
+		}
 		if (gltfp)
 		{
-			color = LLColor4U(tep->getGLTFRenderMaterial()->mBaseColor);
+			color = LLColor4U(gltfp->mBaseColor);
 		}
 		else
 		{
-			color = LLColor4U(tep->getColor());
+			color = LLColor4U(getRenderColor());
 		}
 	}
 	else
@@ -1300,7 +1352,6 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 		}
 	}
 
-	F32 r = 0.f, os = 0.f, ot = 0.f, ms = 0.f, mt = 0.f;
 	F32 cos_ang = 0.f, sin_ang = 0.f;
 	constexpr S32 XFORM_BLINNPHONG_COLOR = 1;
 	constexpr S32 XFORM_BLINNPHONG_NORMAL = 1 << 1;
@@ -1309,11 +1360,6 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 	// For PBR material, transforms will be applied later
 	if (rebuild_tcoord && tep && !gltfp)
 	{
-		r  = tep->getRotation();
-		os = tep->mOffsetS;
-		ot = tep->mOffsetT;
-		ms = tep->mScaleS;
-		mt = tep->mScaleT;
 		cos_ang = cosf(r);
 		sin_ang = sinf(r);
 		if (cos_ang != 1.f || sin_ang != 0.f || os != 0.f || ot != 0.f ||
@@ -2391,7 +2437,7 @@ F32 LLFace::getTextureVirtualSize()
 			const LLTextureEntry* tep = getTextureEntry();
 			if (tep)
 			{
-				texel_area = tep->mScaleS * tep->mScaleT;
+				texel_area = tep->getScaleS() * tep->getScaleT();
 			}
 			else
 			{
@@ -2714,7 +2760,7 @@ const LLColor4& LLFace::getRenderColor() const
 {
 	if (isState(USE_FACE_COLOR))
 	{
-		  return mFaceColor; // Face Color
+		return mFaceColor; // Face Color
 	}
 	const LLTextureEntry* tep = getTextureEntry();
 	return tep ? tep->getColor() : LLColor4::white;

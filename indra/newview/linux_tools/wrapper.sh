@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Cool VL Viewer wrapper script v3.60 (c)2007-2023 Henri Beauchamp.
+# Cool VL Viewer wrapper script v3.61 (c)2007-2023 Henri Beauchamp.
 # Released under the GPL license (https://www.gnu.org/licenses/gpl.html).
 #
 # Any options passed to this script on the command line get transmitted to the

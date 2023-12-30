@@ -84,8 +84,10 @@ public:
 	{
 		TEX_GEN_DEFAULT			= 0x00,
 		TEX_GEN_PLANAR			= 0x02,
+#if 0	// Not used
 		TEX_GEN_SPHERICAL		= 0x04,
-		TEX_GEN_CYLINDRICAL		= 0x06
+		TEX_GEN_CYLINDRICAL		= 0x06,
+#endif
 	} eTexGen;
 
 	LLTextureEntry();
@@ -143,6 +145,7 @@ public:
 	S32 setMaterialParams(const LLMaterialPtr mat_parms);
 
 	LL_INLINE const LLUUID& getID() const			{ return mID; }
+	LL_INLINE bool isDefault() const				{ return mIsDefaultTexture; }
 
 	LL_INLINE const LLColor4& getColor() const		{ return mColor; }
 
@@ -252,13 +255,6 @@ private:
 			  F32 offset_t, F32 rotation, U8 bump);
 
 public:
-	F32					mScaleS;	// S, T offset
-	F32					mScaleT;	// S, T offset
-	F32					mOffsetS;	// S, T offset
-	F32					mOffsetT;	// S, T offset
-	// Anti-clockwise rotation in rad about the bottom left corner
-	F32					mRotation;
-
 	static const LLTextureEntry null;
 
 	// LLSD key defines
@@ -277,7 +273,7 @@ private:
 	// the serializers asLLSD/fromLLSD and the message packers (e.g.
 	// LLPrimitive::packTEMessage) you must also implement its copy in
 	// LLPrimitive::copyTEs()
-	LLUUID				mID;			// Texture GUID
+	LLUUID				mID;			// Texture UUID
 	LLColor4			mColor;
 	LLMaterialID		mMaterialID;
 	LLMaterialPtr		mMaterial;
@@ -295,10 +291,22 @@ private:
 	// GLTF material to use for rendering: always an LLFetchedGLTFMaterial
 	glft_ptr_t			mGLTFRenderMaterial;
 
+	F32					mScaleS;	// S, T offset
+	F32					mScaleT;	// S, T offset
+	F32					mOffsetS;	// S, T offset
+	F32					mOffsetT;	// S, T offset
+	// Anti-clockwise rotation in rad about the bottom left corner
+	F32					mRotation;
+
 	F32					mGlow;
 	U8					mBump;			// Bump map, shiny, and fullbright
 	U8					mMediaFlags;	// replace with web page, movie, etc.
 	bool				mMaterialUpdatePending;
+
+	// Set to true when mID is null or equal to either the plywood or the blank
+	// default textures. Used to decide whether to override the diffuse texture
+	// with the base color texture when we have a GLTF material set. HB
+	bool				mIsDefaultTexture;
 
 	bool				mSelected;
 };

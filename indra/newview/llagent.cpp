@@ -3536,14 +3536,14 @@ LLVector3d LLAgent::calcCameraPositionTargetGlobal(bool* hit_limit)
 
 		head_offset.clear();
 
-		F32 fixup;
-		if (gAgentAvatarp->hasPelvisFixup(fixup))
-		{
-			head_offset.mdV[VZ] -= fixup;
-		}
+		F32 fixup = 0.f;
 		if (gAgentAvatarp->mIsSitting)
 		{
 			head_offset.mdV[VZ] += 0.1;
+		}
+		else if (gAgentAvatarp->hasPelvisFixup(fixup))
+		{
+			head_offset.mdV[VZ] -= fixup;
 		}
 		
 		LLViewerObject* parentp = (LLViewerObject*)gAgentAvatarp->getParent();

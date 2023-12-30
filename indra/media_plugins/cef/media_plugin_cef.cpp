@@ -208,7 +208,7 @@ MediaPluginCEF::~MediaPluginCEF()
 	}
 	mCEFLib->shutdown();
 
-	// With CEF 120+, delete the per-CEF instance cache sub-directory.
+	// With CEF 120+, delete the per-CEF instance cache sub-directory. HB
 #if CHROME_VERSION_MAJOR >= 120
 	LLDirIterator::deleteRecursivelyInDir(mUserCacheDir);
 	LLFile::rmdir(mUserCacheDir);

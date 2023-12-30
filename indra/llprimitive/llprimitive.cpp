@@ -666,15 +666,15 @@ void LLPrimitive::packTEMessage(LLMessageSystem* mesgsys) const
 			colors[4 * face_index + 3] = 255 - coloru.mV[3];
 
 			const LLTextureEntry* te = getTE(face_index);
-			scale_s[face_index] = (F32)te->mScaleS;
-			scale_t[face_index] = (F32)te->mScaleT;
-			offset_s[face_index] = (S16)ll_round(llclamp(te->mOffsetS,
+			scale_s[face_index] = (F32)te->getScaleS();
+			scale_t[face_index] = (F32)te->getScaleT();
+			offset_s[face_index] = (S16)ll_round(llclamp(te->getOffsetS(),
 														  -1.f, 1.f) *
 												 (F32)0x7FFF);
-			offset_t[face_index] = (S16)ll_round(llclamp(te->mOffsetT,
+			offset_t[face_index] = (S16)ll_round(llclamp(te->getOffsetT(),
 														 -1.f, 1.f) *
 												 (F32)0x7FFF);
-			image_rot[face_index] = (S16)ll_round((fmodf(te->mRotation,
+			image_rot[face_index] = (S16)ll_round((fmodf(te->getRotation(),
 														 F_TWO_PI) /
 												   F_TWO_PI) *
 												  TEXTURE_ROTATION_PACK_FACTOR);
@@ -764,15 +764,15 @@ void LLPrimitive::packTEMessage(LLDataPacker& dp) const
 			colors[4 * face_index + 3] = 255 - coloru.mV[3];
 
 			const LLTextureEntry* te = getTE(face_index);
-			scale_s[face_index] = (F32)te->mScaleS;
-			scale_t[face_index] = (F32)te->mScaleT;
-			offset_s[face_index] = (S16)ll_round(llclamp(te->mOffsetS,
+			scale_s[face_index] = (F32)te->getScaleS();
+			scale_t[face_index] = (F32)te->getScaleT();
+			offset_s[face_index] = (S16)ll_round(llclamp(te->getOffsetS(),
 														   -1.f, 1.f) *
 												 (F32)0x7FFF);
-			offset_t[face_index] = (S16)ll_round(llclamp(te->mOffsetT,
+			offset_t[face_index] = (S16)ll_round(llclamp(te->getOffsetT(),
 														 -1.f, 1.f) *
 												 (F32)0x7FFF);
-			image_rot[face_index] = (S16)ll_round((fmodf(te->mRotation,
+			image_rot[face_index] = (S16)ll_round((fmodf(te->getRotation(),
 														 F_TWO_PI) /
 												   F_TWO_PI) *
 												  TEXTURE_ROTATION_PACK_FACTOR);

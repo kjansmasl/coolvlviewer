@@ -9727,6 +9727,17 @@
 		<key>Value</key>
 		<real>0</real>
 		</map>
+	<key>PickUnselectableInEdit</key>
+		<map>
+		<key>Comment</key>
+		<string>TRUE to allow picking unselectable object while the Edit/Build floater is visible.</string>
+		<key>Persist</key>
+		<integer>0</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
 	<key>PieMenuLineWidth</key>
 		<map>
 		<key>Comment</key>
@@ -12690,10 +12701,21 @@
 		<key>Value</key>
 		<boolean>0</boolean>
 		</map>
+	<key>RenderUseBasecolorAsDiffuse</key>
+		<map>
+		<key>Comment</key>
+		<string>When not in PBR mode, for faces with GLTF material, 0 to always use diffuse, 1 to use base color when diffuse is default texture, 2 to always use base color.</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>U32</string>
+		<key>Value</key>
+		<integer>1</integer>
+		</map>
 	<key>RenderUsePBR</key>
 		<map>
 		<key>Comment</key>
-		<string>TRUE to use the PBR renderer instead of the EE one. EXPERIMENTAL, CURRENTLY BROKEN.</string>
+		<string>TRUE to use the PBR renderer instead of the EE one.</string>
 		<key>Persist</key>
 		<integer>1</integer>
 		<key>Type</key>
