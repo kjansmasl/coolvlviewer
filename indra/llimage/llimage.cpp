@@ -589,6 +589,13 @@ static void bilinear_scale(const U8* src, U32 srcW, U32 srcH, U32 srcCh,
 	}
 }
 
+// Helper function
+LL_INLINE static U8 fastFractionalMult(U8 a, U8 b)
+{
+	U32 i = a * b + 128;
+	return U8((i + (i >> 8)) >> 8);
+}
+
 //---------------------------------------------------------------------------
 // LLImage
 //---------------------------------------------------------------------------
@@ -599,7 +606,7 @@ constexpr size_t TEMP_DATA_BUFFER_SIZE = 5 * 1024 * 1024; // 5 Mb
 
 //static
 std::string LLImage::sLastErrorMessage;
-LLMutex* LLImage::sMutex = NULL;
+LLMutex* LLImage::sErrorMutex = NULL;
 #if LL_JEMALLOC
 // Initialize with a sane value, in case our allocator gets called before the
 // jemalloc arena for it is set.
@@ -613,7 +620,7 @@ S32 LLImage::sMaxMainThreadTempBufferSizeRequest = 0;
 //static
 void LLImage::initClass()
 {
-	sMutex = new LLMutex();
+	sErrorMutex = new LLMutex();
 
 #if LL_JEMALLOC
 	static unsigned int arena = 0;
@@ -649,8 +656,8 @@ void LLImage::cleanupClass()
 		sTempDataBuffer = NULL;
 	}
 
-	delete sMutex;
-	sMutex = NULL;
+	delete sErrorMutex;
+	sErrorMutex = NULL;
 }
 
 //static
@@ -676,14 +683,14 @@ const std::string& LLImage::getLastError()
 //static
 void LLImage::setLastError(const std::string& message)
 {
-	if (sMutex)
+	if (sErrorMutex)
 	{
-		sMutex->lock();
+		sErrorMutex->lock();
 	}
 	sLastErrorMessage = message;
-	if (sMutex)
+	if (sErrorMutex)
 	{
-		sMutex->unlock();
+		sErrorMutex->unlock();
 	}
 }
 
@@ -713,19 +720,6 @@ void LLImageBase::dump()
 	llinfos << "LLImageBase mComponents " << mComponents << " mData " << mData
 			<< " mDataSize " << mDataSize << " mWidth " << mWidth
 			<< " mHeight " << mHeight << llendl;
-}
-
-//virtual
-void LLImageBase::sanityCheck()
-{
-	if (mWidth > MAX_IMAGE_SIZE || mHeight > MAX_IMAGE_SIZE ||
-		mDataSize > (S32)MAX_IMAGE_DATA_SIZE ||
-		mComponents > (S8)MAX_IMAGE_COMPONENTS)
-	{
-		llerrs << "Failed sanity check - width: " << mWidth << " - height: "
-			   << mHeight << " - datasize: " << mDataSize << " - components: "
-			   << mComponents << " - data: " << mData << llendl;
-	}
 }
 
 bool LLImageBase::sSizeOverride = false;
@@ -1182,13 +1176,6 @@ void LLImageRaw::biasedScaleToPowerOfTwo(S32 max_dim)
 															  : smaller_h;
 
 	scale(new_width, new_height);
-}
-
-// Calculates (U8)(255*(a/255.f)*(b/255.f) + 0.5f).  Thanks, Jim Blinn!
-LL_INLINE U8 LLImageRaw::fastFractionalMult(U8 a, U8 b)
-{
-	U32 i = a * b + 128;
-	return U8((i + (i>>8)) >> 8);
 }
 
 void LLImageRaw::composite(LLImageRaw* src)
@@ -2315,19 +2302,6 @@ bool LLImageFormatted::decodeChannels(LLImageRaw* raw_image, S32 first_channel,
 {
 	llassert(first_channel == 0 && max_channel == 4);
 	return decode(raw_image);  // Loads first 4 channels by default.
-}
-
-//virtual
-void LLImageFormatted::sanityCheck()
-{
-	LLImageBase::sanityCheck();
-
-	if (mCodec >= IMG_CODEC_EOF)
-	{
-		llerrs << "Failed sanity check. Decoding: " << S32(mDecoding)
-			   << " - decoded: " << S32(mDecoded) << " - codec: "
-			   << S32(mCodec) << llendl;
-	}
 }
 
 bool LLImageFormatted::copyData(U8* data, S32 size)

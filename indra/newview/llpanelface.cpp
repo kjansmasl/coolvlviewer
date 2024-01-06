@@ -990,13 +990,13 @@ void LLPanelFace::getState()
 			} func;
 			identical = selection->getSelectedTEValue(&func, color);
 		}
-		mLabelDiffuseColor->setEnabled(editable && !has_pbr_mat);
+		mLabelDiffuseColor->setEnabled(editable);
 		LLColor4 prev_color = mColorSwatch->get();
 		mColorSwatch->setOriginal(color);
 		mColorSwatch->set(color, !editable || prev_color != color);
-		mColorSwatch->setValid(editable && !has_pbr_mat);
-		mColorSwatch->setEnabled(editable && !has_pbr_mat);
-		mColorSwatch->setCanApplyImmediately(editable && !has_pbr_mat);
+		mColorSwatch->setValid(editable);
+		mColorSwatch->setEnabled(editable);
+		mColorSwatch->setCanApplyImmediately(editable);
 		mColorSwatch->setFallbackImageName("materials_ui_x_24.png");
 
 		// Transparency
@@ -1239,7 +1239,7 @@ void LLPanelFace::getState()
 				F32 get(LLViewerObject* objectp, S32 face) override
 				{
 					LLTextureEntry* tep = objectp->getTE(face);
-					return tep ? tep->mScaleS : 0.f;
+					return tep ? tep->getScaleS() : 0.f;
 				}
 			} func;
 			identical = selection->getSelectedTEValue(&func, scale_s, 0.001f);
@@ -1260,7 +1260,7 @@ void LLPanelFace::getState()
 				F32 get(LLViewerObject* objectp, S32 face) override
 				{
 					LLTextureEntry* tep = objectp->getTE(face);
-					return tep ? tep->mScaleT : 0.f;
+					return tep ? tep->getScaleT() : 0.f;
 				}
 			} func;
 			identical = selection->getSelectedTEValue(&func, scale_t, 0.001f);
@@ -1286,7 +1286,7 @@ void LLPanelFace::getState()
 				F32 get(LLViewerObject* objectp, S32 face) override
 				{
 					LLTextureEntry* tep = objectp->getTE(face);
-					return tep ? tep->mOffsetS : 0.f;
+					return tep ? tep->getOffsetS() : 0.f;
 				}
 			} func;
 			identical = selection->getSelectedTEValue(&func, offset_s, 0.001f);
@@ -1303,7 +1303,7 @@ void LLPanelFace::getState()
 				F32 get(LLViewerObject* objectp, S32 face) override
 				{
 					LLTextureEntry* tep = objectp->getTE(face);
-					return tep ? tep->mOffsetT : 0.f;
+					return tep ? tep->getOffsetT() : 0.f;
 				}
 			} func;
 			identical = selection->getSelectedTEValue(&func, offset_t, 0.001f);
@@ -1323,7 +1323,7 @@ void LLPanelFace::getState()
 				F32 get(LLViewerObject* objectp, S32 face) override
 				{
 					LLTextureEntry* tep = objectp->getTE(face);
-					return tep ? tep->mRotation : 0.f;
+					return tep ? tep->getRotation() : 0.f;
 				}
 			} func;
 			identical = selection->getSelectedTEValue(&func, rotation, 0.001f);
@@ -1958,13 +1958,14 @@ void LLPanelFace::getState()
 						// boxes.
 						LLPrimitive::getTESTAxes(face, &s_axis, &t_axis);
 #if 1
-						F32 repeats_s = tep->mScaleS /
+						F32 repeats_s = tep->getScaleS() /
 										objectp->getScale().mV[s_axis];
-						F32 repeats_t = tep->mScaleT /
+						F32 repeats_t = tep->getScaleT() /
 										objectp->getScale().mV[t_axis];
 						return llmax(repeats_s, repeats_t);
 #else
-						return tep->mScaleS / objectp->getScale().mV[s_axis];
+						return tep->getScaleS() /
+							   objectp->getScale().mV[s_axis];
 #endif
 					}
 				} func;

@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# install-wine-SLVoice.sh v1.41 (c)2020-2023 Henri Beauchamp.
+# install-wine-SLVoice.sh v1.43 (c)2020-2023 Henri Beauchamp.
 # Released under the GPL license. https://www.gnu.org/licenses/gpl-3.0.txt
 
 WIN32_SLVOICE="http://automated-builds-secondlife-com.s3.amazonaws.com/ct2/55968/524423/slvoice-4.10.0000.32327.5fc3fe7c.539691-windows-539691.tar.bz2"
@@ -49,6 +49,8 @@ if ! [ -t 1 ] ; then
 		terminal="Eterm"
 	elif which x-terminal-emulator &>/dev/null ; then
 		terminal="x-terminal-emulator"
+	elif which terminator &>/dev/null ; then
+		terminal="terminator"
 	elif which xdg-terminal &>/dev/null ; then
 		# NOTE: xdg-terminal may fail (due to a bug in failing to unquote
 		# gsettings returned strings)...

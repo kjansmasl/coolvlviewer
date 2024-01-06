@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script loads a web page in the 'default' graphical web browser.
 # It MUST return immediately (or soon), so the browser should be launched in

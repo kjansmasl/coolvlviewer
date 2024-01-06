@@ -61,8 +61,6 @@ public:
 	LL_INLINE void setEncodeQuality(S32 q)			{ mEncodeQuality = q; }
 	LL_INLINE S32 getEncodeQuality()				{ return mEncodeQuality; }
 
-	static bool decompress(LLImageJPEG* imagep);
-
 private:
 	// Callbacks registered with jpeglib
 	static void encodeInitDestination(j_compress_ptr cinfo);

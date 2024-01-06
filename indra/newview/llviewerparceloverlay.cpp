@@ -76,14 +76,14 @@ LLViewerParcelOverlay::LLViewerParcelOverlay(LLViewerRegion* region,
 	// Initialize the GL texture with empty data.
 	//
 	// Create the base texture.
-	U8* raw = mImageRaw->getData();
-	if (raw)
+	U8* rawp = mImageRaw->getData();
+	if (rawp)
 	{
 		S32 count = mParcelGridsPerEdge * mParcelGridsPerEdge *
 					OVERLAY_IMG_COMPONENTS;
 		for (S32 i = 0; i < count; ++i)
 		{
-			raw[i] = 0;
+			rawp[i] = 0;
 		}
 		mTexture->setSubImage(mImageRaw, 0, 0, mParcelGridsPerEdge,
 							  mParcelGridsPerEdge);
@@ -330,17 +330,17 @@ F32 LLViewerParcelOverlay::getOwnedRatio() const
 // Make sure the texture colors match the ownership data.
 void LLViewerParcelOverlay::updateOverlayTexture()
 {
-	if (mOverlayTextureIdx < 0 && mDirty)
-	{
-		mOverlayTextureIdx = 0;
-	}
 	if (mOverlayTextureIdx < 0)
 	{
-		return;
+		if (!mDirty)
+		{
+			return;
+		}
+		mOverlayTextureIdx = 0;
 	}
 
-	U8* raw = mImageRaw->getData();
-	if (!raw || !mTexture)
+	U8* rawp = mImageRaw->getData();
+	if (!rawp || !mTexture)
 	{
 		return;
 	}
@@ -397,10 +397,10 @@ void LLViewerParcelOverlay::updateOverlayTexture()
 				break;
 		}
 
-		raw[pixel_index] = color.mV[VRED];
-		raw[pixel_index + 1] = color.mV[VGREEN];
-		raw[pixel_index + 2] = color.mV[VBLUE];
-		raw[pixel_index + 3] = color.mV[VALPHA];
+		rawp[pixel_index] = color.mV[VRED];
+		rawp[pixel_index + 1] = color.mV[VGREEN];
+		rawp[pixel_index + 2] = color.mV[VBLUE];
+		rawp[pixel_index + 3] = color.mV[VALPHA];
 
 		pixel_index += OVERLAY_IMG_COMPONENTS;
 	}

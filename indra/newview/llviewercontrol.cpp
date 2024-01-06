@@ -37,6 +37,7 @@
 
 #include "llaudioengine.h"
 #include "llavatarnamecache.h"
+#include "llcallbacklist.h"				// For doAfterInterval()
 #include "llconsole.h"
 #include "llcorehttpcommon.h"
 #include "llerrorcontrol.h"
@@ -540,6 +541,21 @@ static bool handleRenderGLUseVBCacheChanged(const LLSD& newvalue)
 	if (gPipeline.isInit())
 	{
 		gPipeline.resetVertexBuffers();
+	}
+	return true;
+}
+
+static bool handleRenderUseBasecolorAsDiffuseChanged(const LLSD& newvalue)
+{
+	if (!gUsePBRShaders)	// Setting change has no effect in PBR mode
+	{
+		// Force-rebuild all objects in the render pipeline.
+		handle_objects_visibility(NULL);
+		doAfterInterval([]
+						{
+							gPipeline.resetVertexBuffers();
+						},
+						1.f);
 	}
 	return true;
 }
@@ -1137,6 +1153,8 @@ void settings_setup_listeners()
 	add_listener("RenderTreeWindSensitivity", handleTreeSettingsChanged);
 	add_listener("RenderTreeLODFactor", handleTreeSettingsChanged);
 	add_listener("RenderGLUseVBCache", handleRenderGLUseVBCacheChanged);
+	add_listener("RenderUseBasecolorAsDiffuse",
+				 handleRenderUseBasecolorAsDiffuseChanged);
 	add_listener("RenderVolumeLODFactor", handleVolumeSettingsChanged);
 	add_listener("SkyUseClassicClouds", handleSkyUseClassicCloudsChanged);
 	add_listener("UseOcclusion", handleUseOcclusionChanged);

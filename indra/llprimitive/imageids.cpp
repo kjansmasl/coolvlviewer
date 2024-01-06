@@ -38,6 +38,9 @@ const LLUUID IMG_SMOKE				("b4ba225c-373f-446d-9f7e-6cb7b5cf9b3d"); // Viewer
 
 const LLUUID IMG_DEFAULT			("d2114404-dd59-4a4d-8e6c-49359e91bbf0"); // Viewer
 
+const LLUUID IMG_PLYWOOD			("89556747-24cb-43ed-920b-47caed15465f"); // On dataserver
+const LLUUID IMG_BLANK				("5748decc-f629-461c-9a36-a35a221fe21f"); // On dataserver
+
 const LLUUID IMG_SUN				("cce0f112-878f-4586-a2e2-a8f104bba271"); // Viewer
 const LLUUID IMG_MOON				("d07f6eed-b96a-47cd-b51d-400ad4a1c428"); // Viewer
 const LLUUID IMG_CLOUD_POOF			("fc4b9f0b-d008-45c6-96a4-01dd947ac621"); // Viewer

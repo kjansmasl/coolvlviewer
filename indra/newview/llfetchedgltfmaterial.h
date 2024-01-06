@@ -58,7 +58,7 @@ public:
 
 	LLFetchedGLTFMaterial& operator=(const LLFetchedGLTFMaterial& rhs);
 
-	LLFetchedGLTFMaterial* asFecthed() override	{ return this; }
+	LLFetchedGLTFMaterial* asFetched() override	{ return this; }
 
 	void onMaterialComplete(std::function<void()> mat_complete_callback);
 

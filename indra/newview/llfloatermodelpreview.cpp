@@ -2392,6 +2392,16 @@ LLModelPreview::~LLModelPreview()
 		mPreviewAvatar->markDead();
 	}
 
+	mUploadData.clear();
+	mTextureSet.clear();
+
+	for (S32 i = 0; i < LLModel::NUM_LODS; ++i)
+	{
+		clearModel(i);
+	}
+	mBaseModel.clear();
+	mBaseScene.clear();
+
 	// Must call clearGLODGroup() before shutting GLOD down, else we get
 	// crashes later on in LLVOCachePartition/LLOctreeNode ! HB
 	clearGLODGroup();

@@ -34,6 +34,7 @@
 
 #include "lltextureentry.h"
 
+#include "imageids.h"
 #include "llcolor4.h"
 #include "llmediaentry.h"
 #include "llsdutil_math.h"
@@ -76,6 +77,7 @@ LLTextureEntry::LLTextureEntry(const LLUUID& tex_id)
 
 LLTextureEntry::LLTextureEntry(const LLTextureEntry& rhs)
 :	mID(rhs.mID),
+	mIsDefaultTexture(rhs.mIsDefaultTexture),
 	mScaleS(rhs.mScaleS),
 	mScaleT(rhs.mScaleT),
 	mOffsetS(rhs.mOffsetS),
@@ -117,6 +119,7 @@ LLTextureEntry& LLTextureEntry::operator=(const LLTextureEntry& rhs)
 	if (this != &rhs)
 	{
 		mID = rhs.mID;
+		mIsDefaultTexture = rhs.mIsDefaultTexture;
 		mScaleS = rhs.mScaleS;
 		mScaleT = rhs.mScaleT;
 		mOffsetS = rhs.mOffsetS;
@@ -404,6 +407,9 @@ S32 LLTextureEntry::setID(const LLUUID& tex_id)
 	if (mID != tex_id)
 	{
 		mID = tex_id;
+		// Cache the "default texture" status for speed during rendering. HB
+		mIsDefaultTexture = tex_id.isNull() || tex_id == IMG_PLYWOOD ||
+							tex_id == IMG_BLANK;
 		return TEM_CHANGE_TEXTURE;
 	}
 	return TEM_CHANGE_NONE;

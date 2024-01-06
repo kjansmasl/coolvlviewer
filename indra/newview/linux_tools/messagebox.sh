@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Message box wrapper script (c)2015-2023 Henri Beauchamp
 #

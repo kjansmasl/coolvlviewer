@@ -40,8 +40,6 @@
 #include "llatomic.h"
 #include "llmemory.h"
 #include "llpointer.h"
-#include "llpreprocessor.h"
-#include "llstring.h"
 #include "llthread.h"
 #include "hbtracy.h"
 
@@ -106,7 +104,7 @@ public:
 #endif
 
 protected:
-	static LLMutex*				sMutex;
+	static LLMutex*				sErrorMutex;
 	static std::string			sLastErrorMessage;
 
 public:
@@ -167,7 +165,6 @@ public:
 	U8* reallocateData(S32 size = -1);
 
 	virtual void dump();
-	virtual void sanityCheck();
 
 	U16 getWidth() const							{ return mWidth; }
 	U16 getHeight() const							{ return mHeight; }
@@ -202,20 +199,17 @@ public:
 	static EImageCodec getCodecFromExtension(const std::string& exten);
 
 private:
-	U8* mData;
-	S32 mDataSize;
+	U8*			mData;
+	S32			mDataSize;
 
-	U16 mWidth;
-	U16 mHeight;
+	U16			mWidth;
+	U16			mHeight;
+	S8			mComponents;
 
-	S8 mComponents;
-
-	bool mBadBufferAllocation;
+	bool		mBadBufferAllocation;
 
 public:
-	S16 mMemType; // kept for compatibility with Snowglobe's KDU
-
-	static bool sSizeOverride;
+	static bool	sSizeOverride;
 };
 
 // Raw representation of an image used for textures, and other uncompressed
@@ -323,8 +317,6 @@ protected:
 	void compositeRowScaled4onto3(U8* in, U8* out, S32 in_pixel_len,
 								  S32 out_pixel_len);
 
-	U8 fastFractionalMult(U8 a,U8 b);
-
 	void setDataAndSize(U8* data, S32 width, S32 height, S8 components);
 
 public:
@@ -347,7 +339,6 @@ public:
 	LLImageFormatted(S8 codec);
 
 	void dump() override;
-	void sanityCheck() override;
 
 	// Subclasses must return a prefered file extension (lowercase without a
 	// leading dot)

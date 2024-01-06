@@ -69,9 +69,14 @@ LLImageDecodeThread::ImageRequest::~ImageRequest()
 
 bool LLImageDecodeThread::ImageRequest::processRequest()
 {
+	if (mFormattedImage.isNull())
+	{
+		return true;
+	}
+
 	bool done = true;
 
-	if (!mDecodedRaw && mFormattedImage.notNull())
+	if (!mDecodedRaw)
 	{
 		// Decode primary channels
 		if (mDecodedImageRaw.isNull())
@@ -108,7 +113,7 @@ bool LLImageDecodeThread::ImageRequest::processRequest()
 		}
 	}
 
-	if (done && mNeedsAux && !mDecodedAux && mFormattedImage.notNull())
+	if (done && mNeedsAux && !mDecodedAux)
 	{
 		// Decode aux channel
 		if (mDecodedImageAux.isNull())

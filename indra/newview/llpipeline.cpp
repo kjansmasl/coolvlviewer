@@ -740,7 +740,7 @@ void LLPipeline::toggleRenderer()
 		{
 			// We failed to load the mandatory PBR shaders, and we need to
 			// switch back to the EE renderer immediately (otherwise we would
-			// crash later on during rendering). HB
+			// crash later on while rendering). HB
 			gSavedSettings.setBool("RenderUsePBR", false); // Resync setting
 			continue;	// Loop back...
 		}
@@ -844,7 +844,7 @@ void LLPipeline::cleanup()
 	mGlowPool = NULL;
 	delete mBumpPool;
 	mBumpPool = NULL;
-#if 0	// Do not delete WL sky pool it was handled above in the for loop
+#if 0	// Do not delete WL sky pool: already done above in the for loop.
 	delete mWLSkyPool;
 #endif
 	mWLSkyPool = NULL;
@@ -5978,7 +5978,7 @@ void LLPipeline::doWaterHaze()
 	{
 		gHazeWaterProgram.uniform1i(sAboveWater, 1);
 		// Render water patches like LLDrawPoolWater does
-		LLGLDepthTest depth(GL_TRUE, GL_FALSE, GL_LEQUAL);
+		LLGLDepthTest depth(GL_TRUE, GL_FALSE);
 		LLGLDisable cull(GL_CULL_FACE);
 
 		gGLLastMatrix = NULL;

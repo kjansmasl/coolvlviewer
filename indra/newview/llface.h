@@ -149,7 +149,11 @@ public:
 		setTexture(LLRender::SPECULAR_MAP, texp);
 	}
 
+	// Used to switch between diffuse and media textures.
 	void switchTexture(U32 ch, LLViewerTexture* texp);
+	// Used to switch between diffuse and base color textures. HB
+	void switchDiffuseTex(const LLUUID& tex_id);
+
 	void dirtyTexture();
 
 #if LL_FIX_MAT_TRANSPARENCY
@@ -203,7 +207,8 @@ public:
 
 	LL_INLINE const LLTextureEntry* getTextureEntry() const
 	{
-		return mVObjp.notNull() ? mVObjp->getTE(mTEOffset) : NULL;
+		return mTEOffset >= 0 && mVObjp.notNull() ? mVObjp->getTE(mTEOffset)
+												  : NULL;
 	}
 
 	// Returns true when the face texture can be safely included in a render

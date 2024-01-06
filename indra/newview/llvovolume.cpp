@@ -5355,6 +5355,16 @@ void LLVolumeGeometryManager::freeFaces()
 	}
 }
 
+// Helper function for opacity test during rendering
+static bool opaque_face(const LLFace* facep, const LLTextureEntry* tep)
+{
+	if (facep->isState(LLFace::USE_FACE_COLOR))
+	{
+		return facep->getFaceColor().mV[3] >= 0.999f;
+	}
+	return tep->isOpaque();
+}
+
 void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 										   LLFace* facep, U32 type)
 {
@@ -5437,6 +5447,55 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 
 	U8 shiny = tep->getShiny();
 
+	U8 index = facep->getTextureIndex();
+
+	LLGLTFMaterial* rmatp = tep->getGLTFRenderMaterial();
+	LLFetchedGLTFMaterial* gltfp = rmatp ? rmatp->asFetched() : NULL;
+	// *HACK: when we have a GLTF material and are not rendering in PBR mode,
+	// and the face does not have any fallback diffuse texture set, try and
+	// use the base color texture for the diffuse channel.
+	// Note: we use the USE_FACE_COLOR state as a marker for overridden diffuse
+	// texture; this is OK, since the only other use for this state is with sky
+	// and classic cloud faces, which do not bear a GLTF material. HB
+	static LLCachedControl<U32> use_basecolor(gSavedSettings,
+											  "RenderUseBasecolorAsDiffuse");
+	// Do NOT touch the diffuse texture when it is bearing a media texture,
+	// since it then itself makes use of switchTexture() on the diffuse
+	// channel, which would cause conflicts. HB
+	bool may_touch_diffuse = gltfp && !gUsePBRShaders && !facep->hasMedia();
+	const LLUUID& basecolor_id = may_touch_diffuse ? gltfp->getBaseColorId()
+												   : LLUUID::null;
+	if (may_touch_diffuse && use_basecolor && basecolor_id.notNull() &&
+		// Note: we do not apply our hack while editing this face: we want to
+		// still be able to see and edit the diffuse texture on GLTF-enabled
+		// faces. HB
+		(!tep->isSelected() || !LLFloaterTools::isVisible()))
+	{
+		if (use_basecolor > 1 || tep->isDefault())
+		{
+			// Set to base color texture and color
+			facep->switchDiffuseTex(basecolor_id);
+			facep->setFaceColor(gltfp->mBaseColor);
+		}
+		else if (facep->isState(LLFace::USE_FACE_COLOR))
+		{
+			// Reset to diffuse texture and color
+			facep->switchDiffuseTex(tep->getID());
+			facep->unsetFaceColor();
+		}
+	}
+	else if (may_touch_diffuse && facep->isState(LLFace::USE_FACE_COLOR))
+	{
+		// Reset to diffuse texture and color
+		facep->switchDiffuseTex(tep->getID());
+		facep->unsetFaceColor();
+	}
+	// Render without the GLTF material when we are not in PBR mode. HB
+	if (!gUsePBRShaders)
+	{
+		gltfp = NULL;
+	}
+
 	LLViewerTexture* texp = facep->getTexture();
 //MK
 	// If @camtexture is set, do not show any texture in world (but show
@@ -5449,13 +5508,8 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 	}
 //mk
 
-	U8 index = facep->getTextureIndex();
-
 	LLMaterial* matp = NULL;
 	LLUUID mat_id;
-	LLGLTFMaterial* rmatp = tep->getGLTFRenderMaterial();
-	LLFetchedGLTFMaterial* gltfp = gUsePBRShaders && rmatp ? rmatp->asFecthed()
-														   : NULL;
 	if (gltfp)
 	{
 		mat_id = gltfp->getHash();
@@ -5479,11 +5533,11 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 #endif
 	}
 
-	U32 shader_mask = 0xFFFFFFFF; // no shader
+	U32 shader_mask = 0xFFFFFFFF; // No shader
 	if (matp)
 	{
-		bool is_alpha = !tep->isOpaque() ||
-						facep->getPoolType() == LLDrawPool::POOL_ALPHA;
+		bool is_alpha = facep->getPoolType() == LLDrawPool::POOL_ALPHA ||
+						opaque_face(facep, tep);
 		if (type == LLRenderPass::PASS_ALPHA)
 		{
 			shader_mask =
@@ -5702,6 +5756,25 @@ static U32 get_linkset_index(const LLVOVolume* vobjp)
 	return idx;
 }
 
+// Helper function for transparency test during rendering
+static bool transparent_face(const LLGLTFMaterial* gltfp, const LLFace* facep,
+						 	 const LLTextureEntry* tep)
+{
+	if (tep->hasGlow())
+	{
+		return false;
+	}
+	if (gltfp)
+	{
+		return gltfp->mBaseColor.mV[3] < 0.001f;
+	}
+	if (facep->isState(LLFace::USE_FACE_COLOR))
+	{
+		return facep->getFaceColor().mV[3] < 0.001f;
+	}
+	return tep->isTransparent();
+}
+
 //virtual
 void LLVolumeGeometryManager::rebuildGeom(LLSpatialGroup* groupp)
 {
@@ -5811,6 +5884,8 @@ void LLVolumeGeometryManager::rebuildGeom(LLSpatialGroup* groupp)
 	{
 		LL_FAST_TIMER(FTM_REBUILD_VOLUME_FACE_LIST);
 
+		static LLCachedControl<U32> use_basecolor(gSavedSettings,
+												  "RenderUseBasecolorAsDiffuse");
 		// Get all the faces into a list
 		for (LLSpatialGroup::element_iter it = groupp->getDataBegin();
 			 it != groupp->getDataEnd(); ++it)
@@ -5834,7 +5909,7 @@ void LLVolumeGeometryManager::rebuildGeom(LLSpatialGroup* groupp)
 				continue;
 			}
 
-			if (gUsePBRShaders)
+			if (gUsePBRShaders || use_basecolor)
 			{
 				// *HACK: brute force this check every time a drawable gets
 				// rebuilt.
@@ -6042,12 +6117,8 @@ void LLVolumeGeometryManager::rebuildGeom(LLSpatialGroup* groupp)
 						}
 						else
 						{
-							bool transparent = tep->isTransparent() &&
-											   !tep->hasGlow();
-							if (transparent && gltfp)
-							{
-								transparent = gltfp->mBaseColor.mV[3] < 0.001f;
-							}
+							bool transparent = transparent_face(gltfp, facep,
+																tep);
 							if (!transparent)
 							{
 								// Only treat as alpha in the pipeline if not
@@ -6830,6 +6901,13 @@ void LLVolumeGeometryManager::genDrawInfo(LLSpatialGroup* groupp, U32 mask,
 				// All hud attachments are fullbright
 				fullbright = true;
 			}
+			bool is_transparent = transparent_face(gltfp, facep, tep);
+			// Do not render transparent faces, unless we highlight transparent
+			if (not_debugging_alpha && is_transparent)
+			{
+				++face_iter;
+				continue;
+			}
 
 			texp = facep->getTexture();
 
@@ -6837,6 +6915,7 @@ void LLVolumeGeometryManager::genDrawInfo(LLSpatialGroup* groupp, U32 mask,
 
 			// Ignore legacy material when PBR material is present
 			bool can_be_shiny = !gltfp;
+			bool has_glow = tep->hasGlow();
 			LLMaterial* matp = gltfp ? NULL : tep->getMaterialParams().get();
 			U8 diffuse_mode = LLMaterial::DIFFUSE_ALPHA_MODE_NONE;
 			if (matp)
@@ -6850,15 +6929,7 @@ void LLVolumeGeometryManager::genDrawInfo(LLSpatialGroup* groupp, U32 mask,
 			bool use_legacy_bump = tep->getBumpmap() &&
 								   tep->getBumpmap() < 18 &&
 								   (!matp || matp->getNormalID().isNull());
-			bool has_glow = tep->hasGlow();
-			bool is_transparent = !has_glow && tep->isTransparent();
-			// Do not render transparent faces, unless we highlight transparent
-			if (not_debugging_alpha && is_transparent)
-			{
-				++face_iter;
-				continue;
-			}
-			bool is_opaque = tep->isOpaque();
+			bool is_opaque = opaque_face(facep, tep);
 			if (!is_opaque && !is_alpha && !gltfp)
 			{
 				is_alpha = true;

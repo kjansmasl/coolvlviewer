@@ -3302,6 +3302,7 @@ void LLVOAvatar::onChange()
 	}
 }
 
+//virtual
 bool LLVOAvatar::isVisuallyMuted()
 {
 	if (isDead()) return false;
@@ -4712,7 +4713,8 @@ void LLVOAvatar::updateTextures()
 			LLAvatarAppearanceDictionary::getTEWearableType((ETextureIndex)texture_index);
 		U32 num_wearables = gAgentWearables.getWearableCount(wearable_type);
 		const LLTextureEntry* te = getTE(texture_index);
-		const F32 texel_area_ratio = te ? fabs(te->mScaleS * te->mScaleT) : 1.f;
+		const F32 texel_area_ratio = te ? fabs(te->getScaleS() * te->getScaleT())
+										: 1.f;
 		LLViewerFetchedTexture* imagep = NULL;
 		if (isSelf())	// There is no texture stats for non-self avatars
 		{
@@ -9321,7 +9323,7 @@ void LLVOAvatar::calculateUpdateRenderComplexity()
 
 void LLVOAvatar::setVisualMuteSettings(VisualMuteSettings value)
 {
-	if (!mCachedMute)
+	if (!mCachedMute && !isUIAvatar())
 	{
 //MK
 		if (gRLenabled && mCachedRLVMute && value == AV_ALWAYS_RENDER)

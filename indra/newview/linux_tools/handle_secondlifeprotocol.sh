@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Sends an URL of the form secondlife:// to any running viewer via D-Bus, or
 # starts the Cool VL Viewer if no viewer is running, passing it the URL as the

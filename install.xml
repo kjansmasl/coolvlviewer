@@ -149,30 +149,30 @@
           <key>darwin64</key>
           <map>
             <key>md5sum</key>
-            <string>915ada2b689e52d639c3b4efcaa58f83</string>
+            <string>3315d2aa817915b618c7f83507f20448</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/colladadom-2.3-darwin64-20231214.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/colladadom-2.3-darwin64-20231229.tar.bz2</uri>
           </map>
           <key>linux64</key>
           <map>
             <key>md5sum</key>
-            <string>c3ed34522524990790d577bc6354b912</string>
+            <string>1d7bce98723f2103c9c20467453c1d98</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/colladadom-2.3-linux64-20231214.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/colladadom-2.3-linux64-20231229.tar.bz2</uri>
           </map>
           <key>linux64-arm</key>
           <map>
             <key>md5sum</key>
-            <string>e1964c30bf6bd80b537f1b72a588a2c3</string>
+            <string>41fc1cf77ed7483e350b64c9cf4f6698</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/colladadom-2.3-linux-arm64-20231214.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/colladadom-2.3-linux-arm64-20231229.tar.bz2</uri>
           </map>
           <key>windows64</key>
           <map>
             <key>md5sum</key>
-            <string>6f4e1e23ad9efccaa4ae56265b000517</string>
+            <string>33872f376cccd8a685ecbc4de0d03655</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/colladadom-2.3-win64-vc143-20231214.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/colladadom-2.3-win64-vc143-20231229.tar.bz2</uri>
           </map>
         </map>
       </map>
@@ -335,16 +335,16 @@
           <key>linux64</key>
           <map>
             <key>md5sum</key>
-            <string>19b1317f92d7df860ace33a363f228e6</string>
+            <string>1a9ac2159aecfea3f85a0a20660d2e3a</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/elfio-3.11-20230331.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/elfio-3.12-20231229.tar.bz2</uri>
           </map>
           <key>linux64-arm</key>
           <map>
             <key>md5sum</key>
-            <string>19b1317f92d7df860ace33a363f228e6</string>
+            <string>1a9ac2159aecfea3f85a0a20660d2e3a</string>
             <key>url</key>
-            <uri>http://sldev.free.fr/libraries/elfio-3.11-20230331.tar.bz2</uri>
+            <uri>http://sldev.free.fr/libraries/elfio-3.12-20231229.tar.bz2</uri>
           </map>
         </map>
       </map>

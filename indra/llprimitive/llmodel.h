@@ -129,7 +129,7 @@ public:
 	class Decomposition
 	{
 	public:
-		Decomposition()								{}
+		Decomposition() = default;
 		Decomposition(const LLSD& data);
 		Decomposition(const LLSD& data, const LLUUID& mesh_id);
 
@@ -371,9 +371,9 @@ typedef std::map<std::string, LLImportMaterial> material_map;
 class LLModelInstanceBase
 {
 public:
-	LLModelInstanceBase(LLModel* model, LLMatrix4& transform,
+	LLModelInstanceBase(LLModel* modelp, LLMatrix4& transform,
 						material_map& materials)
-	:	mModel(model),
+	:	mModel(modelp),
 		mTransform(transform),
 		mMaterial(materials)
 	{
@@ -384,9 +384,18 @@ public:
 	{
 	}
 
+	virtual ~LLModelInstanceBase()
+	{
+		mModel = NULL;
+		for (U32 i = 0; i < LLModel::NUM_LODS; ++i)
+		{
+			mLOD[i] = NULL;
+		}
+	}
+
 public:
 	LLPointer<LLModel>	mModel;
-	LLPointer<LLModel>	mLOD[5];
+	LLPointer<LLModel>	mLOD[LLModel::NUM_LODS];
 	LLUUID				mMeshID;
 	LLMatrix4			mTransform;
 	material_map		mMaterial;
@@ -395,9 +404,9 @@ public:
 class LLModelInstance : public LLModelInstanceBase
 {
 public:
-	LLModelInstance(LLModel* model, const std::string& label,
+	LLModelInstance(LLModel* modelp, const std::string& label,
 					LLMatrix4& transform, material_map& materials)
-	:	LLModelInstanceBase(model, transform, materials),
+	:	LLModelInstanceBase(modelp, transform, materials),
 		mLabel(label),
 		mLocalMeshID(-1)
 	{

@@ -248,78 +248,92 @@ public:
 				llwarns << "NULL spatial partition for drawable " << drawp
 						<< llendl;
 			}
-		}
-		else
-		{
-			LLViewerObject* vobjp = drawp->getVObj();
-			if (vobjp)
-			{
-				// Forbid interaction when this volume either got an ignore
-				// click action set, or (added by me) is a reflection probe,
-				// and the build tools floater is not visible; the added
-				// reflection probe case replaces the 'pick unselectable' hack
-				// as implemented in LL's PBR viewer, which ruined it for us,
-				// due to the differences between async and sync picking, in
-				// v1 and v2+ viewers; it is also much simpler this way... HB
-				if ((vobjp->getClickAction() == CLICK_ACTION_IGNORE ||
-					 vobjp->isReflectionProbe()) &&
-					!LLFloaterTools::isVisible())
-				{
-					return false;
-				}
-				 // Forbid any interaction with HUDs when they are hidden. HB
-				if (!LLPipeline::sShowHUDAttachments &&
-					vobjp->isHUDAttachment())
-				{
-					return false;
-				}
-				LLVector4a intersection;
-				bool skip_check = false;
-				if (vobjp->isAvatar())
-				{
-					LLVOAvatar* avp = (LLVOAvatar*)vobjp;
-					if (mPickRigged ||
-						(avp->isSelf() && LLFloaterTools::isVisible()))
-					{
-						LLViewerObject* hitp =
-							avp->lineSegmentIntersectRiggedAttachments(mStart,
-																	   mEnd,
-																	   -1,
-																	   mPickTransparent,
-																	   mPickRigged,
-																	   mFaceHit,
-																	   &intersection,
-																	   mTexCoord,
-																	   mNormal,
-																	   mTangent);
-						if (hitp)
-						{
-							mEnd = intersection;
-							if (mIntersection)
-							{
-								*mIntersection = intersection;
-							}
-							mHit = hitp->mDrawable;
-							skip_check = true;
-						}
-					}
-				}
-				if (!skip_check &&
-					vobjp->lineSegmentIntersect(mStart, mEnd, -1,
-												mPickTransparent, mPickRigged,
-												mFaceHit, &intersection,
-												mTexCoord, mNormal, mTangent))
-				{
-					// Shorten the ray so we only find CLOSER hits:
-					mEnd = intersection;
 
+			return false;
+		}
+
+		LLViewerObject* vobjp = drawp->getVObj();
+		if (!vobjp)
+		{
+			return false;
+		}
+
+		 // Forbid any interaction with HUDs when they are hidden. HB
+		if (!LLPipeline::sShowHUDAttachments && vobjp->isHUDAttachment())
+		{
+			return false;
+		}
+
+		// The block of code below deals with selection behaviour changes when
+		// the build floater is visible; some interactions are forbidden when
+		// it is not. The "PickUnselectableInEdit" setting (non-persistent and
+		// defaulting to TRUE) determines whether we do pick non-selectable
+		// objects when the build floater is visible). HB
+		static LLCachedControl<bool> edit_pick(gSavedSettings,
+											   "PickUnselectableInEdit");
+		bool not_building = !edit_pick || !LLFloaterTools::isVisible();
+		// Forbid interaction when the build tools floater is not visible and
+		// when this volume got an ignore click action set.
+		if (not_building && vobjp->getClickAction() == CLICK_ACTION_IGNORE)
+		{
+			return false;
+		}
+		// Forbid interaction when this volume is a reflection probe and the
+		// the build tools floater is not visible. I added this test here to
+		// replace the 'pick_unselectable' hack as implemented in LL's PBR
+		// viewer, which ruined it for us due to the differences between async
+		// and sync picking in v1 and v2+ viewers; it is also much simpler this
+		// way... HB
+		if (not_building && vobjp->isReflectionProbe())
+		{
+			return false;
+		}
+
+		// We can interact with this volume: do check for intersection.
+
+		LLVector4a intersection;
+		bool skip_check = false;
+		if (vobjp->isAvatar())
+		{
+			LLVOAvatar* avp = (LLVOAvatar*)vobjp;
+			if (mPickRigged ||
+				(avp->isSelf() && LLFloaterTools::isVisible()))
+			{
+				LLViewerObject* hitp =
+					avp->lineSegmentIntersectRiggedAttachments(mStart, mEnd,
+															   -1,
+															   mPickTransparent,
+															   mPickRigged,
+															   mFaceHit,
+															   &intersection,
+															   mTexCoord,
+															   mNormal,
+															   mTangent);
+				if (hitp)
+				{
+					mEnd = intersection;
 					if (mIntersection)
 					{
 						*mIntersection = intersection;
 					}
-					mHit = vobjp->mDrawable;
+					mHit = hitp->mDrawable;
+					skip_check = true;
 				}
 			}
+		}
+		if (!skip_check &&
+			vobjp->lineSegmentIntersect(mStart, mEnd, -1, mPickTransparent,
+										mPickRigged, mFaceHit, &intersection,
+										mTexCoord, mNormal, mTangent))
+		{
+			// Shorten the ray so we only find CLOSER hits:
+			mEnd = intersection;
+
+			if (mIntersection)
+			{
+				*mIntersection = intersection;
+			}
+			mHit = vobjp->mDrawable;
 		}
 
 		return false;
