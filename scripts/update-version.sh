@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # update-version.sh v2.00 (c)2016-2023 Henri Beauchamp.
 # Released under the GPL (v2 or later, at your convenience) License:

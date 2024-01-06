@@ -2423,10 +2423,17 @@ void handle_selected_pbr_info(void*)
 						bcolor.mV[VW]);
 		switch (matp->mAlphaMode)
 		{
-			case 0: msg += "(opaque), "; break;
-			case 1: msg += "(blend), "; break;
-			case 2: msg += "(mask), "; break;
-			default: msg += "(INVALID), ";
+			case 0:
+				msg += "(opaque), ";
+				break;
+			case 1:
+				msg += "(blend), ";
+				break;
+			case 2:
+				msg += llformat("(mask, cutoff = %.2f), ", matp->mAlphaCutoff);
+				break;
+			default:
+				msg += "(INVALID), ";
 		}
 		msg += normal.notNull() ? normal.asString() + " as" : "no";
 		msg += " normal map, ";
@@ -2709,6 +2716,18 @@ bool shadows_check_control(void* userdata)
 	}
 	static LLCachedControl<U32> shadows(gSavedSettings, "RenderShadowDetail");
 	return (U32)shadows == (U32)(intptr_t)userdata;
+}
+
+bool shadows_enabled(void* userdata)
+{
+	static LLCachedControl<U32> shadows(gSavedSettings, "RenderShadowDetail");
+	return LLPipeline::sRenderDeferred && shadows;
+}
+
+bool soften_check_control(void* userdata)
+{
+	static LLCachedControl<bool> soften(gSavedSettings, "RenderShadowSoften");
+	return soften && shadows_enabled(NULL);
 }
 
 void ssao_toggle(void* userdata)
@@ -3048,9 +3067,13 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 									  use_basecolor_toggle, not_in_pbr_mode,
 									  use_basecolor_check_control, (void*)1));
 
-	sub->append(new LLMenuItemCheckGL("Always use base color",
+	sub->append(new LLMenuItemCheckGL("Always use base color with texture",
 									  use_basecolor_toggle, not_in_pbr_mode,
 									  use_basecolor_check_control, (void*)2));
+
+	sub->append(new LLMenuItemCheckGL("Always use base color",
+									  use_basecolor_toggle, not_in_pbr_mode,
+									  use_basecolor_check_control, (void*)3));
 
 	sub->appendSeparator();
 
@@ -3080,6 +3103,10 @@ void init_debug_rendering_menu(LLMenuGL* menu)
 	sub->append(new LLMenuItemCheckGL("All lights shadows", shadows_toggle,
 									  deferred_rendering_enabled,
 									  shadows_check_control, (void*)2));
+
+	sub->append(new LLMenuItemCheckGL("Soften shadows", menu_toggle_control,
+									  shadows_enabled, soften_check_control,
+									  (void*)"RenderShadowSoften"));
 
 	sub->appendSeparator();
 

@@ -116,6 +116,7 @@ bool LLPipeline::RenderDeferredAASharpen;
 U32 LLPipeline::RenderResolutionDivisor;
 U32 LLPipeline::RenderShadowDetail;
 bool LLPipeline::RenderDeferredSSAO;
+bool LLPipeline::RenderShadowSoften;
 F32 LLPipeline::RenderShadowResolutionScale;
 U32 LLPipeline::RenderLocalLightCount;
 bool LLPipeline::RenderDelayCreation;
@@ -624,6 +625,7 @@ void LLPipeline::init()
 	connectRefreshCachedSettingsSafe("RenderDepthOfFieldInEditMode");
 	connectRefreshCachedSettingsSafe("RenderShadowNoise");
 	connectRefreshCachedSettingsSafe("RenderShadowBlurSize");
+	connectRefreshCachedSettingsSafe("RenderShadowSoften");
 	connectRefreshCachedSettingsSafe("RenderSSAOScale");
 	connectRefreshCachedSettingsSafe("RenderSSAOMaxScale");
 	connectRefreshCachedSettingsSafe("RenderSSAOFactor");
@@ -1635,6 +1637,10 @@ void LLPipeline::refreshCachedSettings()
 											  "RenderDeferredSSAO");
 	RenderDeferredSSAO = deferred_ssao > 1 ||
 						 (deferred_ssao == 1 && RenderShadowDetail);
+
+	static LLCachedControl<bool> soften_shadows(gSavedSettings,
+												"RenderShadowSoften");
+	RenderShadowSoften = soften_shadows && RenderShadowDetail;
 
 	static LLCachedControl<F32> shadow_res_scl(gSavedSettings,
 											   "RenderShadowResolutionScale");
@@ -4747,25 +4753,24 @@ void LLPipeline::touchTextures(LLDrawInfo* infop)
 
 	F32 vsize = infop->mVSize;
 
+	if (gUsePBRShaders)
+	{
+		LLFetchedGLTFMaterial* gltfp = infop->mGLTFMaterial.get();
+		if (gltfp)
+		{
+			touchTexture(gltfp->mBaseColorTexture, vsize);
+			touchTexture(gltfp->mNormalTexture, vsize);
+			touchTexture(gltfp->mMetallicRoughnessTexture, vsize);
+			touchTexture(gltfp->mEmissiveTexture, vsize);
+			return;
+		}
+	}
+
 	touchTexture(infop->mTexture, vsize);
 	if (sRenderDeferred)
 	{
 		touchTexture(infop->mSpecularMap, vsize);
 		touchTexture(infop->mNormalMap, vsize);
-	}
-
-	if (!gUsePBRShaders)
-	{
-		return;
-	}
-
-	LLFetchedGLTFMaterial* gltfp = infop->mGLTFMaterial.get();
-	if (gltfp)
-	{
-		touchTexture(gltfp->mBaseColorTexture, vsize);
-		touchTexture(gltfp->mNormalTexture, vsize);
-		touchTexture(gltfp->mMetallicRoughnessTexture, vsize);
-		touchTexture(gltfp->mEmissiveTexture, vsize);
 	}
 }
 
@@ -10660,7 +10665,7 @@ void LLPipeline::renderDeferredLightingPBR()
 			light_targetp->flush();
 		}
 
-		if (RenderDeferredSSAO)
+		if (RenderShadowSoften)
 		{
 			// Soften direct lighting lightmap
 			LL_FAST_TIMER(FTM_SOFTEN_SHADOW);
@@ -11191,7 +11196,7 @@ void LLPipeline::renderDeferredLighting()
 			mRT->mDeferredLight.flush();
 		}
 
-		if (RenderDeferredSSAO)
+		if (RenderShadowSoften)
 		{
 			// Soften direct lighting lightmap
 

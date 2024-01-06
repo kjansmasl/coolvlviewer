@@ -372,7 +372,7 @@ void LLFace::switchDiffuseTex(const LLUUID& tex_id)
 		return;
 	}
 
-	// Make sure the texture will be fetched if not yet in memory.
+	// Make sure the texture will be fetched if not yet in memory. HB
 	LLPointer<LLViewerFetchedTexture> texp =
 		LLViewerTextureManager::getFetchedTexture(tex_id, FTT_DEFAULT, true,
 												  LLGLTexture::BOOST_NONE,
@@ -1215,7 +1215,8 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 	LLMaterial* matp = NULL;
 	LLFetchedGLTFMaterial* gltfp = NULL;
 	LLColor4U color;
-	F32 r = 0.f, os = 0.f, ot = 0.f, ms = 0.f, mt = 0.f;
+	// Default values for rotation, offsets and scales.
+	F32 r = 0.f, os = 0.f, ot = 0.f, ms = 1.f, mt = 1.f;
 	if (tep)
 	{
 		bump_code = tep->getBumpmap();
@@ -1224,10 +1225,13 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 		gltfp = rmatp ? rmatp->asFetched() : NULL;
 		if (rebuild_tcoord)
 		{
-			if (gltfp && !gUsePBRShaders && isState(USE_FACE_COLOR))
+			// Are we overriding the diffuse texture with a non-blank base
+			// color texture ?  HB
+			if (gltfp && !matp && !gUsePBRShaders && isState(USE_FACE_COLOR) &&
+				gltfp->getBaseColorId() != IMG_BLANK)
 			{
-				// We are overriding the diffuse texture with the GLTF base
-				// color map, so let's use its own transforms. HB
+				// When we do override the diffuse texture with the GLTF base
+				// color texture, we need to use its own transforms. HB
 				r = gltfp->getBaseColorRotation();
 				const LLVector2& offset = gltfp->getBaseColorOffset();
 				os = offset.mV[0];
@@ -1236,7 +1240,11 @@ bool LLFace::getGeometryVolume(const LLVolume& volume, S32 f,
 				ms = scale.mV[0];
 				mt = scale.mV[1];
 			}
-			else
+			// Scales, offsets and rotation irrelevant for a blank texture, so
+			// do not even bother to try and use them (which, when non-default,
+			// could cause useless xform transformations below), and use the
+			// default ones (scales at 1.0, offsets and rotation at 0.0). HB
+			else if (!tep->isBlank())
 			{
 				r = tep->getRotation();
 				os = tep->getOffsetS();

@@ -5449,6 +5449,8 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 
 	U8 index = facep->getTextureIndex();
 
+	LLMaterial* matp = tep->getMaterialParams().get();
+
 	LLGLTFMaterial* rmatp = tep->getGLTFRenderMaterial();
 	LLFetchedGLTFMaterial* gltfp = rmatp ? rmatp->asFetched() : NULL;
 	// *HACK: when we have a GLTF material and are not rendering in PBR mode,
@@ -5461,20 +5463,32 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 											  "RenderUseBasecolorAsDiffuse");
 	// Do NOT touch the diffuse texture when it is bearing a media texture,
 	// since it then itself makes use of switchTexture() on the diffuse
-	// channel, which would cause conflicts. HB
-	bool may_touch_diffuse = gltfp && !gUsePBRShaders && !facep->hasMedia();
+	// channel, which would cause conflicts. Also, when we have a legacy
+	// material, we should not either override its diffuse texture (considering
+	// that in this case the creator did provide an adequate legacy material in
+	// excesss of the PBR material). HB
+	bool may_touch_diffuse = gltfp && !matp && !gUsePBRShaders &&
+							 !facep->hasMedia();
 	const LLUUID& basecolor_id = may_touch_diffuse ? gltfp->getBaseColorId()
 												   : LLUUID::null;
-	if (may_touch_diffuse && use_basecolor && basecolor_id.notNull() &&
+	bool got_base_color_tex = basecolor_id.notNull();
+	if (may_touch_diffuse && use_basecolor &&
+		(got_base_color_tex || use_basecolor > 2) &&
 		// Note: we do not apply our hack while editing this face: we want to
 		// still be able to see and edit the diffuse texture on GLTF-enabled
 		// faces. HB
 		(!tep->isSelected() || !LLFloaterTools::isVisible()))
 	{
-		if (use_basecolor > 1 || tep->isDefault())
+		if (got_base_color_tex && (use_basecolor > 1 || tep->isDefault()))
 		{
 			// Set to base color texture and color
 			facep->switchDiffuseTex(basecolor_id);
+			facep->setFaceColor(gltfp->mBaseColor);
+		}
+		else if (use_basecolor > 2)
+		{
+			// Set texture to blank and color to base color
+			facep->switchDiffuseTex(IMG_BLANK);
 			facep->setFaceColor(gltfp->mBaseColor);
 		}
 		else if (facep->isState(LLFace::USE_FACE_COLOR))
@@ -5508,7 +5522,6 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 	}
 //mk
 
-	LLMaterial* matp = NULL;
 	LLUUID mat_id;
 	if (gltfp)
 	{
@@ -5518,18 +5531,17 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 			// No media texture, face texture will be unused
 			texp = NULL;
 		}
+		// Do not use any legacy material when we do have a PBR material to
+		// render with. HB
+		matp = NULL;
 	}
-	else
+	else if (matp)
 	{
-		matp = tep->getMaterialParams().get();
-		if (matp)
-		{
-#if 0		// No need to slow down rendering with a live hashing of each
-			// material ! HB
-			mat_id = matp->getHash();
-#else		// Just copy the material Id into mat_id... HB
-			mat_id = tep->getMaterialID().asUUID();
-		}
+#if 0	// No need to slow down rendering with a live hashing of each
+		// material !  HB
+		mat_id = matp->getHash();
+#else	// Instead, just copy the material Id into mat_id. HB
+		mat_id = tep->getMaterialID().asUUID();
 #endif
 	}
 
@@ -5537,7 +5549,7 @@ void LLVolumeGeometryManager::registerFace(LLSpatialGroup* groupp,
 	if (matp)
 	{
 		bool is_alpha = facep->getPoolType() == LLDrawPool::POOL_ALPHA ||
-						opaque_face(facep, tep);
+						!opaque_face(facep, tep);
 		if (type == LLRenderPass::PASS_ALPHA)
 		{
 			shader_mask =

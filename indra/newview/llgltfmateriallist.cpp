@@ -88,30 +88,39 @@ void LLGLTFMaterialList::queueModify(const LLViewerObject* objp, S32 side,
 {
 	if (!objp || objp->getRenderMaterialID(side).isNull())
 	{
+		llwarns << "Cannot modify: NULL " << (objp ? "material" : "object")
+				<< llendl;
 		return;
 	}
+
+	const LLUUID& obj_id = objp->getID();
 
 	if (matp)
 	{
-		sModifyQueue.emplace_back(objp->getID(), *matp, side, true);
+		llinfos << "Queuing material modification for face " << side
+				<< " of object " << obj_id << llendl;
+		sModifyQueue.emplace_back(obj_id, *matp, side, true);
 		return;
 	}
 
-	sModifyQueue.emplace_back(objp->getID(), LLGLTFMaterial(), side, false);
+	llinfos << "Queuing material reset for face " << side << " of object "
+			<< obj_id << llendl;
+	sModifyQueue.emplace_back(obj_id, LLGLTFMaterial(), side, false);
 }
 
 void LLGLTFMaterialList::queueApply(const LLViewerObject* objp, S32 side,
 									const LLUUID& asset_id)
 {
+	const LLUUID& obj_id = objp->getID();
 	const LLGLTFMaterial* matp = objp->getTE(side)->getGLTFMaterialOverride();
 	if (matp)
 	{
 		LLGLTFMaterial* cleared_matp = new LLGLTFMaterial(*matp);
 		cleared_matp->setBaseMaterial();
-		sApplyQueue.emplace_back(objp->getID(), asset_id, cleared_matp, side);
+		sApplyQueue.emplace_back(obj_id, asset_id, cleared_matp, side);
 		return;
 	}
-	sApplyQueue.emplace_back(objp->getID(), asset_id, nullptr, side);
+	sApplyQueue.emplace_back(obj_id, asset_id, nullptr, side);
 }
 
 void LLGLTFMaterialList::queueApply(const LLViewerObject* objp, S32 side,
@@ -180,7 +189,7 @@ void LLGLTFMaterialList::flushUpdates(done_cb_t callback)
 	}
 	sApplyQueue.clear();
 
-	if (sUpdates.size() == 0)
+	if (data.size() == 0)
 	{
 		return;
 	}
@@ -196,7 +205,7 @@ void LLGLTFMaterialList::flushUpdates(done_cb_t callback)
 
 	gCoros.launch("modifyMaterialCoro",
 				  boost::bind(&LLGLTFMaterialList::modifyMaterialCoro, cap_url,
-							  sUpdates, callback));
+							  data, callback));
 	sUpdates = LLSD::emptyArray();
 }
 
@@ -518,15 +527,11 @@ void LLGLTFMaterialList::applyOverrideMessage(LLMessageSystem* msg,
 		objp = gObjectList.findObject(id);
 		// Note: objp may be NULL  if the viewer has not heard about the object
 		// yet...
-		if (objp)
+		if (objp && gShowObjectUpdates)
 		{
-			if (gShowObjectUpdates)
-			{
-				// Display a cyan blip for override updates when "Show objects
-				// updates" is enabled.
-				gPipeline.addDebugBlip(objp->getPositionAgent(),
-									   LLColor4::cyan);
-			}
+			// Display a cyan blip for override updates when "Show objects
+			// updates" is enabled.
+			gPipeline.addDebugBlip(objp->getPositionAgent(), LLColor4::cyan);
 		}
 	}
 
@@ -539,6 +544,8 @@ void LLGLTFMaterialList::applyOverrideMessage(LLMessageSystem* msg,
 	const LLSD& od = data["od"];
 	for (U32 i = 0, count = llmin(tes.size(), MAX_TES); i < count; ++i)
 	{
+		LL_DEBUGS("GLTF") << "Face " << i << ", material: " << od[i]
+						  << LL_ENDL;
 		// Note: setTEGLTFMaterialOverride() and cache will take ownership.
 		LLGLTFMaterial* matp = new LLGLTFMaterial();
 		matp->applyOverrideLLSD(od[i]);

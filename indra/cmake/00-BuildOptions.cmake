@@ -12,8 +12,11 @@ include(Variables)
 
 # If you want to enable or disable jemalloc viewer builds, this is the place.
 # Set ON or OFF as desired.
-# NOTE: jemalloc cannot currently replace macOS's neither the Visual C++ run-
-# time malloc()... So, this setting is only relevant to Linux builds.
+# NOTE: jemalloc cannot currently replace macOS's neither Microsoft Visual C++
+# runtime malloc(), and Linux aarch64 kernels got various possible page sizes,
+# making it impossible to provide an universal pre-compiled library (see the
+# comment at the end of this file). This setting is therefore only relevant to
+# Linux x86_64 builds and will be automatically overridden to OFF for the rest.
 set(USE_JEMALLOC ON)
 
 # HIGHLY EXPERIMENTAL: If you want to enable or disable mimalloc overriding in
@@ -92,10 +95,29 @@ set(USE_NETBIOS ON)
 # SELECTION LOGIC: DO NOT EDIT UNLESS YOU KNOW EXACTLY WHAT YOU ARE DOING !
 ###############################################################################
 
+# Toggle for when -DTRACY=ON is passed to cmake.
+if (TRACY)
+	set(USE_TRACY ON)
+endif (TRACY)
+
 # We only have Linux support for jemalloc...
 if (USE_JEMALLOC AND NOT LINUX)
 	set(USE_JEMALLOC OFF)
 endif (USE_JEMALLOC AND NOT LINUX)
+if (LINUX AND ARCH STREQUAL "arm64")
+	# Disable jemalloc usage for arm64, because we do not have a patched CEF
+	# arm64 build that works with it instead of crashing (Spotify's builds
+	# currently used are not patched and therefore not compatible with
+	# jemalloc), and using jemalloc on aarch64 is only possible if the jemalloc
+	# library is build and used on systems with the same page size configured
+	# in the kernel. See: https://github.com/jemalloc/jemalloc/issues/467
+	# As a result of the page size issue, I also simply stopped providing a
+	# pre-built jemalloc library for aarch64... HB
+	set(USE_JEMALLOC OFF)
+	# The corresponding libraries have not yet been compiled for Linux ARM64
+	set(USE_MIMALLOC OFF)
+	set(USE_TRACY OFF)
+endif ()
 # jemalloc gets precedence over mimalloc under Linux.
 if (USE_JEMALLOC AND LINUX)
 	set(USE_MIMALLOC OFF)
@@ -128,17 +150,3 @@ if (DARWIN)
 	# OpenMP support is missing from Apple's llvm/clang...
 	set(OPENMP OFF)
 endif (DARWIN)
-
-if (TRACY)
-	set(USE_TRACY ON)
-endif (TRACY)
-
-if (LINUX AND ARCH STREQUAL "arm64")
-	# Disable jemalloc usage until we got a patched CEF arm64 build that works
-	# with it instead of crashing (Spotify's builds currently used are not
-	# patched and therefore not compatible with jemalloc)...
-	set(USE_JEMALLOC OFF)
-	# The corresponding libraries have not yet been compiled for Linux ARM64
-	set(USE_MIMALLOC OFF)
-	set(USE_TRACY OFF)
-endif ()

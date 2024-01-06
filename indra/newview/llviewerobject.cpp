@@ -703,8 +703,11 @@ void LLViewerObject::setlocalID(U32 local_id)
 //static
 void LLViewerObject::setDebugObjectId(const LLUUID& id)
 {
-	bool changed = id != sDebugObjectId;
-	if (changed && sDebugObjectId.notNull())
+	if (id == sDebugObjectId)
+	{
+		return;
+	}
+	if (sDebugObjectId.notNull())
 	{
 		LLViewerObject* objectp = gObjectList.findObject(sDebugObjectId);
 		if (objectp)
@@ -717,8 +720,10 @@ void LLViewerObject::setDebugObjectId(const LLUUID& id)
 	{
 		return;
 	}
-	if (changed)
+	LLViewerObject* objectp = gObjectList.findObject(sDebugObjectId);
+	if (objectp)
 	{
+		objectp->mDebugUpdateMsg = true;
 		llinfos << "Debugging enabled on object Id: " << id << llendl;
 	}
 }
@@ -1502,7 +1507,7 @@ U32 LLViewerObject::processUpdateMessage(LLMessageSystem* mesgsys,
 					break;
 				}
 
-				case(32 + 16):
+				case (32 + 16):
 					// Pull out collision normal for avatar
 					htonmemcpy(collision_plane.mV, &data[count], MVT_LLVector4,
 							   sizeof(LLVector4));
@@ -5481,6 +5486,12 @@ void LLViewerObject::changeTEImage(S32 index, LLViewerTexture* texp)
 	if (index >= 0 && index < getNumTEs())
 	{
 		mTEImages[index] = texp;
+	}
+	if (mDebugUpdateMsg)
+	{
+		llinfos << "Changed texture for face " << index << " to texture "
+				<< (texp ? texp->getID() : LLUUID::null)
+				<< " on debugged object: " << mID << llendl;
 	}
 }
 

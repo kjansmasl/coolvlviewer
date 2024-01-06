@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 # list_ll_debugs.pl v1.10 (c)2012-2023 Henri Beauchamp.
 # Released under the GPL (v2 or later, at your convenience) License:

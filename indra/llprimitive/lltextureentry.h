@@ -145,6 +145,7 @@ public:
 	S32 setMaterialParams(const LLMaterialPtr mat_parms);
 
 	LL_INLINE const LLUUID& getID() const			{ return mID; }
+	LL_INLINE bool isBlank() const					{ return mIsBlankTexture; }
 	LL_INLINE bool isDefault() const				{ return mIsDefaultTexture; }
 
 	LL_INLINE const LLColor4& getColor() const		{ return mColor; }
@@ -307,6 +308,10 @@ private:
 	// default textures. Used to decide whether to override the diffuse texture
 	// with the base color texture when we have a GLTF material set. HB
 	bool				mIsDefaultTexture;
+	// Set to true when mID is equal to the blank default texture Id. Used to
+	// avoid bothering with settings offsets, scales and rotation at render
+	// time. HB
+	bool				mIsBlankTexture;
 
 	bool				mSelected;
 };

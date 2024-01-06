@@ -12389,6 +12389,17 @@
 		<key>Value</key>
 		<real>1</real>
 		</map>
+	<key>RenderShadowSoften</key>
+		<map>
+		<key>Comment</key>
+		<string>TRUE to soften shadows in deferred rendering modes (ALM, PBR).</string>
+		<key>Persist</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>Boolean</string>
+		<key>Value</key>
+		<boolean>1</boolean>
+		</map>
 	<key>RenderShadowSplitExponent</key>
 		<map>
 		<key>Comment</key>
@@ -12704,7 +12715,7 @@
 	<key>RenderUseBasecolorAsDiffuse</key>
 		<map>
 		<key>Comment</key>
-		<string>When not in PBR mode, for faces with GLTF material, 0 to always use diffuse, 1 to use base color when diffuse is default texture, 2 to always use base color.</string>
+		<string>When not in PBR mode, for faces with GLTF material, 0 to always use diffuse, 1 to use non-null base color texture when diffuse is blank/plywood, 2 to use always use non-null base color, 3 to always use base color.</string>
 		<key>Persist</key>
 		<integer>1</integer>
 		<key>Type</key>

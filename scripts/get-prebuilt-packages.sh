@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # get-prebuilt-packages.sh v1.00 (c)2016 Henri Beauchamp.
 # Released under the GPL (v2 or later, at your convenience) License:
