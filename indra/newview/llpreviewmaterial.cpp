@@ -349,6 +349,8 @@ void LLPreviewMaterial::draw()
 		if (sSelectionNeedsUpdate ||
 		 	(mHasSelection && gSelectMgr.getSelection()->isEmpty()))
 		{
+			LL_DEBUGS("GLTF") << "Reloading live material from selection"
+							  << LL_ENDL;
 			sSelectionNeedsUpdate = false;
 			clearTextures();
 			setFromSelection();
@@ -395,6 +397,12 @@ struct LLPreviewMaterialInfo
 //virtual
 void LLPreviewMaterial::loadAsset()
 {
+	if (mIsOverride)
+	{
+		// Overrides do not have an asset... HB
+		return;
+	}
+
 	const LLInventoryItem* itemp = getItem();
 
 	if (!itemp)
@@ -865,6 +873,9 @@ struct LLRenderMaterialFunctor final : public LLSelectedTEFunctor
 
 class LLRenderMatOverrider final : public LLSelectedNodeFunctor
 {
+protected:
+	LOG_CLASS(LLRenderMatOverrider);
+
 public:
 	LLRenderMatOverrider(const LLUUID& object_id, S32 te)
 	:	mObjectId(object_id),
@@ -1104,9 +1115,10 @@ public:
 		if (!success)
 		{
 			// Something went wrong update selection
-			LLPreviewMaterial::updateLive();
+			llwarns << "Failed to update material" << llendl;
+			LLPreviewMaterial::markForLiveUpdate();
 		}
-		// Else we will get updateLive(objectp, id) from applied overrides
+		// Else we will get a call to updateLive() from LLGLTFMaterialList
 	}
 
 private:
@@ -1117,7 +1129,7 @@ private:
 
 void LLPreviewMaterial::applyToSelection()
 {
-	if (!mIsOverride || !mUnsavedChanges || !mRevertedChanges)
+	if (!mIsOverride || (!mUnsavedChanges && !mRevertedChanges))
 	{
 		return;
 	}
@@ -1803,8 +1815,13 @@ void LLPreviewMaterial::onSelectionChanged()
 }
 
 //static
-void LLPreviewMaterial::updateLive()
+void LLPreviewMaterial::markForLiveUpdate()
 {
+	if (sOverrideInProgress)
+	{
+		LL_DEBUGS("GLTF") << "Updating live material from selection"
+						  << LL_ENDL;
+	}
 	sSelectionNeedsUpdate = true;
 	sOverrideInProgress = false;
 }
@@ -1816,9 +1833,21 @@ void LLPreviewMaterial::updateLive(const LLUUID& object_id, S32 te)
 	{
 		// Ignore if waiting for override, but if not waiting, mark selection
 		// dirty.
+		LL_DEBUGS("GLTF") << "Received a stale object update. Ignoring."
+						  << LL_ENDL;
 		sSelectionNeedsUpdate = !sOverrideInProgress;
 		return;
 	}
+	LL_DEBUGS("GLTF") << "Updating live material from selection"
+					  << LL_ENDL;
+
+	// Mark object for rebuild. HB
+	LLViewerObject* objectp = gObjectList.findObject(sOverrideObjectId);
+	if (objectp)
+	{
+		objectp->refreshMaterials();
+	}
+
 	sSelectionNeedsUpdate = true;
 	sOverrideInProgress = false;
 }
@@ -1828,8 +1857,11 @@ void LLPreviewMaterial::loadLive()
 {
 	if (!sLiveEditorInstance)
 	{
+		LL_DEBUGS("GLTF") << "Creating a new live editor instance..."
+						  << LL_ENDL;
 		sLiveEditorInstance = new LLPreviewMaterial("live editor", true);
 	}
+	LL_DEBUGS("GLTF") << "Loading live material from selection" << LL_ENDL;
 	sOverrideInProgress = false;
 	sLiveEditorInstance->setFromSelection();
 	if (!sSelectionUpdateSlot.connected())

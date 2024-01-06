@@ -430,10 +430,6 @@ File CB7D089B-BC14-6EF5-F2B9-5B2BCF50742F -active Yes -name lightFuncSpecularV.g
 File C36E9EB2-94BE-B4A2-FF7D-EF8DCFDA3DBF -active Yes -name lightFuncV.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
 File 77598A6B-D027-981B-C0A9-80DD06E90639 -active Yes -name lightNonIndexedF.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
 File C938CAB0-EDD6-86C7-CB80-1051EAC725C3 -active Yes -name lightSpecularV.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
-File EFDABBA5-BC2B-42A7-17C8-AA709CDE30E4 -active Yes -name lightWaterAlphaMaskF.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
-File 5DA823F9-AA27-A58F-AEB3-443FD4E723B2 -active Yes -name lightWaterAlphaMaskNonIndexedF.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
-File 1EBE2440-1FF7-4D5C-0001-02E8A4B8E069 -active Yes -name lightWaterF.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
-File 7A8423DA-8210-6E08-DE48-0E27D77A803E -active Yes -name lightWaterNonIndexedF.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
 File 65C76249-3B15-7889-F815-5DB0FD3B5A10 -active Yes -name sumLightsSpecularV.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
 File 1165F65E-8CFF-58B5-1B73-5074EA849773 -active Yes -name sumLightsV.glsl -parent F0C2EA37-E360-941B-4C6A-7C5038179C8A
 File 18129BBD-31AE-4AA2-4E82-70DF49D550DA -active Yes -name objects -type dir -parent D6CB066F-B673-BBD2-7F48-65CFE12DC458
@@ -449,7 +445,6 @@ File 02DA3477-B860-94ED-5E5F-C8AC57CC0689 -active Yes -name previewPhysicsV.glsl
 File 98021C4D-61E1-4F59-B467-CF750AE352A4 -active Yes -name previewV.glsl -parent 18129BBD-31AE-4AA2-4E82-70DF49D550DA
 File 268CBBEF-D706-65B1-96E4-9056F0A387DA -active Yes -name simpleF.glsl -parent 18129BBD-31AE-4AA2-4E82-70DF49D550DA
 File B93A39D8-10C6-0814-020F-424924BCE677 -active Yes -name simpleNoColorV.glsl -parent 18129BBD-31AE-4AA2-4E82-70DF49D550DA
-File 5918D295-8606-83B3-7FAA-B97C4E0AFFC8 -active Yes -name simpleWaterF.glsl -parent 18129BBD-31AE-4AA2-4E82-70DF49D550DA
 File 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D -active Yes -name windlight -type dir -parent D6CB066F-B673-BBD2-7F48-65CFE12DC458
 File F9824B05-CDD2-FF0D-368F-E912AF11237F -active Yes -name atmosphericsF.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
 File 5BB89988-5DF4-0AD1-B592-EDF661F3BA95 -active Yes -name atmosphericsFuncs.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
@@ -458,8 +453,6 @@ File 6DCFBB31-FCB4-8F70-DB45-55FBD53D7E95 -active Yes -name atmosphericsHelpersV
 File B3D0A7D2-41CB-ED77-4473-9CC1DFCC3390 -active Yes -name atmosphericsV.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
 File 69E67920-D316-3537-E1E4-BA8E6A928E03 -active Yes -name atmosphericsVarsF.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
 File 3C9DEF83-3F82-E029-FE26-88EE2911C501 -active Yes -name atmosphericsVarsV.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
-File 2AB63973-021E-7E40-9F7A-E61C49741331 -active Yes -name atmosphericsVarsWaterF.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
-File BC0E48A4-AD18-B6FB-70D9-0DF10B9847E4 -active Yes -name atmosphericsVarsWaterV.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
 File BF602556-0CE5-CAC8-0711-79962E09746A -active Yes -name gammaF.glsl -parent 02A5E39A-4B3B-6982-AEC1-52D1C3CAAC7D
 File 971E7B81-872B-59E6-E6AE-ACC36CBCFFDE -active Yes -name class2 -type dir -parent D361A636-C264-F5F7-1335-CEA0BFCF6A2F
 File 1C8A53DF-77A7-1697-AACF-4015E966BFE3 -active Yes -name deferred -type dir -parent 971E7B81-872B-59E6-E6AE-ACC36CBCFFDE
@@ -480,7 +473,6 @@ File 227C072F-EED9-AA3F-2AE8-843810F156A8 -active Yes -name fullbrightShinyF.gls
 File 6C512FFA-FA0A-232B-878F-85027D92EB2C -active Yes -name materialF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File D750F30D-CE87-8051-8136-B751B96EFAC4 -active Yes -name multiPointLightF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 065E0903-3CC3-2FEC-0378-FE3779CE980A -active Yes -name multiPointLightV.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
-File F7208421-E7C1-D592-BC78-AD2D63B91FDF -active Yes -name multiSpotLightF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 2829955B-0A22-6D1E-059E-4F61F838E049 -active Yes -name pointLightF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 348510BD-E614-1D5B-E60E-D6494F697C78 -active Yes -name pointLightV.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 95C888E0-BB18-DE8F-1B85-700D51CF51A5 -active Yes -name reflectionProbeF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
@@ -489,6 +481,9 @@ File A04BA787-A09F-A087-714E-CF5B0C0521A9 -active Yes -name screenSpaceReflPostV
 File A90BCE96-6691-DA62-2DAD-F7E79254568A -active Yes -name screenSpaceReflUtil.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 68C7E624-2E89-BB02-4A46-746ADAA6E0D5 -active Yes -name softenLightF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File 0673C801-87D8-FD3F-DB48-61425305DBF8 -active Yes -name spotLightF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
+File E638A217-3F75-9B44-44A7-3280CC958065 -active Yes -name hazeF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
+File 86A53C25-28B8-493E-5E79-ADAE3325D02B -active Yes -name waterHazeV.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
+File C8A0B680-6B0C-A902-EB8B-9F986E89BFCD -active Yes -name waterHazeF.glsl -parent 93E5E612-50F3-E14C-4D3E-8D82D3D3E1DA
 File B5E3389D-F953-8B24-1305-C233D0C3BC1E -active Yes -name environment -type dir -parent 42E973E7-C129-9F7D-57B9-FF89F86BFB0F
 File B6DCF584-F023-0417-0765-75040B72387C -active Yes -name underWaterF.glsl -parent B5E3389D-F953-8B24-1305-C233D0C3BC1E
 File 0666ABEB-8D7E-D796-23BF-896EBF1CC447 -active Yes -name waterF.glsl -parent B5E3389D-F953-8B24-1305-C233D0C3BC1E
@@ -1226,6 +1221,11 @@ File 8B4257D7-9714-971C-DD2E-FA012489011B -active Yes -name cvlv_icon64.bmp -par
 File F519FDF6-2615-2126-1BE0-8BC4A7783FDE -active Yes -name cvlv_icon128.bmp -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
 File 1504F371-A2B0-302B-DBED-252D8477AA7D -active Yes -name cvlv_icon256.bmp -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
 File EB341B08-1BE7-C921-99DC-CE016799A849 -active Yes -name splash.bmp -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
+File 18D4A788-BFC6-0BA0-5CAB-D8F2E94A1ADC -active Yes -name cvlv_icon32.png -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
+File 7C84AC03-6EF5-0BE7-A595-34279B6A50A8 -active Yes -name cvlv_icon48.png -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
+File 7134C7BF-AD2F-6CB7-9EC9-1D454898D4BF -active Yes -name cvlv_icon64.png -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
+File 91BEAFA2-C480-D111-A220-28FA01CC5052 -active Yes -name cvlv_icon128.png -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
+File E0D19D3C-359E-1820-66CF-879297D4C288 -active Yes -name cvlv_icon256.png -parent F2F48D5E-29C1-45B1-3D4B-66139640716C
 File 1A5E0B77-9229-C5DB-CFD4-CCC6746E6B64 -active Yes -name skins -type dir -parent 2B1D5D8F-FBF0-4163-D5B8-9658B81BF97F
 File 4D06DF2F-F9A5-894A-CB93-FE1BE8F9A445 -active Yes -name paths.xml -parent 1A5E0B77-9229-C5DB-CFD4-CCC6746E6B64
 File 17266CBB-5A25-293E-5DD8-7E1D258AD09E -active Yes -name dark -type dir -parent 1A5E0B77-9229-C5DB-CFD4-CCC6746E6B64
@@ -2224,6 +2224,8 @@ File 998ED997-43DB-2774-0632-05253E80338F -active Yes -name floater_rlv_status.x
 File B17BA1BB-DCE7-768B-67CE-7FD621D1DCD4 -active Yes -name floater_local_material.xml -parent D8EFD99D-CE67-9B93-8A34-27E9522DD8CB
 File 39A0C97E-B25E-D82F-DFAB-ED302267CF26 -active Yes -name floater_preview_material.xml -parent D8EFD99D-CE67-9B93-8A34-27E9522DD8CB
 File 3889C372-A2DC-B3B0-884C-C165C86DF524 -active Yes -name floater_reflection_probe.xml -parent D8EFD99D-CE67-9B93-8A34-27E9522DD8CB
+File 0F9DAA1F-7DFD-A4C8-2C2C-7FC955BC1440 -active Yes -name floater_thumbnail.xml -parent D8EFD99D-CE67-9B93-8A34-27E9522DD8CB
+File 44017D1D-A8B5-E0E8-D2D3-EA610C449667 -active Yes -name floater_thumbnail_view.xml -parent D8EFD99D-CE67-9B93-8A34-27E9522DD8CB
 File 1327C11E-BDEA-7087-1846-28626D26E1CA -active Yes -name silver -type dir -parent 1A5E0B77-9229-C5DB-CFD4-CCC6746E6B64
 File 654CAB03-F1A1-02A4-3A8B-390B37E64EC9 -active Yes -name colors_base.xml -parent 1327C11E-BDEA-7087-1846-28626D26E1CA
 File A5BE1FBC-0931-293E-E23C-9BA7F352516F -active Yes -name textures -type dir -parent 1327C11E-BDEA-7087-1846-28626D26E1CA
@@ -2480,6 +2482,7 @@ File 238862DF-B7BB-D031-A5F3-188C93BA8C3B -active Yes -name dbuslua.tk -parent 2
 File CCD8CD20-048A-DFDB-F650-713296B1987A -active No -name .buildir -parent 2B1D5D8F-FBF0-4163-D5B8-9658B81BF97F
 File 36D9CAB7-2142-A1A2-967C-B6AB1D78D362 -active Yes -name install-wine-SLVoice.sh -parent 2B1D5D8F-FBF0-4163-D5B8-9658B81BF97F
 File D3A623C2-BDB8-F651-DEFB-A6FF3DA3AFF6 -active Yes -name cool_vl_viewer.conf -parent 2B1D5D8F-FBF0-4163-D5B8-9658B81BF97F
+File 4F154385-F105-78B7-63C1-D32DF92117FC -active Yes -name VivoxAUP.txt -parent 2B1D5D8F-FBF0-4163-D5B8-9658B81BF97F
 Component 9A71D70E-438F-A63F-B2F6-3EE34E09C2A0 -active Yes -name {Default Component} -parent Components -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows MacOS-X MacOS-X-ppc} -setup Install
 SetupType FA129E08-8A52-0D31-B014-0E11873B8B6F -active Yes -name Typical -parent SetupTypes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows MacOS-X MacOS-X-ppc} -setup Install
 SetupType 56F50BF0-3390-DF64-734E-DB7F59F2937B -active No -name Custom -parent SetupTypes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 HPUX-hppa Linux-x86 Linux-x86_64 Solaris-sparc Solaris-x86 Windows MacOS-X MacOS-X-ppc} -setup Install
@@ -2546,6 +2549,8 @@ Condition 93A2BD20-EA08-9B27-FA23-C1FFD481AD9F -active Yes -name 93a2bd20-ea08-9
 ActionGroup 3D42EA75-6FD0-AAE2-81AA-803AC1C409CC -active Yes -name 3d42ea75-6fd0-aae2-81aa-803ac1c409cc -parent ActionGroupsInstall -setup Install -title {Startup Actions}
 Action 58CC124A-3561-BEF9-FF93-8187562C4208 -active Yes -name 58cc124a-3561-bef9-ff93-8187562c4208 -parent 3D42EA75-6FD0-AAE2-81AA-803AC1C409CC -setup Install -title {Create Install Panes} -component CreateInstallPanes
 ActionGroup C201C2D2-A390-FA01-0226-0E42B30CDB8D -active Yes -name c201c2d2-a390-fa01-0226-0e42b30cdb8d -parent ActionGroupsInstall -setup Install -title {Install Actions}
+Action 5B2D1A43-DFAD-D9B9-D129-FE6AC8916ECE -active Yes -name 5b2d1a43-dfad-d9b9-d129-fe6ac8916ece -type action -parent C201C2D2-A390-FA01-0226-0E42B30CDB8D -setup Install -title {Delete File} -component DeleteFile
+Condition 87324599-3472-B8DA-7299-414FB8162C5F -active Yes -name 87324599-3472-b8da-7299-414fb8162c5f -parent 5B2D1A43-DFAD-D9B9-D129-FE6AC8916ECE -setup Install -title {File Exists Condition} -component FileExistsCondition
 Action 97A2D2A8-676C-FE70-4F1A-BE501CF63A9F -active Yes -name 97a2d2a8-676c-fe70-4f1a-be501cf63a9f -parent C201C2D2-A390-FA01-0226-0E42B30CDB8D -setup Install -title {Install Selected Files} -component InstallSelectedFiles
 Action 1B048CDA-F332-1C4A-6A20-568E24C84FDF -active Yes -name 1b048cda-f332-1c4a-6a20-568e24c84fdf -type action -parent C201C2D2-A390-FA01-0226-0E42B30CDB8D -setup Install -title {Write Text To File} -component WriteTextToFile
 Action 379B6C9C-D339-8C4C-5656-2696CAFADFE8 -active Yes -name db900f52-ebed-1566-7bd5-f04888ffca14 -type action -parent C201C2D2-A390-FA01-0226-0E42B30CDB8D -setup Install -title {Install Uninstaller} -component InstallUninstaller
@@ -2915,6 +2920,12 @@ array set Properties {
 56F50BF0-3390-DF64-734E-DB7F59F2937B,Name
 {Custom}
 
+5B2D1A43-DFAD-D9B9-D129-FE6AC8916ECE,Files
+{<%InstallDir%>/app_settings/shaders/pbr/*}
+
+5B2D1A43-DFAD-D9B9-D129-FE6AC8916ECE,IgnoreErrors
+{Yes}
+
 5D06A26D-FD53-C653-7C0C-FD8011051AD1,CheckCondition
 {Before Action is Executed}
 
@@ -2964,7 +2975,7 @@ array set Properties {
 {<%InstallDir%>}
 
 6CAFA81B-7B7F-0154-8D65-21519C7C1743,FileSize
-{411343897}
+{435250655}
 
 6CAFA81B-7B7F-0154-8D65-21519C7C1743,Name
 {Program Files}
@@ -3010,6 +3021,12 @@ array set Properties {
 
 83560197-96E4-B860-1E4A-F64A865427DC,Filename
 {<%ProgramExecutable%>}
+
+87324599-3472-B8DA-7299-414FB8162C5F,CheckCondition
+{Before Action is Executed}
+
+87324599-3472-B8DA-7299-414FB8162C5F,Filename
+{<%InstallDir%>/app_settings/shaders/pbr/class1/lighting/lightWaterAlphaMaskF.glsl}
 
 8A7C215E-477A-0416-913C-B82C4DE97814,Action
 {Install Actions}

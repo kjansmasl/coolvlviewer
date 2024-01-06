@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! which ctags &>/dev/null ; then
 	echo "Could not find the 'ctags' command !"

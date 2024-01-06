@@ -23,15 +23,16 @@ You will also need:
 
 (1) It *might* be possible to build the viewer with gcc v6 and v7.0 to 7.4, but
 this is untested (v5.5 or older fails, that's for sure). The building process
-was only tested and working (without any warning) with gcc/g++ v7.5.0, v11.4.0
-and v12.3.0. Note that I won't support a viewer built with gcc versions other
-than those.
-For gcc versions other than v7.5 (for x86_64) and v11.4 (for aarch64), shared
-boost libraries are used instead of static ones, so to avoid boost static
-libraries link failures, due to boost messing up dirtily with symbols naming,
-causing mismatches... This results in a larger viewer distribution (the full
-boost shared libraries are bundled, instead of just having the actually used
-boost functions merged into the viewer binary).
+was only tested and working (without any warning) with gcc/g++ v7.5.0, v8.3.0,
+v11.4.0 and v12.3.0. Note that I won't support a viewer built with gcc versions
+other than those.
+For gcc versions other than v8.3 (for x86_64) and v11.4 (for aarch64), which
+are the versions used to compile the official viewer builds, shared boost
+libraries are used instead of static ones, so to avoid boost static libraries
+link failures, due to boost messing up dirtily with symbols naming, causing
+mismatches... This results in a larger viewer distribution (the full boost
+shared libraries are bundled, instead of just having the actually used boost
+functions merged into the viewer binary).
 
 (2) The building process was only tested and working (without any warning) with
 clang/clang++ v16.0.6 and v17.0.6. Note that I won't support a viewer built

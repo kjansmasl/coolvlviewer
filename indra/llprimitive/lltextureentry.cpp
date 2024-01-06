@@ -78,6 +78,7 @@ LLTextureEntry::LLTextureEntry(const LLUUID& tex_id)
 LLTextureEntry::LLTextureEntry(const LLTextureEntry& rhs)
 :	mID(rhs.mID),
 	mIsDefaultTexture(rhs.mIsDefaultTexture),
+	mIsBlankTexture(rhs.mIsBlankTexture),
 	mScaleS(rhs.mScaleS),
 	mScaleT(rhs.mScaleT),
 	mOffsetS(rhs.mOffsetS),
@@ -120,6 +121,7 @@ LLTextureEntry& LLTextureEntry::operator=(const LLTextureEntry& rhs)
 	{
 		mID = rhs.mID;
 		mIsDefaultTexture = rhs.mIsDefaultTexture;
+		mIsBlankTexture = rhs.mIsBlankTexture;
 		mScaleS = rhs.mScaleS;
 		mScaleT = rhs.mScaleT;
 		mOffsetS = rhs.mOffsetS;
@@ -407,9 +409,10 @@ S32 LLTextureEntry::setID(const LLUUID& tex_id)
 	if (mID != tex_id)
 	{
 		mID = tex_id;
-		// Cache the "default texture" status for speed during rendering. HB
-		mIsDefaultTexture = tex_id.isNull() || tex_id == IMG_PLYWOOD ||
-							tex_id == IMG_BLANK;
+		// Cache the "blank" texture and "default texture" status for speed
+		// during rendering. HB
+		mIsBlankTexture = tex_id == IMG_BLANK;
+		mIsDefaultTexture = mIsBlankTexture || tex_id == IMG_PLYWOOD;
 		return TEM_CHANGE_TEXTURE;
 	}
 	return TEM_CHANGE_NONE;

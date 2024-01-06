@@ -218,7 +218,7 @@ public:
 	static void saveObjectsMaterial();
 
 	static void loadLive();
-	static void updateLive();
+	static void markForLiveUpdate();
 	static void updateLive(const LLUUID& object_id, S32 te);
 	// Called on live overrides selection changes
 	static void onSelectionChanged();

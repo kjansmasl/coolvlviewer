@@ -849,7 +849,7 @@
 				<key>column</key>
 					<string>references</string>
 				<key>value</key>
-					<string>newview/llgltfmateriallist.cpp, newview/llviewerobject.cpp</string>
+					<string>newview/llgltfmateriallist.cpp, newview/llviewerobject.cpp, newview/llpreviewmaterial.cpp</string>
 				</map>
 	    	</array>
 		<key>id</key>

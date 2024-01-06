@@ -1080,6 +1080,7 @@ public:
 	static bool							RenderScreenSpaceReflections;
 	static bool							RenderDeferred;
 	static bool							RenderDeferredSSAO;
+	static bool							RenderShadowSoften;
 	static bool							RenderDelayCreation;
 	static bool							RenderAnimateRes;
 	static bool							RenderSpotLightsInNondeferred;

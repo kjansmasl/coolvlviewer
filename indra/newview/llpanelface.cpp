@@ -1000,7 +1000,7 @@ void LLPanelFace::getState()
 		mColorSwatch->setFallbackImageName("materials_ui_x_24.png");
 
 		// Transparency
-		mLabelColorTransp->setEnabled(editable && !has_pbr_mat);
+		mLabelColorTransp->setEnabled(editable);
 
 		F32 transparency = (1.f - color.mV[VALPHA]) * 100.f;
 		mTransparency->setValue(editable ? transparency : 0.f);
@@ -1089,8 +1089,7 @@ void LLPanelFace::getState()
 		updateAlphaControls();
 
 		// Normal map (and legacy material presence)
-		bool has_material = false;
-        bool identical_norm;
+		bool identical_norm;
 		LLUUID normmap_id;
 		{
 			struct norm_get final : public LLSelectedTEGetFunctor<LLUUID>
@@ -1103,20 +1102,15 @@ void LLPanelFace::getState()
 										   : NULL;
 					if (matp)
 					{
-						mHasMaterial = true;
 						id = matp->getNormalID();
 					}
 					return id;
 				}
-
-				bool mHasMaterial = false;
-
 			} func;
 			identical_norm = selection->getSelectedTEValue(&func, normmap_id);
-			has_material = func.mHasMaterial;
 		}
 		mNormalCtrl->setTentative(!identical_norm);
-		mNormalCtrl->setEnabled(editable && !has_pbr_mat);
+		mNormalCtrl->setEnabled(editable);
 		mNormalCtrl->setImageAssetID(normmap_id);
 		mNormalCtrl->setFallbackImageName("materials_ui_x_24.png");
 		if (is_attachment)
@@ -1129,13 +1123,12 @@ void LLPanelFace::getState()
 			mNormalCtrl->setImmediateFilterPermMask(PERM_NONE);
 		}
 
-		// Selected faces cannot bear both a legacy and a PBR material.
 		mMapsRadio->setIndexEnabled(MATTYPE_PBR,
-									editable && !has_material &&
+									editable &&
 									gAgent.hasInventoryMaterial());
 
 		// Specular map
-        bool identical_spec;
+		bool identical_spec;
 		LLUUID specmap_id;
 		{
 			struct spec_get final : public LLSelectedTEGetFunctor<LLUUID>
@@ -1156,7 +1149,7 @@ void LLPanelFace::getState()
 			identical_spec = selection->getSelectedTEValue(&func, specmap_id);
 		}
 		mSpecularCtrl->setTentative(!identical_spec);
-		mSpecularCtrl->setEnabled(editable && !has_pbr_mat);
+		mSpecularCtrl->setEnabled(editable);
 		mSpecularCtrl->setImageAssetID(specmap_id);
 		mSpecularCtrl->setFallbackImageName("materials_ui_x_24.png");
 		if (is_attachment)
@@ -1248,10 +1241,10 @@ void LLPanelFace::getState()
 		F32 scale = editable ? fabsf(scale_factor * scale_s) : 0.f;
 		mTexScaleU->setValue(scale);
 		mTexScaleU->setTentative(!identical);
-		mTexScaleU->setEnabled(editable && !has_pbr_mat);
+		mTexScaleU->setEnabled(editable);
 		mCheckTexFlipS->setValue(LLSD(scale_s < 0));
 		mCheckTexFlipS->setTentative(!identical);
-		mCheckTexFlipS->setEnabled(editable && !has_pbr_mat);
+		mCheckTexFlipS->setEnabled(editable);
 
 		F32 scale_t = 1.f;
 		{
@@ -1269,10 +1262,10 @@ void LLPanelFace::getState()
 		scale = editable ? fabsf(scale_factor * scale_t) : 0.f;
 		mTexScaleV->setValue(scale);
 		mTexScaleV->setTentative(!identical);
-		mTexScaleV->setEnabled(editable && !has_pbr_mat);
+		mTexScaleV->setEnabled(editable);
 		mCheckTexFlipT->setValue(LLSD(scale_t < 0));
 		mCheckTexFlipT->setTentative(!identical);
-		mCheckTexFlipT->setEnabled(editable && !has_pbr_mat);
+		mCheckTexFlipT->setEnabled(editable);
 
 		// Texture offset
 		mLabelTexOffset->setEnabled(editable);
@@ -1294,7 +1287,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mTexOffsetU->setValue(editable ? offset_s : 0.f);
 		mTexOffsetU->setTentative(!identical);
-		mTexOffsetU->setEnabled(editable && !has_pbr_mat);
+		mTexOffsetU->setEnabled(editable);
 
 		F32 offset_t = 0.f;
 		{
@@ -1311,7 +1304,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mTexOffsetV->setValue(editable ? offset_t : 0.f);
 		mTexOffsetV->setTentative(!identical);
-		mTexOffsetV->setEnabled(editable && !has_pbr_mat);
+		mTexOffsetV->setEnabled(editable);
 
 		// Texture rotation
 		mLabelTexRotate->setEnabled(editable);
@@ -1331,7 +1324,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mTexRot->setValue(editable ? rotation * RAD_TO_DEG : 0.f);
 		mTexRot->setTentative(!identical);
-		mTexRot->setEnabled(editable && !has_pbr_mat);
+		mTexRot->setEnabled(editable);
 
 		// Nomal map scale
 		{
@@ -1357,12 +1350,10 @@ void LLPanelFace::getState()
 		scale = editable ? fabsf(scale_factor * scale_s) : 0.f;
 		mBumpyScaleU->setValue(scale);
 		mBumpyScaleU->setTentative(!identical);
-		mBumpyScaleU->setEnabled(editable && !has_pbr_mat &&
-								 normmap_id.notNull());
+		mBumpyScaleU->setEnabled(editable && normmap_id.notNull());
 		mCheckBumpyFlipS->setValue(LLSD(scale_s < 0));
 		mCheckBumpyFlipS->setTentative(!identical);
-		mCheckBumpyFlipS->setEnabled(editable && !has_pbr_mat &&
-									 normmap_id.notNull());
+		mCheckBumpyFlipS->setEnabled(editable && normmap_id.notNull());
 
 		{
 			struct bump_scale_t_get final : public LLSelectedTEGetFunctor<F32>
@@ -1387,12 +1378,10 @@ void LLPanelFace::getState()
 		scale = editable ? fabsf(scale_factor * scale_t) : 0.f;
 		mBumpyScaleV->setValue(scale);
 		mBumpyScaleV->setTentative(!identical);
-		mBumpyScaleV->setEnabled(editable && !has_pbr_mat &&
-								 normmap_id.notNull());
+		mBumpyScaleV->setEnabled(editable && normmap_id.notNull());
 		mCheckBumpyFlipT->setValue(LLSD(scale_t < 0));
 		mCheckBumpyFlipT->setTentative(!identical);
-		mCheckBumpyFlipT->setEnabled(editable && !has_pbr_mat &&
-									 normmap_id.notNull());
+		mCheckBumpyFlipT->setEnabled(editable && normmap_id.notNull());
 
 		// Normal map offset
 		{
@@ -1417,8 +1406,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mBumpyOffsetU->setValue(editable ? offset_s : 0.f);
 		mBumpyOffsetU->setTentative(!identical);
-		mBumpyOffsetU->setEnabled(editable && !has_pbr_mat &&
-								  normmap_id.notNull());
+		mBumpyOffsetU->setEnabled(editable && normmap_id.notNull());
 
 		{
 			struct bump_offset_t_get final : public LLSelectedTEGetFunctor<F32>
@@ -1442,8 +1430,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mBumpyOffsetV->setValue(editable ? offset_t : 0.f);
 		mBumpyOffsetV->setTentative(!identical);
-		mBumpyOffsetV->setEnabled(editable && !has_pbr_mat &&
-								  normmap_id.notNull());
+		mBumpyOffsetV->setEnabled(editable && normmap_id.notNull());
 
 		// Normal map rotation
 		{
@@ -1467,8 +1454,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mBumpyRot->setValue(editable ? rotation * RAD_TO_DEG : 0.f);
 		mBumpyRot->setTentative(!identical);
-		mBumpyRot->setEnabled(editable && !has_pbr_mat &&
-							  normmap_id.notNull());
+		mBumpyRot->setEnabled(editable && normmap_id.notNull());
 
 		// Specular map scale
 		{
@@ -1494,12 +1480,10 @@ void LLPanelFace::getState()
 		scale = editable ? fabsf(scale_factor * scale_s) : 0.f;
 		mShinyScaleU->setValue(scale);
 		mShinyScaleU->setTentative(!identical);
-		mShinyScaleU->setEnabled(editable && !has_pbr_mat &&
-								 specmap_id.notNull());
+		mShinyScaleU->setEnabled(editable && specmap_id.notNull());
 		mCheckShinyFlipS->setValue(LLSD(scale_s < 0));
 		mCheckShinyFlipS->setTentative(!identical);
-		mCheckShinyFlipS->setEnabled(editable && !has_pbr_mat &&
-									 specmap_id.notNull());
+		mCheckShinyFlipS->setEnabled(editable && specmap_id.notNull());
 
 		{
 			struct shiny_scale_t_get final : public LLSelectedTEGetFunctor<F32>
@@ -1524,12 +1508,10 @@ void LLPanelFace::getState()
 		scale = editable ? fabsf(scale_factor * scale_t) : 0.f;
 		mShinyScaleV->setValue(scale);
 		mShinyScaleV->setTentative(!identical);
-		mShinyScaleV->setEnabled(editable && !has_pbr_mat &&
-								 specmap_id.notNull());
+		mShinyScaleV->setEnabled(editable && specmap_id.notNull());
 		mCheckShinyFlipT->setValue(LLSD(scale_t < 0));
 		mCheckShinyFlipT->setTentative(!identical);
-		mCheckShinyFlipT->setEnabled(editable && !has_pbr_mat &&
-									 specmap_id.notNull());
+		mCheckShinyFlipT->setEnabled(editable && specmap_id.notNull());
 
 		// Specular map offset
 		{
@@ -1555,8 +1537,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mShinyOffsetU->setValue(editable ? offset_s : 0.f);
 		mShinyOffsetU->setTentative(!identical);
-		mShinyOffsetU->setEnabled(editable && !has_pbr_mat &&
-								  specmap_id.notNull());
+		mShinyOffsetU->setEnabled(editable && specmap_id.notNull());
 
 		{
 			struct shiny_offset_t_get final
@@ -1581,8 +1562,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mShinyOffsetV->setValue(editable ? offset_t : 0.f);
 		mShinyOffsetV->setTentative(!identical);
-		mShinyOffsetV->setEnabled(editable && !has_pbr_mat &&
-								  specmap_id.notNull());
+		mShinyOffsetV->setEnabled(editable && specmap_id.notNull());
 
 		// Specular map rotation
 		{
@@ -1606,8 +1586,7 @@ void LLPanelFace::getState()
 		identical = align_planar ? identical_planar_aligned : identical;
 		mShinyRot->setValue(editable ? rotation * RAD_TO_DEG : 0.f);
 		mShinyRot->setTentative(!identical);
-		mShinyRot->setEnabled(editable && !has_pbr_mat &&
-							  specmap_id.notNull());
+		mShinyRot->setEnabled(editable && specmap_id.notNull());
 
 		// Glow
 		F32 glow = 0.f;
@@ -1846,7 +1825,7 @@ void LLPanelFace::getState()
 		// above, before texture offsets.
 		mLabelTexGen->setEnabled(editable);
 		mComboTexGen->setCurrentByIndex(selected_texgen >> TEM_TEX_GEN_SHIFT);
-		mComboTexGen->setEnabled(editable && !has_pbr_mat);
+		mComboTexGen->setEnabled(editable);
 		mComboTexGen->setTentative(!identical_planar_texgen);
 
 		if (selected_texgen == LLTextureEntry::TEX_GEN_PLANAR)
@@ -1872,7 +1851,7 @@ void LLPanelFace::getState()
 			identical = selection->getSelectedTEValue(&func, fullbright);
 		}
 		mCheckFullbright->setValue(fullbright != 0);
-		mCheckFullbright->setEnabled(editable && !has_pbr_mat);
+		mCheckFullbright->setEnabled(editable);
 		mCheckFullbright->setTentative(!identical);
 
 		// Repeats per meter
@@ -2007,7 +1986,7 @@ void LLPanelFace::getState()
 			} func;
 			LLMaterialPtr material;
 			identical = selection->getSelectedTEValue(&func, material);
-			if (material && editable && !has_pbr_mat)
+			if (material && editable)
 			{
 				LL_DEBUGS("Materials") << "Material: " << material->asLLSD()
 									   << LL_ENDL;
@@ -2262,8 +2241,8 @@ void LLPanelFace::updateAlphaControls()
 	mComboAlphaMode->setEnabled(enable);
 	S32 alpha_mode = mComboAlphaMode->getCurrentIndex();
 	enable = enable && alpha_mode == ALPHAMODE_MASK;
-    mLabelMaskCutoff->setEnabled(enable);
-    mMaskCutoff->setEnabled(enable);
+	mLabelMaskCutoff->setEnabled(enable);
+	mMaskCutoff->setEnabled(enable);
 	// Set an equivalent cut-off value for non alpha masking mode:
 	switch (alpha_mode)
 	{
@@ -3136,8 +3115,7 @@ void LLPanelFace::onCommitRepeatsPerMeter(LLUICtrl* ctrl, void* userdata)
 		}
 	} scale_t_func;
 
-    F32 obj_scale_s;
-    F32 obj_scale_t;
+	F32 obj_scale_s, obj_scale_t;
 	LLObjectSelectionHandle selection = gSelectMgr.getSelection();
 	selection->getSelectedTEValue(&scale_s_func, obj_scale_s, 0.001f);
 	selection->getSelectedTEValue(&scale_t_func, obj_scale_t, 0.001f);

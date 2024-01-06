@@ -1,7 +1,7 @@
 %define	major	1
 %define	minor	32
 %define	micro	0
-%define	nano	4
+%define	nano	5
 %define branch	%{major}.%{minor}.%{micro}
 %define realver	%{branch}.%{nano}
 

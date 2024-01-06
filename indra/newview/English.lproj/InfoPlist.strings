@@ -2,6 +2,6 @@
 
 CFBundleName = "Cool VL Viewer";
 
-CFBundleShortVersionString = "Cool VL Viewer v1.32.0.4";
-CFBundleGetInfoString = "Cool VL Viewer version 1.32.0.4, Copyright 2001-2023 Linden Research Inc., Henri Beauchamp and other Open Source developers";
+CFBundleShortVersionString = "Cool VL Viewer v1.32.0.5";
+CFBundleGetInfoString = "Cool VL Viewer version 1.32.0.5, Copyright 2001-2024 Linden Research Inc., Henri Beauchamp and other Open Source developers";
 

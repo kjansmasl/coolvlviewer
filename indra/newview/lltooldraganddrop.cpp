@@ -1039,12 +1039,12 @@ void LLToolDragAndDrop::dropTextureOneFace(LLViewerObject* hit_objp,
 		llwarns << "No texture item." << llendl;
 		return;
 	}
-
+#if 0	// Do allow changing the legacy maps on GLTF-material bearing faces. HB
 	if (hit_objp->getRenderMaterialID(hit_face).notNull())
 	{
 		return;
 	}
-
+#endif
 	const LLUUID& asset_id = itemp->getAssetUUID();
 	if (!handleDropAssetProtections(hit_objp, itemp, source, src_id))
 	{
@@ -1119,6 +1119,7 @@ void LLToolDragAndDrop::dropTextureAllFaces(LLViewerObject* hit_objp,
 
 	U8 num_tes = hit_objp->getNumTEs();
 
+#if 0	// Do allow changing the legacy maps on GLTF-material bearing faces. HB
 	for (U8 te = 0; te < num_tes; ++te)
 	{
 		if (hit_objp->getRenderMaterialID(te).notNull())
@@ -1126,6 +1127,7 @@ void LLToolDragAndDrop::dropTextureAllFaces(LLViewerObject* hit_objp,
 			return;	// Got a PBR face: do not ruin it.
 		}
 	}
+#endif
 
 	const LLUUID& asset_id = itemp->getAssetUUID();
 	bool success = handleDropAssetProtections(hit_objp, itemp, source, src_id);
@@ -2587,7 +2589,7 @@ EAcceptance LLToolDragAndDrop::dad3dApplyToObject(LLViewerObject* objp,
 	}
 
 	U8 num_tes = objp->getNumTEs();
-
+#if 0	// Do allow changing the legacy maps on GLTF-material bearing faces. HB
 	if (cargo_type == DAD_TEXTURE)
 	{
 		if ((mask & MASK_SHIFT))
@@ -2605,7 +2607,7 @@ EAcceptance LLToolDragAndDrop::dad3dApplyToObject(LLViewerObject* objp,
 			return ACCEPT_NO;	// This is a PBR face: do not ruin it.
 		}
 	}
-
+#endif
 	if (drop && rv >= ACCEPT_YES_SINGLE)
 	{
 		if (cargo_type == DAD_TEXTURE)
